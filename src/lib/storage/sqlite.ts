@@ -2,7 +2,7 @@ import { randomUUID } from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import type { DatabaseSync } from "node:sqlite";
-import type { Booking, BookingStatus, NewBooking } from "../booking/types";
+import type { Booking, BookingStatus, DemoBooking, NewBooking } from "../booking/types";
 import { fromRow, toRow, type BookingRow } from "./rows";
 import { type BookingStore, type ListOptions } from "./types";
 
@@ -93,6 +93,27 @@ export class SqliteBookingStore implements BookingStore {
   async markReminderSent(clinicSlug: string, ids: string[], at: string): Promise<void> {
     const stmt = this.db.prepare(`UPDATE bookings SET reminder_sent_at = ? WHERE id = ? AND clinic_slug = ?`);
     for (const id of ids) stmt.run(at, id, clinicSlug);
+  }
+
+  async replaceDemoBookings(clinicSlug: string, rows: DemoBooking[]): Promise<void> {
+    const keep = new Set(rows.map((r) => r.id));
+    const existing = this.db
+      .prepare(`SELECT id FROM bookings WHERE clinic_slug = ? AND source = 'demo'`)
+      .all(clinicSlug) as unknown as { id: string }[];
+    const del = this.db.prepare(`DELETE FROM bookings WHERE id = ? AND clinic_slug = ?`);
+    for (const { id } of existing) if (!keep.has(id)) del.run(id, clinicSlug);
+    const now = new Date().toISOString();
+    const insert = this.db.prepare(
+      `INSERT OR IGNORE INTO bookings (id, clinic_slug, name, phone, service_id, service_name, date, time, locale, status,
+        consent_at, created_at, updated_at, reminder_sent_at, source)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, 'demo')`,
+    );
+    for (const r of rows) {
+      insert.run(
+        r.id, r.clinicSlug, r.name, r.phone, r.serviceId, r.serviceName, r.date, r.time, r.locale, r.status ?? "new",
+        r.consentAt, r.createdAt ?? now, now,
+      );
+    }
   }
 
   async count(clinicSlug: string): Promise<number> {

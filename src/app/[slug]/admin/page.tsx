@@ -13,7 +13,7 @@ import { WaLinkProvider } from "@/lib/messaging";
 import { getOutbox } from "@/lib/notify/telegram";
 import { selectNextDayAppointments, tomorrowInBaku } from "@/lib/reminders";
 import { computeStats } from "@/lib/stats";
-import { getStore } from "@/lib/storage";
+import { ensureDemoData, getStore } from "@/lib/storage";
 import { bakuDate, formatDate } from "@/lib/time";
 import { login, logout, runRemindersNow, setBookingStatus } from "./actions";
 
@@ -95,7 +95,24 @@ export default async function AdminPage({ params, searchParams }: Props) {
   const store = await getStore();
   const now = new Date();
   const today = bakuDate(now);
-  const all = await store.list(slug);
+  let all: Booking[];
+  try {
+    await ensureDemoData(store, clinic, now);
+    all = await store.list(slug);
+  } catch (err) {
+    console.error("[admin] storage error:", err);
+    return (
+      <Shell style={style}>
+        <div className="card mx-auto mt-20 max-w-lg space-y-2 p-6 text-sm">
+          <p className="font-semibold text-rose-700">{t.storageError}</p>
+          <p className="font-mono text-xs break-words text-muted">{(err as Error).message}</p>
+        </div>
+      </Shell>
+    );
+  }
+  // On Vercel each route runs in its own serverless instance, so in-memory bookings made on
+  // the public site are invisible here. Say so instead of looking broken.
+  const memoryOnServerless = store.driver === "memory" && Boolean(process.env.VERCEL);
   const stats = computeStats(all, now);
   const tab = sp.tab === "past" || sp.tab === "all" ? sp.tab : "upcoming";
   const rows =
@@ -149,6 +166,11 @@ export default async function AdminPage({ params, searchParams }: Props) {
       </header>
 
       <main className="mx-auto max-w-6xl space-y-6 px-4 py-6">
+        {memoryOnServerless && (
+          <p className="rounded-xl bg-rose-50 px-4 py-3 text-sm font-medium text-rose-800 ring-1 ring-rose-200">
+            {t.memoryWarning}
+          </p>
+        )}
         {demo && (
           <p className="rounded-xl bg-amber-50 px-4 py-2 text-xs font-medium text-amber-900 ring-1 ring-amber-200">
             {t.demoData} · {t.storage}: {store.driver}

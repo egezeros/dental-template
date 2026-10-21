@@ -1,5 +1,5 @@
 import { randomUUID } from "node:crypto";
-import type { Booking, BookingStatus, NewBooking } from "../booking/types";
+import type { Booking, BookingStatus, DemoBooking, NewBooking } from "../booking/types";
 import { sortBookings, type BookingStore, type ListOptions } from "./types";
 
 /**
@@ -46,6 +46,24 @@ export class MemoryBookingStore implements BookingStore {
     for (const id of ids) {
       const row = this.rows.get(id);
       if (row && row.clinicSlug === clinicSlug) row.reminderSentAt = at;
+    }
+  }
+
+  async replaceDemoBookings(clinicSlug: string, rows: DemoBooking[]): Promise<void> {
+    const keep = new Set(rows.map((r) => r.id));
+    for (const [id, b] of this.rows) {
+      if (b.clinicSlug === clinicSlug && b.source === "demo" && !keep.has(id)) this.rows.delete(id);
+    }
+    const now = new Date().toISOString();
+    for (const r of rows) {
+      if (this.rows.has(r.id)) continue;
+      this.rows.set(r.id, {
+        ...r,
+        status: r.status ?? "new",
+        createdAt: r.createdAt ?? now,
+        updatedAt: now,
+        reminderSentAt: null,
+      });
     }
   }
 

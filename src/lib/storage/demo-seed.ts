@@ -1,4 +1,5 @@
-import type { BookingStatus, NewBooking } from "../booking/types";
+import { createHash } from "node:crypto";
+import type { BookingStatus, DemoBooking } from "../booking/types";
 import { demoWhatsAppOverride } from "../config";
 import type { Clinic } from "../clinics/schema";
 import { slotsForDate } from "../clinics/slots";
@@ -41,10 +42,20 @@ const PLAN: [number, number, BookingStatus][] = [
   [3, 2, "new"],
 ];
 
-export function buildDemoBookings(clinic: Clinic, now: Date = new Date()): NewBooking[] {
+/**
+ * Stable UUID for a demo row, derived from clinic, day and position. Every server instance
+ * computes the same IDs, so seeding from several instances never creates duplicates.
+ */
+export function demoBookingId(clinicSlug: string, day: string, index: number): string {
+  const h = createHash("sha1").update(`demo|${clinicSlug}|${day}|${index}`).digest("hex");
+  const variant = ((parseInt(h[16], 16) & 0x3) | 0x8).toString(16);
+  return `${h.slice(0, 8)}-${h.slice(8, 12)}-5${h.slice(13, 16)}-${variant}${h.slice(17, 20)}-${h.slice(20, 32)}`;
+}
+
+export function buildDemoBookings(clinic: Clinic, now: Date = new Date()): DemoBooking[] {
   const today = bakuDate(now);
   const override = demoWhatsAppOverride();
-  const out: NewBooking[] = [];
+  const out: DemoBooking[] = [];
   PLAN.forEach(([offset, slotIndex, status], i) => {
     // Move forward to the next day the clinic is open.
     let date = addDays(today, offset);
@@ -59,6 +70,7 @@ export function buildDemoBookings(clinic: Clinic, now: Date = new Date()): NewBo
     const service = clinic.services[i % clinic.services.length];
     const createdAt = new Date(now.getTime() - (Math.max(1, 3 - offset) * 24 + i) * 3600_000).toISOString();
     out.push({
+      id: demoBookingId(clinic.slug, today, i),
       clinicSlug: clinic.slug,
       name: patient.name,
       phone: override ? `+${override}` : `+9945000000${String(i + 1).padStart(2, "0")}`,

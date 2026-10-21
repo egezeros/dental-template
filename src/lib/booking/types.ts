@@ -34,3 +34,6 @@ export type NewBooking = Omit<Booking, "id" | "status" | "createdAt" | "updatedA
   status?: BookingStatus;
   createdAt?: string;
 };
+
+/** A demo row with a deterministic ID, so seeding is idempotent across server instances. */
+export type DemoBooking = NewBooking & { id: string; source: "demo" };
