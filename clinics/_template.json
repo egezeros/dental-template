@@ -1,0 +1,62 @@
+{
+  "slug": "your-clinic-slug",
+  "name": "[TO CONFIRM] Clinic name",
+  "brandColor": "#1f5fbf",
+  "tagline": {
+    "az": "[TO CONFIRM]",
+    "ru": "[TO CONFIRM]",
+    "en": "[TO CONFIRM]"
+  },
+  "intro": {
+    "az": "[TO CONFIRM]",
+    "ru": "[TO CONFIRM]",
+    "en": "[TO CONFIRM]"
+  },
+  "address": { "az": "[TO CONFIRM]", "ru": "[TO CONFIRM]", "en": "[TO CONFIRM]" },
+  "district": { "az": "[TO CONFIRM]", "ru": "[TO CONFIRM]", "en": "[TO CONFIRM]" },
+  "phones": [{ "display": "[TO CONFIRM]", "tel": "" }],
+  "whatsapp": "[TO CONFIRM]",
+  "map": { "query": "Clinic name, street and number, Bakı" },
+  "hours": "[TO CONFIRM]",
+  "services": [
+    {
+      "id": "consultation",
+      "name": { "az": "Müayinə və konsultasiya", "ru": "Осмотр и консультация", "en": "Check-up & consultation" },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder"
+    }
+  ],
+  "doctors": [
+    { "name": "[TO CONFIRM]", "role": { "az": "Stomatoloq", "ru": "Стоматолог", "en": "Dentist" }, "status": "placeholder" }
+  ],
+  "whyUs": [
+    {
+      "icon": "chat",
+      "title": { "az": "Onlayn yazılış və xatırlatma", "ru": "Онлайн-запись и напоминания", "en": "Online booking & reminders" },
+      "text": {
+        "az": "Bir dəqiqəyə onlayn yazılın və qəbuldan bir gün əvvəl WhatsApp-da xatırlatma alın.",
+        "ru": "Запишитесь онлайн за минуту и получите напоминание в WhatsApp за день до приёма.",
+        "en": "Book online in a minute and get a WhatsApp reminder the day before your visit."
+      },
+      "status": "design"
+    }
+  ],
+  "provenance": {
+    "name": { "status": "placeholder", "sources": [] },
+    "address": { "status": "placeholder", "sources": [] },
+    "district": { "status": "placeholder", "sources": [] },
+    "phones": { "status": "placeholder", "sources": [] },
+    "whatsapp": { "status": "placeholder", "sources": [] },
+    "instagram": { "status": "placeholder", "sources": [] },
+    "website": { "status": "placeholder", "sources": [] },
+    "hours": { "status": "placeholder", "sources": [] },
+    "services": { "status": "placeholder", "sources": [] },
+    "prices": { "status": "placeholder", "sources": [] },
+    "doctors": { "status": "placeholder", "sources": [] },
+    "rating": { "status": "placeholder", "sources": [] },
+    "map": { "status": "constructed", "sources": [] },
+    "brandColor": { "status": "design", "sources": [] },
+    "photos": { "status": "placeholder", "sources": [] },
+    "reviews": { "status": "placeholder", "sources": [] }
+  }
+}
