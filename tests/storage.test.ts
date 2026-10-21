@@ -114,3 +114,17 @@ describe("Supabase store", () => {
     expect(String(err)).toContain("Supabase select failed: permission denied");
   });
 });
+
+describe("supabaseConfig", () => {
+  it("keeps only the project origin, so a pasted REST endpoint still works", async () => {
+    const { supabaseConfig } = await import("@/lib/config");
+    process.env.SUPABASE_URL = ' "https://abcdefgh.supabase.co/rest/v1/" ';
+    process.env.SUPABASE_SECRET_KEY = " sb_secret_test \n";
+    try {
+      expect(supabaseConfig()).toEqual({ url: "https://abcdefgh.supabase.co", key: "sb_secret_test" });
+    } finally {
+      delete process.env.SUPABASE_URL;
+      delete process.env.SUPABASE_SECRET_KEY;
+    }
+  });
+});
