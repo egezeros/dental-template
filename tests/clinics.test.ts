@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import { getClinics, parseClinic } from "@/lib/clinics/load";
 import { slotsForDate } from "@/lib/clinics/slots";
 import { buildDemoBookings } from "@/lib/storage/demo-seed";
+import { testClinic } from "./fixtures";
 
 describe("clinic files", () => {
   const clinics = getClinics();
@@ -30,5 +31,11 @@ describe("clinic files", () => {
   it("the starter file clinics/_template.json is valid once copied to <slug>.json", () => {
     const raw = JSON.parse(fs.readFileSync("clinics/_template.json", "utf8"));
     expect(() => parseClinic(raw, "your-clinic-slug.json")).not.toThrow();
+  });
+
+  it("accepts featured reviews and rejects invalid star ratings", () => {
+    const items = [{ author: "Test Reviewer", rating: 5, text: "Test review text.", date: "1 month ago" }];
+    expect(testClinic({ featuredReviews: { url: "https://example.com/listing", items } }).featuredReviews?.items).toHaveLength(1);
+    expect(() => testClinic({ featuredReviews: { items: [{ ...items[0], rating: 6 }] } })).toThrow();
   });
 });

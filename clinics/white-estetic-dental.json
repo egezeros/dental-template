@@ -13,9 +13,9 @@
     "en": "White Estetic Dental is a dental clinic in Baku's Khatai district, open Monday to Saturday, 09:00–21:00. Book online and our administrator will confirm the time."
   },
   "address": {
-    "az": "Afiyəddin Cəlilov küç. 82A, 1-ci mərtəbə, Xətai r-nu, Bakı",
-    "ru": "ул. Афияддина Джалилова, 82А, 1 этаж, Хатаинский р-н, Баку",
-    "en": "82A Afiyaddin Jalilov St, 1st floor, Khatai, Baku"
+    "az": "Afiyəddin Cəlilov küç. 20, Xətai r-nu, Bakı",
+    "ru": "ул. Афияддина Джалилова, 20, Хатаинский р-н, Баку",
+    "en": "20 Afiyaddin Jalilov St, Khatai, Baku"
   },
   "district": { "az": "Xətai rayonu", "ru": "Хатаинский район", "en": "Khatai district" },
   "phones": [
@@ -26,7 +26,30 @@
   "whatsapp": "[TO CONFIRM]",
   "instagram": "white_estetic_dental",
   "facebook": "https://www.facebook.com/WHITE-Estetic-Dental-1140928469278792/",
-  "map": { "query": "White Estetic Dental, Afiyəddin Cəlilov küçəsi 82A, Bakı" },
+  "map": { "query": "White Esthetic Dental, Afiyəddin Cəlilov 20, Bakı" },
+  "featuredReviews": {
+    "url": "https://www.google.com/maps/search/?api=1&query=White%20Esthetic%20Dental%2C%20Afiy%C9%99ddin%20C%C9%99lilov%2020%2C%20Bak%C4%B1",
+    "items": [
+      {
+        "author": "Zülfiyyə",
+        "rating": 5,
+        "text": "I had an appointment with Dr. Nadir Aliyev. The dentist is attentive and highly professional. Every step of the procedure was explained clearly. The doctor places equal importance on both oral and dental health as well as aesthetic results. I wholeheartedly recommend this dentist to anyone looking for exceptional dental care.",
+        "date": { "az": "3 ay əvvəl", "ru": "3 месяца назад", "en": "3 months ago" }
+      },
+      {
+        "author": "Ragim A.",
+        "rating": 5,
+        "text": "This year, I visited Dr. Nadir for dental treatment based on a recommendation. He is an incredibly experienced doctor, and his extensive expertise is evident from the very beginning. …",
+        "date": { "az": "1 ay əvvəl", "ru": "месяц назад", "en": "a month ago" }
+      },
+      {
+        "author": "Elshad V.",
+        "rating": 5,
+        "text": "Good place. Stay healthy.",
+        "date": { "az": "9 il əvvəl", "ru": "9 лет назад", "en": "9 years ago" }
+      }
+    ]
+  },
   "hours": {
     "mon": ["09:00", "21:00"],
     "tue": ["09:00", "21:00"],
@@ -63,7 +86,7 @@
     }
   ],
   "doctors": [
-    { "name": "[TO CONFIRM]", "role": { "az": "Stomatoloq", "ru": "Стоматолог", "en": "Dentist" }, "status": "placeholder" },
+    { "name": "Dr. Nadir Əliyev", "role": { "az": "Stomatoloq", "ru": "Стоматолог", "en": "Dentist" }, "status": "verified-single" },
     { "name": "[TO CONFIRM]", "role": { "az": "Stomatoloq", "ru": "Стоматолог", "en": "Dentist" }, "status": "placeholder" },
     { "name": "[TO CONFIRM]", "role": { "az": "Stomatoloq", "ru": "Стоматолог", "en": "Dentist" }, "status": "placeholder" }
   ],
@@ -110,12 +133,12 @@
     }
   ],
   "rating": {
-    "platform": "Facebook",
-    "value": "90%",
-    "kind": "recommend",
-    "count": 12,
-    "asOf": "2026-10 (search snapshot)",
-    "source": "https://www.facebook.com/WHITE-Estetic-Dental-1140928469278792/"
+    "platform": "Google",
+    "value": "4.5",
+    "kind": "stars",
+    "count": 11,
+    "asOf": "2026-10-21 (Google Maps listing)",
+    "source": "https://www.google.com/maps/search/?api=1&query=White%20Esthetic%20Dental%2C%20Afiy%C9%99ddin%20C%C9%99lilov%2020%2C%20Bak%C4%B1"
   },
   "provenance": {
     "name": {
@@ -131,9 +154,10 @@
       "sources": [
         "https://navigator.az/az/firm/24499/white-estetic-dental",
         "https://2gis.az/baku/firm/70000001037035192",
-        "https://www.waze.com/live-map/directions/white-esthetic-dental-afiyeddin-celilov-20-baki?to=place.w.32702868.326832070.9110111"
+        "https://www.waze.com/live-map/directions/white-esthetic-dental-afiyeddin-celilov-20-baki?to=place.w.32702868.326832070.9110111",
+        "https://www.google.com/maps/search/?api=1&query=White%20Esthetic%20Dental%2C%20Afiy%C9%99ddin%20C%C9%99lilov%2020%2C%20Bak%C4%B1"
       ],
-      "note": "Navigator.az, 2GIS and the Ministry list say Afiyəddin Cəlilov 82A; Waze, a YouTube video and a dentist's site say number 20 (next to Megafun). Confirm."
+      "note": "Shown: Afiyəddin Cəlilov 20, as on the clinic's Google Maps listing (seen 2026-10-21), Waze, a YouTube video and Dr. Nadir Əliyev's site. Navigator.az, 2GIS and the Ministry list say 82A (1st floor). Confirm."
     },
     "district": { "status": "verified", "sources": ["https://navigator.az/az/firm/24499/white-estetic-dental"] },
     "phones": {
@@ -162,11 +186,21 @@
       "note": "Whitening (Navigator.az category); implantology and pediatric dentistry (2GIS). 'Check-up & consultation' is a placeholder."
     },
     "prices": { "status": "placeholder", "sources": [], "note": "No prices found." },
-    "doctors": { "status": "placeholder", "sources": [], "note": "No doctor names found." },
+    "doctors": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=White%20Esthetic%20Dental%2C%20Afiy%C9%99ddin%20C%C9%99lilov%2020%2C%20Bak%C4%B1",
+        "https://drnadiraliyev.az/"
+      ],
+      "note": "Dr. Nadir Əliyev is named in 3 Google reviews (1–4 months old), and his own site gives Afiyəddin Cəlilov 20 as his work address. Spelling from his site. Other names not found; confirm on the call."
+    },
     "rating": {
       "status": "verified",
-      "sources": ["https://www.facebook.com/WHITE-Estetic-Dental-1140928469278792/", "https://2gis.az/baku/firm/70000001037035192"],
-      "note": "Facebook 90% recommend (12 reviews). 2GIS shows 1 review on the main card, 5/5 from 4 ratings in another view (not displayed)."
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=White%20Esthetic%20Dental%2C%20Afiy%C9%99ddin%20C%C9%99lilov%2020%2C%20Bak%C4%B1",
+        "https://www.facebook.com/WHITE-Estetic-Dental-1140928469278792/"
+      ],
+      "note": "Google 4.5 from 11 reviews on the clinic's Google Maps listing (seen 2026-10-21). Facebook shows 90% recommend (12 reviews)."
     },
     "socialProgram": {
       "status": "outdated",
@@ -176,6 +210,10 @@
     "map": { "status": "constructed", "sources": [], "note": "Google Maps search query built from the address; no verified Google Maps place link found." },
     "brandColor": { "status": "design", "sources": [], "note": "Neutral colour chosen by us; the clinic logo was not used." },
     "photos": { "status": "placeholder", "sources": [], "note": "Neutral illustrations only; no clinic photos or logos copied." },
-    "reviews": { "status": "placeholder", "sources": [], "note": "Clearly labelled sample reviews; no real names." }
+    "reviews": {
+      "status": "verified",
+      "sources": ["https://www.google.com/maps/search/?api=1&query=White%20Esthetic%20Dental%2C%20Afiy%C9%99ddin%20C%C9%99lilov%2020%2C%20Bak%C4%B1"],
+      "note": "3 reviews copied word for word (original English) from the clinic's Google Maps listing on 2026-10-21; names shortened to first name + surname initial; '…' marks a review cut short. Relative dates as of that day. For the demo only; switch to the live Google feed or get the clinic's OK before going public."
+    }
   }
 }

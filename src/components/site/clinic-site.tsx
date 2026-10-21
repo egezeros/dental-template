@@ -66,7 +66,22 @@ export function ClinicSite({
           source: google.mapsUri ?? directions,
         }
       : clinic.rating;
-  const hasGoogleReviews = Boolean(google && google.reviews.length > 0);
+  // Live Google reviews win; otherwise hand-picked reviews from the clinic file; otherwise samples.
+  const reviewsToShow: GooglePlaceReviews | null =
+    google && google.reviews.length > 0
+      ? google
+      : clinic.featuredReviews
+        ? {
+            placeId: "",
+            mapsUri: clinic.featuredReviews.url,
+            reviews: clinic.featuredReviews.items.map((r) => ({
+              author: r.author,
+              rating: r.rating,
+              text: r.text,
+              relativeTime: r.date ? L(r.date) : "",
+            })),
+          }
+        : null;
 
   const formText: BookingFormText = { ...t.booking, consent: t.booking.consent(clinic.name) };
   const hoursRows = WEEKDAYS.map((d) => {
@@ -284,8 +299,8 @@ export function ClinicSite({
                 </a>
               </div>
             )}
-            {hasGoogleReviews ? (
-              <GoogleReviews data={google!} t={t.reviews} />
+            {reviewsToShow ? (
+              <GoogleReviews data={reviewsToShow} t={t.reviews} />
             ) : (
               <>
                 <p className="mt-6 rounded-xl bg-amber-50 px-4 py-3 text-xs font-semibold text-amber-900 outline-1 outline-amber-300 outline-dashed">

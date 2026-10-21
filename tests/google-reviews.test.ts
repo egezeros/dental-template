@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { diagnoseGoogleReviews, getGoogleReviews } from "@/lib/google-reviews";
+import { describeApiKey, diagnoseGoogleReviews, getGoogleReviews } from "@/lib/google-reviews";
 import { testClinic } from "./fixtures";
 
 const details = {
@@ -159,5 +159,30 @@ describe("diagnoseGoogleReviews", () => {
       mockFetch({ "places/p": () => Response.json({ ...details, id: "p" }) }),
     );
     expect(ok).toMatchObject({ status: "ok", placeId: "p", rating: 4.7, reviewsShown: 1 });
+  });
+});
+
+describe("API key handling", () => {
+  const realLooking = "AIza" + "x".repeat(35);
+  afterEach(() => {
+    delete process.env.GOOGLE_MAPS_API_KEY;
+  });
+
+  it("strips spaces, line breaks and quotes pasted around the key", async () => {
+    process.env.GOOGLE_MAPS_API_KEY = ` "${realLooking}"\n`;
+    const f = mockFetch({ "places:searchText": () => Response.json({}) });
+    await getGoogleReviews(testClinic(), "az", f);
+    const init = f.mock.calls[0] as unknown as [string, RequestInit];
+    expect((init[1].headers as Record<string, string>)["X-Goog-Api-Key"]).toBe(realLooking);
+    expect(describeApiKey()).toContain("looks like a Google API key");
+  });
+
+  it("flags values that cannot be a Google API key, without revealing them", () => {
+    process.env.GOOGLE_MAPS_API_KEY = "my-secret-oauth-client-id.apps.googleusercontent.com";
+    const d = describeApiKey();
+    expect(d).toContain("does NOT look like a Google API key");
+    expect(d).not.toContain("my-secret");
+    delete process.env.GOOGLE_MAPS_API_KEY;
+    expect(describeApiKey()).toBe("not set");
   });
 });
