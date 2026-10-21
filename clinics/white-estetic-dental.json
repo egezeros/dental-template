@@ -1,0 +1,181 @@
+{
+  "slug": "white-estetic-dental",
+  "name": "White Estetic Dental",
+  "brandColor": "#0d7d77",
+  "tagline": {
+    "az": "Xətaidə estetik stomatologiya və dişlərin ağardılması",
+    "ru": "Эстетическая стоматология и отбеливание в Хатаи",
+    "en": "Aesthetic dentistry and teeth whitening in Khatai"
+  },
+  "intro": {
+    "az": "White Estetic Dental — Bakının Xətai rayonunda stomatoloji klinikadır. Bazar ertəsindən şənbəyədək 09:00–21:00 açıqdır. Onlayn yazılın — administrator vaxtı təsdiqləyəcək.",
+    "ru": "White Estetic Dental — стоматологическая клиника в Хатаинском районе Баку. Открыта с понедельника по субботу, 09:00–21:00. Запишитесь онлайн — администратор подтвердит время.",
+    "en": "White Estetic Dental is a dental clinic in Baku's Khatai district, open Monday to Saturday, 09:00–21:00. Book online and our administrator will confirm the time."
+  },
+  "address": {
+    "az": "Afiyəddin Cəlilov küç. 82A, 1-ci mərtəbə, Xətai r-nu, Bakı",
+    "ru": "ул. Афияддина Джалилова, 82А, 1 этаж, Хатаинский р-н, Баку",
+    "en": "82A Afiyaddin Jalilov St, 1st floor, Khatai, Baku"
+  },
+  "district": { "az": "Xətai rayonu", "ru": "Хатаинский район", "en": "Khatai district" },
+  "phones": [
+    { "display": "(+994 12) 496-77-71", "tel": "+994124967771" },
+    { "display": "(+994 12) 496-77-72", "tel": "+994124967772" },
+    { "display": "(+994 51) 290-66-11", "tel": "+994512906611" }
+  ],
+  "whatsapp": "[TO CONFIRM]",
+  "instagram": "white_estetic_dental",
+  "facebook": "https://www.facebook.com/WHITE-Estetic-Dental-1140928469278792/",
+  "map": { "query": "White Estetic Dental, Afiyəddin Cəlilov küçəsi 82A, Bakı" },
+  "hours": {
+    "mon": ["09:00", "21:00"],
+    "tue": ["09:00", "21:00"],
+    "wed": ["09:00", "21:00"],
+    "thu": ["09:00", "21:00"],
+    "fri": ["09:00", "21:00"],
+    "sat": ["09:00", "21:00"],
+    "sun": "[TO CONFIRM]"
+  },
+  "services": [
+    {
+      "id": "consultation",
+      "name": { "az": "Müayinə və konsultasiya", "ru": "Осмотр и консультация", "en": "Check-up & consultation" },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder"
+    },
+    {
+      "id": "whitening",
+      "name": { "az": "Dişlərin ağardılması", "ru": "Отбеливание зубов", "en": "Teeth whitening" },
+      "price": "[TO CONFIRM]",
+      "status": "verified"
+    },
+    {
+      "id": "implants",
+      "name": { "az": "İmplantologiya", "ru": "Имплантация зубов", "en": "Dental implants" },
+      "price": "[TO CONFIRM]",
+      "status": "verified"
+    },
+    {
+      "id": "pediatric",
+      "name": { "az": "Uşaq stomatologiyası", "ru": "Детская стоматология", "en": "Pediatric dentistry" },
+      "price": "[TO CONFIRM]",
+      "status": "verified"
+    }
+  ],
+  "doctors": [
+    { "name": "[TO CONFIRM]", "role": { "az": "Stomatoloq", "ru": "Стоматолог", "en": "Dentist" }, "status": "placeholder" },
+    { "name": "[TO CONFIRM]", "role": { "az": "Stomatoloq", "ru": "Стоматолог", "en": "Dentist" }, "status": "placeholder" },
+    { "name": "[TO CONFIRM]", "role": { "az": "Stomatoloq", "ru": "Стоматолог", "en": "Dentist" }, "status": "placeholder" }
+  ],
+  "whyUs": [
+    {
+      "icon": "clock",
+      "title": { "az": "21:00-dək açığıq", "ru": "Работаем до 21:00", "en": "Open until 9 pm" },
+      "text": {
+        "az": "Bazar ertəsindən şənbəyədək 09:00–21:00 — işdən sonra da gəlmək olar.",
+        "ru": "С понедельника по субботу, 09:00–21:00 — можно прийти и после работы.",
+        "en": "Monday to Saturday, 09:00–21:00 — easy to fit in after work."
+      },
+      "status": "verified"
+    },
+    {
+      "icon": "spark",
+      "title": { "az": "Estetik təbəssüm", "ru": "Эстетика улыбки", "en": "Aesthetic smiles" },
+      "text": {
+        "az": "Dişlərin ağardılması və estetik stomatologiya klinikanın əsas istiqamətlərindəndir.",
+        "ru": "Отбеливание и эстетическая стоматология — одно из основных направлений клиники.",
+        "en": "Teeth whitening and aesthetic dentistry are among the clinic's main areas."
+      },
+      "status": "verified"
+    },
+    {
+      "icon": "shield",
+      "title": { "az": "Sosial tərəfdaş klinika", "ru": "Клиника-партнёр соцпрограммы", "en": "Social-partner clinic" },
+      "text": {
+        "az": "Əmək və Əhalinin Sosial Müdafiəsi Nazirliyinin tərəfdaş siyahısında 9% endirimlə qeyd olunub [TO CONFIRM].",
+        "ru": "Указана в списке партнёров Министерства труда и социальной защиты населения со скидкой 9% [TO CONFIRM].",
+        "en": "Listed by the Ministry of Labour and Social Protection as a partner clinic with a 9% discount [TO CONFIRM]."
+      },
+      "status": "outdated"
+    },
+    {
+      "icon": "chat",
+      "title": { "az": "Onlayn yazılış və xatırlatma", "ru": "Онлайн-запись и напоминания", "en": "Online booking & reminders" },
+      "text": {
+        "az": "Bir dəqiqəyə onlayn yazılın və qəbuldan bir gün əvvəl WhatsApp-da xatırlatma alın.",
+        "ru": "Запишитесь онлайн за минуту и получите напоминание в WhatsApp за день до приёма.",
+        "en": "Book online in a minute and get a WhatsApp reminder the day before your visit."
+      },
+      "status": "design"
+    }
+  ],
+  "rating": {
+    "platform": "Facebook",
+    "value": "90%",
+    "kind": "recommend",
+    "count": 12,
+    "asOf": "2026-10 (search snapshot)",
+    "source": "https://www.facebook.com/WHITE-Estetic-Dental-1140928469278792/"
+  },
+  "provenance": {
+    "name": {
+      "status": "verified",
+      "sources": [
+        "https://navigator.az/az/firm/24499/white-estetic-dental",
+        "https://2gis.az/baku/firm/70000001037035192",
+        "https://sosial.gov.az/nazirlik/sosial-terefdas/klinikalar"
+      ]
+    },
+    "address": {
+      "status": "conflict",
+      "sources": [
+        "https://navigator.az/az/firm/24499/white-estetic-dental",
+        "https://2gis.az/baku/firm/70000001037035192",
+        "https://www.waze.com/live-map/directions/white-esthetic-dental-afiyeddin-celilov-20-baki?to=place.w.32702868.326832070.9110111"
+      ],
+      "note": "Navigator.az, 2GIS and the Ministry list say Afiyəddin Cəlilov 82A; Waze, a YouTube video and a dentist's site say number 20 (next to Megafun). Confirm."
+    },
+    "district": { "status": "verified", "sources": ["https://navigator.az/az/firm/24499/white-estetic-dental"] },
+    "phones": {
+      "status": "verified",
+      "sources": [
+        "https://navigator.az/az/firm/24499/white-estetic-dental",
+        "https://sosial.gov.az/nazirlik/sosial-terefdas/klinikalar"
+      ],
+      "note": "Landlines from Navigator.az; mobile +994 51 290 66 11 from the Ministry list (+994 51 290 66 17 also listed there)."
+    },
+    "whatsapp": { "status": "placeholder", "sources": [], "note": "No WhatsApp number found." },
+    "instagram": {
+      "status": "verified",
+      "sources": ["https://www.instagram.com/white_estetic_dental/"],
+      "note": "About 6.9K followers, 2,475 posts; bio hours 09:00–21:00. The link between the handle and the clinic is inferred from matching name and hours."
+    },
+    "website": { "status": "verified", "sources": [], "note": "No website found in any search." },
+    "hours": {
+      "status": "verified",
+      "sources": ["https://navigator.az/az/firm/24499/white-estetic-dental", "https://www.instagram.com/white_estetic_dental/"],
+      "note": "Monday to Saturday 09:00–21:00. Sunday not stated → shown as [TO CONFIRM] and not bookable online."
+    },
+    "services": {
+      "status": "verified",
+      "sources": ["https://navigator.az/az/firm/24499/white-estetic-dental", "https://2gis.az/baku/firm/70000001037035192"],
+      "note": "Whitening (Navigator.az category); implantology and pediatric dentistry (2GIS). 'Check-up & consultation' is a placeholder."
+    },
+    "prices": { "status": "placeholder", "sources": [], "note": "No prices found." },
+    "doctors": { "status": "placeholder", "sources": [], "note": "No doctor names found." },
+    "rating": {
+      "status": "verified",
+      "sources": ["https://www.facebook.com/WHITE-Estetic-Dental-1140928469278792/", "https://2gis.az/baku/firm/70000001037035192"],
+      "note": "Facebook 90% recommend (12 reviews). 2GIS shows 1 review on the main card, 5/5 from 4 ratings in another view (not displayed)."
+    },
+    "socialProgram": {
+      "status": "outdated",
+      "sources": ["https://sosial.gov.az/nazirlik/sosial-terefdas/klinikalar"],
+      "note": "9% discount listed; date of the list unknown."
+    },
+    "map": { "status": "constructed", "sources": [], "note": "Google Maps search query built from the address; no verified Google Maps place link found." },
+    "brandColor": { "status": "design", "sources": [], "note": "Neutral colour chosen by us; the clinic logo was not used." },
+    "photos": { "status": "placeholder", "sources": [], "note": "Neutral illustrations only; no clinic photos or logos copied." },
+    "reviews": { "status": "placeholder", "sources": [], "note": "Clearly labelled sample reviews; no real names." }
+  }
+}

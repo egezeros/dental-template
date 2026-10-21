@@ -1,0 +1,232 @@
+{
+  "slug": "dent-star",
+  "name": "Dent Star",
+  "brandColor": "#1f5fbf",
+  "tagline": {
+    "az": "Yasamalda gecə-gündüz stomatoloji xidmət",
+    "ru": "Круглосуточная стоматология в Ясамале",
+    "en": "Dental care in Yasamal, around the clock"
+  },
+  "intro": {
+    "az": "Dent Star — Bakının Yasamal rayonunda 24/7 açıq stomatoloji klinikadır. Onlayn qəbula yazılın — administrator vaxtı təsdiqləmək üçün sizinlə əlaqə saxlayacaq.",
+    "ru": "Dent Star — круглосуточная стоматологическая клиника в Ясамальском районе Баку. Запишитесь онлайн — администратор свяжется с вами, чтобы подтвердить время.",
+    "en": "Dent Star is a 24/7 dental clinic in Baku's Yasamal district. Book online and our administrator will contact you to confirm the time."
+  },
+  "address": {
+    "az": "Zaur Kərimov küç. 424, 4-cü mərtəbə, Yasamal r-nu, Bakı AZ1012",
+    "ru": "ул. Заура Керимова, 424, 4 этаж, Ясамальский р-н, Баку AZ1012",
+    "en": "424 Zaur Karimov St, 4th floor, Yasamal, Baku AZ1012"
+  },
+  "district": { "az": "Yasamal rayonu", "ru": "Ясамальский район", "en": "Yasamal district" },
+  "phones": [
+    { "display": "(+994 12) 433-82-17", "tel": "+994124338217" },
+    { "display": "(+994 51) 302-82-37", "tel": "+994513028237" }
+  ],
+  "whatsapp": "994513028237",
+  "instagram": "dentstar.az",
+  "facebook": "https://www.facebook.com/p/Stomatoloq-Dent-Star-Stomatoloji-klinika-24-saat-Tel-994124338217-100063614921919/",
+  "map": { "query": "Dent Star stomatoloji klinika, Zaur Kərimov küçəsi 424, Bakı" },
+  "hours": {
+    "mon": ["00:00", "24:00"],
+    "tue": ["00:00", "24:00"],
+    "wed": ["00:00", "24:00"],
+    "thu": ["00:00", "24:00"],
+    "fri": ["00:00", "24:00"],
+    "sat": ["00:00", "24:00"],
+    "sun": ["00:00", "24:00"]
+  },
+  "open24h": true,
+  "bookingSlots": { "start": "09:00", "end": "21:00", "stepMinutes": 30 },
+  "services": [
+    {
+      "id": "consultation",
+      "name": { "az": "Konsultasiya", "ru": "Консультация", "en": "Consultation" },
+      "price": { "az": "Pulsuz", "ru": "Бесплатно", "en": "Free" },
+      "status": "verified"
+    },
+    {
+      "id": "ct-3d",
+      "name": { "az": "3D dental tomoqrafiya (KT)", "ru": "3D-томография зубов (КТ)", "en": "3D dental CT scan" },
+      "price": "[TO CONFIRM]",
+      "status": "verified"
+    },
+    {
+      "id": "panoramic-xray",
+      "name": { "az": "Panoram rentgen (OPTG)", "ru": "Панорамный снимок (ОПТГ)", "en": "Panoramic X-ray (OPG)" },
+      "price": "[TO CONFIRM]",
+      "status": "verified"
+    },
+    {
+      "id": "implants",
+      "name": { "az": "İmplantologiya", "ru": "Имплантация зубов", "en": "Dental implants" },
+      "price": "[TO CONFIRM]",
+      "status": "verified"
+    },
+    {
+      "id": "orthodontics",
+      "name": { "az": "Ortodontiya", "ru": "Ортодонтия", "en": "Orthodontics" },
+      "price": "[TO CONFIRM]",
+      "status": "verified"
+    },
+    {
+      "id": "prosthodontics",
+      "name": { "az": "Ortopedik stomatologiya (protezləmə)", "ru": "Протезирование", "en": "Prosthodontics" },
+      "price": "[TO CONFIRM]",
+      "status": "verified"
+    },
+    {
+      "id": "oral-surgery",
+      "name": { "az": "Cərrahi stomatologiya", "ru": "Хирургическая стоматология", "en": "Oral surgery" },
+      "price": "[TO CONFIRM]",
+      "status": "verified"
+    },
+    {
+      "id": "periodontics",
+      "name": { "az": "Parodontologiya (diş əti)", "ru": "Пародонтология (дёсны)", "en": "Periodontics (gums)" },
+      "price": "[TO CONFIRM]",
+      "status": "verified"
+    },
+    {
+      "id": "pediatric",
+      "name": { "az": "Uşaq stomatologiyası", "ru": "Детская стоматология", "en": "Pediatric dentistry" },
+      "price": "[TO CONFIRM]",
+      "status": "verified"
+    }
+  ],
+  "doctors": [
+    { "name": "[TO CONFIRM]", "role": { "az": "Stomatoloq", "ru": "Стоматолог", "en": "Dentist" }, "status": "placeholder" },
+    { "name": "[TO CONFIRM]", "role": { "az": "Stomatoloq", "ru": "Стоматолог", "en": "Dentist" }, "status": "placeholder" },
+    { "name": "[TO CONFIRM]", "role": { "az": "Stomatoloq", "ru": "Стоматолог", "en": "Dentist" }, "status": "placeholder" }
+  ],
+  "whyUs": [
+    {
+      "icon": "clock",
+      "title": { "az": "Gecə-gündüz açığıq", "ru": "Работаем круглосуточно", "en": "Open 24/7" },
+      "text": {
+        "az": "Diş ağrısı səhəri gözləmir — klinika həftənin 7 günü, 24 saat işləyir.",
+        "ru": "Зубная боль не ждёт утра — клиника работает 7 дней в неделю, 24 часа в сутки.",
+        "en": "Toothache doesn't wait for morning — the clinic is open 7 days a week, 24 hours a day."
+      },
+      "status": "verified"
+    },
+    {
+      "icon": "scan",
+      "title": { "az": "Diaqnostika yerində", "ru": "Диагностика на месте", "en": "Imaging on site" },
+      "text": {
+        "az": "3D tomoqrafiya və panoram rentgen klinikanın özündə — başqa yerə getməyə ehtiyac yoxdur.",
+        "ru": "3D-томография и панорамный снимок прямо в клинике — не нужно ехать в другое место.",
+        "en": "3D CT and panoramic X-rays in the clinic itself — no trip to a separate imaging centre."
+      },
+      "status": "verified"
+    },
+    {
+      "icon": "spark",
+      "title": { "az": "Pulsuz konsultasiya", "ru": "Бесплатная консультация", "en": "Free consultation" },
+      "text": {
+        "az": "İlk görüşdə həkim vəziyyəti qiymətləndirir və müalicə variantlarını izah edir.",
+        "ru": "На первой встрече врач оценит ситуацию и объяснит варианты лечения.",
+        "en": "At the first visit the dentist assesses your situation and explains the treatment options."
+      },
+      "status": "verified"
+    },
+    {
+      "icon": "calendar",
+      "title": { "az": "2013-cü ildən", "ru": "С 2013 года", "en": "Since 2013" },
+      "text": {
+        "az": "Klinika 2013-cü ildən Bakıda fəaliyyət göstərir.",
+        "ru": "Клиника работает в Баку с 2013 года.",
+        "en": "The clinic has been serving patients in Baku since 2013."
+      },
+      "status": "self-reported"
+    },
+    {
+      "icon": "chat",
+      "title": { "az": "Onlayn yazılış və xatırlatma", "ru": "Онлайн-запись и напоминания", "en": "Online booking & reminders" },
+      "text": {
+        "az": "Bir dəqiqəyə onlayn yazılın və qəbuldan bir gün əvvəl WhatsApp-da xatırlatma alın.",
+        "ru": "Запишитесь онлайн за минуту и получите напоминание в WhatsApp за день до приёма.",
+        "en": "Book online in a minute and get a WhatsApp reminder the day before your visit."
+      },
+      "status": "design"
+    }
+  ],
+  "rating": {
+    "platform": "Facebook",
+    "value": "96%",
+    "kind": "recommend",
+    "count": 21,
+    "asOf": "2026-10 (search snapshot)",
+    "source": "https://www.facebook.com/p/Stomatoloq-Dent-Star-Stomatoloji-klinika-24-saat-Tel-994124338217-100063614921919/"
+  },
+  "provenance": {
+    "name": {
+      "status": "verified",
+      "sources": [
+        "https://2gis.az/baku/firm/70000001038903125",
+        "https://kataloq.gomap.az/az/all-poi/medicine/polyclinic/9ec80bc1f2ca40fa93f2444f0c85c003"
+      ]
+    },
+    "address": {
+      "status": "conflict",
+      "sources": [
+        "https://kataloq.gomap.az/az/all-poi/medicine/polyclinic/9ec80bc1f2ca40fa93f2444f0c85c003",
+        "https://2gis.az/ru/baku/firm/70000001038903125",
+        "https://dentstaraz.wordpress.com/haqqimizda/"
+      ],
+      "note": "GoMap and 2GIS say Zaur Kərimov 424 (2GIS RU adds 4th floor); the clinic's 2020-era blog and Navigator.az say 218. Confirm."
+    },
+    "district": { "status": "verified", "sources": ["https://kataloq.gomap.az/az/all-poi/medicine/polyclinic/9ec80bc1f2ca40fa93f2444f0c85c003"] },
+    "phones": {
+      "status": "verified",
+      "sources": [
+        "https://kataloq.gomap.az/az/all-poi/medicine/polyclinic/9ec80bc1f2ca40fa93f2444f0c85c003",
+        "https://www.facebook.com/p/Stomatoloq-Dent-Star-Stomatoloji-klinika-24-saat-Tel-994124338217-100063614921919/"
+      ]
+    },
+    "whatsapp": {
+      "status": "verified-single",
+      "sources": ["https://www.instagram.com/dentstar.az/"],
+      "note": "Instagram bio lists 051-302-82-37 for WhatsApp (one search snapshot; same number as the GoMap mobile)."
+    },
+    "instagram": {
+      "status": "verified-single",
+      "sources": ["https://www.instagram.com/dentstar.az/"],
+      "note": "About 55K followers, 1,308 posts in one search snapshot; a re-check did not reproduce the count."
+    },
+    "website": {
+      "status": "verified",
+      "sources": ["https://dentstaraz.wordpress.com/haqqimizda/"],
+      "note": "No own website indexed (site:dentstar.az returned nothing). Only a free WordPress.com blog with 2020-era posts."
+    },
+    "hours": {
+      "status": "verified",
+      "sources": [
+        "https://2gis.az/baku/firm/70000001038903125",
+        "https://dentstaraz.wordpress.com/haqqimizda/"
+      ],
+      "note": "24/7 per 2GIS, the Facebook page name and the clinic's blog. Online form offers 09:00–21:00 slots (our design choice)."
+    },
+    "services": { "status": "verified", "sources": ["https://2gis.az/baku/firm/70000001038903125"] },
+    "prices": {
+      "status": "placeholder",
+      "sources": [
+        "https://dentstaraz.wordpress.com/2020/03/09/dent-star-rentgen-m%C9%99rk%C9%99zind%C9%99-asagidaki-radioji-xidm%C9%99tl%C9%99r-gost%C9%99rilir/"
+      ],
+      "note": "Only free consultation is verified. A 2020 blog post lists X-ray prices (3D 60 AZN, 3D one jaw 40, panoramic 20, cephalometric 25); not shown because they are 6 years old."
+    },
+    "doctors": { "status": "placeholder", "sources": [], "note": "No doctor names found." },
+    "rating": {
+      "status": "verified",
+      "sources": [
+        "https://www.facebook.com/p/Stomatoloq-Dent-Star-Stomatoloji-klinika-24-saat-Tel-994124338217-100063614921919/",
+        "https://2gis.az/ru/baku/firm/70000001038903125"
+      ],
+      "note": "Facebook 96% recommend (21 reviews). 2GIS shows 3/5 from 2 reviews (not displayed). Google and Yandex not found."
+    },
+    "map": { "status": "constructed", "sources": [], "note": "Google Maps search query built from the address; no verified Google Maps place link found." },
+    "brandColor": { "status": "design", "sources": [], "note": "Neutral colour chosen by us; the clinic logo was not used." },
+    "photos": { "status": "placeholder", "sources": [], "note": "Neutral illustrations only; no clinic photos or logos copied." },
+    "reviews": { "status": "placeholder", "sources": [], "note": "Clearly labelled sample reviews; no real names." },
+    "founded": { "status": "self-reported", "sources": ["https://dentstaraz.wordpress.com/haqqimizda/"] }
+  }
+}

@@ -1,0 +1,193 @@
+{
+  "slug": "dental-club",
+  "name": "Dental Club",
+  "brandColor": "#5b4fc4",
+  "tagline": {
+    "az": "2003-cü ildən Nərimanovda rəqəmsal stomatologiya",
+    "ru": "Цифровая стоматология в Нариманове с 2003 года",
+    "en": "Digital dentistry in Narimanov since 2003"
+  },
+  "intro": {
+    "az": "Dental Club 2003-cü ildən fəaliyyət göstərir: rəqəmsal implantasiya və breketsiz ortodontiya. Onlayn yazılın — administrator vaxtı təsdiqləmək üçün sizinlə əlaqə saxlayacaq.",
+    "ru": "Dental Club работает с 2003 года: цифровая имплантация и ортодонтия без брекетов. Запишитесь онлайн — администратор свяжется с вами, чтобы подтвердить время.",
+    "en": "Dental Club has been practising since 2003, with digital implant planning and brace-free orthodontics. Book online and our administrator will contact you to confirm the time."
+  },
+  "address": {
+    "az": "Ceyhun Hacıbəyli küç. 116b, 1-ci mərtəbə, Nərimanov r-nu, Bakı",
+    "ru": "ул. Джейхуна Гаджибейли, 116б, 1 этаж, Наримановский р-н, Баку",
+    "en": "116b Jeyhun Hajibeyli St, 1st floor, Narimanov, Baku"
+  },
+  "district": { "az": "Nərimanov rayonu", "ru": "Наримановский район", "en": "Narimanov district" },
+  "phones": [
+    { "display": "(+994 12) 541-04-46", "tel": "+994125410446" },
+    { "display": "(+994 50) 379-28-40", "tel": "+994503792840" }
+  ],
+  "whatsapp": "[TO CONFIRM]",
+  "facebook": "https://www.facebook.com/dentalclubbaku",
+  "website": "https://dentalclub.az",
+  "map": { "query": "Dental Club stomatoloji klinika, Ceyhun Hacıbəyli küçəsi 116b, Bakı" },
+  "hours": {
+    "mon": ["10:00", "18:00"],
+    "tue": ["10:00", "18:00"],
+    "wed": ["10:00", "18:00"],
+    "thu": ["10:00", "18:00"],
+    "fri": ["10:00", "18:00"],
+    "sat": ["10:00", "18:00"],
+    "sun": "[TO CONFIRM]"
+  },
+  "services": [
+    {
+      "id": "consultation",
+      "name": { "az": "Müayinə və konsultasiya", "ru": "Осмотр и консультация", "en": "Check-up & consultation" },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder"
+    },
+    {
+      "id": "digital-implants",
+      "name": { "az": "Rəqəmsal implantasiya", "ru": "Цифровая имплантация", "en": "Digital implants" },
+      "description": {
+        "az": "Rəqəmsal cərrahi şablonlarla planlaşdırma",
+        "ru": "Планирование с цифровыми хирургическими шаблонами",
+        "en": "Planned with digital surgical guides"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "self-reported"
+    },
+    {
+      "id": "aligners",
+      "name": { "az": "Breketsiz ortodontiya (kappalar)", "ru": "Ортодонтия без брекетов (элайнеры)", "en": "Clear aligners (brace-free orthodontics)" },
+      "price": "[TO CONFIRM]",
+      "status": "self-reported"
+    },
+    {
+      "id": "braces",
+      "name": { "az": "Breket sistemləri", "ru": "Брекет-системы", "en": "Braces" },
+      "price": "[TO CONFIRM]",
+      "status": "outdated"
+    }
+  ],
+  "doctors": [
+    { "name": "[TO CONFIRM]", "role": { "az": "Stomatoloq", "ru": "Стоматолог", "en": "Dentist" }, "status": "placeholder" },
+    { "name": "[TO CONFIRM]", "role": { "az": "Stomatoloq", "ru": "Стоматолог", "en": "Dentist" }, "status": "placeholder" },
+    { "name": "[TO CONFIRM]", "role": { "az": "Stomatoloq", "ru": "Стоматолог", "en": "Dentist" }, "status": "placeholder" }
+  ],
+  "whyUs": [
+    {
+      "icon": "calendar",
+      "title": { "az": "2003-cü ildən", "ru": "С 2003 года", "en": "Since 2003" },
+      "text": {
+        "az": "20 ildən artıqdır ki, Bakıda pasiyent qəbul edir.",
+        "ru": "Принимает пациентов в Баку более 20 лет.",
+        "en": "Treating patients in Baku for over 20 years."
+      },
+      "status": "self-reported"
+    },
+    {
+      "icon": "scan",
+      "title": { "az": "Rəqəmsal implantasiya", "ru": "Цифровая имплантация", "en": "Digital implant planning" },
+      "text": {
+        "az": "İmplantlar rəqəmsal cərrahi şablonlarla planlaşdırılır.",
+        "ru": "Имплантация планируется с помощью цифровых хирургических шаблонов.",
+        "en": "Implants are planned with digital surgical guides."
+      },
+      "status": "self-reported"
+    },
+    {
+      "icon": "spark",
+      "title": { "az": "Breketsiz ortodontiya", "ru": "Ортодонтия без брекетов", "en": "Brace-free orthodontics" },
+      "text": {
+        "az": "Şəffaf kappalarla dişlərin düzəldilməsi.",
+        "ru": "Выравнивание зубов прозрачными элайнерами.",
+        "en": "Straightening teeth with clear aligners."
+      },
+      "status": "self-reported"
+    },
+    {
+      "icon": "shield",
+      "title": { "az": "EDAD-Baku üzvləri", "ru": "Члены EDAD-Baku", "en": "EDAD-Baku members" },
+      "text": {
+        "az": "Klinikanın saytına görə həkimlər EDAD-Baku üzvüdür.",
+        "ru": "По данным сайта клиники, врачи — члены EDAD-Baku.",
+        "en": "According to the clinic's website, its dentists are EDAD-Baku members."
+      },
+      "status": "self-reported"
+    },
+    {
+      "icon": "chat",
+      "title": { "az": "Onlayn yazılış və xatırlatma", "ru": "Онлайн-запись и напоминания", "en": "Online booking & reminders" },
+      "text": {
+        "az": "Bir dəqiqəyə onlayn yazılın və qəbuldan bir gün əvvəl WhatsApp-da xatırlatma alın.",
+        "ru": "Запишитесь онлайн за минуту и получите напоминание в WhatsApp за день до приёма.",
+        "en": "Book online in a minute and get a WhatsApp reminder the day before your visit."
+      },
+      "status": "design"
+    }
+  ],
+  "rating": {
+    "platform": "Google",
+    "value": "4.7",
+    "kind": "stars",
+    "count": 29,
+    "asOf": "2026-09-29 (via azerbaijandentalrating.com)",
+    "source": "https://azerbaijandentalrating.com/clinics/dental-club-baku/"
+  },
+  "provenance": {
+    "name": { "status": "verified", "sources": ["https://dentalclub.az/en/about", "https://2gis.az/baku/firm/70000001041082928"] },
+    "address": {
+      "status": "conflict",
+      "sources": [
+        "https://2gis.az/baku/firm/70000001041082928",
+        "https://kataloq.gomap.az/az/all-poi/medicine/polyclinic/ee9f1fce8f1c470a8a638a5e35a618d1",
+        "https://dentalclub.az/az/contact"
+      ],
+      "note": "2GIS: Ceyhunbəy Hacıbəyli 116b, 1st floor. Other listings give 24 or 114; the site's contact page reportedly shows 'Bakıxanov küç. 758/759'. Confirm."
+    },
+    "district": { "status": "verified", "sources": ["https://2gis.az/baku/firm/70000001041082928"] },
+    "phones": {
+      "status": "verified",
+      "sources": ["https://dentalclub.az/az/contact", "https://azerbaijandentalrating.com/clinics/dental-club-baku/"],
+      "note": "Landline appears on the site and in directories. Directories also list +994 70 379-28-40 and +994 50 344-88-74 (not shown)."
+    },
+    "whatsapp": {
+      "status": "placeholder",
+      "sources": ["https://azerbaijandentalrating.com/clinics/dental-club-baku/"],
+      "note": "The third-party audit found no WhatsApp link on the site; 2GIS shows a WhatsApp button but no number was visible."
+    },
+    "instagram": { "status": "placeholder", "sources": [], "note": "The site links to Instagram but the handle was not found." },
+    "website": {
+      "status": "verified",
+      "sources": ["https://dentalclub.az/az", "https://azerbaijandentalrating.com/clinics/dental-club-baku/"],
+      "note": "Site exists; per the third-party audit the online-booking button is disabled and only a static contact form remains. Not re-tested (direct page loads blocked)."
+    },
+    "hours": {
+      "status": "conflict",
+      "sources": ["https://dentalclub.az/az/contact", "https://2gis.az/baku/firm/70000001041082928"],
+      "note": "Site: Monday to Saturday 10:00–18:00 (shown). 2GIS: until 20:00 on at least one day. Sunday not stated."
+    },
+    "services": {
+      "status": "self-reported",
+      "sources": ["https://dentalclub.az/en/about", "https://fed.az/az/saglamliq/bakinin-stomatoloji-klinikalarinda-xidmetler-qiymetler-30001"],
+      "note": "Digital implants, surgical guides and aligners from the clinic's own site; braces from an old FED.az article."
+    },
+    "prices": {
+      "status": "placeholder",
+      "sources": ["https://fed.az/az/saglamliq/bakinin-stomatoloji-klinikalarinda-xidmetler-qiymetler-30001"],
+      "note": "An old FED.az article lists braces at 1800–4000 AZN; not shown because it is outdated."
+    },
+    "doctors": {
+      "status": "placeholder",
+      "sources": ["https://dentalclub.az/az/doctors"],
+      "note": "The site has a doctors page, but names were not visible in the search results."
+    },
+    "rating": {
+      "status": "verified",
+      "sources": ["https://azerbaijandentalrating.com/clinics/dental-club-baku/"],
+      "note": "Google 4.7 from 29 reviews as of 2026-09-29, reported by a third-party rating site (not read from Google directly)."
+    },
+    "founded": { "status": "self-reported", "sources": ["https://dentalclub.az/en/about"] },
+    "map": { "status": "constructed", "sources": [], "note": "Google Maps search query built from the address; no verified Google Maps place link found." },
+    "brandColor": { "status": "design", "sources": [], "note": "Neutral colour chosen by us; the clinic logo was not used." },
+    "photos": { "status": "placeholder", "sources": [], "note": "Neutral illustrations only; no clinic photos or logos copied." },
+    "reviews": { "status": "placeholder", "sources": [], "note": "Clearly labelled sample reviews; no real names." }
+  }
+}
