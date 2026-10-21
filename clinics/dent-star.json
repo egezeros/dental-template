@@ -151,12 +151,12 @@
     }
   ],
   "rating": {
-    "platform": "Facebook",
-    "value": "96%",
-    "kind": "recommend",
-    "count": 21,
-    "asOf": "2026-10 (search snapshot)",
-    "source": "https://www.facebook.com/p/Stomatoloq-Dent-Star-Stomatoloji-klinika-24-saat-Tel-994124338217-100063614921919/"
+    "platform": "Google",
+    "value": "4.0",
+    "kind": "stars",
+    "count": 67,
+    "asOf": "2026-10-21 (Google Maps listing)",
+    "source": "https://www.google.com/maps/search/?api=1&query=Dent%20Star%2C%20%C6%8Fs%C9%99d%20%C6%8Fhm%C9%99dov%2C%20Bak%C4%B1"
   },
   "provenance": {
     "name": {
@@ -171,9 +171,10 @@
       "sources": [
         "https://kataloq.gomap.az/az/all-poi/medicine/polyclinic/9ec80bc1f2ca40fa93f2444f0c85c003",
         "https://2gis.az/ru/baku/firm/70000001038903125",
-        "https://dentstaraz.wordpress.com/haqqimizda/"
+        "https://dentstaraz.wordpress.com/haqqimizda/",
+        "https://www.google.com/maps/search/?api=1&query=Dent%20Star%2C%20%C6%8Fs%C9%99d%20%C6%8Fhm%C9%99dov%2C%20Bak%C4%B1"
       ],
-      "note": "GoMap and 2GIS say Zaur Kərimov 424 (2GIS RU adds 4th floor); the clinic's 2020-era blog and Navigator.az say 218. Confirm."
+      "note": "Three versions online: GoMap and 2GIS say Zaur Kərimov 424 (2GIS RU adds 4th floor); the clinic's 2020-era blog and Navigator.az say 218; the Google Maps listing (seen 2026-10-21) says 'Əsəd Əhmədov, Bakı'. Shown: 424. Confirm."
     },
     "district": { "status": "verified", "sources": ["https://kataloq.gomap.az/az/all-poi/medicine/polyclinic/9ec80bc1f2ca40fa93f2444f0c85c003"] },
     "phones": {
@@ -218,10 +219,11 @@
     "rating": {
       "status": "verified",
       "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Dent%20Star%2C%20%C6%8Fs%C9%99d%20%C6%8Fhm%C9%99dov%2C%20Bak%C4%B1",
         "https://www.facebook.com/p/Stomatoloq-Dent-Star-Stomatoloji-klinika-24-saat-Tel-994124338217-100063614921919/",
         "https://2gis.az/ru/baku/firm/70000001038903125"
       ],
-      "note": "Facebook 96% recommend (21 reviews). 2GIS shows 3/5 from 2 reviews (not displayed). Google and Yandex not found."
+      "note": "Google 4.0 from 67 reviews on the clinic's Google Maps listing (seen 2026-10-21). Facebook shows 96% recommend (21 reviews); 2GIS 3/5 from 2 reviews (not displayed)."
     },
     "map": { "status": "constructed", "sources": [], "note": "Google Maps search query built from the address; no verified Google Maps place link found." },
     "brandColor": { "status": "design", "sources": [], "note": "Neutral colour chosen by us; the clinic logo was not used." },

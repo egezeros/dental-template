@@ -13,9 +13,9 @@
     "en": "Dental Club has been practising since 2003, with digital implant planning and brace-free orthodontics. Book online and our administrator will contact you to confirm the time."
   },
   "address": {
-    "az": "Ceyhun Hacıbəyli küç. 116b, 1-ci mərtəbə, Nərimanov r-nu, Bakı",
-    "ru": "ул. Джейхуна Гаджибейли, 116б, 1 этаж, Наримановский р-н, Баку",
-    "en": "116b Jeyhun Hajibeyli St, 1st floor, Narimanov, Baku"
+    "az": "Ceyhunbəy Hacıbəyli küç. 24, Nərimanov r-nu, Bakı",
+    "ru": "ул. Джейхунбека Гаджибейли, 24, Наримановский р-н, Баку",
+    "en": "24 Jeyhunbey Hajibeyli St, Narimanov, Baku"
   },
   "district": { "az": "Nərimanov rayonu", "ru": "Наримановский район", "en": "Narimanov district" },
   "phones": [
@@ -25,7 +25,30 @@
   "whatsapp": "[TO CONFIRM]",
   "facebook": "https://www.facebook.com/dentalclubbaku",
   "website": "https://dentalclub.az",
-  "map": { "query": "Dental Club stomatoloji klinika, Ceyhun Hacıbəyli küçəsi 116b, Bakı" },
+  "map": { "query": "Dental Club, Ceyhunbəy Hacıbəyli 24, Bakı" },
+  "featuredReviews": {
+    "url": "https://www.google.com/maps/search/?api=1&query=Dental%20Club%2C%20Ceyhunb%C9%99y%20Hac%C4%B1b%C9%99yli%2024%2C%20Bak%C4%B1",
+    "items": [
+      {
+        "author": "Heydar I.",
+        "rating": 5,
+        "text": "The doctors are very polite. Prices are affordable. The main thing, they are using high tech while repairing teeth. Sterilization is in high level",
+        "date": { "az": "6 ay əvvəl", "ru": "6 месяцев назад", "en": "6 months ago" }
+      },
+      {
+        "author": "Sevda A.",
+        "rating": 5,
+        "text": "Very nice dental clinic with professional dentists. Teamwork approach especially Oral surgeon Dr Rovshan Mammadov.",
+        "date": { "az": "6 ay əvvəl", "ru": "6 месяцев назад", "en": "6 months ago" }
+      },
+      {
+        "author": "Philip R.",
+        "rating": 5,
+        "text": "I have had a phobia about dentists for a long time and it has not really ever been cured, until I went here. I am an expat teacher, living in Baku, I went to have a routine check-up with the possibility of more work to be done. …",
+        "date": { "az": "8 il əvvəl", "ru": "8 лет назад", "en": "8 years ago" }
+      }
+    ]
+  },
   "hours": {
     "mon": ["10:00", "18:00"],
     "tue": ["10:00", "18:00"],
@@ -67,7 +90,11 @@
     }
   ],
   "doctors": [
-    { "name": "[TO CONFIRM]", "role": { "az": "Stomatoloq", "ru": "Стоматолог", "en": "Dentist" }, "status": "placeholder" },
+    {
+      "name": "Dr. Rovshan Mammadov",
+      "role": { "az": "Cərrah-stomatoloq", "ru": "Хирург-стоматолог", "en": "Oral surgeon" },
+      "status": "verified-single"
+    },
     { "name": "[TO CONFIRM]", "role": { "az": "Stomatoloq", "ru": "Стоматолог", "en": "Dentist" }, "status": "placeholder" },
     { "name": "[TO CONFIRM]", "role": { "az": "Stomatoloq", "ru": "Стоматолог", "en": "Dentist" }, "status": "placeholder" }
   ],
@@ -127,9 +154,9 @@
     "platform": "Google",
     "value": "4.7",
     "kind": "stars",
-    "count": 29,
-    "asOf": "2026-09-29 (via azerbaijandentalrating.com)",
-    "source": "https://azerbaijandentalrating.com/clinics/dental-club-baku/"
+    "count": 31,
+    "asOf": "2026-10-21 (Google Maps listing)",
+    "source": "https://www.google.com/maps/search/?api=1&query=Dental%20Club%2C%20Ceyhunb%C9%99y%20Hac%C4%B1b%C9%99yli%2024%2C%20Bak%C4%B1"
   },
   "provenance": {
     "name": { "status": "verified", "sources": ["https://dentalclub.az/en/about", "https://2gis.az/baku/firm/70000001041082928"] },
@@ -140,7 +167,7 @@
         "https://kataloq.gomap.az/az/all-poi/medicine/polyclinic/ee9f1fce8f1c470a8a638a5e35a618d1",
         "https://dentalclub.az/az/contact"
       ],
-      "note": "2GIS: Ceyhunbəy Hacıbəyli 116b, 1st floor. Other listings give 24 or 114; the site's contact page reportedly shows 'Bakıxanov küç. 758/759'. Confirm."
+      "note": "Shown: Ceyhunbəy Hacıbəyli 24, as on the clinic's Google Maps listing (seen 2026-10-21) and some directories. 2GIS says 116b (1st floor), others 114; the site's contact page reportedly shows 'Bakıxanov küç. 758/759'. Confirm."
     },
     "district": { "status": "verified", "sources": ["https://2gis.az/baku/firm/70000001041082928"] },
     "phones": {
@@ -175,19 +202,29 @@
       "note": "An old FED.az article lists braces at 1800–4000 AZN; not shown because it is outdated."
     },
     "doctors": {
-      "status": "placeholder",
-      "sources": ["https://dentalclub.az/az/doctors"],
-      "note": "The site has a doctors page, but names were not visible in the search results."
+      "status": "verified-single",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Dental%20Club%2C%20Ceyhunb%C9%99y%20Hac%C4%B1b%C9%99yli%2024%2C%20Bak%C4%B1",
+        "https://dentalclub.az/az/doctors"
+      ],
+      "note": "Dr Rovshan Mammadov (oral surgeon) is named in a Google review from about 6 months ago; spelling as in the review. Other names not found; confirm on the call."
     },
     "rating": {
       "status": "verified",
-      "sources": ["https://azerbaijandentalrating.com/clinics/dental-club-baku/"],
-      "note": "Google 4.7 from 29 reviews as of 2026-09-29, reported by a third-party rating site (not read from Google directly)."
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Dental%20Club%2C%20Ceyhunb%C9%99y%20Hac%C4%B1b%C9%99yli%2024%2C%20Bak%C4%B1",
+        "https://azerbaijandentalrating.com/clinics/dental-club-baku/"
+      ],
+      "note": "Google 4.7 from 31 reviews on the clinic's Google Maps listing (seen 2026-10-21). A third-party site reported 4.7 from 29 on 2026-09-29."
     },
     "founded": { "status": "self-reported", "sources": ["https://dentalclub.az/en/about"], "note": "Since 2003, per the clinic's own website." },
     "map": { "status": "constructed", "sources": [], "note": "Google Maps search query built from the address; no verified Google Maps place link found." },
     "brandColor": { "status": "design", "sources": [], "note": "Neutral colour chosen by us; the clinic logo was not used." },
     "photos": { "status": "placeholder", "sources": [], "note": "Neutral illustrations only; no clinic photos or logos copied." },
-    "reviews": { "status": "placeholder", "sources": [], "note": "Clearly labelled sample reviews; no real names." }
+    "reviews": {
+      "status": "verified",
+      "sources": ["https://www.google.com/maps/search/?api=1&query=Dental%20Club%2C%20Ceyhunb%C9%99y%20Hac%C4%B1b%C9%99yli%2024%2C%20Bak%C4%B1"],
+      "note": "3 reviews copied word for word (original English) from the clinic's Google Maps listing on 2026-10-21; names shortened to first name + surname initial; '…' marks a review cut short. Relative dates as of that day. For the demo only; switch to the live Google feed or get the clinic's OK before going public."
+    }
   }
 }

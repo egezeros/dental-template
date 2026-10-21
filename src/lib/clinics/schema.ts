@@ -90,8 +90,8 @@ export const clinicSchema = z.object({
             author: z.string().min(1),
             rating: z.number().int().min(1).max(5),
             text: z.string().min(1),
-            /** As shown on Google, e.g. "2 ay əvvəl" / "a month ago". */
-            date: z.string().optional(),
+            /** As shown on Google when copied, e.g. { "az": "2 ay əvvəl", "ru": "2 месяца назад", "en": "2 months ago" }. */
+            date: localized.optional(),
           }),
         )
         .min(1)

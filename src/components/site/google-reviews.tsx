@@ -60,7 +60,7 @@ export function GoogleReviews({ data, t }: { data: GooglePlaceReviews; t: SiteDi
             <div className="mt-3">
               <Stars value={r.rating} />
             </div>
-            <p className="mt-2 line-clamp-6 text-sm leading-relaxed text-muted">{r.text}</p>
+            <p className="mt-2 line-clamp-8 text-sm leading-relaxed text-muted">{r.text}</p>
           </li>
         ))}
       </ul>

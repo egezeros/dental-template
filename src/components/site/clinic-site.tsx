@@ -78,7 +78,7 @@ export function ClinicSite({
               author: r.author,
               rating: r.rating,
               text: r.text,
-              relativeTime: r.date ?? "",
+              relativeTime: r.date ? L(r.date) : "",
             })),
           }
         : null;
