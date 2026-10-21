@@ -42,10 +42,10 @@
         "date": { "az": "6 ay əvvəl", "ru": "6 месяцев назад", "en": "6 months ago" }
       },
       {
-        "author": "Philip R.",
+        "author": "Shonna G.",
         "rating": 5,
-        "text": "I have had a phobia about dentists for a long time and it has not really ever been cured, until I went here. I am an expat teacher, living in Baku, I went to have a routine check-up with the possibility of more work to be done. …",
-        "date": { "az": "8 il əvvəl", "ru": "8 лет назад", "en": "8 years ago" }
+        "text": "They were incredible! I walked in without an appointment and they were so gracious and professional when working me into the schedule. The doctors were very polite and efficient. My teeth were sparkling by the time I left. The prices were much more affordable than what was available in the US. I highly recommend!",
+        "date": { "az": "3 il əvvəl", "ru": "3 года назад", "en": "3 years ago" }
       }
     ]
   },
@@ -224,7 +224,7 @@
     "reviews": {
       "status": "verified",
       "sources": ["https://www.google.com/maps/search/?api=1&query=Dental%20Club%2C%20Ceyhunb%C9%99y%20Hac%C4%B1b%C9%99yli%2024%2C%20Bak%C4%B1"],
-      "note": "3 reviews copied word for word (original English) from the clinic's Google Maps listing on 2026-10-21; names shortened to first name + surname initial; '…' marks a review cut short. Relative dates as of that day. For the demo only; switch to the live Google feed or get the clinic's OK before going public."
+      "note": "3 reviews copied word for word (original English) from the clinic's Google Maps listing on 2026-10-21; names shortened to first name + surname initial. Relative dates as of that day. For the demo only; switch to the live Google feed or get the clinic's OK before going public."
     }
   }
 }

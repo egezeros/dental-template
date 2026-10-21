@@ -26,6 +26,29 @@
   "instagram": "dentstar.az",
   "facebook": "https://www.facebook.com/p/Stomatoloq-Dent-Star-Stomatoloji-klinika-24-saat-Tel-994124338217-100063614921919/",
   "map": { "query": "Dent Star stomatoloji klinika, Zaur Kərimov küçəsi 424, Bakı" },
+  "featuredReviews": {
+    "url": "https://www.google.com/maps/search/?api=1&query=Dent%20Star%2C%20%C6%8Fs%C9%99d%20%C6%8Fhm%C9%99dov%2C%20Bak%C4%B1",
+    "items": [
+      {
+        "author": "Elmir",
+        "rating": 5,
+        "text": "Dr Məhəmməd Cabbarlı. Professional, Hörmətli və Yüksək səviyyə 👍🏻",
+        "date": { "az": "2 ay əvvəl", "ru": "2 месяца назад", "en": "2 months ago" }
+      },
+      {
+        "author": "Xatira A.",
+        "rating": 5,
+        "text": "hər şey üçün təşəkkür edirəm, çox razı qaldıq",
+        "date": { "az": "2 ay əvvəl", "ru": "2 месяца назад", "en": "2 months ago" }
+      },
+      {
+        "author": "Şefiqe A.",
+        "rating": 5,
+        "text": "Çox sağolsun Ülviyyə həkim.\nÇox razıyam 💯",
+        "date": { "az": "7 ay əvvəl", "ru": "7 месяцев назад", "en": "7 months ago" }
+      }
+    ]
+  },
   "hours": {
     "mon": ["00:00", "24:00"],
     "tue": ["00:00", "24:00"],
@@ -94,8 +117,8 @@
     }
   ],
   "doctors": [
-    { "name": "[TO CONFIRM]", "role": { "az": "Stomatoloq", "ru": "Стоматолог", "en": "Dentist" }, "status": "placeholder" },
-    { "name": "[TO CONFIRM]", "role": { "az": "Stomatoloq", "ru": "Стоматолог", "en": "Dentist" }, "status": "placeholder" },
+    { "name": "Dr. Məhəmməd Cabbarlı", "role": { "az": "Stomatoloq", "ru": "Стоматолог", "en": "Dentist" }, "status": "verified-single" },
+    { "name": "Dr. Ülviyyə [TO CONFIRM]", "role": { "az": "Stomatoloq", "ru": "Стоматолог", "en": "Dentist" }, "status": "verified-single" },
     { "name": "[TO CONFIRM]", "role": { "az": "Stomatoloq", "ru": "Стоматолог", "en": "Dentist" }, "status": "placeholder" }
   ],
   "whyUs": [
@@ -215,7 +238,11 @@
       ],
       "note": "Only free consultation is verified. A 2020 blog post lists X-ray prices (3D 60 AZN, 3D one jaw 40, panoramic 20, cephalometric 25); not shown because they are 6 years old."
     },
-    "doctors": { "status": "placeholder", "sources": [], "note": "No doctor names found." },
+    "doctors": {
+      "status": "verified-single",
+      "sources": ["https://www.google.com/maps/search/?api=1&query=Dent%20Star%2C%20%C6%8Fs%C9%99d%20%C6%8Fhm%C9%99dov%2C%20Bak%C4%B1"],
+      "note": "Named in Google reviews: 'Dr Məhəmməd Cabbarlı' (about 2 months ago) and 'Ülviyyə həkim' (about 7 months ago; surname unknown). Confirm on the call that both still work there."
+    },
     "rating": {
       "status": "verified",
       "sources": [
@@ -228,7 +255,11 @@
     "map": { "status": "constructed", "sources": [], "note": "Google Maps search query built from the address; no verified Google Maps place link found." },
     "brandColor": { "status": "design", "sources": [], "note": "Neutral colour chosen by us; the clinic logo was not used." },
     "photos": { "status": "placeholder", "sources": [], "note": "Neutral illustrations only; no clinic photos or logos copied." },
-    "reviews": { "status": "placeholder", "sources": [], "note": "Clearly labelled sample reviews; no real names." },
+    "reviews": {
+      "status": "verified",
+      "sources": ["https://www.google.com/maps/search/?api=1&query=Dent%20Star%2C%20%C6%8Fs%C9%99d%20%C6%8Fhm%C9%99dov%2C%20Bak%C4%B1"],
+      "note": "3 reviews copied word for word (original Azerbaijani, not Google's translation) from the clinic's Google Maps listing on 2026-10-21; names shortened to first name + surname initial. Relative dates as of that day. For the demo only; switch to the live Google feed or get the clinic's OK before going public."
+    },
     "founded": { "status": "self-reported", "sources": ["https://dentstaraz.wordpress.com/haqqimizda/"], "note": "Since 2013, per the clinic's own blog." }
   }
 }

@@ -41,6 +41,12 @@
         "rating": 5,
         "text": "This year, I visited Dr. Nadir for dental treatment based on a recommendation. He is an incredibly experienced doctor, and his extensive expertise is evident from the very beginning. …",
         "date": { "az": "1 ay əvvəl", "ru": "месяц назад", "en": "a month ago" }
+      },
+      {
+        "author": "Elshad V.",
+        "rating": 5,
+        "text": "Good place. Stay healthy.",
+        "date": { "az": "9 il əvvəl", "ru": "9 лет назад", "en": "9 years ago" }
       }
     ]
   },
@@ -207,7 +213,7 @@
     "reviews": {
       "status": "verified",
       "sources": ["https://www.google.com/maps/search/?api=1&query=White%20Esthetic%20Dental%2C%20Afiy%C9%99ddin%20C%C9%99lilov%2020%2C%20Bak%C4%B1"],
-      "note": "2 reviews copied word for word (original English) from the clinic's Google Maps listing on 2026-10-21; names shortened to first name + surname initial; '…' marks a review cut short. A third (by 'inivant') was only available as a Google translation and is not used. For the demo only; switch to the live Google feed or get the clinic's OK before going public."
+      "note": "3 reviews copied word for word (original English) from the clinic's Google Maps listing on 2026-10-21; names shortened to first name + surname initial; '…' marks a review cut short. Relative dates as of that day. For the demo only; switch to the live Google feed or get the clinic's OK before going public."
     }
   }
 }
