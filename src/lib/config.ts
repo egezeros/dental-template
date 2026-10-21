@@ -75,9 +75,23 @@ export function telegramConfig(slug: string): { token: string; chatId: string } 
  * (SUPABASE_URL / NEXT_PUBLIC_SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY / SUPABASE_SECRET_KEY).
  */
 export function supabaseConfig(): { url: string; key: string } | undefined {
-  const url = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SECRET_KEY;
+  const url = projectOrigin(process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL);
+  const key = (process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SECRET_KEY)?.trim();
   return url && key ? { url, key } : undefined;
+}
+
+/**
+ * Keep only "https://<ref>.supabase.co". A pasted "RESTful endpoint" (…/rest/v1/) would
+ * otherwise make every request go to /rest/v1/rest/v1/… ("Invalid path specified in request URL").
+ */
+function projectOrigin(raw: string | undefined): string | undefined {
+  const value = raw?.trim().replace(/^["']|["']$/g, "");
+  if (!value) return undefined;
+  try {
+    return new URL(value).origin;
+  } catch {
+    return value;
+  }
 }
 
 /** Direct Postgres URL (set by Vercel's Supabase integration); used only to create the table. */
