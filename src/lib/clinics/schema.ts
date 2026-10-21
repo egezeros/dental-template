@@ -75,6 +75,29 @@ export const clinicSchema = z.object({
    * looked up by map.query inside Baku; set placeId to pin the exact listing.
    */
   google: z.object({ placeId: z.string().min(1).optional(), enabled: z.boolean().optional() }).optional(),
+  /**
+   * Hand-picked reviews copied from the clinic's Google Maps listing, for demos before the
+   * live Google feed is switched on. Shown only when live Google reviews are unavailable.
+   * Use the reviewer's first name + initial, and record who copied them and when in provenance.reviews.
+   */
+  featuredReviews: z
+    .object({
+      /** Link to the clinic's listing, so visitors can read the originals. */
+      url: z.string().url().optional(),
+      items: z
+        .array(
+          z.object({
+            author: z.string().min(1),
+            rating: z.number().int().min(1).max(5),
+            text: z.string().min(1),
+            /** As shown on Google, e.g. "2 ay əvvəl" / "a month ago". */
+            date: z.string().optional(),
+          }),
+        )
+        .min(1)
+        .max(6),
+    })
+    .optional(),
   hours: z.union([
     z.literal(PLACEHOLDER),
     z.object({
