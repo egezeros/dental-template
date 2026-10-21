@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { getGoogleReviews } from "@/lib/google-reviews";
+import { diagnoseGoogleReviews, getGoogleReviews } from "@/lib/google-reviews";
 import { testClinic } from "./fixtures";
 
 const details = {
@@ -99,5 +99,65 @@ describe("getGoogleReviews", () => {
   it("can be switched off per clinic", async () => {
     const f = mockFetch({});
     expect(await getGoogleReviews(testClinic({ google: { enabled: false } }), "az", f)).toBeNull();
+  });
+
+  it("retries the search with just the clinic name when the full address finds nothing", async () => {
+    const queries: string[] = [];
+    const f = vi.fn(async (url: string, init?: RequestInit) => {
+      if (url.includes("places:searchText")) {
+        const q = JSON.parse(String(init?.body)).textQuery as string;
+        queries.push(q);
+        return Response.json(q === "Test Clinic Bakı" ? { places: [{ id: "ChIJ-test" }] } : {});
+      }
+      return Response.json(details);
+    });
+    const r = await getGoogleReviews(testClinic(), "az", f);
+    expect(queries).toEqual(["Test", "Test Clinic Bakı"]);
+    expect(r?.rating).toBe(4.7);
+  });
+});
+
+describe("diagnoseGoogleReviews", () => {
+  afterEach(() => {
+    delete process.env.GOOGLE_MAPS_API_KEY;
+  });
+
+  it("explains a missing key", async () => {
+    const d = await diagnoseGoogleReviews(testClinic(), mockFetch({}));
+    expect(d.status).toBe("error");
+    expect(d.explanation).toContain("GOOGLE_MAPS_API_KEY is not set");
+  });
+
+  it("turns Google's error into a plain-language fix, without the key", async () => {
+    process.env.GOOGLE_MAPS_API_KEY = "secret-key";
+    const f = mockFetch({
+      "places:searchText": () =>
+        Response.json(
+          { error: { code: 403, message: "Places API (New) has not been used in project 123 before or it is disabled.", status: "PERMISSION_DENIED" } },
+          { status: 403 },
+        ),
+    });
+    const d = await diagnoseGoogleReviews(testClinic(), f);
+    expect(d).toMatchObject({ status: "error", error: { step: "search", httpStatus: 403 } });
+    expect(d.explanation).toContain("Places API (New)");
+    expect(JSON.stringify(d)).not.toContain("secret-key");
+  });
+
+  it("reports not-found, no-reviews and ok", async () => {
+    process.env.GOOGLE_MAPS_API_KEY = "k";
+    const nothing = await diagnoseGoogleReviews(testClinic(), mockFetch({ "places:searchText": () => Response.json({}) }));
+    expect(nothing.status).toBe("not-found");
+
+    const noReviews = await diagnoseGoogleReviews(
+      testClinic({ google: { placeId: "p" } }),
+      mockFetch({ "places/p": () => Response.json({ id: "p", displayName: { text: "Test Clinic" }, rating: 5, userRatingCount: 1 }) }),
+    );
+    expect(noReviews).toMatchObject({ status: "no-reviews", googleName: "Test Clinic", ratingCount: 1, reviewsShown: 0 });
+
+    const ok = await diagnoseGoogleReviews(
+      testClinic({ google: { placeId: "p" } }),
+      mockFetch({ "places/p": () => Response.json({ ...details, id: "p" }) }),
+    );
+    expect(ok).toMatchObject({ status: "ok", placeId: "p", rating: 4.7, reviewsShown: 1 });
   });
 });

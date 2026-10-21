@@ -153,6 +153,10 @@ Google listing, add `"google": { "placeId": "ChIJ…" }` to the clinic file (fin
 `"google": { "enabled": false }` turns live reviews off for one clinic. Usage is tiny: 3 clinics ×
 3 languages, refreshed twice a day. Check Google's current pricing before you scale up.
 
+**Not showing up?** Open `/api/google-reviews` on your deployment. It tells you per clinic whether
+the key is set, which Google listing was matched, how many reviews it has, and, if Google refused,
+the exact reason with the fix. Outside demo mode, add `?secret=<CRON_SECRET>`.
+
 Don't copy reviews into the clinic files by hand. Google's terms only allow showing them through the API, with attribution.
 
 ### Reminders and WhatsApp
