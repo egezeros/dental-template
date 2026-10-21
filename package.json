@@ -9,7 +9,7 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "validate:clinics": "node --experimental-strip-types scripts/validate-clinics.ts"
+    "validate:clinics": "vitest run tests/clinics.test.ts"
   },
   "engines": {
     "node": ">=22.13"

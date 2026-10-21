@@ -145,16 +145,16 @@ export function ClinicSite({ clinic, locale }: { clinic: Clinic; locale: Locale 
               </div>
               <p className="mt-3 text-xs text-muted">{t.hero.note}</p>
               {clinic.rating && (
-                <p className="mt-6 inline-flex items-center gap-2 text-sm text-muted">
-                  <span className="flex text-amber-500">
-                    <StarIcon size={16} fill="currentColor" />
+                <p className="mt-6 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted">
+                  <StarIcon size={16} className="text-amber-500" fill="currentColor" />
+                  <span className="whitespace-nowrap">
+                    <span className="font-semibold text-ink">{clinic.rating.value}</span>
+                    {clinic.rating.kind === "recommend" ? ` ${t.reviews.recommend}` : ""}
                   </span>
-                  <span className="font-semibold text-ink">{clinic.rating.value}</span>
-                  {clinic.rating.kind === "recommend" ? t.reviews.recommend : ""}
-                  <span>·</span>
-                  {clinic.rating.platform}
-                  <span>·</span>
-                  {t.reviews.ratingsCount(clinic.rating.count)}
+                  <span aria-hidden="true">·</span>
+                  <span className="whitespace-nowrap">{clinic.rating.platform}</span>
+                  <span aria-hidden="true">·</span>
+                  <span className="whitespace-nowrap">{t.reviews.ratingsCount(clinic.rating.count)}</span>
                 </p>
               )}
             </div>
@@ -169,7 +169,7 @@ export function ClinicSite({ clinic, locale }: { clinic: Clinic; locale: Locale 
           <p className="mt-2 max-w-2xl text-sm text-muted">{t.services.subtitle}</p>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {clinic.services.map((s) => (
-              <li key={s.id} className="card flex flex-col justify-between gap-4 p-5">
+              <li key={s.id} className="card flex flex-col justify-between gap-3 p-4 md:p-5">
                 <div>
                   <h3 className="font-semibold">
                     {L(s.name)}
@@ -177,7 +177,7 @@ export function ClinicSite({ clinic, locale }: { clinic: Clinic; locale: Locale 
                   </h3>
                   {s.description && <p className="mt-1 text-sm text-muted">{L(s.description)}</p>}
                 </div>
-                <div className="flex items-center justify-between gap-3 border-t border-line pt-3">
+                <div className="flex items-center justify-between gap-3 border-t border-line pt-2.5">
                   <span className="text-sm font-semibold text-ink">
                     <Fill text={L(s.price)} />
                   </span>
@@ -222,15 +222,15 @@ export function ClinicSite({ clinic, locale }: { clinic: Clinic; locale: Locale 
             {t.doctors.title}
             <ConfirmBadge status={status("doctors")} />
           </h2>
-          <ul className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-3">
+          <ul className="mt-8 grid grid-cols-3 gap-2.5 md:gap-4">
             {clinic.doctors.map((d, i) => (
-              <li key={i} className="card p-3">
+              <li key={i} className="card p-2 md:p-3">
                 <AvatarPlaceholder label={t.photoPlaceholder} />
-                <div className="px-1 pt-3 pb-1">
-                  <p className="font-semibold">
+                <div className="px-0.5 pt-2.5 pb-1 md:px-1 md:pt-3">
+                  <p className="text-sm font-semibold md:text-base">
                     <Fill text={d.name} />
                   </p>
-                  <p className="text-sm text-muted">{L(d.role)}</p>
+                  <p className="text-xs text-muted md:text-sm">{L(d.role)}</p>
                 </div>
               </li>
             ))}
@@ -263,9 +263,9 @@ export function ClinicSite({ clinic, locale }: { clinic: Clinic; locale: Locale 
             <p className="mt-6 rounded-xl bg-amber-50 px-4 py-3 text-xs font-semibold text-amber-900 outline-1 outline-amber-300 outline-dashed">
               {t.reviews.sampleLabel}
             </p>
-            <ul className="mt-4 grid gap-4 md:grid-cols-3">
+            <ul className="-mx-4 mt-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:grid-cols-3 md:gap-4 md:overflow-visible md:px-0">
               {[1, 2, 3].map((n) => (
-                <li key={n} className="rounded-2xl bg-canvas p-5 ring-1 ring-line/70">
+                <li key={n} className="w-[82%] shrink-0 snap-start rounded-2xl bg-canvas p-5 ring-1 ring-line/70 md:w-auto">
                   <QuoteIcon size={22} className="text-brand/50" />
                   <p className="mt-3 text-sm leading-relaxed text-muted italic">{t.reviews.sampleText}</p>
                   <p className="mt-4 text-sm font-semibold">

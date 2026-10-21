@@ -54,7 +54,7 @@ export function AvatarPlaceholder({ label }: { label: string }) {
         <path d="M30 250c4-52 34-82 70-82s66 30 70 82Z" fill="var(--brand)" fillOpacity="0.2" />
         <path d="M84 176l16 22 16-22" stroke="#fff" strokeWidth="5" fill="none" strokeLinejoin="round" />
       </svg>
-      <span className="absolute inset-x-2 bottom-2 rounded-lg bg-white/90 px-2 py-1 text-center text-[10px] font-medium text-muted ring-1 ring-line">
+      <span className="absolute inset-x-1.5 bottom-1.5 rounded-md bg-white/90 px-1 py-0.5 text-center text-[9px] leading-tight font-medium text-muted ring-1 ring-line md:inset-x-2 md:bottom-2 md:px-2 md:py-1 md:text-[10px]">
         {label}
       </span>
     </div>

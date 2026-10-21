@@ -22,7 +22,7 @@ const NEEDS_CONFIRMATION: FactStatus[] = ["placeholder", "conflict", "outdated"]
 export function ConfirmBadge({ status }: { status: FactStatus | undefined }) {
   if (!status || !NEEDS_CONFIRMATION.includes(status)) return null;
   return (
-    <span className="to-confirm ml-1.5 align-middle" title={`Status: ${status}`}>
+    <span className="to-confirm ml-1.5 align-middle text-[10px]! md:text-[11px]!" title={`Status: ${status}`}>
       {PLACEHOLDER}
     </span>
   );

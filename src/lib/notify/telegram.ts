@@ -31,7 +31,7 @@ function record(entry: Omit<OutboxEntry, "id" | "at">): OutboxEntry {
 }
 
 export function escapeHtml(s: string): string {
-  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
 export type FetchLike = (url: string, init: RequestInit) => Promise<Response>;
