@@ -9,7 +9,8 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "validate:clinics": "vitest run tests/clinics.test.ts"
+    "validate:clinics": "vitest run tests/clinics.test.ts",
+    "report:fields": "node scripts/fields-report.mjs"
   },
   "engines": {
     "node": ">=22.13"

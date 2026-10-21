@@ -184,7 +184,7 @@
       "sources": ["https://azerbaijandentalrating.com/clinics/dental-club-baku/"],
       "note": "Google 4.7 from 29 reviews as of 2026-09-29, reported by a third-party rating site (not read from Google directly)."
     },
-    "founded": { "status": "self-reported", "sources": ["https://dentalclub.az/en/about"] },
+    "founded": { "status": "self-reported", "sources": ["https://dentalclub.az/en/about"], "note": "Since 2003, per the clinic's own website." },
     "map": { "status": "constructed", "sources": [], "note": "Google Maps search query built from the address; no verified Google Maps place link found." },
     "brandColor": { "status": "design", "sources": [], "note": "Neutral colour chosen by us; the clinic logo was not used." },
     "photos": { "status": "placeholder", "sources": [], "note": "Neutral illustrations only; no clinic photos or logos copied." },

@@ -227,6 +227,6 @@
     "brandColor": { "status": "design", "sources": [], "note": "Neutral colour chosen by us; the clinic logo was not used." },
     "photos": { "status": "placeholder", "sources": [], "note": "Neutral illustrations only; no clinic photos or logos copied." },
     "reviews": { "status": "placeholder", "sources": [], "note": "Clearly labelled sample reviews; no real names." },
-    "founded": { "status": "self-reported", "sources": ["https://dentstaraz.wordpress.com/haqqimizda/"] }
+    "founded": { "status": "self-reported", "sources": ["https://dentstaraz.wordpress.com/haqqimizda/"], "note": "Since 2013, per the clinic's own blog." }
   }
 }

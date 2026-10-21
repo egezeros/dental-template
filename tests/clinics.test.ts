@@ -1,5 +1,6 @@
+import fs from "node:fs";
 import { describe, expect, it } from "vitest";
-import { getClinics } from "@/lib/clinics/load";
+import { getClinics, parseClinic } from "@/lib/clinics/load";
 import { slotsForDate } from "@/lib/clinics/slots";
 import { buildDemoBookings } from "@/lib/storage/demo-seed";
 
@@ -24,5 +25,10 @@ describe("clinic files", () => {
     const seed = buildDemoBookings(c, new Date("2026-10-21T06:00:00Z"));
     expect(seed.length).toBeGreaterThan(5);
     for (const b of seed) expect(slotsForDate(c, b.date)).toContain(b.time);
+  });
+
+  it("the starter file clinics/_template.json is valid once copied to <slug>.json", () => {
+    const raw = JSON.parse(fs.readFileSync("clinics/_template.json", "utf8"));
+    expect(() => parseClinic(raw, "your-clinic-slug.json")).not.toThrow();
   });
 });
