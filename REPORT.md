@@ -199,7 +199,9 @@ drift apart. Numbers in the last column link to sources.
   - Services and prices.
   - Why choose us, built only from verified facts or features of the site itself.
   - Doctors.
-  - Reviews: a clearly labelled **sample-reviews placeholder**; no names, no stars.
+  - Reviews: the clinic's **live Google rating and reviews** via the official Places API once
+    `GOOGLE_MAPS_API_KEY` is set (with Google's required attribution). Without the key, a clearly
+    labelled **sample-reviews placeholder** with no names and no stars.
   - Booking form.
   - Google Maps embed and directions.
   - Opening hours, with today highlighted.
@@ -280,6 +282,7 @@ Optional demo extras:
 | Persistent bookings on Vercel | Supabase project (`SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`) |
 | Fully automatic WhatsApp reminders | Meta Business verification, WhatsApp Business Platform number, approved template, `WHATSAPP_CLOUD_TOKEN`, `WHATSAPP_PHONE_NUMBER_ID` |
 | Production security | `DEMO_MODE=false`, `ADMIN_PASSWORD_<SLUG>`, `CRON_SECRET` |
+| Live Google rating + reviews | Google Cloud project with billing, Places API (New) enabled, `GOOGLE_MAPS_API_KEY` |
 
 ### How it was verified
 

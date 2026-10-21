@@ -55,6 +55,9 @@ const site = {
       ratingsCount: (n: number) => `${n} qiymətləndirmə`,
       source: "Mənbə",
       recommend: "tövsiyə edir",
+      googleCount: (n: number) => `Google-da ${n} rəy`,
+      allOnGoogle: "Bütün rəylər Google Maps-də",
+      fromGoogle: "Google Maps-dən rəylər",
     },
     booking: {
       title: "Onlayn qəbula yazılma",
@@ -148,6 +151,9 @@ const site = {
       ratingsCount: (n: number) => `оценок: ${n}`,
       source: "Источник",
       recommend: "рекомендуют",
+      googleCount: (n: number) => `отзывов в Google: ${n}`,
+      allOnGoogle: "Все отзывы в Google Maps",
+      fromGoogle: "Отзывы из Google Maps",
     },
     booking: {
       title: "Онлайн-запись на приём",
@@ -239,6 +245,9 @@ const site = {
       ratingsCount: (n: number) => `${n} ratings`,
       source: "Source",
       recommend: "recommend",
+      googleCount: (n: number) => `${n} Google reviews`,
+      allOnGoogle: "All reviews on Google Maps",
+      fromGoogle: "Reviews from Google Maps",
     },
     booking: {
       title: "Book an appointment online",

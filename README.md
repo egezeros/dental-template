@@ -106,6 +106,7 @@ Copy `.env.example` to `.env.local` and fill in what you need. Everything is opt
 | `TELEGRAM_CHAT_ID`, `TELEGRAM_CHAT_ID_<SLUG>` | Staff chat (global default or per clinic). |
 | `STAFF_LOCALE` | Language of Telegram messages: `az` (default), `ru`, `en`. |
 | `CRON_SECRET` | Protects `/api/cron/reminders`; required when `DEMO_MODE=false`. |
+| `GOOGLE_MAPS_API_KEY` | Shows each clinic's live Google rating and reviews (Places API). Without it, labelled sample reviews are shown. |
 | `MESSAGING_PROVIDER` | `wa-link` (default) or `whatsapp-cloud`. |
 | `WHATSAPP_CLOUD_TOKEN`, `WHATSAPP_PHONE_NUMBER_ID`, `WHATSAPP_TEMPLATE_NAME`, `WHATSAPP_API_VERSION` | WhatsApp Business Platform (Cloud API). |
 
@@ -129,6 +130,30 @@ Copy `.env.example` to `.env.local` and fill in what you need. Everything is opt
 3. Set `TELEGRAM_CHAT_ID_<SLUG>` per clinic (or `TELEGRAM_CHAT_ID` for one shared chat).
 
 Without a token, messages are logged and shown in the dashboard's **Notification log** as "simulated".
+
+### Google reviews (live)
+
+With `GOOGLE_MAPS_API_KEY` set, each clinic page shows the clinic's **real Google rating and up to
+5 reviews**, pulled from the official **Google Places API (New)**. Reviews appear in Google's
+"most relevant" order, in the reviewer's own words, with the reviewer's name, photo and link, and
+a "Reviews from Google Maps" link, as Google's display policy requires. Pages refresh every
+12 hours. If the key is missing, or the clinic has no Google reviews, the labelled sample block is shown instead.
+
+Setup (about 5 minutes):
+
+1. In [Google Cloud Console](https://console.cloud.google.com/), create a project and attach a billing
+   account. Google requires billing for the Places API, even within its free monthly usage.
+2. **APIs & Services → Library →** enable **Places API (New)**.
+3. **APIs & Services → Credentials → Create credentials → API key.** Restrict it to *Places API (New)*.
+4. In Vercel, add `GOOGLE_MAPS_API_KEY=<key>` and **redeploy**.
+
+Each clinic is found automatically by its `map.query`, searched only inside Baku. To pin the exact
+Google listing, add `"google": { "placeId": "ChIJ…" }` to the clinic file (find the ID with Google's
+[Place ID Finder](https://developers.google.com/maps/documentation/places/web-service/place-id)).
+`"google": { "enabled": false }` turns live reviews off for one clinic. Usage is tiny: 3 clinics ×
+3 languages, refreshed twice a day. Check Google's current pricing before you scale up.
+
+Don't copy reviews into the clinic files by hand. Google's terms only allow showing them through the API, with attribution.
 
 ### Reminders and WhatsApp
 
