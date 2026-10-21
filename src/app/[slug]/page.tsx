@@ -3,10 +3,13 @@ import { notFound } from "next/navigation";
 import { ClinicSite } from "@/components/site/clinic-site";
 import { clinicSlugs, getClinic } from "@/lib/clinics/load";
 import { clinicMetadata } from "@/lib/clinics/metadata";
+import { getGoogleReviews } from "@/lib/google-reviews";
 
 type Props = { params: Promise<{ slug: string }> };
 
 export const dynamicParams = false;
+// Re-render at most every 12 hours so live Google reviews stay fresh.
+export const revalidate = 43200;
 
 export function generateStaticParams() {
   return clinicSlugs().map((slug) => ({ slug }));
@@ -21,5 +24,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ClinicPage({ params }: Props) {
   const clinic = getClinic((await params).slug);
   if (!clinic) notFound();
-  return <ClinicSite clinic={clinic} locale="az" />;
+  return <ClinicSite clinic={clinic} locale="az" google={await getGoogleReviews(clinic, "az")} />;
 }

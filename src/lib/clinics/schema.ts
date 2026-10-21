@@ -70,6 +70,11 @@ export const clinicSchema = z.object({
     /** Free-text query used for the Google Maps embed and directions link. */
     query: z.string().min(1),
   }),
+  /**
+   * Live Google reviews (needs GOOGLE_MAPS_API_KEY). Without placeId the place is
+   * looked up by map.query inside Baku; set placeId to pin the exact listing.
+   */
+  google: z.object({ placeId: z.string().min(1).optional(), enabled: z.boolean().optional() }).optional(),
   hours: z.union([
     z.literal(PLACEHOLDER),
     z.object({

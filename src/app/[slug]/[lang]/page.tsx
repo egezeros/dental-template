@@ -3,6 +3,7 @@ import { notFound, permanentRedirect } from "next/navigation";
 import { ClinicSite } from "@/components/site/clinic-site";
 import { clinicSlugs, getClinic } from "@/lib/clinics/load";
 import { clinicMetadata } from "@/lib/clinics/metadata";
+import { getGoogleReviews } from "@/lib/google-reviews";
 import type { Locale } from "@/lib/i18n";
 
 type Props = { params: Promise<{ slug: string; lang: string }> };
@@ -11,6 +12,8 @@ type Props = { params: Promise<{ slug: string; lang: string }> };
 const EXTRA_LOCALES: Locale[] = ["ru", "en"];
 
 export const dynamicParams = false;
+// Re-render at most every 12 hours so live Google reviews stay fresh.
+export const revalidate = 43200;
 
 export function generateStaticParams() {
   // "az" is generated too, only to redirect /<slug>/az → /<slug>.
@@ -28,5 +31,5 @@ export default async function ClinicLocalePage({ params }: Props) {
   const clinic = getClinic(slug);
   if (clinic && lang === "az") permanentRedirect(`/${slug}`);
   if (!clinic || !EXTRA_LOCALES.includes(lang as Locale)) notFound();
-  return <ClinicSite clinic={clinic} locale={lang as Locale} />;
+  return <ClinicSite clinic={clinic} locale={lang as Locale} google={await getGoogleReviews(clinic, lang as Locale)} />;
 }

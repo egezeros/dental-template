@@ -18,10 +18,12 @@ import {
 import { isPlaceholder, PLACEHOLDER, type Clinic } from "@/lib/clinics/schema";
 import { slotsByWeekday } from "@/lib/clinics/slots";
 import { agencyName, demoWhatsAppOverride, isDemoMode } from "@/lib/config";
+import type { GooglePlaceReviews } from "@/lib/google-reviews";
 import { LOCALE_LABELS, LOCALES, siteDict, tr, WEEKDAYS, type Locale } from "@/lib/i18n";
 import { BookingForm, type BookingFormText } from "./booking-form";
 import { ConfirmBadge, Fill } from "./fill";
 import { FloatingActions, ServiceBookLink } from "./floating-actions";
+import { GoogleReviews } from "./google-reviews";
 import { HoursTable } from "./hours-table";
 import { AvatarPlaceholder, PlaceholderImage } from "./placeholder-art";
 
@@ -29,7 +31,16 @@ export function clinicHref(slug: string, locale: Locale): string {
   return locale === "az" ? `/${slug}` : `/${slug}/${locale}`;
 }
 
-export function ClinicSite({ clinic, locale }: { clinic: Clinic; locale: Locale }) {
+export function ClinicSite({
+  clinic,
+  locale,
+  google = null,
+}: {
+  clinic: Clinic;
+  locale: Locale;
+  /** Live Google rating + reviews, when GOOGLE_MAPS_API_KEY is configured. */
+  google?: GooglePlaceReviews | null;
+}) {
   const t = siteDict(locale);
   const demo = isDemoMode();
   const L = (v: Parameters<typeof tr>[0]) => tr(v, locale);
@@ -43,6 +54,19 @@ export function ClinicSite({ clinic, locale }: { clinic: Clinic; locale: Locale 
   const primaryTel = clinic.phones.find((p) => p.tel)?.tel ?? null;
   const mapEmbed = `https://www.google.com/maps?q=${encodeURIComponent(clinic.map.query)}&hl=${locale}&z=16&output=embed`;
   const directions = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(clinic.map.query)}`;
+
+  // A live Google rating beats the researched snapshot in the clinic file.
+  const rating =
+    google?.rating && google.count
+      ? {
+          value: google.rating.toFixed(1),
+          kind: "stars" as const,
+          platform: "Google",
+          count: google.count,
+          source: google.mapsUri ?? directions,
+        }
+      : clinic.rating;
+  const hasGoogleReviews = Boolean(google && google.reviews.length > 0);
 
   const formText: BookingFormText = { ...t.booking, consent: t.booking.consent(clinic.name) };
   const hoursRows = WEEKDAYS.map((d) => {
@@ -144,17 +168,17 @@ export function ClinicSite({ clinic, locale }: { clinic: Clinic; locale: Locale 
                 )}
               </div>
               <p className="mt-3 text-xs text-muted">{t.hero.note}</p>
-              {clinic.rating && (
+              {rating && (
                 <p className="mt-6 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted">
                   <StarIcon size={16} className="text-amber-500" fill="currentColor" />
                   <span className="whitespace-nowrap">
-                    <span className="font-semibold text-ink">{clinic.rating.value}</span>
-                    {clinic.rating.kind === "recommend" ? ` ${t.reviews.recommend}` : ""}
+                    <span className="font-semibold text-ink">{rating.value}</span>
+                    {rating.kind === "recommend" ? ` ${t.reviews.recommend}` : ""}
                   </span>
                   <span aria-hidden="true">·</span>
-                  <span className="whitespace-nowrap">{clinic.rating.platform}</span>
+                  <span className="whitespace-nowrap">{rating.platform}</span>
                   <span aria-hidden="true">·</span>
-                  <span className="whitespace-nowrap">{t.reviews.ratingsCount(clinic.rating.count)}</span>
+                  <span className="whitespace-nowrap">{t.reviews.ratingsCount(rating.count)}</span>
                 </p>
               )}
             </div>
@@ -237,21 +261,21 @@ export function ClinicSite({ clinic, locale }: { clinic: Clinic; locale: Locale 
           </ul>
         </section>
 
-        {/* Reviews (sample placeholders, never attributed to real people) */}
+        {/* Reviews: live from Google when configured, otherwise labelled samples (never attributed to real people) */}
         <section id="reviews" className="bg-white py-14 md:py-20">
           <div className="mx-auto max-w-6xl px-4">
             <p className="eyebrow">{t.nav.reviews}</p>
             <h2 className="section-title mt-2">{t.reviews.title}</h2>
-            {clinic.rating && (
+            {rating && (
               <div className="mt-6 inline-flex flex-wrap items-center gap-x-3 gap-y-1 rounded-2xl bg-canvas px-4 py-3 ring-1 ring-line">
                 <StarIcon size={20} className="text-amber-500" fill="currentColor" />
-                <span className="text-2xl font-semibold">{clinic.rating.value}</span>
+                <span className="text-2xl font-semibold">{rating.value}</span>
                 <span className="text-sm text-muted">
-                  {clinic.rating.kind === "recommend" ? `${t.reviews.recommend} · ` : ""}
-                  {t.reviews.ratingOn(clinic.rating.platform)} · {t.reviews.ratingsCount(clinic.rating.count)}
+                  {rating.kind === "recommend" ? `${t.reviews.recommend} · ` : ""}
+                  {t.reviews.ratingOn(rating.platform)} · {t.reviews.ratingsCount(rating.count)}
                 </span>
                 <a
-                  href={clinic.rating.source}
+                  href={rating.source}
                   target="_blank"
                   rel="noopener noreferrer nofollow"
                   className="inline-flex items-center gap-1 text-xs font-medium text-brand hover:underline"
@@ -260,20 +284,26 @@ export function ClinicSite({ clinic, locale }: { clinic: Clinic; locale: Locale 
                 </a>
               </div>
             )}
-            <p className="mt-6 rounded-xl bg-amber-50 px-4 py-3 text-xs font-semibold text-amber-900 outline-1 outline-amber-300 outline-dashed">
-              {t.reviews.sampleLabel}
-            </p>
-            <ul className="-mx-4 mt-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:grid-cols-3 md:gap-4 md:overflow-visible md:px-0">
-              {[1, 2, 3].map((n) => (
-                <li key={n} className="w-[82%] shrink-0 snap-start rounded-2xl bg-canvas p-5 ring-1 ring-line/70 md:w-auto">
-                  <QuoteIcon size={22} className="text-brand/50" />
-                  <p className="mt-3 text-sm leading-relaxed text-muted italic">{t.reviews.sampleText}</p>
-                  <p className="mt-4 text-sm font-semibold">
-                    {t.reviews.sampleAuthor} #{n}
-                  </p>
-                </li>
-              ))}
-            </ul>
+            {hasGoogleReviews ? (
+              <GoogleReviews data={google!} t={t.reviews} />
+            ) : (
+              <>
+                <p className="mt-6 rounded-xl bg-amber-50 px-4 py-3 text-xs font-semibold text-amber-900 outline-1 outline-amber-300 outline-dashed">
+                  {t.reviews.sampleLabel}
+                </p>
+                <ul className="-mx-4 mt-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:grid-cols-3 md:gap-4 md:overflow-visible md:px-0">
+                  {[1, 2, 3].map((n) => (
+                    <li key={n} className="w-[82%] shrink-0 snap-start rounded-2xl bg-canvas p-5 ring-1 ring-line/70 md:w-auto">
+                      <QuoteIcon size={22} className="text-brand/50" />
+                      <p className="mt-3 text-sm leading-relaxed text-muted italic">{t.reviews.sampleText}</p>
+                      <p className="mt-4 text-sm font-semibold">
+                        {t.reviews.sampleAuthor} #{n}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
           </div>
         </section>
 
