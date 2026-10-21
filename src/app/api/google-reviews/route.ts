@@ -1,6 +1,6 @@
 import { getClinic, getClinics } from "@/lib/clinics/load";
 import { cronSecret, isDemoMode } from "@/lib/config";
-import { diagnoseGoogleReviews } from "@/lib/google-reviews";
+import { describeApiKey, diagnoseGoogleReviews } from "@/lib/google-reviews";
 
 export const dynamic = "force-dynamic";
 
@@ -22,6 +22,7 @@ export async function GET(request: Request) {
   const results = await Promise.all(clinics.map((c) => diagnoseGoogleReviews(c)));
   const body = {
     keyConfigured: Boolean(process.env.GOOGLE_MAPS_API_KEY),
+    keyCheck: describeApiKey(),
     note: "Clinic pages are built at deploy time and refresh every 12 hours: after changing the key or clinic files, redeploy.",
     results,
   };

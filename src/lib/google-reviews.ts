@@ -42,7 +42,22 @@ const BAKU_RECTANGLE = {
 };
 
 function apiKey(): string | undefined {
-  return process.env.GOOGLE_MAPS_API_KEY || undefined;
+  // Forgive copy-paste slips in the Vercel dashboard: surrounding spaces, line breaks or quotes.
+  const key = process.env.GOOGLE_MAPS_API_KEY?.trim().replace(/^["']+|["']+$/g, "").trim();
+  return key || undefined;
+}
+
+/**
+ * Describes the configured key without revealing it. Google API keys are
+ * 39 characters long and start with "AIza".
+ */
+export function describeApiKey(): string {
+  const key = apiKey();
+  if (!key) return "not set";
+  if (key.startsWith("AIza") && key.length === 39 && /^[\w-]+$/.test(key)) {
+    return "set, and it looks like a Google API key (39 characters, starts with AIza)";
+  }
+  return `set, but it does NOT look like a Google API key: expected 39 characters starting with "AIza", got ${key.length} characters${key.startsWith("AIza") ? " starting with AIza" : " not starting with AIza"}${/\s/.test(key) ? " and containing spaces" : ""}`;
 }
 
 /** A failed Google call, with the step and Google's own error message (never the key). */
