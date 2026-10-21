@@ -70,10 +70,24 @@ export function telegramConfig(slug: string): { token: string; chatId: string } 
   return token && chatId ? { token, chatId } : undefined;
 }
 
+/**
+ * Accepts both hand-set variables and the ones Vercel's Supabase integration injects
+ * (SUPABASE_URL / NEXT_PUBLIC_SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY / SUPABASE_SECRET_KEY).
+ */
 export function supabaseConfig(): { url: string; key: string } | undefined {
-  const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const url = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SECRET_KEY;
   return url && key ? { url, key } : undefined;
+}
+
+/** Direct Postgres URL (set by Vercel's Supabase integration); used only to create the table. */
+export function postgresUrl(): string | undefined {
+  return process.env.POSTGRES_URL || process.env.POSTGRES_URL_NON_POOLING || undefined;
+}
+
+/** Fictional demo patients are seeded in demo mode unless DEMO_SEED=false. */
+export function demoSeedEnabled(): boolean {
+  return isDemoMode() && flag("DEMO_SEED", true);
 }
 
 export type StorageDriver = "supabase" | "sqlite" | "memory";

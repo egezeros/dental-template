@@ -354,6 +354,9 @@ const admin = {
       failed: "Xəta",
     },
     storage: "Yaddaş",
+    memoryWarning:
+      "Verilənlər bazası qoşulmayıb: saytdan gələn müraciətlər burada görünməyəcək. Vercel-də Storage bölməsindən Supabase qoşun (README-yə baxın).",
+    storageError: "Verilənlər bazası ilə əlaqə alınmadı:",
     demoData: "Demo məlumatlar — saxta pasiyentlər",
   },
   ru: {
@@ -393,6 +396,9 @@ const admin = {
       failed: "Ошибка",
     },
     storage: "Хранилище",
+    memoryWarning:
+      "База данных не подключена: заявки с сайта здесь не появятся. Подключите Supabase в разделе Storage на Vercel (см. README).",
+    storageError: "Не удалось подключиться к базе данных:",
     demoData: "Демо-данные — вымышленные пациенты",
   },
   en: {
@@ -432,6 +438,9 @@ const admin = {
       failed: "Failed",
     },
     storage: "Storage",
+    memoryWarning:
+      "No database connected: bookings made on the website won't show up here. Connect Supabase from Vercel's Storage tab (see README).",
+    storageError: "Could not reach the database:",
     demoData: "Demo data — fictional patients",
   },
 };

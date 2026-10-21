@@ -1,5 +1,6 @@
-import { isDemoMode, sqlitePath, storageDriver, supabaseConfig } from "../config";
-import { getClinics } from "../clinics/load";
+import type { Clinic } from "../clinics/schema";
+import { demoSeedEnabled, sqlitePath, storageDriver, supabaseConfig } from "../config";
+import { bakuDate } from "../time";
 import { buildDemoBookings } from "./demo-seed";
 import { MemoryBookingStore } from "./memory";
 import type { BookingStore } from "./types";
@@ -28,29 +29,23 @@ async function createStore(): Promise<BookingStore> {
   return new MemoryBookingStore();
 }
 
-/**
- * In demo mode, give every clinic a realistic set of fictional bookings the first time
- * its data is touched, so the dashboard and reminders have something to show.
- * Supabase is never seeded automatically (set DEMO_SEED_SUPABASE=true to opt in).
- */
-async function seedIfNeeded(store: BookingStore): Promise<void> {
-  if (!isDemoMode()) return;
-  if (store.driver === "supabase" && process.env.DEMO_SEED_SUPABASE !== "true") return;
-  g.__seeded ??= new Set();
-  for (const clinic of getClinics()) {
-    if (g.__seeded.has(clinic.slug)) continue;
-    g.__seeded.add(clinic.slug);
-    if ((await store.count(clinic.slug)) > 0) continue;
-    for (const b of buildDemoBookings(clinic)) await store.create(b);
-  }
+export async function getStore(): Promise<BookingStore> {
+  g.__bookingStore ??= createStore();
+  return g.__bookingStore;
 }
 
-export async function getStore(): Promise<BookingStore> {
-  g.__bookingStore ??= createStore().then(async (store) => {
-    await seedIfNeeded(store);
-    return store;
-  });
-  return g.__bookingStore;
+/**
+ * Demo mode: make sure the clinic has today's set of fictional patients, so the dashboard,
+ * stats and "tomorrow's reminders" always look alive. Refreshed once per day; idempotent
+ * across server instances (deterministic IDs); real bookings are never touched.
+ */
+export async function ensureDemoData(store: BookingStore, clinic: Clinic, now: Date = new Date()): Promise<void> {
+  if (!demoSeedEnabled()) return;
+  const key = `${clinic.slug}:${bakuDate(now)}`;
+  g.__seeded ??= new Set();
+  if (g.__seeded.has(key)) return;
+  await store.replaceDemoBookings(clinic.slug, buildDemoBookings(clinic, now));
+  g.__seeded.add(key);
 }
 
 /** For tests: inject a store. */

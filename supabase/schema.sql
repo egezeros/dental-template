@@ -1,7 +1,8 @@
 -- Bookings table for the dental template.
 -- Run once in the Supabase SQL editor (Project → SQL → New query).
 
-create extension if not exists "pgcrypto";
+-- gen_random_uuid() is built into Postgres 13+ (Supabase runs 15+), no extension needed.
+-- Safe to re-run. The app also creates this table automatically when POSTGRES_URL is set.
 
 create table if not exists public.bookings (
   id               uuid primary key default gen_random_uuid(),

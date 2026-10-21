@@ -114,13 +114,30 @@ Copy `.env.example` to `.env.local` and fill in what you need. Everything is opt
 
 ### Storage
 
-- **memory**: zero setup; data lives as long as the server process. On Vercel each serverless
-  instance has its own memory, so a booking can occasionally be missing from the dashboard. Fine
-  for a quick demo; use Supabase for anything you rely on.
+> **On Vercel you need Supabase.** Vercel runs the booking endpoint and the admin page as
+> separate serverless functions with separate memory, so without a database, bookings made on the
+> site never reach the dashboard. The dashboard shows a red warning when that's the case.
+
+- **memory**: zero setup, for `npm run dev` on one machine. Not for Vercel (see above).
 - **sqlite**: persistent locally (`node:sqlite`, no native build). Not for Vercel (ephemeral disk).
-- **supabase**: production. Run [`supabase/schema.sql`](supabase/schema.sql) once in the
-  Supabase SQL editor, then set `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY`. Row Level
-  Security is on with no public policies, so only the server can read bookings.
+- **supabase**: production, and any Vercel demo. Row Level Security is on with no public
+  policies, so only the server can read bookings.
+
+**Connect Supabase on Vercel (about 3 minutes):**
+
+1. Vercel → your project → **Storage** → **Create Database** → **Supabase** → follow the steps
+   (free plan is fine; pick a region near Baku, e.g. Frankfurt) → connect it to this project.
+   This adds `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` and `POSTGRES_URL` automatically.
+2. **Redeploy.** On first use the app creates the `bookings` table by itself using `POSTGRES_URL`.
+   If the dashboard says the table is missing, open Supabase → **SQL Editor**, paste
+   [`supabase/schema.sql`](supabase/schema.sql) and click **Run**.
+
+Using your own Supabase project instead: set `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY`
+(or `SUPABASE_SECRET_KEY`) yourself and run `supabase/schema.sql` once.
+
+In demo mode the dashboard adds a fresh set of fictional patients (marked "(demo)") every day,
+with fixed IDs so several server instances never duplicate them; real bookings are never
+touched. Set `DEMO_SEED=false` to turn that off.
 
 ### Telegram notifications
 
