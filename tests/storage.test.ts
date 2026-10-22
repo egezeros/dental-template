@@ -1,3 +1,6 @@
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
 import { beforeEach, describe, expect, it } from "vitest";
 import { ensureDemoData, setStoreForTesting } from "@/lib/storage";
 import { buildDemoBookings, demoBookingId } from "@/lib/storage/demo-seed";
@@ -63,6 +66,53 @@ describe.each([
   });
 });
 
+describe.each([
+  ["memory", async () => new MemoryBookingStore() as BookingStore],
+  ["sqlite", async () => (await SqliteBookingStore.open(":memory:")) as BookingStore],
+])("%s store: niche details and follow-ups", (_name, make) => {
+  it("round-trips extra booking fields and merges follow-up markers", async () => {
+    const store = await make();
+    const b = await store.create({ ...webBooking, details: { petName: "Bella", species: "cat" } });
+    const plain = await store.create(webBooking);
+    await store.markFollowUpSent("test-clinic", [{ id: b.id, key: "vaccination-annual" }], "2026-10-21T06:00:00.000Z");
+    await store.markFollowUpSent("test-clinic", [{ id: b.id, key: "checkup-annual" }], "2026-10-22T06:00:00.000Z");
+    await store.markFollowUpSent("other-clinic", [{ id: plain.id, key: "x" }], "2026-10-22T06:00:00.000Z");
+    const rows = await store.list("test-clinic");
+    const saved = rows.find((r) => r.id === b.id)!;
+    expect(saved.details).toEqual({ petName: "Bella", species: "cat" });
+    expect(saved.followUps).toEqual({
+      "vaccination-annual": "2026-10-21T06:00:00.000Z",
+      "checkup-annual": "2026-10-22T06:00:00.000Z",
+    });
+    const other = rows.find((r) => r.id === plain.id)!;
+    expect(other.details).toBeUndefined();
+    expect(other.followUps).toBeUndefined();
+  });
+});
+
+describe("SQLite upgrade", () => {
+  it("adds the new columns to a database file created by the dental-only version", async () => {
+    const file = path.join(os.tmpdir(), `bookings-upgrade-${process.pid}-${Date.now()}.db`);
+    try {
+      const { DatabaseSync } = await import("node:sqlite");
+      const old = new DatabaseSync(file);
+      old.exec(`CREATE TABLE bookings (id TEXT PRIMARY KEY, clinic_slug TEXT NOT NULL, name TEXT NOT NULL, phone TEXT NOT NULL,
+        service_id TEXT NOT NULL, service_name TEXT NOT NULL, date TEXT NOT NULL, time TEXT NOT NULL, locale TEXT NOT NULL,
+        status TEXT NOT NULL DEFAULT 'new', consent_at TEXT NOT NULL, created_at TEXT NOT NULL, updated_at TEXT NOT NULL,
+        reminder_sent_at TEXT, source TEXT NOT NULL DEFAULT 'web')`);
+      old.exec(`INSERT INTO bookings VALUES ('old-1', 'test-clinic', 'Old Patient', '+994501234567', 'consultation', 'K',
+        '2026-10-23', '10:00', 'az', 'new', 'x', 'x', 'x', NULL, 'web')`);
+      old.close();
+      const store = await SqliteBookingStore.open(file);
+      await store.markFollowUpSent("test-clinic", [{ id: "old-1", key: "checkup-6m" }], "2026-10-21T06:00:00.000Z");
+      const [row] = await store.list("test-clinic");
+      expect(row).toMatchObject({ id: "old-1", name: "Old Patient", followUps: { "checkup-6m": "2026-10-21T06:00:00.000Z" } });
+    } finally {
+      fs.rmSync(file, { force: true });
+    }
+  });
+});
+
 describe("ensureDemoData", () => {
   beforeEach(() => setStoreForTesting(undefined));
 
@@ -101,6 +151,19 @@ describe("Supabase store", () => {
       postgrest(404, { code: "PGRST205", message: "Could not find the table 'public.bookings' in the schema cache" }),
     );
     await expect(store.list("test-clinic")).rejects.toThrow(/does not exist yet.*SQL Editor.*schema\.sql/);
+  });
+
+  it("explains how to upgrade a table created before the multi-niche columns", async () => {
+    delete process.env.POSTGRES_URL;
+    delete process.env.POSTGRES_URL_NON_POOLING;
+    const store = new SupabaseBookingStore(
+      "https://example.supabase.co",
+      "service-key",
+      postgrest(400, { code: "42703", message: "column bookings.followups does not exist" }),
+    );
+    await expect(store.markFollowUpSent("test-clinic", [{ id: "a", key: "k" }], "now")).rejects.toThrow(
+      /older version.*details.*followups.*schema\.sql again/,
+    );
   });
 
   it("passes other errors through unchanged", async () => {

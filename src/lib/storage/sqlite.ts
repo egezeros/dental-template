@@ -4,7 +4,7 @@ import path from "node:path";
 import type { DatabaseSync } from "node:sqlite";
 import type { Booking, BookingStatus, DemoBooking, NewBooking } from "../booking/types";
 import { fromRow, toRow, type BookingRow } from "./rows";
-import { type BookingStore, type ListOptions } from "./types";
+import { type BookingStore, type FollowUpMark, type ListOptions } from "./types";
 
 const SCHEMA = `
 CREATE TABLE IF NOT EXISTS bookings (
@@ -22,10 +22,18 @@ CREATE TABLE IF NOT EXISTS bookings (
   created_at TEXT NOT NULL,
   updated_at TEXT NOT NULL,
   reminder_sent_at TEXT,
-  source TEXT NOT NULL DEFAULT 'web'
+  source TEXT NOT NULL DEFAULT 'web',
+  details TEXT,
+  followups TEXT
 );
 CREATE INDEX IF NOT EXISTS bookings_clinic_date ON bookings (clinic_slug, date);
 `;
+
+/** Columns added after the first release; ALTERed into older database files on open. */
+const ADDED_COLUMNS = ["details", "followups"];
+
+const json = (v: Record<string, string> | undefined): string | null =>
+  v && Object.keys(v).length > 0 ? JSON.stringify(v) : null;
 
 /**
  * SQLite store using Node's built-in `node:sqlite` (Node 22.13+, no native build step).
@@ -36,6 +44,8 @@ export class SqliteBookingStore implements BookingStore {
 
   private constructor(private db: DatabaseSync) {
     db.exec(SCHEMA);
+    const existing = new Set((db.prepare(`PRAGMA table_info(bookings)`).all() as unknown as { name: string }[]).map((c) => c.name));
+    for (const col of ADDED_COLUMNS) if (!existing.has(col)) db.exec(`ALTER TABLE bookings ADD COLUMN ${col} TEXT`);
   }
 
   static async open(file: string): Promise<SqliteBookingStore> {
@@ -58,12 +68,12 @@ export class SqliteBookingStore implements BookingStore {
     this.db
       .prepare(
         `INSERT INTO bookings (id, clinic_slug, name, phone, service_id, service_name, date, time, locale, status,
-          consent_at, created_at, updated_at, reminder_sent_at, source)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          consent_at, created_at, updated_at, reminder_sent_at, source, details)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       )
       .run(
         r.id, r.clinic_slug, r.name, r.phone, r.service_id, r.service_name, r.date, r.time, r.locale, r.status,
-        r.consent_at, r.created_at, r.updated_at, r.reminder_sent_at, r.source,
+        r.consent_at, r.created_at, r.updated_at, r.reminder_sent_at, r.source, json(booking.details),
       );
     return booking;
   }
@@ -95,6 +105,17 @@ export class SqliteBookingStore implements BookingStore {
     for (const id of ids) stmt.run(at, id, clinicSlug);
   }
 
+  async markFollowUpSent(clinicSlug: string, items: FollowUpMark[], at: string): Promise<void> {
+    const get = this.db.prepare(`SELECT followups FROM bookings WHERE id = ? AND clinic_slug = ?`);
+    const set = this.db.prepare(`UPDATE bookings SET followups = ? WHERE id = ? AND clinic_slug = ?`);
+    for (const { id, key } of items) {
+      const row = get.get(id, clinicSlug) as unknown as { followups: string | null } | undefined;
+      if (!row) continue;
+      const merged = { ...(row.followups ? (JSON.parse(row.followups) as Record<string, string>) : {}), [key]: at };
+      set.run(JSON.stringify(merged), id, clinicSlug);
+    }
+  }
+
   async replaceDemoBookings(clinicSlug: string, rows: DemoBooking[]): Promise<void> {
     const keep = new Set(rows.map((r) => r.id));
     const existing = this.db
@@ -105,13 +126,13 @@ export class SqliteBookingStore implements BookingStore {
     const now = new Date().toISOString();
     const insert = this.db.prepare(
       `INSERT OR IGNORE INTO bookings (id, clinic_slug, name, phone, service_id, service_name, date, time, locale, status,
-        consent_at, created_at, updated_at, reminder_sent_at, source)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, 'demo')`,
+        consent_at, created_at, updated_at, reminder_sent_at, source, details)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, 'demo', ?)`,
     );
     for (const r of rows) {
       insert.run(
         r.id, r.clinicSlug, r.name, r.phone, r.serviceId, r.serviceName, r.date, r.time, r.locale, r.status ?? "new",
-        r.consentAt, r.createdAt ?? now, now,
+        r.consentAt, r.createdAt ?? now, now, json(r.details),
       );
     }
   }

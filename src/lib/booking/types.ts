@@ -28,9 +28,16 @@ export interface Booking {
   reminderSentAt: string | null;
   /** "demo" for seeded mock rows, "web" for real form submissions. */
   source: "web" | "demo";
+  /**
+   * Extra booking fields defined by the niche (e.g. petName, species, specialist): short,
+   * validated values only, never free-text notes. Absent for niches without extra fields.
+   */
+  details?: Record<string, string>;
+  /** Follow-up rules already sent for this visit: rule id → ISO time sent. */
+  followUps?: Record<string, string>;
 }
 
-export type NewBooking = Omit<Booking, "id" | "status" | "createdAt" | "updatedAt" | "reminderSentAt"> & {
+export type NewBooking = Omit<Booking, "id" | "status" | "createdAt" | "updatedAt" | "reminderSentAt" | "followUps"> & {
   status?: BookingStatus;
   createdAt?: string;
 };

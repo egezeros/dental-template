@@ -17,6 +17,15 @@ export interface BookingRow {
   updated_at: string;
   reminder_sent_at: string | null;
   source: string;
+  /** JSON object; SQLite stores it as TEXT, Postgres as jsonb. Missing on pre-niche tables. */
+  details?: Record<string, string> | string | null;
+  followups?: Record<string, string> | string | null;
+}
+
+function parseJson(v: Record<string, string> | string | null | undefined): Record<string, string> | undefined {
+  if (v === null || v === undefined || v === "") return undefined;
+  const obj = typeof v === "string" ? (JSON.parse(v) as Record<string, string>) : v;
+  return Object.keys(obj).length > 0 ? obj : undefined;
 }
 
 export function toRow(b: Booking): BookingRow {
@@ -36,11 +45,13 @@ export function toRow(b: Booking): BookingRow {
     updated_at: b.updatedAt,
     reminder_sent_at: b.reminderSentAt,
     source: b.source,
+    details: b.details ?? null,
+    followups: b.followUps ?? null,
   };
 }
 
 export function fromRow(r: BookingRow): Booking {
-  return {
+  const booking: Booking = {
     id: r.id,
     clinicSlug: r.clinic_slug,
     name: r.name,
@@ -57,4 +68,9 @@ export function fromRow(r: BookingRow): Booking {
     reminderSentAt: r.reminder_sent_at,
     source: r.source as Booking["source"],
   };
+  const details = parseJson(r.details);
+  const followUps = parseJson(r.followups);
+  if (details) booking.details = details;
+  if (followUps) booking.followUps = followUps;
+  return booking;
 }

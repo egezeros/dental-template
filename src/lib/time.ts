@@ -71,3 +71,8 @@ export function formatDate(date: string, intlLocale: string): string {
     timeZone: "UTC",
   }).format(new Date(`${date}T12:00:00Z`));
 }
+
+/** Whole days from `from` to `to` (both YYYY-MM-DD); negative when `to` is earlier. */
+export function daysBetween(from: string, to: string): number {
+  return Math.round((Date.parse(`${to}T12:00:00Z`) - Date.parse(`${from}T12:00:00Z`)) / 86_400_000);
+}

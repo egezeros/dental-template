@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { ICON_NAMES, SECTION_IDS } from "../niches/schema";
 
 /** Marker used for every piece of information that still has to be confirmed with the clinic. */
 export const PLACEHOLDER = "[TO CONFIRM]";
@@ -43,24 +44,27 @@ export type Provenance = z.infer<typeof provenance>;
 /** [open, close], null = closed, or the placeholder when the source does not say. */
 const dayHours = z.union([z.tuple([time, time]), z.null(), z.literal("[TO CONFIRM]")]);
 
+const phone = z.object({
+  display: z.string().min(1),
+  /** E.164 without spaces, e.g. +994124338217. Empty string when unknown. */
+  tel: z.string().regex(/^(\+\d{8,15})?$/),
+});
+
 export const clinicSchema = z.object({
   slug: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, "lowercase kebab-case"),
+  /** Which niches/<id>.json drives this site (sections, booking fields, copy, follow-ups). */
+  niche: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/),
   name: z.string().min(1),
-  brandColor: hex,
+  /** Optional: falls back to the niche's default brand colour. */
+  brandColor: hex.optional(),
+  /** Optional: reorder or trim the niche's section list for this business. */
+  sections: z.array(z.enum(SECTION_IDS)).optional(),
   tagline: localized,
   intro: localized,
   address: localized,
   district: localized,
   metro: localized.optional(),
-  phones: z
-    .array(
-      z.object({
-        display: z.string().min(1),
-        /** E.164 without spaces, e.g. +994124338217. Empty string when unknown. */
-        tel: z.string().regex(/^(\+\d{8,15})?$/),
-      }),
-    )
-    .min(1),
+  phones: z.array(phone).min(1),
   /** Digits only (international format, no +), or the placeholder marker. */
   whatsapp: z.string().regex(/^(\d{8,15}|\[TO CONFIRM\])$/),
   instagram: z.string().optional(),
@@ -123,20 +127,59 @@ export const clinicSchema = z.object({
         description: localized.optional(),
         price: localized,
         status: factStatus.default("verified"),
+        /** Required when the niche defines service categories (e.g. laser / injectables). */
+        category: z.string().optional(),
+        /**
+         * Treatment course used by "course" follow-up rules: sessions in total and days between
+         * sessions. Operational settings for reminders, not shown on the public page.
+         */
+        course: z
+          .object({ sessions: z.number().int().min(2).max(30), intervalDays: z.number().int().min(7).max(365) })
+          .optional(),
       }),
     )
     .min(1),
+  /** Treatment courses / packages (aesthetic niche). */
+  packages: z
+    .array(
+      z.object({
+        id: z.string().regex(/^[a-z0-9-]+$/),
+        name: localized,
+        description: localized.optional(),
+        sessions: z.number().int().min(1).max(50).optional(),
+        price: localized,
+        /** Pre-selects this service in the booking form. */
+        serviceId: z.string().optional(),
+        status: factStatus.default("verified"),
+      }),
+    )
+    .optional(),
+  /** Emergency contact block (vet niche). Falls back to the main phones. */
+  emergency: z
+    .object({
+      phones: z.array(phone).optional(),
+      /** e.g. after-hours availability; "[TO CONFIRM]" when unknown. */
+      note: localized.optional(),
+    })
+    .optional(),
+  /** Ids from the niche's audience options (e.g. pet types treated). */
+  audience: z.array(z.string()).optional(),
+  /** Business-specific FAQ; otherwise the niche's generic FAQ is shown. */
+  faq: z.array(z.object({ q: localized, a: localized })).optional(),
+  /** Before/after gallery: number of placeholder pairs to show (never real photos without consent). */
+  gallery: z.object({ count: z.number().int().min(1).max(9) }).optional(),
   doctors: z.array(
     z.object({
       name: z.string().min(1),
       role: localized,
+      specialties: localized.optional(),
       status: factStatus.default("placeholder"),
     }),
   ),
   whyUs: z
     .array(
       z.object({
-        icon: z.enum(["clock", "calendar", "shield", "map", "spark", "chat", "tooth", "star", "scan"]),
+        icon: z.enum(ICON_NAMES),
         title: localized,
         text: localized,
         status: factStatus.default("verified"),
@@ -158,7 +201,9 @@ export const clinicSchema = z.object({
   provenance: z.record(z.string(), provenance),
 });
 
-export type Clinic = z.infer<typeof clinicSchema>;
+type ParsedClinic = z.infer<typeof clinicSchema>;
+/** A validated business file, with niche defaults (brand colour) resolved by the loader. */
+export type Clinic = Omit<ParsedClinic, "brandColor"> & { brandColor: string };
 export type ClinicService = Clinic["services"][number];
 export type OpeningHours = Exclude<Clinic["hours"], typeof PLACEHOLDER>;
 

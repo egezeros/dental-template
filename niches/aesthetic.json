@@ -1,0 +1,124 @@
+{
+  "id": "aesthetic",
+  "label": { "az": "Estetik klinika", "ru": "Эстетическая клиника", "en": "Aesthetic clinic" },
+  "theme": {
+    "preset": "luxe",
+    "brandColor": "#94604f",
+    "icon": "sparkle",
+    "heroArt": "beauty",
+    "emoji": "✨"
+  },
+  "sections": ["hero", "services", "packages", "doctors", "gallery", "why", "reviews", "faq", "booking", "location"],
+  "nav": ["services", "packages", "doctors", "gallery", "faq"],
+  "services": {
+    "categories": [
+      { "id": "laser", "label": { "az": "Lazer prosedurları", "ru": "Лазерные процедуры", "en": "Laser" }, "icon": "laser" },
+      { "id": "injectables", "label": { "az": "İnyeksion prosedurlar", "ru": "Инъекционные процедуры", "en": "Injectables" }, "icon": "syringe" },
+      { "id": "facial", "label": { "az": "Üz baxımı", "ru": "Уход за лицом", "en": "Facial" }, "icon": "drop" },
+      { "id": "body", "label": { "az": "Bədən prosedurları", "ru": "Процедуры для тела", "en": "Body" }, "icon": "leaf" },
+      { "id": "other", "label": { "az": "Digər", "ru": "Другое", "en": "Other" }, "icon": "sparkle" }
+    ]
+  },
+  "booking": {
+    "fields": [
+      { "id": "name", "type": "name" },
+      { "id": "phone", "type": "phone" },
+      { "id": "serviceId", "type": "service" },
+      {
+        "id": "specialist",
+        "type": "specialist",
+        "required": false,
+        "label": { "az": "Mütəxəssis", "ru": "Специалист", "en": "Specialist" }
+      },
+      { "id": "date", "type": "date" },
+      { "id": "time", "type": "time" },
+      { "id": "consent", "type": "consent" }
+    ]
+  },
+  "copy": {
+    "nav.services": { "az": "Prosedurlar", "ru": "Процедуры", "en": "Treatments" },
+    "nav.doctors": { "az": "Mütəxəssislər", "ru": "Специалисты", "en": "Specialists" },
+    "services.title": { "az": "Prosedurlar və qiymətlər", "ru": "Процедуры и цены", "en": "Treatments & prices" },
+    "services.subtitle": {
+      "az": "Qiymətlər təxminidir. Prosedur planı mütəxəssislə konsultasiyadan sonra fərdi müəyyən edilir; nəticələr hər kəsdə fərqli olur.",
+      "ru": "Цены ориентировочные. План процедур составляется индивидуально после консультации специалиста; результаты у всех разные.",
+      "en": "Prices are indicative. Your treatment plan is set individually after a consultation with a specialist; results differ from person to person."
+    },
+    "doctors.title": { "az": "Mütəxəssislərimiz", "ru": "Наши специалисты", "en": "Our specialists" },
+    "doctors.subtitle": { "az": "Komanda", "ru": "Команда", "en": "The team" },
+    "reviews.title": { "az": "Müştəri rəyləri", "ru": "Отзывы клиентов", "en": "Client reviews" },
+    "reviews.sampleLabel": {
+      "az": "NÜMUNƏ RƏYLƏR — yer tutucu. Real rəylər müştərilərin razılığı ilə əlavə olunacaq.",
+      "ru": "ПРИМЕРЫ ОТЗЫВОВ — заглушка. Настоящие отзывы будут добавлены с согласия клиентов.",
+      "en": "SAMPLE REVIEWS — placeholder. Real reviews will be added with clients' consent."
+    },
+    "reviews.sampleText": {
+      "az": "Bu, nümunə rəy mətnidir. Burada müştərinin razılığı ilə dərc olunan real rəy göstəriləcək.",
+      "ru": "Это пример текста отзыва. Здесь появится настоящий отзыв, опубликованный с согласия клиента.",
+      "en": "This is sample review text. A real review, published with the client's consent, will appear here."
+    },
+    "reviews.sampleAuthor": { "az": "Nümunə müştəri", "ru": "Пример клиента", "en": "Sample client" },
+    "booking.service": { "az": "Prosedur", "ru": "Процедура", "en": "Treatment" },
+    "booking.selectService": { "az": "Proseduru seçin", "ru": "Выберите процедуру", "en": "Choose a treatment" },
+    "booking.noHealthInfo": {
+      "az": "Zəhmət olmasa, sağlamlığınız və ya əks-göstərişlər barədə heç nə yazmayın — mütəxəssis bunu konsultasiyada soruşacaq.",
+      "ru": "Пожалуйста, не указывайте сведения о здоровье или противопоказаниях — специалист уточнит это на консультации.",
+      "en": "Please don't include any health details or contraindications — the specialist will ask about these at your consultation."
+    },
+    "booking.errors.service": { "az": "Proseduru seçin", "ru": "Выберите процедуру", "en": "Please choose a treatment" }
+  },
+  "adminCopy": {
+    "table.patient": { "az": "Müştəri", "ru": "Клиент", "en": "Client" },
+    "demoData": { "az": "Demo məlumatlar — saxta müştərilər", "ru": "Демо-данные — вымышленные клиенты", "en": "Demo data — fictional clients" }
+  },
+  "faq": [
+    {
+      "q": { "az": "Prosedurdan əvvəl konsultasiya lazımdır?", "ru": "Нужна ли консультация перед процедурой?", "en": "Do I need a consultation first?" },
+      "a": {
+        "az": "Bəli. İlk görüşdə mütəxəssis gözləntilərinizi dinləyir, uyğun variantları izah edir və fərdi plan təklif edir. Dəqiq qiymət də konsultasiyadan sonra bəlli olur.",
+        "ru": "Да. На первой встрече специалист выслушает ваши пожелания, объяснит подходящие варианты и предложит индивидуальный план. Точная стоимость тоже определяется после консультации.",
+        "en": "Yes. At the first visit a specialist listens to what you'd like, explains the suitable options and suggests an individual plan. The exact price is also set after the consultation."
+      }
+    },
+    {
+      "q": { "az": "Neçə seans lazım olacaq?", "ru": "Сколько понадобится сеансов?", "en": "How many sessions will I need?" },
+      "a": {
+        "az": "Bu, prosedurdan və fərdi xüsusiyyətlərdən asılıdır. Kurs prosedurlarında seansların sayı və aralığı konsultasiyada müəyyən edilir; nəticələr hər kəsdə fərqli olur.",
+        "ru": "Это зависит от процедуры и индивидуальных особенностей. Для курсовых процедур количество сеансов и интервал определяются на консультации; результаты у всех разные.",
+        "en": "It depends on the treatment and on you. For course treatments, the number of sessions and the interval are agreed at the consultation; results differ from person to person."
+      }
+    },
+    {
+      "q": { "az": "Növbəti seansı unutmayacağam?", "ru": "Я не забуду про следующий сеанс?", "en": "Will I get a reminder for my next session?" },
+      "a": {
+        "az": "Kurs prosedurlarında növbəti seansın vaxtı yaxınlaşanda sizə WhatsApp-da xatırlatma göndəririk.",
+        "ru": "Для курсовых процедур мы напомним вам о следующем сеансе в WhatsApp, когда подойдёт время.",
+        "en": "Yes — for course treatments we send you a WhatsApp reminder when your next session is coming up."
+      }
+    },
+    {
+      "q": { "az": "Qəbulu necə dəyişə və ya ləğv edə bilərəm?", "ru": "Как перенести или отменить запись?", "en": "How do I change or cancel a booking?" },
+      "a": {
+        "az": "Bizə zəng edin və ya WhatsApp-da yazın — administrator sizə yeni vaxt təklif edəcək.",
+        "ru": "Позвоните нам или напишите в WhatsApp — администратор предложит новое время.",
+        "en": "Call us or message us on WhatsApp — the administrator will offer you a new time."
+      }
+    }
+  ],
+  "reminders": {
+    "followUps": [
+      {
+        "id": "next-session",
+        "type": "course",
+        "label": { "az": "Kursun növbəti seansı", "ru": "Следующий сеанс курса", "en": "Next session of a course" },
+        "leadDays": 3,
+        "per": "patient",
+        "message": {
+          "az": "Salam, {firstName}! {clinic}: {service} kursunuzun növbəti ({session}/{sessions}) seansının vaxtı yaxınlaşır — təxminən {dueDate}. Uyğun vaxtı seçmək üçün bu mesaja cavab yazın və ya zəng edin: {phone}.",
+          "ru": "Здравствуйте, {firstName}! {clinic}: приближается следующий ({session}/{sessions}) сеанс вашего курса «{service}» — примерно {dueDate}. Чтобы выбрать удобное время, ответьте на это сообщение или позвоните: {phone}.",
+          "en": "Hello {firstName}! {clinic}: the next session ({session}/{sessions}) of your {service} course is coming up — around {dueDate}. Reply to this message or call {phone} to pick a time."
+        }
+      }
+    ]
+  }
+}

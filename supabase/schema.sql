@@ -1,4 +1,4 @@
--- Bookings table for the dental template.
+-- Bookings table for the clinic template (all niches).
 -- Run once in the Supabase SQL editor (Project → SQL → New query).
 
 -- gen_random_uuid() is built into Postgres 13+ (Supabase runs 15+), no extension needed.
@@ -19,8 +19,17 @@ create table if not exists public.bookings (
   created_at       timestamptz not null default now(),
   updated_at       timestamptz not null default now(),
   reminder_sent_at timestamptz,
-  source           text        not null default 'web' check (source in ('web', 'demo'))
+  source           text        not null default 'web' check (source in ('web', 'demo')),
+  -- Short, validated extra booking fields defined by the niche (e.g. pet name, species,
+  -- preferred specialist). Never free-text notes; null for niches without extra fields.
+  details          jsonb,
+  -- Follow-up reminders already sent for this visit: { "<rule id>": "<sent at>" }.
+  followups        jsonb
 );
+
+-- Tables created before the multi-niche release: add the new columns (no-op when present).
+alter table public.bookings add column if not exists details jsonb;
+alter table public.bookings add column if not exists followups jsonb;
 
 create index if not exists bookings_clinic_date on public.bookings (clinic_slug, date);
 

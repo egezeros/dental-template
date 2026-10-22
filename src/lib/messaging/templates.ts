@@ -1,18 +1,49 @@
 import type { Booking } from "../booking/types";
 import type { Clinic } from "../clinics/schema";
 import { INTL_LOCALE, tr, type Locale } from "../i18n";
+import { getNiche } from "../niches/load";
 import { formatDate } from "../time";
+
+/** First name for a friendly greeting; demo rows carry a "(demo)" suffix that is dropped. */
+export function firstNameOf(name: string): string {
+  return name.replace(/\s*\((demo|демо)\)\s*$/i, "").split(" ")[0];
+}
+
+/** Used when a template mentions {petName} but the booking has none. */
+const PET_FALLBACK: Record<Locale, string> = { az: "ev heyvanınız", ru: "вашего питомца", en: "your pet" };
+
+/** Replace {placeholders} in a niche message template. Unknown placeholders become empty. */
+export function fillTemplate(template: string, vars: Record<string, string | number | undefined>): string {
+  return template.replace(/\{(\w+)\}/g, (_m, key: string) => String(vars[key] ?? "")).replace(/ {2,}/g, " ");
+}
+
+export function petNameOf(details: Booking["details"], locale: Locale): string {
+  return details?.petName || PET_FALLBACK[locale];
+}
 
 /**
  * Patient reminder text. Azerbaijani by default, Russian for patients who booked
- * in Russian, English for English bookings.
+ * in Russian, English for English bookings. A niche may supply its own template.
  */
 export function reminderText(booking: Booking, clinic: Clinic): string {
   const locale: Locale = booking.locale;
   const date = formatDate(booking.date, INTL_LOCALE[locale]);
-  const firstName = booking.name.replace(/\s*\((demo|демо)\)\s*$/i, "").split(" ")[0];
+  const firstName = firstNameOf(booking.name);
   const address = tr(clinic.address, locale);
   const phone = clinic.phones[0]?.display ?? "";
+  const template = getNiche(clinic.niche).reminders.appointment.message?.[locale];
+  if (template) {
+    return fillTemplate(template, {
+      firstName,
+      clinic: clinic.name,
+      date,
+      time: booking.time,
+      service: booking.serviceName,
+      address,
+      phone,
+      petName: petNameOf(booking.details, locale),
+    });
+  }
   switch (locale) {
     case "ru":
       return (
