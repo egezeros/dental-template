@@ -1,8 +1,11 @@
-# Dental clinic website template (Baku)
+# Clinic website template (Baku): dental, aesthetic, vet
 
-One reusable Next.js template that turns a single JSON file into a complete, mobile-first clinic
-website with online booking, a staff dashboard, Telegram notifications and WhatsApp reminders.
-It currently holds three **unsolicited sales demos** for Baku clinics (see [REPORT.md](REPORT.md)).
+One reusable Next.js template that turns a JSON file into a complete, mobile-first clinic website
+with online booking, a staff dashboard, Telegram notifications, WhatsApp reminders and rule-based
+repeat-visit follow-ups. Each **niche** (dental, aesthetic, vet, …) is a config file; each
+**business** is another. It currently holds nine **unsolicited sales demos** for Baku businesses:
+three dental clinics ([REPORT.md](REPORT.md)), three aesthetic clinics and three vet clinics
+([REPORT-niches.md](REPORT-niches.md)).
 
 | Route | What it is |
 |---|---|
@@ -10,10 +13,14 @@ It currently holds three **unsolicited sales demos** for Baku clinics (see [REPO
 | `/<slug>/ru`, `/<slug>/en` | Russian and English versions (switcher in the header) |
 | `/<slug>/admin` | Staff dashboard (password protected) |
 | `/api/clinics/<slug>/bookings` | `POST` booking endpoint used by the form |
-| `/api/cron/reminders` | Daily reminder job (Vercel Cron) |
+| `/api/cron/reminders` | Daily job (Vercel Cron): tomorrow's reminders + due follow-ups |
 | `/` | List of demo sites (demo mode only; hide with `HIDE_DEMO_INDEX=true`) |
 
-Demo clinics: `/dent-star`, `/white-estetic-dental`, `/dental-club`.
+Demo sites:
+
+- Dental: `/dent-star`, `/white-estetic-dental`, `/dental-club`
+- Aesthetic: `/ahu-estetik-klinika`, `/aspera`, `/miss-laser`
+- Vet: `/bona-vet-clinic`, `/myvet`, `/tarvet`
 
 ---
 
@@ -32,10 +39,10 @@ storage, simulates Telegram and WhatsApp, and the admin password is `demo`.
 Other scripts:
 
 ```bash
-npm test                 # Vitest: booking creation, reminder selection, adapters, clinic files
+npm test                 # Vitest: booking, reminders, follow-up rules, niches, adapters, business files
 npm run typecheck        # tsc --noEmit
 npm run build && npm start
-npm run validate:clinics # validate clinics/*.json only
+npm run validate:clinics # validate niches/*.json and clinics/*.json
 npm run report:fields    # print the VERIFIED / PLACEHOLDER table for every clinic
 ```
 
@@ -49,40 +56,91 @@ npm run report:fields    # print the VERIFIED / PLACEHOLDER table for every clin
 3. Optional: set `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` (see below) to get the
    "new booking" notification live on your phone during the pitch.
 4. Walk through it: book on `/<slug>`, then open `/<slug>/admin` (password `demo`), confirm
-   the booking, tap **Run reminder job now**, then tap a WhatsApp reminder link.
+   the booking, tap **Run reminder job now**, then tap a WhatsApp reminder link. Further down,
+   **Upcoming follow-ups** shows who is due back (6-month check-up, next laser session, annual
+   vaccination…). Tap **WhatsApp** for a ready message, or **Send due follow-ups now** for the
+   staff Telegram digest.
 
 ---
 
-## Add a clinic
+## How niches work
 
-Adding a clinic means adding one JSON file. Nothing else changes.
+A **niche** is one file, `niches/<id>.json`, validated by `src/lib/niches/schema.ts`. It picks from
+fixed libraries, so a new niche needs no code:
 
-1. Copy `clinics/_template.json` to `clinics/<slug>.json` (lowercase kebab-case, e.g. `smile-baku`).
-   Files starting with `_` are ignored.
-2. Set `"slug"` to the same value as the file name.
+| Key | What it controls |
+|---|---|
+| `theme` | `preset` (`clinical`, `luxe`, `warm`: colours and type in `globals.css`), default `brandColor`, header `icon`, hero illustration (`heroArt`: `dental`, `beauty`, `pet`), `emergencyInHeader`, Telegram `emoji` |
+| `sections` | Page sections in order, from: `hero`, `emergency`, `services`, `packages`, `audience`, `doctors`, `gallery`, `why`, `reviews`, `faq`, `booking`, `location`. A section with no data in the business file is skipped. |
+| `nav` | Sections linked in the header |
+| `services.categories` | Optional groups (e.g. laser / injectables / facial / body). When set, every service must name one, and the page groups by them. |
+| `audience.options` | Options for the `audience` section, e.g. pet types with icons |
+| `booking.fields` | Form fields in order. Core fields appear once with fixed ids (`name`, `phone`, `serviceId`, `date`, `time`, `consent`). Extras: `text` (max 40 characters, e.g. pet name), `select` (fixed options, e.g. species), `specialist` (the business's confirmed specialists). There is no free-text notes field by design. |
+| `copy`, `adminCopy` | Wording and tone: dotted keys into the dictionaries in `src/lib/i18n.ts`, e.g. `"booking.service": { "az": "Prosedur", … }`. Only existing plain-text keys can be overridden; a typo fails validation. |
+| `faq` | Generic FAQ used when a business has none of its own |
+| `reminders.appointment.message` | Optional day-before reminder template (`{firstName} {clinic} {date} {time} {service} {address} {phone} {petName}`) |
+| `reminders.followUps` | Repeat-visit rules (below) |
+| `demo.values` | Values for fictional demo data, e.g. pet names |
+
+Follow-up rule types:
+
+- `interval`: due `afterDays` after the last attended matching visit, e.g. the dental 6-month
+  check-up (`afterDays: 182`) or the vet annual vaccination (`match.categories: ["vaccination"]`, `afterDays: 365`).
+- `course`: the next session of a treatment course. The number of sessions and the days between
+  them come from each service's `course` in the business file, so laser can be every 6 weeks
+  and another treatment every 4.
+
+Every rule has `match` (`services` and/or `categories`; empty = any visit), `leadDays` (how early
+staff are prompted), `stopAfterDays` (when to stop listing an unanswered one), `per` (`patient` =
+phone number, `pet` = phone + pet name) and a `message` in AZ/RU/EN with placeholders
+`{firstName} {clinic} {service} {petName} {dueDate} {session} {sessions} {phone}`.
+
+### Add a niche
+
+1. Copy `niches/_template.json` to `niches/<id>.json` (kebab-case, e.g. `physio`), set `"id"` to the
+   same value, and edit it. Start from `dental.json`, `aesthetic.json` or `vet.json` if one is close.
+2. Run `npm run validate:clinics`. Errors name the exact key (an unknown category in a rule, a
+   missing core field, a copy key that doesn't exist, …).
+3. Add businesses for it (below). That's all. A new section type, icon, field type or theme preset
+   would be a code change; the libraries are in `src/lib/niches/schema.ts`.
+
+## Add a business
+
+1. Copy the starter for its niche to `clinics/<slug>.json`: `clinics/_template.json` (dental),
+   `_template-aesthetic.json` or `_template-vet.json`. Files starting with `_` are ignored.
+2. Set `"slug"` to the file name and `"niche"` to the niche id.
 3. Fill in the content. Every text field is either one string (same in all languages) or
    `{ "az": "…", "ru": "…", "en": "…" }`. Anything unknown stays `"[TO CONFIRM]"`; the site
    highlights it in amber so nobody mistakes it for a fact.
 4. Record where each fact came from in `"provenance"` (`status` + `sources` URLs + `note`).
    The status vocabulary is defined in `src/lib/clinics/schema.ts`: `verified`,
    `verified-single`, `self-reported`, `conflict`, `outdated`, `constructed`, `design`, `placeholder`.
-5. Run `npm run validate:clinics`. It reports any missing or invalid field with its path.
+5. Run `npm run validate:clinics`. It reports any missing or invalid field with its path, and checks
+   the file against its niche (categories, pet types, package links).
 
 Key fields:
 
 | Field | Notes |
 |---|---|
-| `brandColor` | `#rrggbb`; drives buttons, accents and placeholder art |
+| `niche` | Which `niches/<id>.json` drives the site |
+| `brandColor` | `#rrggbb`; optional (falls back to the niche colour); drives buttons, accents and placeholder art |
+| `sections` | Optional: reorder or trim the niche's section list for this business |
 | `phones[]` | `display` as printed, `tel` in E.164 (`+994124338217`) for click-to-call |
 | `whatsapp` | Digits only (`994513028237`) or `"[TO CONFIRM]"`; the button then explains the number is pending |
 | `hours` | `mon`…`sun`: `["09:00","21:00"]`, `null` (closed) or `"[TO CONFIRM]"` (not bookable online) |
-| `bookingSlots` | Optional window for the online form (e.g. a 24/7 clinic taking online bookings 09:00–21:00) |
-| `services[]` | `id`, `name`, `price` (`"[TO CONFIRM]"` or a localized string), `status` |
+| `bookingSlots` | Optional window for the online form (e.g. a 24/7 clinic taking online bookings 09:00–21:00, or hours known without days) |
+| `services[]` | `id`, `name`, `price` (`"[TO CONFIRM]"` or a localized string), `status`; `category` when the niche has categories; `course: { sessions, intervalDays }` for course treatments (drives the next-session reminder, not shown on the site) |
+| `packages[]` | Courses / packages: `name`, `sessions`, `price`, `serviceId` (pre-selects the form), `status` |
+| `emergency` | `phones` (else the main phones) and a `note`, e.g. out-of-hours availability |
+| `audience` | Ids from the niche's audience options, e.g. `["dog", "cat"]` |
+| `doctors[]` | `name`, `role`, optional `specialties`. Only confirmed names are offered in a specialist field. |
+| `faq`, `gallery.count` | Own FAQ (else the niche's); number of before/after placeholder pairs |
 | `map.query` | Free text used for the Google Maps embed and the "Get directions" link |
 | `rating` | Optional, only with a source URL and an `asOf` date |
 
 **Photos and logos:** the template uses neutral illustrations on purpose. Never copy a clinic's
-photos or logo into a demo. When a clinic signs, replace the illustrations with their own images.
+photos or logo into a demo. The before/after gallery shows placeholders only: add real photos only
+with the client's written consent. When a clinic signs, replace the illustrations with their own images.
 
 ---
 
@@ -109,6 +167,7 @@ Copy `.env.example` to `.env.local` and fill in what you need. Everything is opt
 | `GOOGLE_MAPS_API_KEY` | Shows each clinic's live Google rating and reviews (Places API). Without it, labelled sample reviews are shown. |
 | `MESSAGING_PROVIDER` | `wa-link` (default) or `whatsapp-cloud`. |
 | `WHATSAPP_CLOUD_TOKEN`, `WHATSAPP_PHONE_NUMBER_ID`, `WHATSAPP_TEMPLATE_NAME`, `WHATSAPP_API_VERSION` | WhatsApp Business Platform (Cloud API). |
+| `WHATSAPP_FOLLOWUP_TEMPLATE` | Approved template for follow-ups (body: name, clinic, service, due date). Without it, follow-ups stay one-tap `wa.me` links. |
 
 `<SLUG>` is the clinic slug in UPPER_SNAKE case: `dent-star` → `DENT_STAR`.
 
@@ -135,9 +194,17 @@ Copy `.env.example` to `.env.local` and fill in what you need. Everything is opt
 Using your own Supabase project instead: set `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY`
 (or `SUPABASE_SECRET_KEY`) yourself and run `supabase/schema.sql` once.
 
+**Upgrading a database created before the aesthetic/vet release:** the table gains two columns:
+`details` (pet name, species, specialist) and `followups` (which follow-ups were sent). With
+`POSTGRES_URL` set (Vercel's Supabase integration sets it), the app adds them automatically the
+first time it needs them. Otherwise, run `supabase/schema.sql` again in the SQL Editor; it only adds
+what's missing. Dental bookings keep working on the old table in the meantime. Local SQLite files
+are upgraded automatically.
+
 In demo mode the dashboard adds a fresh set of fictional patients (marked "(demo)") every day,
 with fixed IDs so several server instances never duplicate them; real bookings are never
-touched. Set `DEMO_SEED=false` to turn that off.
+touched. It also adds fictional past visits so every niche's follow-up rules have someone
+overdue, due and coming up. Set `DEMO_SEED=false` to turn that off.
 
 ### Telegram notifications
 
@@ -188,6 +255,25 @@ Don't copy reviews into the clinic files by hand. Google's terms only allow show
 
 The dashboard also lists tomorrow's reminders with the same buttons, plus a **Run reminder job now** button.
 
+### Repeat-visit follow-ups
+
+The same daily job then runs the niche's follow-up rules (`src/lib/followups.ts`). For each rule it finds each
+patient's (or pet's) **last attended visit**: a `confirmed` booking on or before today. No-shows,
+cancellations and unconfirmed requests don't count. It then works out the due date and skips anyone
+who already has a new appointment. Then it:
+
+1. prepares a message per person in their booking language (wa.me link, or a WhatsApp API send);
+2. sends staff one Telegram digest of everyone due or overdue;
+3. records the follow-up as sent on that visit, so re-runs never repeat it.
+
+The dashboard shows a **Patients due back** stat and an **Upcoming follow-ups** list (overdue, due,
+and the next 30 days). Each row has a WhatsApp button in the patient's language, a second one in the
+other of AZ/RU, and **Mark sent** for messages staff send by hand.
+
+Shipped rules: dental, a check-up and cleaning 182 days after any visit. Aesthetic, the next session
+of a course treatment, using the service's `course`. Vet, annual vaccination and annual check-up,
+365 days after the last visit in that category, tracked per pet.
+
 **Plugging in the official WhatsApp Business API:** set `MESSAGING_PROVIDER=whatsapp-cloud` plus
 `WHATSAPP_CLOUD_TOKEN` and `WHATSAPP_PHONE_NUMBER_ID`, and create an approved message template
 (default name `appointment_reminder`, body with 4 variables: name, clinic, date, time; one
@@ -220,23 +306,29 @@ and remove the demo banner in `src/components/site/clinic-site.tsx`.
 ## Project structure
 
 ```
-clinics/                 one JSON file per clinic (+ _template.json)
-research/                Phase 1 research notes with sources
+niches/                  one JSON file per niche: dental, aesthetic, vet (+ _template.json)
+clinics/                 one JSON file per business (+ _template*.json starters)
+research/                research notes with sources (dental; aesthetic + vet)
 src/app/[slug]/          clinic site (AZ), [lang]/ (RU, EN), admin/ (dashboard + server actions)
 src/app/api/             booking endpoint, reminder cron
-src/components/site/     page sections, booking form, floating WhatsApp / call bar
-src/lib/clinics/         schema (zod) + provenance, loader, booking slots
-src/lib/booking/         validation (no health data) and create-booking service
+src/components/site/     section library (sections.tsx), page shell, booking form, floating WhatsApp / call bar
+src/lib/niches/          niche schema (section/field/icon/rule libraries), loader, copy overrides
+src/lib/clinics/         business schema (zod) + provenance, loader (checks against the niche), booking slots
+src/lib/booking/         validation incl. niche fields (no health data) and create-booking service
 src/lib/storage/         BookingStore adapters: supabase, sqlite, memory, demo seed
 src/lib/notify/          Telegram notifier + message templates
 src/lib/messaging/       MessagingProvider: wa.me links, WhatsApp Cloud API
 src/lib/reminders.ts     next-day selection + reminder job
+src/lib/followups.ts     follow-up rule engine + follow-up job
 supabase/schema.sql      table + RLS
 tests/                   Vitest suite
 ```
 
 ## Privacy by design
 
-The booking form collects **name, phone, service, preferred date/time and consent only**. There is
-no free-text field, and the API drops any extra keys, so no medical history or health details can
-be stored. The consent timestamp is saved with each booking.
+The booking form collects **name, phone, service, preferred date/time and consent**, plus only
+what the niche declares: a pet's name (max 30 characters) and species for vets, and an optional preferred
+specialist for aesthetic clinics. There is no free-text notes field: niche text fields are capped
+at 40 characters and reject digit runs, and the API drops any key the niche doesn't declare. So no
+medical history, health details or contraindications can be stored. The consent timestamp is saved
+with each booking.

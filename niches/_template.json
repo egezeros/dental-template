@@ -1,0 +1,40 @@
+{
+  "id": "your-niche",
+  "label": { "az": "Yeni nişa", "ru": "Новая ниша", "en": "New niche" },
+  "theme": {
+    "preset": "clinical",
+    "brandColor": "#1f5fbf",
+    "icon": "tooth",
+    "heroArt": "dental",
+    "emoji": "📅"
+  },
+  "sections": ["hero", "services", "why", "doctors", "reviews", "booking", "location"],
+  "nav": ["services", "why", "doctors", "reviews", "location"],
+  "booking": {
+    "fields": [
+      { "id": "name", "type": "name" },
+      { "id": "phone", "type": "phone" },
+      { "id": "serviceId", "type": "service" },
+      { "id": "date", "type": "date" },
+      { "id": "time", "type": "time" },
+      { "id": "consent", "type": "consent" }
+    ]
+  },
+  "reminders": {
+    "followUps": [
+      {
+        "id": "checkup-6m",
+        "type": "interval",
+        "label": { "az": "6 aylıq profilaktik müayinə", "ru": "Профилактический осмотр через 6 месяцев", "en": "6-month check-up & cleaning" },
+        "afterDays": 182,
+        "leadDays": 7,
+        "per": "patient",
+        "message": {
+          "az": "Salam, {firstName}! {clinic} klinikasında son qəbulunuzdan təxminən 6 ay keçir — profilaktik müayinə və dişlərin peşəkar təmizlənməsi vaxtıdır. Yazılmaq üçün bu mesaja cavab yazın və ya zəng edin: {phone}.",
+          "ru": "Здравствуйте, {firstName}! С вашего последнего визита в {clinic} прошло около 6 месяцев — самое время для профилактического осмотра и профессиональной чистки. Чтобы записаться, ответьте на это сообщение или позвоните: {phone}.",
+          "en": "Hello {firstName}! It's been about 6 months since your last visit to {clinic} — time for a check-up and professional cleaning. Reply to this message or call {phone} to book."
+        }
+      }
+    ]
+  }
+}

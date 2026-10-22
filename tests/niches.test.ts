@@ -50,6 +50,11 @@ describe("niche configs", () => {
     expect(() => parseNiche(n, "dental.json")).toThrow(message);
   });
 
+  it("the starter file niches/_template.json is valid once copied to <id>.json", () => {
+    const raw = JSON.parse(fs.readFileSync("niches/_template.json", "utf8"));
+    expect(() => parseNiche(raw, "your-niche.json")).not.toThrow();
+  });
+
   it("requires the id to match the file name", () => {
     expect(() => parseNiche(dental(), "beauty.json")).toThrow(/must match the file name/);
   });

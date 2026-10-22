@@ -39,10 +39,13 @@ describe("clinic files", () => {
     for (const b of seed) expect(slotsForDate(c, b.date)).toContain(b.time);
   });
 
-  it("the starter file clinics/_template.json is valid once copied to <slug>.json", () => {
-    const raw = JSON.parse(fs.readFileSync("clinics/_template.json", "utf8"));
-    expect(() => parseClinic(raw, "your-clinic-slug.json")).not.toThrow();
-  });
+  it.each(["_template.json", "_template-aesthetic.json", "_template-vet.json"])(
+    "the starter file clinics/%s is valid once copied to <slug>.json",
+    (file) => {
+      const raw = JSON.parse(fs.readFileSync(`clinics/${file}`, "utf8"));
+      expect(() => parseClinic(raw, "your-clinic-slug.json")).not.toThrow();
+    },
+  );
 
   it("accepts featured reviews and rejects invalid star ratings", () => {
     const items = [{ author: "Test Reviewer", rating: 5, text: "Test review text.", date: "1 month ago" }];

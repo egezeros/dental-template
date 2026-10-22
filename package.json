@@ -2,14 +2,14 @@
   "name": "dental-template",
   "version": "0.1.0",
   "private": true,
-  "description": "Reusable multi-clinic dental website template with booking, admin dashboard, Telegram notifications and WhatsApp reminders.",
+  "description": "Reusable multi-niche clinic website template (dental, aesthetic, vet) with booking, admin dashboard, Telegram notifications, WhatsApp reminders and follow-ups.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "validate:clinics": "vitest run tests/clinics.test.ts",
+    "validate:clinics": "vitest run tests/niches.test.ts tests/clinics.test.ts",
     "report:fields": "node scripts/fields-report.mjs"
   },
   "engines": {

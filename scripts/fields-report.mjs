@@ -54,14 +54,36 @@ for (const file of files) {
     ["Instagram", c.instagram ? `@${c.instagram}` : "[TO CONFIRM]", "instagram"],
     ["Website", c.website ?? "none found", "website"],
     ["Opening hours", hoursSummary(c.hours), "hours"],
-    ["Services", c.services.map((s) => `${en(s.name)}${s.status !== "verified" ? ` (${s.status})` : ""}`).join("; "), "services"],
+    [
+      "Services",
+      c.services
+        .map((s) => `${en(s.name)}${s.category ? ` [${s.category}]` : ""}${s.status !== "verified" ? ` (${s.status})` : ""}`)
+        .join("; "),
+      "services",
+    ],
     ["Prices", c.services.map((s) => `${en(s.name)}: ${en(s.price)}`).join("; "), "prices"],
+    [
+      "Packages / courses",
+      (c.packages ?? []).map((k) => `${en(k.name)}: ${en(k.price)}${k.sessions ? `, ${k.sessions} sessions` : ""} (${k.status})`).join("; "),
+      "packages",
+    ],
+    [
+      "Course settings (reminders only)",
+      c.services.filter((s) => s.course).map((s) => `${en(s.name)}: ${s.course.sessions} sessions, every ${s.course.intervalDays} days`).join("; "),
+      "courses",
+    ],
+    [
+      "Emergency contact",
+      `${(c.emergency?.phones ?? c.phones).map((x) => x.display).join(", ")}${c.emergency?.note ? ` — ${en(c.emergency.note)}` : ""}`,
+      "emergency",
+    ],
+    ["Pet types treated", (c.audience ?? []).join(", "), "audience"],
     ["Doctors", c.doctors.map((d) => d.name).join(", ") || "—", "doctors"],
     ["Rating", c.rating ? `${c.rating.value} ${c.rating.kind === "recommend" ? "recommend" : "★"} on ${c.rating.platform} (${c.rating.count}), as of ${c.rating.asOf}` : "—", "rating"],
     ["Founded", "", "founded"],
     ["Social programme", "", "socialProgram"],
     ["Map link", `Google Maps search: "${c.map.query}"`, "map"],
-    ["Brand colour", c.brandColor, "brandColor"],
+    ["Brand colour", c.brandColor ?? "niche default", "brandColor"],
     ["Photos / logo", "neutral placeholder illustrations", "photos"],
     ["Reviews", "labelled sample placeholders", "reviews"],
   ].filter(([, , key]) => p[key]);
