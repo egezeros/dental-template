@@ -3,19 +3,26 @@ import Link from "next/link";
 import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
 import type { CSSProperties } from "react";
-import { PhoneIcon, ToothIcon, WhatsAppIcon } from "@/components/icons";
+import { ICONS, PhoneIcon, WhatsAppIcon } from "@/components/icons";
 import { sessionCookieName, verifySessionToken } from "@/lib/auth";
+import { detailLines } from "@/lib/booking/fields";
 import type { Booking, BookingStatus } from "@/lib/booking/types";
 import { getClinic } from "@/lib/clinics/load";
+import type { Clinic } from "@/lib/clinics/schema";
 import { adminPassword, isDemoMode, usingDefaultDemoPassword } from "@/lib/config";
-import { adminDict, INTL_LOCALE, isLocale, LOCALE_LABELS, LOCALES, type Locale } from "@/lib/i18n";
+import { computeFollowUps, countDueBack, followUpText, type FollowUp, type FollowUpState } from "@/lib/followups";
+import { INTL_LOCALE, isLocale, LOCALE_LABELS, LOCALES, siteDict, type Locale } from "@/lib/i18n";
 import { WaLinkProvider } from "@/lib/messaging";
+import { waMeLink } from "@/lib/messaging/templates";
+import { nicheAdminDict } from "@/lib/niches/copy";
+import { getNiche } from "@/lib/niches/load";
+import type { Niche } from "@/lib/niches/schema";
 import { getOutbox } from "@/lib/notify/telegram";
 import { selectNextDayAppointments, tomorrowInBaku } from "@/lib/reminders";
 import { computeStats } from "@/lib/stats";
 import { ensureDemoData, getStore } from "@/lib/storage";
 import { bakuDate, formatDate } from "@/lib/time";
-import { login, logout, runRemindersNow, setBookingStatus } from "./actions";
+import { login, logout, markFollowUpSent, runFollowUpsNow, runRemindersNow, setBookingStatus } from "./actions";
 
 export const dynamic = "force-dynamic";
 
@@ -27,6 +34,12 @@ export const metadata: Metadata = {
 type Props = {
   params: Promise<{ slug: string }>;
   searchParams: Promise<{ lang?: string; tab?: string; error?: string }>;
+};
+
+const FOLLOW_UP_STYLE: Record<FollowUpState, string> = {
+  overdue: "bg-rose-50 text-rose-800 ring-rose-200",
+  due: "bg-amber-50 text-amber-900 ring-amber-200",
+  upcoming: "bg-sky-50 text-sky-800 ring-sky-200",
 };
 
 const STATUS_STYLE: Record<BookingStatus, string> = {
@@ -43,17 +56,20 @@ export default async function AdminPage({ params, searchParams }: Props) {
   if (!clinic) notFound();
 
   const locale: Locale = isLocale(sp.lang) ? sp.lang : "az";
-  const t = adminDict(locale);
+  const niche = getNiche(clinic.niche);
+  const t = nicheAdminDict(niche, locale);
+  const Icon = ICONS[niche.theme.icon];
   const demo = isDemoMode();
   const langQuery = (l: Locale, extra: Record<string, string> = {}) => {
     const q = new URLSearchParams({ ...(l !== "az" ? { lang: l } : {}), ...extra }).toString();
     return `/${slug}/admin${q ? `?${q}` : ""}`;
   };
   const style = { "--brand": clinic.brandColor } as CSSProperties;
+  const theme = niche.theme.preset;
 
   if (!adminPassword(slug)) {
     return (
-      <Shell style={style}>
+      <Shell style={style} theme={theme}>
         <p className="card mx-auto mt-24 max-w-md p-6 text-center text-sm text-muted">{t.disabled}</p>
       </Shell>
     );
@@ -64,11 +80,11 @@ export default async function AdminPage({ params, searchParams }: Props) {
 
   if (!authed) {
     return (
-      <Shell style={style}>
+      <Shell style={style} theme={theme}>
         <form action={login.bind(null, slug)} className="card mx-auto mt-20 grid max-w-sm gap-4 p-6">
           <div className="flex items-center gap-2.5">
             <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand text-white">
-              <ToothIcon size={20} />
+              <Icon size={20} />
             </span>
             <div>
               <p className="font-semibold">{clinic.name}</p>
@@ -102,7 +118,7 @@ export default async function AdminPage({ params, searchParams }: Props) {
   } catch (err) {
     console.error("[admin] storage error:", err);
     return (
-      <Shell style={style}>
+      <Shell style={style} theme={theme}>
         <div className="card mx-auto mt-20 max-w-lg space-y-2 p-6 text-sm">
           <p className="font-semibold text-rose-700">{t.storageError}</p>
           <p className="font-mono text-xs break-words text-muted">{(err as Error).message}</p>
@@ -132,14 +148,20 @@ export default async function AdminPage({ params, searchParams }: Props) {
   );
   const outbox = getOutbox(slug).slice(0, 10);
   const fmt = (d: string) => formatDate(d, INTL_LOCALE[locale]);
+  const followUps = computeFollowUps(clinic, all, now, { niche });
+  const specialistLabel = siteDict(locale).booking.specialist;
+  const details = (b: Booking) =>
+    detailLines(b, niche, locale, { specialist: specialistLabel })
+      .map((d) => d.value)
+      .join(" · ");
 
   return (
-    <Shell style={style}>
+    <Shell style={style} theme={theme}>
       <header className="sticky top-0 z-20 border-b border-line bg-white/90 backdrop-blur">
         <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 px-4">
           <div className="flex min-w-0 items-center gap-2.5">
             <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-brand text-white">
-              <ToothIcon size={18} />
+              <Icon size={18} />
             </span>
             <p className="truncate text-sm font-semibold">
               {clinic.name} <span className="font-normal text-muted">· {t.title}</span>
@@ -177,7 +199,7 @@ export default async function AdminPage({ params, searchParams }: Props) {
           </p>
         )}
 
-        <section className="grid grid-cols-2 gap-3 md:grid-cols-4">
+        <section className={`grid grid-cols-2 gap-3 ${niche.reminders.followUps.length ? "md:grid-cols-5" : "md:grid-cols-4"}`}>
           <Stat label={t.stats.week} value={String(stats.bookingsThisWeek)} />
           <Stat label={t.stats.upcoming} value={String(stats.upcoming)} />
           <Stat label={t.stats.pending} value={String(stats.awaitingConfirmation)} />
@@ -185,6 +207,11 @@ export default async function AdminPage({ params, searchParams }: Props) {
             label={t.stats.noShowRate}
             value={stats.noShowRate === null ? "—" : `${Math.round(stats.noShowRate * 100)}%`}
           />
+          {niche.reminders.followUps.length > 0 && (
+            <a href="#follow-ups" className="col-span-2 md:col-span-1">
+              <Stat label={t.stats.dueBack} value={String(countDueBack(followUps))} highlight />
+            </a>
+          )}
         </section>
 
         <section className="card p-4 md:p-5">
@@ -208,6 +235,7 @@ export default async function AdminPage({ params, searchParams }: Props) {
                   <div className="min-w-0">
                     <p className="text-sm font-semibold">
                       {b.time} · {b.name}
+                      {b.details?.petName ? ` · ${b.details.petName}` : ""}
                     </p>
                     <p className="truncate text-xs text-muted">
                       {b.serviceName} · {b.phone} · {b.locale.toUpperCase()}
@@ -235,6 +263,10 @@ export default async function AdminPage({ params, searchParams }: Props) {
           )}
         </section>
 
+        {niche.reminders.followUps.length > 0 && (
+          <FollowUpsPanel slug={slug} clinic={clinic} niche={niche} items={followUps} t={t} locale={locale} fmt={fmt} />
+        )}
+
         <section className="card overflow-hidden">
           <div className="flex gap-1 border-b border-line p-2">
             {(["upcoming", "past", "all"] as const).map((k) => (
@@ -252,7 +284,7 @@ export default async function AdminPage({ params, searchParams }: Props) {
           ) : (
             <ul className="divide-y divide-line">
               {rows.map((b) => (
-                <BookingRow key={b.id} b={b} slug={slug} t={t} when={`${fmt(b.date)}, ${b.time}`} />
+                <BookingRow key={b.id} b={b} slug={slug} t={t} when={`${fmt(b.date)}, ${b.time}`} details={details(b)} />
               ))}
             </ul>
           )}
@@ -295,20 +327,123 @@ export default async function AdminPage({ params, searchParams }: Props) {
   );
 }
 
-function Shell({ children, style }: { children: React.ReactNode; style: CSSProperties }) {
+function Shell({ children, style, theme }: { children: React.ReactNode; style: CSSProperties; theme: Niche["theme"]["preset"] }) {
   return (
-    <div style={style} className="min-h-screen bg-canvas pb-10">
+    <div style={style} data-theme={theme} className="min-h-screen bg-canvas pb-10">
       {children}
     </div>
   );
 }
 
-function Stat({ label, value }: { label: string; value: string }) {
+function Stat({ label, value, highlight = false }: { label: string; value: string; highlight?: boolean }) {
   return (
-    <div className="card p-4">
+    <div className={`card p-4 ${highlight ? "ring-2 ring-brand/40" : ""}`}>
       <p className="text-xs text-muted">{label}</p>
-      <p className="mt-1 text-2xl font-semibold tabular-nums">{value}</p>
+      <p className={`mt-1 text-2xl font-semibold tabular-nums ${highlight ? "text-brand" : ""}`}>{value}</p>
     </div>
+  );
+}
+
+type AdminText = ReturnType<typeof nicheAdminDict>;
+
+/** Patients (or pets) due back under the niche's follow-up rules, with one-tap WhatsApp messages. */
+function FollowUpsPanel({
+  slug,
+  clinic,
+  niche,
+  items,
+  t,
+  locale,
+  fmt,
+}: {
+  slug: string;
+  clinic: Clinic;
+  niche: Niche;
+  items: FollowUp[];
+  t: AdminText;
+  locale: Locale;
+  fmt: (d: string) => string;
+}) {
+  return (
+    <section id="follow-ups" className="card scroll-mt-20 p-4 md:p-5">
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <h2 className="font-semibold">{t.followUps.title}</h2>
+          <p className="text-xs text-muted">{t.followUps.subtitle}</p>
+          <p className="mt-1 text-[11px] text-muted">
+            {niche.reminders.followUps.map((r) => r.label[locale]).join(" · ")}
+          </p>
+        </div>
+        <form action={runFollowUpsNow.bind(null, slug)}>
+          <button className="btn-secondary px-4 py-2 text-xs">{t.followUps.run}</button>
+        </form>
+      </div>
+      {items.length === 0 ? (
+        <p className="mt-4 text-sm text-muted">{t.followUps.none}</p>
+      ) : (
+        <ul className="mt-4 divide-y divide-line">
+          {items.map((f) => {
+            // Message in the patient's language, plus the other of AZ/RU for staff to choose.
+            const other: Locale = f.locale === "ru" ? "az" : "ru";
+            const link = waMeLink(f.phone, followUpText(f, clinic));
+            const otherLink = waMeLink(f.phone, followUpText(f, clinic, other));
+            return (
+              <li key={f.key} className="flex flex-wrap items-center justify-between gap-3 py-3">
+                <div className="min-w-0">
+                  <p className="flex flex-wrap items-center gap-2 text-sm font-semibold">
+                    {f.name}
+                    {f.petName && <span className="font-normal text-muted">· {f.petName}</span>}
+                    <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ring-1 ${FOLLOW_UP_STYLE[f.state]}`}>
+                      {t.followUps[f.state]}
+                    </span>
+                  </p>
+                  <p className="text-xs text-muted">
+                    {f.rule.label[locale]}
+                    {f.session ? ` · ${t.followUps.session(f.session, f.sessions!)}` : ""} · {f.visit.serviceName}
+                  </p>
+                  <p className="text-xs text-muted">
+                    {t.followUps.lastVisit(fmt(f.lastVisitDate))} · <b className="text-ink">{t.followUps.dueOn(fmt(f.dueDate))}</b> ·{" "}
+                    {f.phone} · {f.locale.toUpperCase()}
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  {f.sentAt ? (
+                    <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold text-emerald-700 ring-1 ring-emerald-200">
+                      {t.followUps.sent}
+                    </span>
+                  ) : (
+                    f.state !== "upcoming" && (
+                      <form action={markFollowUpSent.bind(null, slug, f.visit.id, f.rule.id)}>
+                        <button className="rounded-lg px-2.5 py-1.5 text-xs font-semibold text-muted ring-1 ring-line hover:text-ink">
+                          ✓ {t.followUps.markSent}
+                        </button>
+                      </form>
+                    )
+                  )}
+                  <a
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn inline-flex bg-[#25D366] px-3 py-2 text-xs text-white"
+                  >
+                    <WhatsAppIcon size={16} />
+                    {t.followUps.send} {f.locale.toUpperCase()}
+                  </a>
+                  <a
+                    href={otherLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-lg px-2 py-1.5 text-xs font-semibold text-[#128C7E] ring-1 ring-[#25D366]/40 hover:bg-[#25D366]/10"
+                  >
+                    {other.toUpperCase()}
+                  </a>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </section>
   );
 }
 
@@ -317,11 +452,13 @@ function BookingRow({
   slug,
   t,
   when,
+  details,
 }: {
   b: Booking;
   slug: string;
-  t: ReturnType<typeof adminDict>;
+  t: AdminText;
   when: string;
+  details: string;
 }) {
   const action = (status: BookingStatus) => setBookingStatus.bind(null, slug, b.id, status);
   const buttons: { status: BookingStatus; label: string; cls: string }[] = [];
@@ -343,6 +480,7 @@ function BookingRow({
           <PhoneIcon size={12} />
           {b.phone}
         </a>
+        {details && <p className="mt-0.5 text-xs text-muted">{details}</p>}
       </div>
       <div className="text-sm">
         <p className="font-medium">{when}</p>

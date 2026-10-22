@@ -93,6 +93,9 @@
     "booking.errors.service": { "az": "Səbəbi seçin", "ru": "Выберите причину", "en": "Please choose a reason" }
   },
   "adminCopy": {
+    "stats.dueBack": { "az": "Qayıtmalı ev heyvanları", "ru": "Питомцы на повторный визит", "en": "Pets due back" },
+    "followUps.subtitle": { "az": "Qaydalara görə yenidən dəvət edilməli ev heyvanları — növbəti 30 gün və gecikənlər.", "ru": "Каких питомцев пора пригласить снова по правилам — ближайшие 30 дней и просроченные.", "en": "Pets your follow-up rules say to invite back — the next 30 days, plus overdue." },
+    "reminders.subtitle": { "az": "Bir toxunuşla sahibə hazır WhatsApp mesajı göndərin.", "ru": "Одно касание — и владельцу уходит готовое сообщение в WhatsApp.", "en": "One tap opens WhatsApp with a ready-to-send reminder for the owner." },
     "table.patient": { "az": "Sahib / ev heyvanı", "ru": "Владелец / питомец", "en": "Owner / pet" },
     "demoData": {
       "az": "Demo məlumatlar — saxta sahiblər və ev heyvanları",

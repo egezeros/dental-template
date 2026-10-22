@@ -16,14 +16,22 @@ function Stars({ value }: { value: number }) {
  * Real reviews from the Google Places API, with the reviewer attribution and the
  * "Google Maps" source label that Google's display policy requires.
  */
-export function GoogleReviews({ data, t }: { data: GooglePlaceReviews; t: SiteDictionary["reviews"] }) {
+export function GoogleReviews({
+  data,
+  t,
+  cardClass = "bg-canvas",
+}: {
+  data: GooglePlaceReviews;
+  t: SiteDictionary["reviews"];
+  cardClass?: string;
+}) {
   return (
     <>
       <ul className="-mx-4 mt-6 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:grid-cols-3 md:gap-4 md:overflow-visible md:px-0">
         {data.reviews.map((r, i) => (
           <li
             key={i}
-            className="flex w-[82%] shrink-0 snap-start flex-col rounded-2xl bg-canvas p-5 ring-1 ring-line/70 md:w-auto"
+            className={`flex w-[82%] shrink-0 snap-start flex-col rounded-2xl ${cardClass} p-5 ring-1 ring-line/70 md:w-auto`}
           >
             <div className="flex items-center gap-3">
               {r.authorPhotoUri ? (

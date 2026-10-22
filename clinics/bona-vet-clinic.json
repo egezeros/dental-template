@@ -1,0 +1,330 @@
+{
+  "slug": "bona-vet-clinic",
+  "niche": "vet",
+  "name": "Bona Vet Clinic",
+  "brandColor": "#2f7d6d",
+  "tagline": {
+    "az": "Yasamalda baytarlıq klinikası",
+    "ru": "Ветеринарная клиника в Ясамале",
+    "en": "Veterinary clinic in Yasamal"
+  },
+  "intro": {
+    "az": "Bona Vet Clinic Yasamal rayonunda baytarlıq klinikasıdır və hər gün 10:00–19:00 işləyir. Ev heyvanınızı onlayn yazdırın — administrator vaxtı təsdiqləmək üçün sizinlə əlaqə saxlayacaq.",
+    "ru": "Bona Vet Clinic — ветеринарная клиника в Ясамальском районе, работает ежедневно с 10:00 до 19:00. Запишите питомца онлайн — администратор свяжется с вами, чтобы подтвердить время.",
+    "en": "Bona Vet Clinic is a veterinary clinic in Yasamal, open daily 10:00–19:00. Book your pet in online and the administrator will contact you to confirm the time."
+  },
+  "address": {
+    "az": "Mikayıl Müşfiq küç. 14/17, Yasamal r-nu, Bakı",
+    "ru": "ул. Микаила Мушфига, 14/17, Ясамальский р-н, Баку",
+    "en": "14/17 Mikayil Mushfig St, Yasamal, Baku"
+  },
+  "district": {
+    "az": "Yasamal rayonu",
+    "ru": "Ясамальский район",
+    "en": "Yasamal district"
+  },
+  "phones": [
+    {
+      "display": "(+994 12) 510-11-85",
+      "tel": "+994125101185"
+    },
+    {
+      "display": "(+994 12) 510-11-86",
+      "tel": "+994125101186"
+    },
+    {
+      "display": "(+994 50) 225-92-29",
+      "tel": "+994502259229"
+    }
+  ],
+  "whatsapp": "994772259229",
+  "instagram": "bonavetclinic",
+  "facebook": "https://www.facebook.com/BonaVetClinicBaku/",
+  "map": {
+    "query": "Bona Vet Clinic, Mikayıl Müşfiq 14/17, Bakı"
+  },
+  "hours": {
+    "mon": [
+      "10:00",
+      "19:00"
+    ],
+    "tue": [
+      "10:00",
+      "19:00"
+    ],
+    "wed": [
+      "10:00",
+      "19:00"
+    ],
+    "thu": [
+      "10:00",
+      "19:00"
+    ],
+    "fri": [
+      "10:00",
+      "19:00"
+    ],
+    "sat": [
+      "10:00",
+      "19:00"
+    ],
+    "sun": [
+      "10:00",
+      "19:00"
+    ]
+  },
+  "emergency": {
+    "note": {
+      "az": "Gecə və iş saatlarından kənar təcili qəbul: [TO CONFIRM]",
+      "ru": "Экстренный приём ночью и в нерабочее время: [TO CONFIRM]",
+      "en": "Emergency visits at night / out of hours: [TO CONFIRM]"
+    }
+  },
+  "services": [
+    {
+      "id": "checkup",
+      "category": "checkup",
+      "name": {
+        "az": "Müayinə və müalicə",
+        "ru": "Осмотр и лечение",
+        "en": "Examination & treatment"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder"
+    },
+    {
+      "id": "vaccination",
+      "category": "vaccination",
+      "name": {
+        "az": "Peyvənd",
+        "ru": "Вакцинация",
+        "en": "Vaccination"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder"
+    },
+    {
+      "id": "surgery",
+      "category": "surgery",
+      "name": {
+        "az": "Cərrahi əməliyyatlar",
+        "ru": "Хирургические операции",
+        "en": "Surgery"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder"
+    },
+    {
+      "id": "grooming",
+      "category": "grooming",
+      "name": {
+        "az": "Qrumminq",
+        "ru": "Груминг",
+        "en": "Grooming"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    }
+  ],
+  "audience": [
+    "dog",
+    "cat"
+  ],
+  "doctors": [
+    {
+      "name": "[TO CONFIRM]",
+      "role": {
+        "az": "Baytar həkim",
+        "ru": "Ветеринарный врач",
+        "en": "Veterinarian"
+      },
+      "status": "placeholder"
+    },
+    {
+      "name": "[TO CONFIRM]",
+      "role": {
+        "az": "Baytar həkim",
+        "ru": "Ветеринарный врач",
+        "en": "Veterinarian"
+      },
+      "status": "placeholder"
+    },
+    {
+      "name": "[TO CONFIRM]",
+      "role": {
+        "az": "Baytar həkim",
+        "ru": "Ветеринарный врач",
+        "en": "Veterinarian"
+      },
+      "status": "placeholder"
+    }
+  ],
+  "whyUs": [
+    {
+      "icon": "clock",
+      "title": {
+        "az": "Hər gün açıqdır",
+        "ru": "Открыто каждый день",
+        "en": "Open every day"
+      },
+      "text": {
+        "az": "Həftənin yeddi günü 10:00–19:00.",
+        "ru": "Семь дней в неделю, 10:00–19:00.",
+        "en": "Seven days a week, 10:00–19:00."
+      },
+      "status": "verified-single"
+    },
+    {
+      "icon": "scissors",
+      "title": {
+        "az": "Qrumminq",
+        "ru": "Груминг",
+        "en": "Grooming"
+      },
+      "text": {
+        "az": "Baytarlıq xidmətləri ilə yanaşı qrumminq də.",
+        "ru": "Помимо ветеринарии — груминг.",
+        "en": "Grooming as well as veterinary care."
+      },
+      "status": "verified-single"
+    },
+    {
+      "icon": "calendar",
+      "title": {
+        "az": "Onlayn yazılış",
+        "ru": "Онлайн-запись",
+        "en": "Online booking"
+      },
+      "text": {
+        "az": "Ev heyvanınızı bir dəqiqəyə onlayn yazdırın — administrator vaxtı təsdiqləyəcək.",
+        "ru": "Запишите питомца онлайн за минуту — администратор подтвердит время.",
+        "en": "Book your pet in online in a minute — the administrator will confirm the time."
+      },
+      "status": "design"
+    },
+    {
+      "icon": "syringe",
+      "title": {
+        "az": "Peyvənd xatırlatmaları",
+        "ru": "Напоминания о прививках",
+        "en": "Vaccination reminders"
+      },
+      "text": {
+        "az": "Növbəti peyvənd və illik müayinə vaxtı çatanda WhatsApp-da xatırladırıq.",
+        "ru": "Напомним в WhatsApp, когда подойдёт срок следующей прививки и ежегодного осмотра.",
+        "en": "We remind you on WhatsApp when the next vaccination or annual check-up is due."
+      },
+      "status": "design"
+    }
+  ],
+  "provenance": {
+    "name": {
+      "status": "verified",
+      "sources": [
+        "https://www.facebook.com/BonaVetClinicBaku/",
+        "https://www.yelo.az/en/individuals/cashback/baytarliq-klinikalari-ve-zoo-magazalari/bona-vet-clinic/"
+      ]
+    },
+    "address": {
+      "status": "conflict",
+      "sources": [
+        "https://yellowpages.az/Az/category/veterinary_service/",
+        "https://zooline.az/az/baytarliq-klinikalari",
+        "https://www.yelo.az/en/individuals/cashback/baytarliq-klinikalari-ve-zoo-magazalari/bona-vet-clinic/",
+        "https://2gis.az/baku/search/Veet"
+      ],
+      "note": "Shown: Mikayıl Müşfiq 14/17 (Yellow Pages, Zooline). Yelo says 14; 2GIS says 31-33. Confirm."
+    },
+    "district": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.yelo.az/en/individuals/cashback/baytarliq-klinikalari-ve-zoo-magazalari/bona-vet-clinic/"
+      ]
+    },
+    "phones": {
+      "status": "verified",
+      "sources": [
+        "https://www.facebook.com/BonaVetClinicBaku/",
+        "https://yellowpages.az/Az/category/veterinary_service/"
+      ]
+    },
+    "whatsapp": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.facebook.com/BonaVetClinicBaku/"
+      ]
+    },
+    "instagram": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.instagram.com/bonavetclinic/"
+      ],
+      "note": "About 21K followers, 326 posts (undated search snapshot)."
+    },
+    "website": {
+      "status": "verified",
+      "sources": [],
+      "note": "No website found; a bonavet.az search returned only unrelated clinics abroad."
+    },
+    "hours": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.facebook.com/BonaVetClinicBaku/"
+      ]
+    },
+    "emergency": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "No emergency or 24/7 line found; the main numbers are shown and out-of-hours availability is marked to confirm."
+    },
+    "services": {
+      "status": "verified-single",
+      "sources": [
+        "https://zooline.az/az/grooming-salonlari",
+        "https://www.instagram.com/groomingstudio__/"
+      ],
+      "note": "Grooming: Zooline lists the clinic under grooming salons and a grooming studio tags it. Check-ups, vaccination and surgery are template entries to confirm."
+    },
+    "prices": {
+      "status": "placeholder",
+      "sources": []
+    },
+    "audience": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Pet types treated were not found in any source; dogs and cats are shown as a template, marked to confirm."
+    },
+    "doctors": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "No vets named in any source."
+    },
+    "rating": {
+      "status": "placeholder",
+      "sources": [
+        "https://2gis.az/ru/baku/firm/70000001055105013"
+      ],
+      "note": "2GIS listing exists but no rating was visible; no Google or Yandex rating found."
+    },
+    "map": {
+      "status": "constructed",
+      "sources": [],
+      "note": "Search link built from the shown address."
+    },
+    "brandColor": {
+      "status": "design",
+      "sources": [],
+      "note": "Our choice; the clinic's logo and photos were not copied."
+    },
+    "photos": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Neutral illustrations."
+    },
+    "reviews": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Labelled sample reviews; no reviews copied."
+    }
+  }
+}

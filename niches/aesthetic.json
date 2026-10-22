@@ -68,6 +68,9 @@
     "booking.errors.service": { "az": "Proseduru seçin", "ru": "Выберите процедуру", "en": "Please choose a treatment" }
   },
   "adminCopy": {
+    "stats.dueBack": { "az": "Qayıtmalı müştərilər", "ru": "Клиенты на повторный визит", "en": "Clients due back" },
+    "followUps.subtitle": { "az": "Qaydalara görə yenidən dəvət edilməli müştərilər — növbəti 30 gün və gecikənlər.", "ru": "Каких клиентов пора пригласить снова по правилам — ближайшие 30 дней и просроченные.", "en": "Clients your follow-up rules say to invite back — the next 30 days, plus overdue." },
+    "reminders.subtitle": { "az": "Bir toxunuşla müştəriyə hazır WhatsApp mesajı göndərin.", "ru": "Одно касание — и клиенту уходит готовое сообщение в WhatsApp.", "en": "One tap opens WhatsApp with a ready-to-send reminder for the client." },
     "table.patient": { "az": "Müştəri", "ru": "Клиент", "en": "Client" },
     "demoData": { "az": "Demo məlumatlar — saxta müştərilər", "ru": "Демо-данные — вымышленные клиенты", "en": "Demo data — fictional clients" }
   },

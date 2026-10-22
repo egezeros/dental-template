@@ -1,0 +1,339 @@
+{
+  "slug": "miss-laser",
+  "niche": "aesthetic",
+  "name": "Miss Laser",
+  "brandColor": "#a34a6b",
+  "tagline": {
+    "az": "Lazer epilyasiya studiyası — Elmlər filialı",
+    "ru": "Студия лазерной эпиляции — филиал «Эльмляр»",
+    "en": "Laser hair removal studio — Elmlar branch"
+  },
+  "intro": {
+    "az": "Miss Laser Bakıda lazer epilyasiya studiyalarıdır; bu səhifə Elmlər Akademiyası metrosunun qarşısındakı filial üçündür. Zonaları seçin və onlayn yazılın — administrator vaxtı təsdiqləmək üçün sizinlə əlaqə saxlayacaq.",
+    "ru": "Miss Laser — студии лазерной эпиляции в Баку; эта страница — для филиала напротив метро «Эльмляр Академиясы». Запишитесь онлайн — администратор свяжется с вами, чтобы подтвердить время.",
+    "en": "Miss Laser runs laser hair removal studios in Baku; this page is for the branch opposite Elmlar Akademiyasi metro. Book online and the administrator will contact you to confirm the time."
+  },
+  "address": {
+    "az": "Hüseyn Cavid pr., məhəllə 556/571, giriş 2, mənzil 6 (Elmlər Akademiyası metrosunun qarşısı), Bakı",
+    "ru": "пр. Гусейна Джавида, квартал 556/571, подъезд 2, кв. 6 (напротив метро «Эльмляр Академиясы»), Баку",
+    "en": "Huseyn Javid Ave, block 556/571, entrance 2, flat 6 (opposite Elmlar Akademiyasi metro), Baku"
+  },
+  "district": {
+    "az": "Elmlər Akademiyası m.",
+    "ru": "м. Эльмляр Академиясы",
+    "en": "Elmlar Akademiyasi metro"
+  },
+  "phones": [
+    {
+      "display": "(+994 50) 975-02-09",
+      "tel": "+994509750209"
+    }
+  ],
+  "whatsapp": "994509750209",
+  "instagram": "miss_laser_elmler",
+  "facebook": "https://www.facebook.com/misslaserbaku/",
+  "website": "https://misslaser.az/",
+  "map": {
+    "query": "Miss Laser, Hüseyn Cavid prospekti, Elmlər Akademiyası, Bakı"
+  },
+  "hours": {
+    "mon": "[TO CONFIRM]",
+    "tue": "[TO CONFIRM]",
+    "wed": "[TO CONFIRM]",
+    "thu": "[TO CONFIRM]",
+    "fri": "[TO CONFIRM]",
+    "sat": "[TO CONFIRM]",
+    "sun": "[TO CONFIRM]"
+  },
+  "bookingSlots": {
+    "start": "10:00",
+    "end": "22:00",
+    "stepMinutes": 30
+  },
+  "services": [
+    {
+      "id": "laser-hair-removal",
+      "category": "laser",
+      "name": {
+        "az": "Lazer epilyasiya (aleksandrit lazer)",
+        "ru": "Лазерная эпиляция (александритовый лазер)",
+        "en": "Laser hair removal (alexandrite laser)"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single",
+      "description": {
+        "az": "Zonalar və qiymətlər konsultasiyada dəqiqləşdirilir.",
+        "ru": "Зоны и цены уточняются на консультации.",
+        "en": "Zones and prices are confirmed at the consultation."
+      },
+      "course": {
+        "sessions": 6,
+        "intervalDays": 42
+      }
+    },
+    {
+      "id": "correction-session",
+      "category": "laser",
+      "name": {
+        "az": "Korreksiya seansı",
+        "ru": "Сеанс коррекции",
+        "en": "Correction session"
+      },
+      "price": {
+        "az": "Pulsuz",
+        "ru": "Бесплатно",
+        "en": "Free"
+      },
+      "status": "verified-single"
+    },
+    {
+      "id": "consultation",
+      "category": "other",
+      "name": {
+        "az": "Konsultasiya",
+        "ru": "Консультация",
+        "en": "Consultation"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder"
+    }
+  ],
+  "packages": [
+    {
+      "id": "one-year",
+      "name": {
+        "az": "İllik paket",
+        "ru": "Годовой пакет",
+        "en": "One-year package"
+      },
+      "description": {
+        "az": "Məhdud sayda. Paketin tərkibi klinika ilə dəqiqləşdiriləcək.",
+        "ru": "Количество ограничено. Состав пакета будет уточнён с клиникой.",
+        "en": "Limited availability. What's included will be confirmed with the clinic."
+      },
+      "price": "250 AZN",
+      "serviceId": "laser-hair-removal",
+      "status": "outdated"
+    }
+  ],
+  "gallery": {
+    "count": 3
+  },
+  "doctors": [
+    {
+      "name": "Dr. Məlahət",
+      "role": {
+        "az": "Həkim",
+        "ru": "Врач",
+        "en": "Doctor"
+      },
+      "specialties": {
+        "az": "Lazer epilyasiya seminarlarının rəhbəri",
+        "ru": "Ведёт семинары по лазерной эпиляции",
+        "en": "Leads the laser hair removal seminars"
+      },
+      "status": "verified-single"
+    },
+    {
+      "name": "[TO CONFIRM]",
+      "role": {
+        "az": "Kosmetoloq",
+        "ru": "Косметолог",
+        "en": "Cosmetologist"
+      },
+      "status": "placeholder"
+    },
+    {
+      "name": "[TO CONFIRM]",
+      "role": {
+        "az": "Kosmetoloq",
+        "ru": "Косметолог",
+        "en": "Cosmetologist"
+      },
+      "status": "placeholder"
+    }
+  ],
+  "whyUs": [
+    {
+      "icon": "map",
+      "title": {
+        "az": "Metro yaxınlığında filiallar",
+        "ru": "Филиалы у метро",
+        "en": "Branches near the metro"
+      },
+      "text": {
+        "az": "Əcəmi, Nərimanov, Azadlıq, İnşaatçılar, 28 May və Elmlər metroları yaxınlığında filiallar.",
+        "ru": "Филиалы у метро Аджеми, Нариманов, Азадлыг, Иншаатчылар, 28 Мая и Эльмляр.",
+        "en": "Branches near Ajami, Narimanov, Azadlig, Inshaatchilar, 28 May and Elmlar metro stations."
+      },
+      "status": "verified-single"
+    },
+    {
+      "icon": "laser",
+      "title": {
+        "az": "Aleksandrit lazer",
+        "ru": "Александритовый лазер",
+        "en": "Alexandrite laser"
+      },
+      "text": {
+        "az": "Epilyasiya aleksandrit lazerlə aparılır (aparatın modeli: [TO CONFIRM]).",
+        "ru": "Эпиляция александритовым лазером (модель аппарата: [TO CONFIRM]).",
+        "en": "Hair removal with an alexandrite laser (device model: [TO CONFIRM])."
+      },
+      "status": "conflict"
+    },
+    {
+      "icon": "sparkle",
+      "title": {
+        "az": "Pulsuz korreksiya seansı",
+        "ru": "Бесплатный сеанс коррекции",
+        "en": "Free correction session"
+      },
+      "text": {
+        "az": "Korreksiya seansı pulsuzdur — şərtləri administratordan soruşun.",
+        "ru": "Сеанс коррекции бесплатный — условия уточняйте у администратора.",
+        "en": "The correction session is free — ask the administrator about the terms."
+      },
+      "status": "verified-single"
+    },
+    {
+      "icon": "clock",
+      "title": {
+        "az": "Kurs seanslarını unutmayın",
+        "ru": "Не пропустите сеанс курса",
+        "en": "Never miss a course session"
+      },
+      "text": {
+        "az": "Kurs prosedurlarında növbəti seansın vaxtı yaxınlaşanda WhatsApp-da xatırladırıq.",
+        "ru": "Для курсовых процедур напомним о следующем сеансе в WhatsApp, когда подойдёт время.",
+        "en": "For course treatments we remind you on WhatsApp when your next session is coming up."
+      },
+      "status": "design"
+    }
+  ],
+  "provenance": {
+    "name": {
+      "status": "verified",
+      "sources": [
+        "https://misslaser.az/",
+        "https://www.instagram.com/miss_laser_elmler/",
+        "https://yandex.com/maps/org/miss_lazer/231431490560/",
+        "https://www.facebook.com/misslaserbaku/"
+      ]
+    },
+    "address": {
+      "status": "conflict",
+      "sources": [
+        "https://misslaser.az/",
+        "https://yandex.com/maps/org/miss_lazer/231431490560/",
+        "https://2gis.az/baku/search/Laser"
+      ],
+      "note": "Shown: the Elmlər address from misslaser.az. Yandex lists Hüseyn Cavid 149A; 2GIS also lists Həsən bəy Zərdabi 31-53 ('2 filial'). The site lists about six branches; this demo covers Elmlər only. Confirm."
+    },
+    "district": {
+      "status": "verified-single",
+      "sources": [
+        "https://misslaser.az/"
+      ]
+    },
+    "phones": {
+      "status": "verified",
+      "sources": [
+        "https://misslaser.az/",
+        "https://www.instagram.com/miss_laser_elmler/"
+      ],
+      "note": "Elmlər branch number. General lines on the site: +994 50 560 86 82, +994 12 598 51 95 (not shown)."
+    },
+    "whatsapp": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.instagram.com/miss_laser_elmler/"
+      ],
+      "note": "WhatsApp contact given in an Instagram post."
+    },
+    "instagram": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.instagram.com/miss_laser_elmler/"
+      ],
+      "note": "About 623K followers, 3,389 posts (undated search snapshot). Other branches may have their own accounts."
+    },
+    "website": {
+      "status": "verified-single",
+      "sources": [
+        "https://misslaser.az/"
+      ],
+      "note": "misslaser.az exists; a site: search returned only the homepage (single-page site) and no online booking. Speed and mobile layout not tested."
+    },
+    "hours": {
+      "status": "conflict",
+      "sources": [
+        "https://www.instagram.com/miss_laser_elmler/",
+        "https://yandex.com/maps/org/miss_lazer/231431490560/"
+      ],
+      "note": "Instagram: 09:00–22:00 (days not stated); Yandex showed 'closed until 10:00'. Table shows [TO CONFIRM]; booking offers 10:00–22:00."
+    },
+    "services": {
+      "status": "verified-single",
+      "sources": [
+        "https://misslaser.az/",
+        "https://www.instagram.com/miss_laser_elmler/"
+      ],
+      "note": "Laser hair removal only. Device named 'CANDELA GentleLase Pro' on the site and 'Alexandrite Candela Pro U' on Instagram. Free correction session: Instagram."
+    },
+    "prices": {
+      "status": "placeholder",
+      "sources": [
+        "https://www.instagram.com/miss_laser_elmler/"
+      ],
+      "note": "An undated Instagram post mentions 'whole body + face 25 AZN' — unit and date unclear, so not shown."
+    },
+    "packages": {
+      "status": "outdated",
+      "sources": [
+        "https://misslaser.az/"
+      ],
+      "note": "One-year package for 250 AZN, limited availability — undated homepage offer; confirm it is current."
+    },
+    "courses": {
+      "status": "design",
+      "sources": [],
+      "note": "Course settings (sessions / days between sessions) are demo defaults that drive the next-session reminder; they are not shown on the site and must be set with the clinic."
+    },
+    "doctors": {
+      "status": "verified-single",
+      "sources": [
+        "https://misslaser.az/",
+        "https://www.instagram.com/miss_laser_elmler/"
+      ],
+      "note": "Dr. Məlahət leads the laser-epilation seminars; whether she sees clients at the Elmlər branch is not confirmed."
+    },
+    "rating": {
+      "status": "verified-single",
+      "sources": [
+        "https://yandex.com/maps/org/miss_lazer/231431490560/"
+      ],
+      "note": "Yandex: no reviews. No Google rating could be retrieved."
+    },
+    "map": {
+      "status": "constructed",
+      "sources": [],
+      "note": "Search link built from the shown address."
+    },
+    "brandColor": {
+      "status": "design",
+      "sources": [],
+      "note": "Our choice; the studio's logo and photos were not copied."
+    },
+    "photos": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Neutral illustrations; before/after pairs are placeholders until the studio supplies consented photos."
+    },
+    "reviews": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Labelled sample reviews; no reviews copied."
+    }
+  }
+}

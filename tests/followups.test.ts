@@ -1,8 +1,10 @@
 import { describe, expect, it, vi } from "vitest";
 import type { Booking, BookingStatus } from "@/lib/booking/types";
+import { getClinics } from "@/lib/clinics/load";
 import { computeFollowUps, countDueBack, followUpText, runFollowUps } from "@/lib/followups";
 import { WaLinkProvider } from "@/lib/messaging";
 import type { OutboxEntry } from "@/lib/notify/telegram";
+import { buildDemoBookings } from "@/lib/storage/demo-seed";
 import { MemoryBookingStore } from "@/lib/storage/memory";
 import { addDays, bakuDate } from "@/lib/time";
 import { testAestheticClinic, testClinic, testVetClinic, WED_10AM_BAKU } from "./fixtures";
@@ -184,5 +186,22 @@ describe("runFollowUps", () => {
     expect(deps.notify).toHaveBeenCalledTimes(1);
     const items = computeFollowUps(clinic, await store.list("test-clinic"), WED_10AM_BAKU);
     expect(items.filter((f) => f.sentAt).map((f) => f.name).sort()).toEqual(["Aysel Test", "Анна Тест"]);
+  });
+});
+
+describe("demo mode", () => {
+  it.each(getClinics().map((c) => [c.slug, c] as const))("%s: seeded mock data shows due and upcoming follow-ups", (_slug, c) => {
+    const rows: Booking[] = buildDemoBookings(c, WED_10AM_BAKU).map((b) => ({
+      ...b,
+      status: b.status ?? "new",
+      createdAt: b.createdAt ?? "",
+      updatedAt: "",
+      reminderSentAt: null,
+    }));
+    const items = computeFollowUps(c, rows, WED_10AM_BAKU);
+    expect(new Set(items.map((f) => f.state))).toEqual(new Set(["overdue", "due", "upcoming"]));
+    expect(countDueBack(items)).toBeGreaterThan(0);
+    if (c.niche === "vet") expect(items.every((f) => f.petName)).toBe(true);
+    if (c.niche === "aesthetic") expect(items.some((f) => f.session && f.sessions)).toBe(true);
   });
 });

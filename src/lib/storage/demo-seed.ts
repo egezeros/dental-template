@@ -41,8 +41,8 @@ const HISTORY_PATIENTS: { name: string; locale: Locale }[] = [
   { name: "Zaur H. (demo)", locale: "az" },
 ];
 
-/** Follow-up demo: due dates relative to today (overdue, due now, coming up). */
-const DUE_OFFSETS = [-3, 2, 12];
+/** Follow-up demo: due dates relative to today — overdue, due now, and coming up after the notify window. */
+const dueOffsets = (rule: FollowUpRule) => [-3, 2, rule.leadDays + 8];
 
 /** [day offset from today, slot index, status] */
 const PLAN: [number, number, BookingStatus][] = [
@@ -147,7 +147,7 @@ export function buildDemoBookings(clinic: Clinic, now: Date = new Date()): DemoB
   for (const rule of niche.reminders.followUps) {
     const services = servicesForRule(rule, clinic);
     if (services.length === 0) continue;
-    DUE_OFFSETS.forEach((dueOffset, k) => {
+    dueOffsets(rule).forEach((dueOffset, k) => {
       const service = services[k % services.length];
       const interval = rule.type === "interval" ? rule.afterDays : service.course!.intervalDays;
       const patient = HISTORY_PATIENTS[h % HISTORY_PATIENTS.length];

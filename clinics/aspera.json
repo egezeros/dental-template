@@ -1,0 +1,336 @@
+{
+  "slug": "aspera",
+  "niche": "aesthetic",
+  "name": "Aspera Tibb Mərkəzi",
+  "brandColor": "#6f5a86",
+  "tagline": {
+    "az": "Sağlıq & Estetik",
+    "ru": "Здоровье и эстетика",
+    "en": "Health & aesthetics"
+  },
+  "intro": {
+    "az": "Aspera Bakıda sağlıq və estetika mərkəzidir. Proseduru seçin və onlayn yazılın — administrator vaxtı təsdiqləmək üçün sizinlə əlaqə saxlayacaq.",
+    "ru": "Aspera — центр здоровья и эстетики в Баку. Выберите процедуру и запишитесь онлайн — администратор свяжется с вами, чтобы подтвердить время.",
+    "en": "Aspera is a health and aesthetics centre in Baku. Choose a treatment and book online — the administrator will contact you to confirm the time."
+  },
+  "address": {
+    "az": "Mikayıl Rəfili küç. 28, Bakı",
+    "ru": "ул. Микаила Рафили, 28, Баку",
+    "en": "28 Mikayil Rafili St, Baku"
+  },
+  "district": {
+    "az": "[TO CONFIRM]",
+    "ru": "[TO CONFIRM]",
+    "en": "[TO CONFIRM]"
+  },
+  "phones": [
+    {
+      "display": "(+994 70) 733-33-43",
+      "tel": "+994707333343"
+    }
+  ],
+  "whatsapp": "994773898996",
+  "instagram": "asperaclinic",
+  "facebook": "https://www.facebook.com/p/Aspera-Estetik-Klinika-100089033286864/",
+  "map": {
+    "query": "Aspera, Mikayıl Rəfili 28, Bakı"
+  },
+  "hours": {
+    "mon": "[TO CONFIRM]",
+    "tue": "[TO CONFIRM]",
+    "wed": "[TO CONFIRM]",
+    "thu": "[TO CONFIRM]",
+    "fri": "[TO CONFIRM]",
+    "sat": "[TO CONFIRM]",
+    "sun": "[TO CONFIRM]"
+  },
+  "bookingSlots": {
+    "start": "09:00",
+    "end": "18:00",
+    "stepMinutes": 30
+  },
+  "services": [
+    {
+      "id": "consultation",
+      "category": "other",
+      "name": {
+        "az": "Konsultasiya",
+        "ru": "Консультация",
+        "en": "Consultation"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder"
+    },
+    {
+      "id": "nose-filler",
+      "category": "injectables",
+      "name": {
+        "az": "Burun filleri (cərrahiyyəsiz rinoplastika)",
+        "ru": "Филлер носа (безоперационная ринопластика)",
+        "en": "Nose filler (non-surgical rhinoplasty)"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "outdated"
+    },
+    {
+      "id": "botulinum",
+      "category": "injectables",
+      "name": {
+        "az": "Botoks prosedurları",
+        "ru": "Процедуры ботокса",
+        "en": "Botox treatments"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "laser",
+      "category": "laser",
+      "name": {
+        "az": "Lazer prosedurları",
+        "ru": "Лазерные процедуры",
+        "en": "Laser treatments"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder",
+      "course": {
+        "sessions": 6,
+        "intervalDays": 42
+      }
+    },
+    {
+      "id": "facial-care",
+      "category": "facial",
+      "name": {
+        "az": "Üz baxımı prosedurları",
+        "ru": "Процедуры по уходу за лицом",
+        "en": "Facial treatments"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder"
+    },
+    {
+      "id": "body-care",
+      "category": "body",
+      "name": {
+        "az": "Bədən prosedurları",
+        "ru": "Процедуры для тела",
+        "en": "Body treatments"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder"
+    }
+  ],
+  "packages": [
+    {
+      "id": "course-package",
+      "name": {
+        "az": "Kurs paketi",
+        "ru": "Курсовой пакет",
+        "en": "Course package"
+      },
+      "description": {
+        "az": "Paketin tərkibi, seans sayı və qiyməti klinika ilə dəqiqləşdiriləcək.",
+        "ru": "Состав пакета, число сеансов и цена будут уточнены с клиникой.",
+        "en": "What's included, the number of sessions and the price will be confirmed with the clinic."
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder"
+    }
+  ],
+  "gallery": {
+    "count": 3
+  },
+  "doctors": [
+    {
+      "name": "[TO CONFIRM]",
+      "role": {
+        "az": "Kosmetoloq",
+        "ru": "Косметолог",
+        "en": "Cosmetologist"
+      },
+      "status": "placeholder"
+    },
+    {
+      "name": "[TO CONFIRM]",
+      "role": {
+        "az": "Kosmetoloq",
+        "ru": "Косметолог",
+        "en": "Cosmetologist"
+      },
+      "status": "placeholder"
+    },
+    {
+      "name": "[TO CONFIRM]",
+      "role": {
+        "az": "Kosmetoloq",
+        "ru": "Косметолог",
+        "en": "Cosmetologist"
+      },
+      "status": "placeholder"
+    }
+  ],
+  "whyUs": [
+    {
+      "icon": "chat",
+      "title": {
+        "az": "WhatsApp ilə yazın",
+        "ru": "Пишите в WhatsApp",
+        "en": "Message us on WhatsApp"
+      },
+      "text": {
+        "az": "Suallarınızı WhatsApp-da yazın — administrator cavab verəcək.",
+        "ru": "Задайте вопрос в WhatsApp — администратор ответит.",
+        "en": "Send your questions on WhatsApp and the administrator will reply."
+      },
+      "status": "verified-single"
+    },
+    {
+      "icon": "calendar",
+      "title": {
+        "az": "Onlayn yazılış",
+        "ru": "Онлайн-запись",
+        "en": "Online booking"
+      },
+      "text": {
+        "az": "Bir dəqiqəyə onlayn yazılın və qəbuldan bir gün əvvəl WhatsApp-da xatırlatma alın.",
+        "ru": "Запишитесь онлайн за минуту и получите напоминание в WhatsApp за день до визита.",
+        "en": "Book online in a minute and get a WhatsApp reminder the day before your visit."
+      },
+      "status": "design"
+    },
+    {
+      "icon": "clock",
+      "title": {
+        "az": "Kurs seanslarını unutmayın",
+        "ru": "Не пропустите сеанс курса",
+        "en": "Never miss a course session"
+      },
+      "text": {
+        "az": "Kurs prosedurlarında növbəti seansın vaxtı yaxınlaşanda WhatsApp-da xatırladırıq.",
+        "ru": "Для курсовых процедур напомним о следующем сеансе в WhatsApp, когда подойдёт время.",
+        "en": "For course treatments we remind you on WhatsApp when your next session is coming up."
+      },
+      "status": "design"
+    }
+  ],
+  "provenance": {
+    "name": {
+      "status": "conflict",
+      "sources": [
+        "https://www.instagram.com/asperaclinic/",
+        "https://www.facebook.com/p/Aspera-Estetik-Klinika-100089033286864/",
+        "https://kataloq.gomap.az/az/all-poi/medicine/polyclinic/f059ba6b9b0342aebc08a0f90172b620"
+      ],
+      "note": "Shown: 'Aspera Tibb Mərkəzi' (current Instagram name, 'Sağlıq & Estetik'). Facebook and gomap use 'Aspera Estetik Klinika' — possibly a rebrand (our inference). Not the same as 'Aspera Klinik' hospital on Ceyhun Hacıbəyli 17A. Confirm."
+    },
+    "address": {
+      "status": "conflict",
+      "sources": [
+        "https://www.instagram.com/asperaclinic/",
+        "https://www.facebook.com/p/Aspera-Estetik-Klinika-100089033286864/",
+        "https://www.cybo.com/AZ/bak%C4%B1xanov/medical/?p=2",
+        "https://kataloq.gomap.az/az/all-poi/medicine/polyclinic/f059ba6b9b0342aebc08a0f90172b620"
+      ],
+      "note": "Shown: Mikayıl Rəfili 28 (Instagram). Facebook and Cybo say Rəfili 27; gomap says Sahib Zeynalov 72B, Nərimanov. Confirm."
+    },
+    "district": {
+      "status": "placeholder",
+      "sources": [
+        "https://kataloq.gomap.az/az/all-poi/medicine/polyclinic/f059ba6b9b0342aebc08a0f90172b620"
+      ],
+      "note": "Nərimanov appears only with the gomap address (Sahib Zeynalov 72B); district for the Rəfili address not found."
+    },
+    "phones": {
+      "status": "verified",
+      "sources": [
+        "https://www.instagram.com/asperaclinic/",
+        "https://www.facebook.com/p/Aspera-Estetik-Klinika-100089033286864/",
+        "https://kataloq.gomap.az/az/all-poi/medicine/polyclinic/f059ba6b9b0342aebc08a0f90172b620",
+        "https://www.cybo.com/AZ/bak%C4%B1xanov/medical/?p=2"
+      ],
+      "note": "gomap also lists +994 50 630 98 60 (single source, not shown)."
+    },
+    "whatsapp": {
+      "status": "verified-single",
+      "sources": [
+        "https://kataloq.gomap.az/az/all-poi/medicine/polyclinic/f059ba6b9b0342aebc08a0f90172b620"
+      ]
+    },
+    "instagram": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.instagram.com/asperaclinic/"
+      ],
+      "note": "About 165K followers, 430 posts (undated search snapshot)."
+    },
+    "website": {
+      "status": "verified",
+      "sources": [],
+      "note": "No website found; the contact email is a Gmail address (asperaclinic@gmail.com, Facebook)."
+    },
+    "hours": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.instagram.com/asperaclinic/"
+      ],
+      "note": "Instagram gives 09:00–18:00 without days, so the table shows [TO CONFIRM] for each day; the booking form offers 09:00–18:00."
+    },
+    "services": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.facebook.com/p/Aspera-Estetik-Klinika-100089033286864/"
+      ],
+      "note": "Nose filler / non-surgical rhinoplasty: a 2023 Facebook post (marked dated). Botox: mentioned on the Facebook page. Laser, facial and body entries are template placeholders."
+    },
+    "prices": {
+      "status": "placeholder",
+      "sources": [
+        "https://www.facebook.com/p/Aspera-Estetik-Klinika-100089033286864/"
+      ],
+      "note": "The 2023 post mentions nose-filler pricing but no amount was visible."
+    },
+    "packages": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "No courses or packages found."
+    },
+    "courses": {
+      "status": "design",
+      "sources": [],
+      "note": "Course settings (sessions / days between sessions) are demo defaults that drive the next-session reminder; they are not shown on the site and must be set with the clinic."
+    },
+    "doctors": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "No specialists named in any source."
+    },
+    "rating": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.facebook.com/p/Aspera-Estetik-Klinika-100089033286864/"
+      ],
+      "note": "Facebook: 'Not yet rated (0 reviews)'. No Google, Yandex or 2GIS rating found for this business."
+    },
+    "map": {
+      "status": "constructed",
+      "sources": [],
+      "note": "Search link built from the shown address."
+    },
+    "brandColor": {
+      "status": "design",
+      "sources": [],
+      "note": "Our choice; the clinic's logo and photos were not copied."
+    },
+    "photos": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Neutral illustrations; before/after pairs are placeholders until the clinic supplies consented photos."
+    },
+    "reviews": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Labelled sample reviews; no reviews copied."
+    }
+  }
+}

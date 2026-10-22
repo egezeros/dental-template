@@ -9,7 +9,18 @@ describe("clinic files", () => {
   const clinics = getClinics();
 
   it("all validate and include the three demo clinics", () => {
-    expect(clinics.map((c) => c.slug).sort()).toEqual(["dent-star", "dental-club", "white-estetic-dental"]);
+    // The dental set is unchanged; aesthetic and vet demos were added alongside it.
+    expect(clinics.filter((c) => c.niche === "dental").map((c) => c.slug).sort()).toEqual([
+      "dent-star",
+      "dental-club",
+      "white-estetic-dental",
+    ]);
+  });
+
+  it("include three aesthetic and three vet businesses", () => {
+    const by = (niche: string) => clinics.filter((c) => c.niche === niche).map((c) => c.slug).sort();
+    expect(by("aesthetic")).toEqual(["ahu-estetik-klinika", "aspera", "miss-laser"]);
+    expect(by("vet")).toEqual(["bona-vet-clinic", "myvet", "tarvet"]);
   });
 
   it.each(getClinics().map((c) => [c.slug, c] as const))("%s documents a source for every verified fact", (_slug, c) => {
