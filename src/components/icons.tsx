@@ -192,6 +192,14 @@ export const ScissorsIcon = (p: IconProps) => (
   </Svg>
 );
 
+export const RazorIcon = (p: IconProps) => (
+  <Svg {...p}>
+    <path d="M3 14.5 13.5 4a2 2 0 0 1 2.8 0l.7.7a2 2 0 0 1 0 2.8L9.5 15" />
+    <path d="M9.5 15 12 17.5a1.5 1.5 0 0 1 0 2.1l-.4.4a1.5 1.5 0 0 1-2.1 0L3 14.5" />
+    <path d="M14 19.5h7" />
+  </Svg>
+);
+
 export const HomeIcon = (p: IconProps) => (
   <Svg {...p}>
     <path d="M3.5 11 12 4l8.5 7M5.5 9.5V20h13V9.5" />
@@ -291,4 +299,5 @@ export const ICONS = {
   rabbit: RabbitIcon,
   turtle: TurtleIcon,
   fish: FishIcon,
+  razor: RazorIcon,
 } satisfies Record<IconName, (p: IconProps) => React.JSX.Element>;

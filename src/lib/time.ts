@@ -1,30 +1,42 @@
 import { WEEKDAYS, type Weekday } from "./i18n";
 
-/** All clinics are in Baku. Asia/Baku is UTC+4 all year (no DST since 2016). */
+/**
+ * Default business time zone. Asia/Baku is UTC+4 all year (no DST since 2016); Turkish
+ * businesses use Europe/Istanbul (UTC+3 all year). Each business resolves its own `timeZone`.
+ */
 export const CLINIC_TIME_ZONE = "Asia/Baku";
 
-const ymd = new Intl.DateTimeFormat("en-CA", {
-  timeZone: CLINIC_TIME_ZONE,
-  year: "numeric",
-  month: "2-digit",
-  day: "2-digit",
-});
+const formatters = new Map<string, { ymd: Intl.DateTimeFormat; hm: Intl.DateTimeFormat }>();
+function fmt(timeZone: string) {
+  let f = formatters.get(timeZone);
+  if (!f) {
+    f = {
+      ymd: new Intl.DateTimeFormat("en-CA", { timeZone, year: "numeric", month: "2-digit", day: "2-digit" }),
+      hm: new Intl.DateTimeFormat("en-GB", { timeZone, hour: "2-digit", minute: "2-digit", hourCycle: "h23" }),
+    };
+    formatters.set(timeZone, f);
+  }
+  return f;
+}
+
+/** Calendar date (YYYY-MM-DD) in a time zone for the given instant. */
+export function zonedDate(instant: Date, timeZone: string): string {
+  return fmt(timeZone).ymd.format(instant);
+}
+
+/** Wall-clock time (HH:MM) in a time zone for the given instant. */
+export function zonedTime(instant: Date, timeZone: string): string {
+  return fmt(timeZone).hm.format(instant);
+}
 
 /** Calendar date (YYYY-MM-DD) in Baku for the given instant. */
 export function bakuDate(instant: Date = new Date()): string {
-  return ymd.format(instant);
+  return zonedDate(instant, CLINIC_TIME_ZONE);
 }
-
-const hm = new Intl.DateTimeFormat("en-GB", {
-  timeZone: CLINIC_TIME_ZONE,
-  hour: "2-digit",
-  minute: "2-digit",
-  hourCycle: "h23",
-});
 
 /** Wall-clock time (HH:MM) in Baku for the given instant. */
 export function bakuTime(instant: Date = new Date()): string {
-  return hm.format(instant);
+  return zonedTime(instant, CLINIC_TIME_ZONE);
 }
 
 /** Add whole days to a YYYY-MM-DD date string. */

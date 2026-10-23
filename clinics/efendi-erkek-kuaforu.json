@@ -1,0 +1,262 @@
+{
+  "slug": "efendi-erkek-kuaforu",
+  "niche": "barber",
+  "country": "TR",
+  "locales": [
+    "tr",
+    "en"
+  ],
+  "whatsapp": "[TO CONFIRM]",
+  "name": "Efendi Erkek Kuaförü",
+  "brandColor": "#6b3f1d",
+  "tagline": {
+    "tr": "Saç ve sakal, efendice",
+    "en": "Hair and beard, done like a gentleman"
+  },
+  "intro": {
+    "tr": "Çankaya'da özel saç kesimi, kafa tıraşı ve sakal tıraşı. Online randevu alın, sıra beklemeyin.",
+    "en": "Custom haircuts, head shaves and beard shaves in Çankaya. Book online and skip the queue."
+  },
+  "address": {
+    "tr": "Muhsin Ertuğrul, Bağlar Cd. No:148 D:A, 06660 Çankaya, Ankara",
+    "en": "148/A Bağlar St, Muhsin Ertuğrul, 06660 Çankaya, Ankara"
+  },
+  "district": {
+    "tr": "Çankaya",
+    "en": "Çankaya"
+  },
+  "phones": [
+    {
+      "display": "0535 607 21 77",
+      "tel": "+905356072177"
+    }
+  ],
+  "map": {
+    "query": "Efendi Erkek Kuaförü, Bağlar Caddesi 148, Çankaya, Ankara"
+  },
+  "featuredReviews": {
+    "url": "https://www.google.com/maps/search/?api=1&query=Efendi%20Erkek%20Kuaf%C3%B6r%C3%BC%20Ba%C4%9Flar%20Caddesi%20148%20%C3%87ankaya%20Ankara",
+    "items": [
+      {
+        "author": "Deniz D.",
+        "rating": 5,
+        "text": "Gerçekten çok memnun kaldım, hem ilgileri hem de işçilikleri çok iyi. Saçımı tam istediğim gibi yaptılar, bundan sonra berberim belli. Ellerinize sağlık, kesinlikle tavsiye ederim. 👌✂️",
+        "date": {
+          "tr": "bir ay önce",
+          "en": "a month ago"
+        }
+      },
+      {
+        "author": "Erdal E.",
+        "rating": 5,
+        "text": "\"Hem saç kesimi hem de sakal tıraşı için Ankara'da bulabileceğiniz en temiz ve kaliteli yerlerden biri.kesinlikle tavsiye ederim …",
+        "date": {
+          "tr": "2 ay önce",
+          "en": "2 months ago"
+        }
+      },
+      {
+        "author": "Google kullanıcısı",
+        "rating": 5,
+        "text": "Barış bey'e ilgisi ve özeni için teşekkür ederim kesinlikle Ankara'da nadir kalan hizmet.",
+        "date": {
+          "tr": "5 ay önce",
+          "en": "5 months ago"
+        }
+      }
+    ]
+  },
+  "hours": "[TO CONFIRM]",
+  "services": [
+    {
+      "id": "custom-cut",
+      "category": "haircut",
+      "name": {
+        "tr": "Özel kesim",
+        "en": "Custom haircut"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "head-shave",
+      "category": "beard",
+      "name": {
+        "tr": "Kafa tıraşı",
+        "en": "Head shave"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "beard-shave",
+      "category": "beard",
+      "name": {
+        "tr": "Sakal tıraşı",
+        "en": "Beard shave"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    }
+  ],
+  "doctors": [
+    {
+      "name": "Barış Bey",
+      "role": {
+        "tr": "Usta",
+        "en": "Barber"
+      },
+      "status": "verified-single"
+    },
+    {
+      "name": "[TO CONFIRM]",
+      "role": {
+        "tr": "Usta",
+        "en": "Barber"
+      },
+      "status": "placeholder"
+    }
+  ],
+  "whyUs": [
+    {
+      "icon": "razor",
+      "title": {
+        "tr": "Saç ve sakal bir arada",
+        "en": "Hair and beard in one visit"
+      },
+      "text": {
+        "tr": "Özel kesim, kafa tıraşı ve sakal tıraşı.",
+        "en": "Custom cuts, head shaves and beard shaves."
+      },
+      "status": "verified-single"
+    },
+    {
+      "icon": "calendar",
+      "title": {
+        "tr": "Online randevu",
+        "en": "Online booking"
+      },
+      "text": {
+        "tr": "Bir dakikada online randevu alın; randevudan bir gün önce WhatsApp'tan hatırlatma gelsin.",
+        "en": "Book online in a minute and get a WhatsApp reminder the day before."
+      },
+      "status": "design"
+    },
+    {
+      "icon": "clock",
+      "title": {
+        "tr": "4 haftada bir hatırlatma",
+        "en": "A reminder every 4 weeks"
+      },
+      "text": {
+        "tr": "Tıraş zamanınız geldiğinde WhatsApp'tan haber veriyoruz.",
+        "en": "We let you know on WhatsApp when you're due for a cut."
+      },
+      "status": "design"
+    }
+  ],
+  "rating": {
+    "platform": "Google",
+    "value": "4.9",
+    "kind": "stars",
+    "count": 593,
+    "asOf": "secondhand (eniyi8.com list of Google ratings), 2026",
+    "source": "https://www.google.com/maps/search/?api=1&query=Efendi%20Erkek%20Kuaf%C3%B6r%C3%BC%20Ba%C4%9Flar%20Caddesi%20148%20%C3%87ankaya%20Ankara"
+  },
+  "provenance": {
+    "name": {
+      "status": "verified",
+      "sources": [
+        "https://eniyi8.com/ankara/en-iyi-8-erkek-kuaforu-berber",
+        "https://www.salonlarim.com/isletme/efendi-erkek-kuaforu",
+        "https://www.google.com/maps/search/?api=1&query=Efendi%20Erkek%20Kuaf%C3%B6r%C3%BC%20Ba%C4%9Flar%20Caddesi%20148%20%C3%87ankaya%20Ankara"
+      ]
+    },
+    "address": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.salonlarim.com/isletme/efendi-erkek-kuaforu"
+      ]
+    },
+    "district": {
+      "status": "verified",
+      "sources": [
+        "https://www.salonlarim.com/isletme/efendi-erkek-kuaforu",
+        "https://eniyi8.com/ankara/en-iyi-8-erkek-kuaforu-berber"
+      ]
+    },
+    "phones": {
+      "status": "verified-single",
+      "sources": [
+        "https://eniyi8.com/ankara/en-iyi-8-erkek-kuaforu-berber"
+      ]
+    },
+    "whatsapp": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "No WhatsApp number confirmed."
+    },
+    "instagram": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "No Instagram account found."
+    },
+    "website": {
+      "status": "verified",
+      "sources": [],
+      "note": "No website or booking page found."
+    },
+    "hours": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Not found; the booking form uses a default 09:00–19:00 window."
+    },
+    "services": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Efendi%20Erkek%20Kuaf%C3%B6r%C3%BC%20Ba%C4%9Flar%20Caddesi%20148%20%C3%87ankaya%20Ankara"
+      ],
+      "note": "From the service tags and text of Google reviews."
+    },
+    "prices": {
+      "status": "placeholder",
+      "sources": []
+    },
+    "doctors": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Efendi%20Erkek%20Kuaf%C3%B6r%C3%BC%20Ba%C4%9Flar%20Caddesi%20148%20%C3%87ankaya%20Ankara"
+      ],
+      "note": "'Barış Bey' is thanked in a Google review."
+    },
+    "rating": {
+      "status": "outdated",
+      "sources": [
+        "https://eniyi8.com/ankara/en-iyi-8-erkek-kuaforu-berber"
+      ],
+      "note": "4.9 from 593 per eniyi8's 2026 list (a copy of Google data). Update from the live listing."
+    },
+    "map": {
+      "status": "constructed",
+      "sources": [],
+      "note": "Search link built from the business name and address."
+    },
+    "brandColor": {
+      "status": "design",
+      "sources": [],
+      "note": "Our choice; the business's logo and photos were not copied."
+    },
+    "photos": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Neutral illustrations."
+    },
+    "reviews": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Efendi%20Erkek%20Kuaf%C3%B6r%C3%BC%20Ba%C4%9Flar%20Caddesi%20148%20%C3%87ankaya%20Ankara"
+      ],
+      "note": "Reviews copied word for word from the business's Google listing on 2026-10-23 (screenshots supplied by the agency's partner); names shortened to first name + surname initial, or 'Google kullanıcısı' where the name was not visible. Relative dates as of that day; '…' marks text Google had cut off. For the demo only; switch to the live Google feed or get the business's OK before going public."
+    }
+  }
+}

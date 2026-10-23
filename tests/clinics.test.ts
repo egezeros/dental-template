@@ -18,6 +18,23 @@ describe("clinic files", () => {
     ]);
   });
 
+  it("include the Ankara barbers and beauty salons, in Turkish and English", () => {
+    const tr = clinics.filter((c) => c.country === "TR");
+    expect(tr.map((c) => c.slug).sort()).toEqual([
+      "berber-omer-aykut",
+      "efendi-erkek-kuaforu",
+      "emy-kuafor",
+      "inter-jr-barbers-club",
+      "isil-isil",
+      "nazli-erzar-cebeci",
+      "zest-guzellik",
+    ]);
+    for (const c of tr) {
+      expect(c.locales).toEqual(["tr", "en"]);
+      expect(c.timeZone).toBe("Europe/Istanbul");
+    }
+  });
+
   it("include three aesthetic and three vet businesses", () => {
     const by = (niche: string) => clinics.filter((c) => c.niche === niche).map((c) => c.slug).sort();
     expect(by("aesthetic")).toEqual(["ahu-estetik-klinika", "aspera", "miss-laser"]);

@@ -51,9 +51,10 @@ type Status = "idle" | "submitting" | "success" | "error";
 const WEEKDAY_BY_JS_DAY: Weekday[] = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
 const MAX_DAYS_AHEAD = 120;
 
-function bakuNow(): { date: string; time: string } {
+/** "Now" in the business's time zone. */
+function zonedNow(timeZone: string): { date: string; time: string } {
   const parts = new Intl.DateTimeFormat("en-CA", {
-    timeZone: "Asia/Baku",
+    timeZone,
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
@@ -83,6 +84,8 @@ export function BookingForm(props: {
   slotsByWeekday: Record<Weekday, string[]>;
   text: BookingFormText;
   demo: boolean;
+  timeZone: string;
+  phonePlaceholder: string;
 }) {
   const { text, fields } = props;
   const [name, setName] = useState("");
@@ -98,7 +101,7 @@ export function BookingForm(props: {
   const [now, setNow] = useState<{ date: string; time: string } | null>(null);
 
   // "Today" must come from the visitor's clock at runtime, not from build time.
-  useEffect(() => setNow(bakuNow()), []);
+  useEffect(() => setNow(zonedNow(props.timeZone)), [props.timeZone]);
 
   useEffect(() => {
     const onSelect = (e: Event) => {
@@ -276,7 +279,7 @@ export function BookingForm(props: {
               type="tel"
               inputMode="tel"
               autoComplete="tel"
-              placeholder="+994 50 123 45 67"
+              placeholder={props.phonePlaceholder}
               value={phone}
               maxLength={24}
               onChange={(e) => setPhone(e.target.value)}

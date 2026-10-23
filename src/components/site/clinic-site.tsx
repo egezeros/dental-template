@@ -4,7 +4,7 @@ import { ICONS, SirenIcon } from "@/components/icons";
 import { isPlaceholder, type Clinic } from "@/lib/clinics/schema";
 import { agencyName, demoWhatsAppOverride, isDemoMode } from "@/lib/config";
 import type { GooglePlaceReviews } from "@/lib/google-reviews";
-import { LOCALE_LABELS, LOCALES, tr, type Locale } from "@/lib/i18n";
+import { LOCALE_LABELS, tr, type Locale } from "@/lib/i18n";
 import { nicheSiteDict } from "@/lib/niches/copy";
 import { getNiche } from "@/lib/niches/load";
 import type { SectionId } from "@/lib/niches/schema";
@@ -12,8 +12,9 @@ import { Fill } from "./fill";
 import { FloatingActions } from "./floating-actions";
 import { emergencyPhones, hasSection, SECTIONS, SELF_STYLED, type SiteContext } from "./sections";
 
-export function clinicHref(slug: string, locale: Locale): string {
-  return locale === "az" ? `/${slug}` : `/${slug}/${locale}`;
+/** Page URL for a language: the business's default language lives at /<slug>, others at /<slug>/<lang>. */
+export function clinicHref(clinic: Pick<Clinic, "slug" | "locales">, locale: Locale): string {
+  return locale === clinic.locales[0] ? `/${clinic.slug}` : `/${clinic.slug}/${locale}`;
 }
 
 /**
@@ -126,7 +127,7 @@ export function ClinicSite({
 
       <header className="sticky top-0 z-30 border-b border-line/70 bg-surface/85 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4">
-          <Link href={clinicHref(clinic.slug, locale)} className="flex min-w-0 items-center gap-2.5">
+          <Link href={clinicHref(clinic, locale)} className="flex min-w-0 items-center gap-2.5">
             <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-brand text-white" aria-hidden="true">
               <Icon size={20} />
             </span>
@@ -157,10 +158,10 @@ export function ClinicSite({
               </a>
             )}
             <div className="flex rounded-full bg-canvas p-0.5 ring-1 ring-line" role="navigation" aria-label="Language">
-              {LOCALES.map((l) => (
+              {clinic.locales.map((l) => (
                 <Link
                   key={l}
-                  href={clinicHref(clinic.slug, l)}
+                  href={clinicHref(clinic, l)}
                   hrefLang={l}
                   aria-current={l === locale ? "page" : undefined}
                   className={`rounded-full px-2.5 py-1 text-xs font-semibold transition ${

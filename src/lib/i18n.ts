@@ -1,4 +1,4 @@
-export const LOCALES = ["az", "ru", "en"] as const;
+export const LOCALES = ["az", "ru", "en", "tr"] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = "az";
 
@@ -6,18 +6,22 @@ export function isLocale(v: unknown): v is Locale {
   return typeof v === "string" && (LOCALES as readonly string[]).includes(v);
 }
 
-/** Value that is either the same in every language (names, numbers) or translated. */
-export type Localized = string | Record<Locale, string>;
+/**
+ * Value that is either the same in every language (names, numbers) or translated into the
+ * languages a business uses (its `locales`; validated when the file is loaded).
+ */
+export type Localized = string | Partial<Record<Locale, string>>;
 
 export function tr(value: Localized | undefined, locale: Locale): string {
   if (value === undefined) return "";
-  return typeof value === "string" ? value : value[locale] ?? value.az;
+  if (typeof value === "string") return value;
+  return value[locale] ?? value.en ?? value.az ?? Object.values(value)[0] ?? "";
 }
 
-export const LOCALE_LABELS: Record<Locale, string> = { az: "AZ", ru: "RU", en: "EN" };
+export const LOCALE_LABELS: Record<Locale, string> = { az: "AZ", ru: "RU", en: "EN", tr: "TR" };
 
 /** BCP-47 tags used for Intl formatting. */
-export const INTL_LOCALE: Record<Locale, string> = { az: "az-Latn-AZ", ru: "ru-RU", en: "en-GB" };
+export const INTL_LOCALE: Record<Locale, string> = { az: "az-Latn-AZ", ru: "ru-RU", en: "en-GB", tr: "tr-TR" };
 
 /** Russian plural form: 1 сеанс, 2 сеанса, 5 сеансов. */
 function ruPlural(n: number, one: string, few: string, many: string): string {
@@ -408,6 +412,131 @@ const site = {
       sun: "Sunday",
     } satisfies Record<Weekday, string>,
   },
+  tr: {
+    demoBanner: (name: string) => `${name} için hazırlanmış demo`,
+    nav: {
+      services: "Hizmetler",
+      doctors: "Ekibimiz",
+      why: "Neden biz",
+      reviews: "Yorumlar",
+      location: "Adres",
+      hours: "Çalışma saatleri",
+      packages: "Paketler",
+      gallery: "Galeri",
+      faq: "SSS",
+      emergency: "Acil",
+      audience: "Kimler için",
+    },
+    hero: {
+      cta: "Randevu al",
+      call: "Ara",
+      note: "Online randevu yaklaşık 1 dakika sürer",
+    },
+    services: {
+      title: "Hizmetler ve fiyatlar",
+      subtitle: "Fiyatlar bilgi amaçlıdır; kesin fiyat işlemden önce belirlenir.",
+      book: "Randevu",
+    },
+    doctors: { title: "Ekibimiz", subtitle: "Uzman kadro" },
+    why: { title: "Neden bizi seçiyorlar" },
+    packages: {
+      title: "Paketler",
+      subtitle: "Paket içeriği ve koşulları randevuda netleştirilir.",
+      sessions: (n: number) => `${n} seans`,
+      book: "Randevu",
+    },
+    gallery: {
+      title: "Önce ve sonra",
+      subtitle: "Gerçek sonuç fotoğrafları yalnızca müşterilerin yazılı onayıyla eklenecektir.",
+      before: "Önce",
+      after: "Sonra",
+      note: "Sonuçlar kişiden kişiye değişir ve garanti edilmez.",
+    },
+    faq: { title: "Sık sorulan sorular" },
+    emergency: {
+      title: "Acil durum mu?",
+      text: "Durum acilse gelmeden önce arayın — ne yapmanız gerektiğini söyleyelim.",
+      call: "Hemen ara",
+    },
+    audience: { title: "Kimlere hizmet veriyoruz" },
+    reviews: {
+      title: "Müşteri yorumları",
+      sampleLabel: "ÖRNEK YORUMLAR — yer tutucu. Gerçek yorumlar müşterilerin onayıyla eklenecektir.",
+      sampleText: "Bu bir örnek yorum metnidir. Burada müşterinin onayıyla yayımlanan gerçek bir yorum yer alacak.",
+      sampleAuthor: "Örnek müşteri",
+      ratingOn: (platform: string) => `${platform} puanı`,
+      ratingsCount: (n: number) => `${n} değerlendirme`,
+      source: "Kaynak",
+      recommend: "tavsiye ediyor",
+      googleCount: (n: number) => `Google'da ${n} yorum`,
+      allOnGoogle: "Tüm yorumlar Google Haritalar'da",
+      fromGoogle: "Google Haritalar'dan yorumlar",
+    },
+    booking: {
+      title: "Online randevu",
+      subtitle: "Formu doldurun — saati onaylamak için sizinle iletişime geçeceğiz.",
+      name: "Adınız",
+      namePlaceholder: "Örn. Ayşe",
+      phone: "Telefon numaranız",
+      service: "Hizmet",
+      selectService: "Hizmet seçin",
+      date: "Tercih ettiğiniz tarih",
+      time: "Tercih ettiğiniz saat",
+      selectTime: "Saat seçin",
+      specialist: "Uzman",
+      anySpecialist: "Fark etmez",
+      optional: "isteğe bağlı",
+      selectOption: "Seçin",
+      consent: (clinic: string) =>
+        `Adımın ve telefon numaramın ${clinic} tarafından yalnızca bu randevuyla ilgili benimle iletişime geçmek için saklanmasını kabul ediyorum.`,
+      noHealthInfo: "Lütfen sağlığınızla ilgili bilgi yazmayın — bunu randevuda konuşacağız.",
+      submit: "Randevu talebi gönder",
+      submitting: "Gönderiliyor…",
+      successTitle: "Talebiniz alındı!",
+      successText: "Saati onaylamak için kısa süre içinde sizi arayacağız veya yazacağız.",
+      another: "Yeni talep",
+      error: "Gönderilemedi. Lütfen tekrar deneyin veya bizi arayın.",
+      demoNote: "Demo modu: talep işletmeye gönderilmez, yalnızca demo panelinde görünür.",
+      closedDay: "Bu gün kapalıyız — lütfen başka bir tarih seçin.",
+      errors: {
+        name: "Adınızı girin",
+        phone: "Geçerli bir telefon numarası girin",
+        service: "Hizmet seçin",
+        date: "Bugün veya sonraki bir tarihi seçin",
+        time: "Saat seçin",
+        consent: "Devam etmek için onay gereklidir",
+        field: "Bu alanı doğru doldurun",
+      },
+    },
+    location: { title: "Adres ve harita", directions: "Yol tarifi al", phones: "Telefonlar", website: "Web sitesi" },
+    hours: {
+      title: "Çalışma saatleri",
+      closed: "Kapalı",
+      today: "Bugün",
+      open24: "7/24 açık",
+      allDay: "24 saat",
+      nightNote: (from: string, to: string) =>
+        `Online randevu ${from}–${to} arası içindir; gece acil durumlar için lütfen arayın.`,
+    },
+    footer: {
+      demo: (agency: string) => `Bu demo site ${agency} tarafından hazırlanmıştır ve işletmenin resmi sitesi değildir.`,
+      privacy: "Formdaki bilgiler yalnızca randevunuzu düzenlemek için kullanılır.",
+    },
+    placeholderImage: "Görsel yer tutucu — işletmenin kendi fotoğrafıyla değiştirilecek",
+    photoPlaceholder: "Fotoğraf yer tutucu",
+    whatsappAria: "WhatsApp'tan yazın",
+    whatsappMessage: (clinic: string) => `Merhaba! ${clinic} için randevu almak istiyorum.`,
+    whatsappMissing: "İşletmenin WhatsApp numarası henüz doğrulanmadı [TO CONFIRM].",
+    days: {
+      mon: "Pazartesi",
+      tue: "Salı",
+      wed: "Çarşamba",
+      thu: "Perşembe",
+      fri: "Cuma",
+      sat: "Cumartesi",
+      sun: "Pazar",
+    } satisfies Record<Weekday, string>,
+  },
 };
 
 export type SiteDictionary = (typeof site)["en"];
@@ -589,6 +718,64 @@ const admin = {
       "No database connected: bookings made on the website won't show up here. Connect Supabase from Vercel's Storage tab (see README).",
     storageError: "Could not reach the database:",
     demoData: "Demo data — fictional patients",
+  },
+  tr: {
+    title: "Yönetim paneli",
+    login: "Giriş yap",
+    password: "Şifre",
+    wrongPassword: "Şifre yanlış",
+    demoHint: (pw: string) => `Demo modu: şifre ${pw}`,
+    disabled: "Panel devre dışı: ADMIN_PASSWORD ayarlanmamış.",
+    logout: "Çıkış",
+    viewSite: "Siteyi gör",
+    stats: {
+      week: "Bu haftaki randevular",
+      upcoming: "Yaklaşan randevular",
+      noShowRate: "Gelmeme oranı (30 gün)",
+      pending: "Onay bekleyen",
+      dueBack: "Geri gelmesi gerekenler",
+    },
+    tabs: { upcoming: "Yaklaşan", past: "Geçmiş", all: "Tümü" },
+    table: { patient: "Müşteri", service: "Hizmet", when: "Tarih / saat", status: "Durum", actions: "İşlemler" },
+    status: { new: "Yeni", confirmed: "Onaylandı", cancelled: "İptal", no_show: "Gelmedi" },
+    actions: { confirm: "Onayla", cancel: "İptal et", noShow: "Gelmedi", reset: "Yeniye al" },
+    empty: "Randevu yok",
+    reminders: {
+      title: "Yarının hatırlatmaları",
+      subtitle: "Tek dokunuşla müşteriye hazır WhatsApp mesajı gönderin.",
+      send: "WhatsApp'ta aç",
+      run: "Hatırlatmaları şimdi çalıştır",
+      none: "Yarın için randevu yok",
+      sent: "Gönderildi",
+    },
+    followUps: {
+      title: "Tekrar ziyaretler",
+      subtitle: "Kurallara göre yeniden davet edilmesi gerekenler — önümüzdeki 30 gün ve gecikenler.",
+      none: "Önümüzdeki 30 günde tekrar ziyaret yok",
+      send: "WhatsApp",
+      sent: "Gönderildi",
+      markSent: "Gönderildi say",
+      run: "Zamanı gelenlere şimdi gönder",
+      due: "Zamanı geldi",
+      overdue: "Gecikti",
+      upcoming: "Yakında",
+      dueOn: (d: string) => `zamanı: ${d}`,
+      lastVisit: (d: string) => `son ziyaret: ${d}`,
+      session: (n: number, total: number) => `seans ${n}/${total}`,
+    },
+    outbox: {
+      title: "Bildirim günlüğü",
+      subtitle: "Telegram'a gönderilen (veya demo modunda gönderilecek) mesajlar.",
+      empty: "Henüz bildirim yok",
+      delivered: "Telegram'a gönderildi",
+      simulated: "Simülasyon (Telegram anahtarı yok)",
+      failed: "Hata",
+    },
+    storage: "Depolama",
+    memoryWarning:
+      "Veritabanı bağlı değil: siteden gelen talepler burada görünmez. Vercel'in Storage bölümünden Supabase bağlayın (README'ye bakın).",
+    storageError: "Veritabanına bağlanılamadı:",
+    demoData: "Demo verileri — hayali müşteriler",
   },
 };
 

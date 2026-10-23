@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { LOCALES } from "../i18n";
 import { ICON_NAMES, SECTION_IDS } from "../niches/schema";
 
 /** Marker used for every piece of information that still has to be confirmed with the clinic. */
@@ -10,10 +11,26 @@ export function isPlaceholder(value: unknown): boolean {
   return false;
 }
 
+/** One string for every language, or a translation per language (each business's languages are checked on load). */
 const localized = z.union([
   z.string().min(1),
-  z.object({ az: z.string().min(1), ru: z.string().min(1), en: z.string().min(1) }),
+  z
+    .object({
+      az: z.string().min(1).optional(),
+      ru: z.string().min(1).optional(),
+      en: z.string().min(1).optional(),
+      tr: z.string().min(1).optional(),
+    })
+    .strict()
+    .refine((v) => Object.keys(v).length > 0, "needs at least one language"),
 ]);
+
+/** Countries the template knows: phone formats, default time zone, Google search region. */
+export const COUNTRIES = {
+  AZ: { timeZone: "Asia/Baku", dialCode: "994", phonePlaceholder: "+994 50 123 45 67" },
+  TR: { timeZone: "Europe/Istanbul", dialCode: "90", phonePlaceholder: "0532 123 45 67" },
+} as const;
+export type Country = keyof typeof COUNTRIES;
 
 const hex = z.string().regex(/^#[0-9a-fA-F]{6}$/, "expected #rrggbb");
 const time = z.string().regex(/^(([01]\d|2[0-3]):[0-5]\d|24:00)$/, "expected HH:MM");
@@ -59,6 +76,19 @@ export const clinicSchema = z.object({
   brandColor: hex.optional(),
   /** Optional: reorder or trim the niche's section list for this business. */
   sections: z.array(z.enum(SECTION_IDS)).optional(),
+  /**
+   * Site languages; the first is the default, served at /<slug>. Every translated text in this
+   * file and in its niche must cover all of them.
+   */
+  locales: z
+    .array(z.enum(LOCALES))
+    .min(1)
+    .refine((l) => new Set(l).size === l.length, "duplicate language")
+    .default(["az", "ru", "en"]),
+  /** Phone number format and default time zone. */
+  country: z.enum(["AZ", "TR"]).default("AZ"),
+  /** IANA time zone; defaults to the country's (Asia/Baku, Europe/Istanbul). */
+  timeZone: z.string().optional(),
   tagline: localized,
   intro: localized,
   address: localized,
@@ -202,8 +232,8 @@ export const clinicSchema = z.object({
 });
 
 type ParsedClinic = z.infer<typeof clinicSchema>;
-/** A validated business file, with niche defaults (brand colour) resolved by the loader. */
-export type Clinic = Omit<ParsedClinic, "brandColor"> & { brandColor: string };
+/** A validated business file, with defaults (brand colour, time zone) resolved by the loader. */
+export type Clinic = Omit<ParsedClinic, "brandColor" | "timeZone"> & { brandColor: string; timeZone: string };
 export type ClinicService = Clinic["services"][number];
 export type OpeningHours = Exclude<Clinic["hours"], typeof PLACEHOLDER>;
 

@@ -8,8 +8,19 @@ import { z } from "zod";
 
 const slug = z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, "lowercase kebab-case");
 const hex = z.string().regex(/^#[0-9a-fA-F]{6}$/, "expected #rrggbb");
-/** Niche-level copy is always fully translated. */
-export const localizedFull = z.object({ az: z.string().min(1), ru: z.string().min(1), en: z.string().min(1) });
+/**
+ * Niche-level text in one or more languages. Every business using the niche must find all of
+ * its own languages here; the clinic loader checks that (so a Turkish-only niche is fine).
+ */
+export const localizedFull = z
+  .object({
+    az: z.string().min(1).optional(),
+    ru: z.string().min(1).optional(),
+    en: z.string().min(1).optional(),
+    tr: z.string().min(1).optional(),
+  })
+  .strict()
+  .refine((v) => Object.keys(v).length > 0, "needs at least one language");
 
 /** Page sections the template knows how to render, in any order. */
 export const SECTION_IDS = [
@@ -55,6 +66,7 @@ export const ICON_NAMES = [
   "rabbit",
   "turtle",
   "fish",
+  "razor",
 ] as const;
 export type IconName = (typeof ICON_NAMES)[number];
 
@@ -141,14 +153,14 @@ export const nicheSchema = z
     id: slug,
     label: localizedFull,
     theme: z.object({
-      /** Visual preset defined in globals.css: clinical (dental), luxe (beauty), warm (vet). */
-      preset: z.enum(["clinical", "luxe", "warm"]),
+      /** Visual preset defined in globals.css: clinical (dental), luxe (beauty), warm (vet), bold (barber). */
+      preset: z.enum(["clinical", "luxe", "warm", "bold"]),
       /** Default brand colour for businesses that don't set one. */
       brandColor: hex,
       /** Monogram icon in the header and footer. */
       icon: z.enum(ICON_NAMES),
       /** Neutral illustration used as the hero image placeholder. */
-      heroArt: z.enum(["dental", "beauty", "pet"]),
+      heroArt: z.enum(["dental", "beauty", "pet", "barber"]),
       /** Show a prominent emergency call button in the header (vet). */
       emergencyInHeader: z.boolean().default(false),
       /** Emoji that opens staff Telegram notifications. */

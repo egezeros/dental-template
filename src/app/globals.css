@@ -2,6 +2,7 @@
 @import "@fontsource-variable/inter/wght.css";
 @import "@fontsource-variable/cormorant-garamond/wght.css";
 @import "@fontsource-variable/nunito/wght.css";
+@import "@fontsource-variable/oswald/wght.css";
 
 /*
  * Design tokens. Utilities read them through --theme-* variables (inline), so a niche's theme
@@ -91,9 +92,41 @@ body {
   font-weight: 800;
 }
 
+/* Barbers: warm paper and charcoal, condensed uppercase display type, squarer corners. */
+[data-theme="bold"] {
+  --theme-ink: #161514;
+  --theme-muted: #57524c;
+  --theme-surface: #ffffff;
+  --theme-canvas: #f2efe9;
+  --theme-line: #e1dbd1;
+  --theme-font-display: "Oswald Variable", "Oswald", "Arial Narrow", Impact, sans-serif;
+}
+[data-theme="bold"] .section-title {
+  font-size: 2.25rem;
+  line-height: 1.05;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+@media (min-width: 768px) {
+  [data-theme="bold"] .section-title {
+    font-size: 3rem;
+  }
+}
+[data-theme="bold"] .card {
+  border-radius: 0.75rem;
+}
+[data-theme="bold"] .btn-primary,
+[data-theme="bold"] .btn-secondary {
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
 /* Themed pages paint their own canvas (the body keeps the default one). */
 [data-theme="luxe"],
-[data-theme="warm"] {
+[data-theme="warm"],
+[data-theme="bold"] {
   background-color: var(--theme-canvas);
 }
 

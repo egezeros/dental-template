@@ -10,7 +10,7 @@ const dental = () => JSON.parse(fs.readFileSync("niches/dental.json", "utf8"));
 
 describe("niche configs", () => {
   it("all niches/*.json files validate", () => {
-    expect(nicheIds().sort()).toEqual(["aesthetic", "dental", "vet"]);
+    expect(nicheIds().sort()).toEqual(["aesthetic", "barber", "beauty", "dental", "vet"]);
   });
 
   it("leaves the dental texts exactly as they were", () => {

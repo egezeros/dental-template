@@ -17,12 +17,13 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const clinic = getClinic((await params).slug);
-  return clinic ? clinicMetadata(clinic, "az") : {};
+  return clinic ? clinicMetadata(clinic, clinic.locales[0]) : {};
 }
 
-/** Azerbaijani (default language) version of a clinic site: /<slug> */
+/** A business site in its default language (the first of its `locales`): /<slug> */
 export default async function ClinicPage({ params }: Props) {
   const clinic = getClinic((await params).slug);
   if (!clinic) notFound();
-  return <ClinicSite clinic={clinic} locale="az" google={await getGoogleReviews(clinic, "az")} />;
+  const locale = clinic.locales[0];
+  return <ClinicSite clinic={clinic} locale={locale} google={await getGoogleReviews(clinic, locale)} />;
 }

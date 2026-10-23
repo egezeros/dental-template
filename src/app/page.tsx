@@ -14,7 +14,7 @@ export default function Home() {
     .map((n) => ({ niche: n, clinics: clinics.filter((c) => c.niche === n.id) }))
     .filter((g) => g.clinics.length > 0);
   return (
-    <main className="mx-auto min-h-screen max-w-2xl px-4 py-16">
+    <main lang="en" className="mx-auto min-h-screen max-w-2xl px-4 py-16">
       <h1 className="text-2xl font-semibold tracking-tight">Clinic website template</h1>
       {groups.length > 0 ? (
         <>
@@ -28,8 +28,13 @@ export default function Home() {
                     <div className="flex items-center gap-3">
                       <span className="h-3 w-3 rounded-full" style={{ background: c.brandColor }} />
                       <div>
-                        <p className="font-semibold">{c.name}</p>
-                        <p className="text-xs text-slate-500">{tr(c.district, "en")}</p>
+                        <p className="font-semibold">
+                          {c.name}
+                          {c.country !== "AZ" && <span className="ml-1.5 text-xs font-bold text-slate-500">({c.country})</span>}
+                        </p>
+                        <p className="text-xs text-slate-500">
+                          {tr(c.district, "en")} · {c.locales.map((l) => l.toUpperCase()).join("/")}
+                        </p>
                       </div>
                     </div>
                     <div className="flex gap-3 text-sm font-medium">

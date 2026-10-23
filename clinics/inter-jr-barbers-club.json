@@ -1,0 +1,267 @@
+{
+  "slug": "inter-jr-barbers-club",
+  "niche": "barber",
+  "country": "TR",
+  "locales": [
+    "tr",
+    "en"
+  ],
+  "whatsapp": "[TO CONFIRM]",
+  "name": "İnter JR Barbers Club",
+  "brandColor": "#0f4c5c",
+  "tagline": {
+    "tr": "Etimesgut'ta randevulu saç tasarımı",
+    "en": "Appointment-only hair design in Etimesgut"
+  },
+  "intro": {
+    "tr": "İnter JR Barbers Club randevu ile çalışır. Artık aramadan, birkaç gün önceden online randevu alın; saatinizi onaylayalım, siz de beklemeden koltuğa oturun.",
+    "en": "İnter JR Barbers Club works by appointment. Book online a few days ahead instead of calling; we confirm your time and you sit straight down."
+  },
+  "address": {
+    "tr": "Atakent Mah., 1478. Cad., Etimesgut, Ankara",
+    "en": "1478th St, Atakent, Etimesgut, Ankara"
+  },
+  "district": {
+    "tr": "Etimesgut",
+    "en": "Etimesgut"
+  },
+  "phones": [
+    {
+      "display": "0553 160 86 94",
+      "tel": "+905531608694"
+    }
+  ],
+  "map": {
+    "query": "İnter JR Barbers Club, Atakent, Etimesgut, Ankara"
+  },
+  "featuredReviews": {
+    "url": "https://www.google.com/maps/search/?api=1&query=%C4%B0nter%20JR%20Barbers%20Club%20Etimesgut%20Ankara",
+    "items": [
+      {
+        "author": "Serhat E.",
+        "rating": 5,
+        "text": "Murat bey ve ekibi ilgi ve alakasından dolayı teşekkür ederim yaklaşık 7-8 aydır gittiğim ve her gittiğim de daha fazla memnun eden yerdir randevu ile kesim yapmaktadır gitmeden 3-4 gün önce aradığınız da Murat bey boş da oluyorsa beklemeden işlemlerinizi yapıyor (:",
+        "date": {
+          "tr": "2 ay önce",
+          "en": "2 months ago"
+        }
+      },
+      {
+        "author": "Engin A.",
+        "rating": 5,
+        "text": "Murat Beye ve ekibine çok teşekkür ediyorum.Gerçek bir saç tasarım sanatçısı.Oğlum Ege ye çok güzel bir lise başlangıç modeli yaptı",
+        "date": {
+          "tr": "bir ay önce",
+          "en": "a month ago"
+        }
+      },
+      {
+        "author": "Göksel A.",
+        "rating": 5,
+        "text": "Bugün ilk kez gittiğim kuaför. Beyefendi, temiz, güler yüzlü ve en en en önemlisi saygılı insanlar. Saç kesimi konusunda da gayet iyiler bence. Sanırım bundan sonra Ankara'daki kuaförüm burası olacak. …",
+        "date": {
+          "tr": "bir ay önce",
+          "en": "a month ago"
+        }
+      }
+    ]
+  },
+  "hours": "[TO CONFIRM]",
+  "services": [
+    {
+      "id": "haircut",
+      "category": "haircut",
+      "name": {
+        "tr": "Saç kesimi",
+        "en": "Haircut"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified"
+    },
+    {
+      "id": "long-hair",
+      "category": "haircut",
+      "name": {
+        "tr": "Uzun saç kesimi",
+        "en": "Long-hair cut"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "beard",
+      "category": "beard",
+      "name": {
+        "tr": "Sakal",
+        "en": "Beard"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder"
+    }
+  ],
+  "doctors": [
+    {
+      "name": "Murat Bey",
+      "role": {
+        "tr": "Usta · saç tasarımı",
+        "en": "Barber · hair design"
+      },
+      "status": "verified"
+    },
+    {
+      "name": "[TO CONFIRM]",
+      "role": {
+        "tr": "Usta",
+        "en": "Barber"
+      },
+      "status": "placeholder"
+    }
+  ],
+  "whyUs": [
+    {
+      "icon": "calendar",
+      "title": {
+        "tr": "Randevu ile çalışır",
+        "en": "Appointment-only"
+      },
+      "text": {
+        "tr": "Müşteriler gelmeden 3–4 gün önce arayıp yer ayırtıyor — artık bunu online yapabilirsiniz.",
+        "en": "Clients phone 3–4 days ahead to get a slot — now you can do it online."
+      },
+      "status": "verified-single"
+    },
+    {
+      "icon": "star",
+      "title": {
+        "tr": "Premium ürünler, ferah salon",
+        "en": "Premium products, spacious shop"
+      },
+      "text": {
+        "tr": "Müşteriler kullanılan ürünleri ve geniş, temiz salonu öne çıkarıyor.",
+        "en": "Clients praise the products used and the spacious, clean shop."
+      },
+      "status": "verified-single"
+    },
+    {
+      "icon": "clock",
+      "title": {
+        "tr": "4 haftada bir hatırlatma",
+        "en": "A reminder every 4 weeks"
+      },
+      "text": {
+        "tr": "Tıraş zamanınız geldiğinde WhatsApp'tan haber veriyoruz.",
+        "en": "We let you know on WhatsApp when you're due for a cut."
+      },
+      "status": "design"
+    }
+  ],
+  "provenance": {
+    "name": {
+      "status": "verified",
+      "sources": [
+        "https://yandex.com.tr/maps/org/inter_jr_barbers_club/20971871420/",
+        "https://firmadan.com/firma/409427/inter-jr-barbers-club/",
+        "https://www.google.com/maps/search/?api=1&query=%C4%B0nter%20JR%20Barbers%20Club%20Etimesgut%20Ankara"
+      ]
+    },
+    "address": {
+      "status": "conflict",
+      "sources": [
+        "https://yandex.com.tr/maps/org/inter_jr_barbers_club/20971871420/",
+        "https://mekan360.com/sanaltur_inter-jr-barber-s_21894.html"
+      ],
+      "note": "Shown: Atakent Mah., 1478. Cad. (Yandex). mekan360 gives 1522. Cad. No:47/B. Confirm the door number."
+    },
+    "district": {
+      "status": "verified",
+      "sources": [
+        "https://yandex.com.tr/maps/org/inter_jr_barbers_club/20971871420/",
+        "https://mekan360.com/sanaltur_inter-jr-barber-s_21894.html"
+      ]
+    },
+    "phones": {
+      "status": "conflict",
+      "sources": [
+        "https://firmadan.com/firma/409427/inter-jr-barbers-club/",
+        "https://tr.foursquare.com/v/inter-jr-hairdresser--murat-karako%C3%A7/506f27b0e4b080ea97da9672"
+      ],
+      "note": "0553 160 86 94 (firmadan). An old Foursquare entry gives 0506 931 74 63."
+    },
+    "whatsapp": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "No WhatsApp number confirmed."
+    },
+    "instagram": {
+      "status": "placeholder",
+      "sources": [
+        "https://www.top-rated.online/cities/Etimesgut/place/p/13988543/%C4%B0nter+JR+Barbers+Club"
+      ],
+      "note": "A reviewer found the shop through Instagram, but the handle was not found."
+    },
+    "website": {
+      "status": "verified",
+      "sources": [
+        "https://tr.foursquare.com/v/inter-jr-hairdresser--murat-karako%C3%A7/506f27b0e4b080ea97da9672"
+      ],
+      "note": "Foursquare lists interjrbarbersclub.com, but no page of it is indexed — probably dead."
+    },
+    "hours": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Not found; the booking form uses a default 09:00–19:00 window."
+    },
+    "services": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=%C4%B0nter%20JR%20Barbers%20Club%20Etimesgut%20Ankara"
+      ],
+      "note": "Haircuts and long-hair cuts from Google reviews (price level ₺1.000+ per person on Google). Beard is a template entry."
+    },
+    "prices": {
+      "status": "placeholder",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=%C4%B0nter%20JR%20Barbers%20Club%20Etimesgut%20Ankara"
+      ],
+      "note": "Google shows '₺1.000+' per person on two reviews; no price list."
+    },
+    "doctors": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=%C4%B0nter%20JR%20Barbers%20Club%20Etimesgut%20Ankara",
+        "https://tr.foursquare.com/v/inter-jr-hairdresser--murat-karako%C3%A7/506f27b0e4b080ea97da9672"
+      ],
+      "note": "'Murat Bey' in two Google reviews; Foursquare names a Murat Karakoç."
+    },
+    "rating": {
+      "status": "conflict",
+      "sources": [
+        "https://www.top-rated.online/cities/Etimesgut/place/p/13988543/%C4%B0nter+JR+Barbers+Club",
+        "https://barberhead.com/ankara/inter-jr-barbers-club"
+      ],
+      "note": "4.7 from 525 (top-rated.online) vs 4.7 from 159 (barberhead) — not shown until confirmed on Google."
+    },
+    "map": {
+      "status": "constructed",
+      "sources": [],
+      "note": "Search link built from the business name and address."
+    },
+    "brandColor": {
+      "status": "design",
+      "sources": [],
+      "note": "Our choice; the business's logo and photos were not copied."
+    },
+    "photos": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Neutral illustrations."
+    },
+    "reviews": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=%C4%B0nter%20JR%20Barbers%20Club%20Etimesgut%20Ankara"
+      ],
+      "note": "Reviews copied word for word from the business's Google listing on 2026-10-23 (screenshots supplied by the agency's partner); names shortened to first name + surname initial, or 'Google kullanıcısı' where the name was not visible. Relative dates as of that day; '…' marks text Google had cut off. For the demo only; switch to the live Google feed or get the business's OK before going public."
+    }
+  }
+}

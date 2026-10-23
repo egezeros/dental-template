@@ -1,0 +1,345 @@
+{
+  "slug": "isil-isil",
+  "niche": "beauty",
+  "country": "TR",
+  "locales": [
+    "tr",
+    "en"
+  ],
+  "whatsapp": "[TO CONFIRM]",
+  "name": "Işıl Işıl Lazer Epilasyon ve Güzellik Salonu",
+  "brandColor": "#b5577a",
+  "tagline": {
+    "tr": "Etlik'te epilasyon ve cilt bakımı",
+    "en": "Hair removal and skin care in Etlik"
+  },
+  "intro": {
+    "tr": "Işıl Işıl, Keçiören Etlik'te epilasyon, cilt bakımı ve vücut bakımı hizmeti veren bir güzellik merkezidir. Hizmetinizi seçin, online randevu alın — saati onaylamak için size dönüş yapacağız.",
+    "en": "Işıl Işıl is a beauty centre in Etlik, Keçiören, offering hair removal, skin care and body treatments. Choose a service and book online — we'll get back to you to confirm the time."
+  },
+  "address": {
+    "tr": "Aşağı Eğlence Mah., Gen. Dr. Tevfik Sağlam Cd. 63/5, Keçiören, Ankara",
+    "en": "63/5 Gen. Dr. Tevfik Sağlam St, Aşağı Eğlence, Keçiören, Ankara"
+  },
+  "district": {
+    "tr": "Keçiören · Etlik",
+    "en": "Keçiören · Etlik"
+  },
+  "phones": [
+    {
+      "display": "0541 506 76 01",
+      "tel": "+905415067601"
+    }
+  ],
+  "instagram": "isilisilepilasyon",
+  "website": "https://www.isilisilguzellik.com/",
+  "map": {
+    "query": "Işıl Işıl Lazer Epilasyon ve Güzellik Salonu, Gen. Dr. Tevfik Sağlam Cd. 63, Keçiören, Ankara"
+  },
+  "featuredReviews": {
+    "url": "https://www.google.com/maps/search/?api=1&query=I%C5%9F%C4%B1l%20I%C5%9F%C4%B1l%20Lazer%20Epilasyon%20ve%20G%C3%BCzellik%20Salonu%20Ke%C3%A7i%C3%B6ren%20Etlik",
+    "items": [
+      {
+        "author": "Dilan K.",
+        "rating": 5,
+        "text": "Çok memnun kaldım 8seans bitti ve ben %90 olarak kurtuldum. Gerçekten gönül rahatlığıyla gelebileceğiniz bir merkez🥰 ışıl hanım ve ekip arkadaşları çok çok ilgili.işlemlerde tek gayeleri her bi kıl kökünü görmek. Teşekkür ederim yıl …",
+        "date": {
+          "tr": "9 ay önce",
+          "en": "9 months ago"
+        }
+      },
+      {
+        "author": "Feyza B.",
+        "rating": 5,
+        "text": "Benimm gönül rahatlığıyla geldiğim evim gibi hissettiğim enerjileriyle,ilgileriyle ve güler yüzleriyle kendimi bulduğum o muazzam güzellik merkezi.Cilt bakımı,epilasyon ve lenf drenaja geldiğim harika sonuçlar aldığım oldukça temiz,düzenli ve işini hassasiyetle yapan harika insanların olduğu merkez. …",
+        "date": {
+          "tr": "4 ay önce",
+          "en": "4 months ago"
+        }
+      },
+      {
+        "author": "Nuriye Ç.",
+        "rating": 5,
+        "text": "Işıl Işıl ailesine ne kadar teşekkür etsem az 🫶✨\nLazer epilasyon sürecim\nboyunca hem ilgi hem de güler yüz açısından o kadar memnun kaldım ki, her seansa …",
+        "date": {
+          "tr": "5 ay önce",
+          "en": "5 months ago"
+        }
+      }
+    ]
+  },
+  "hours": "[TO CONFIRM]",
+  "services": [
+    {
+      "id": "laser-hair-removal",
+      "category": "epilation",
+      "name": {
+        "tr": "Lazer epilasyon",
+        "en": "Laser hair removal"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single",
+      "course": {
+        "sessions": 8,
+        "intervalDays": 42
+      }
+    },
+    {
+      "id": "skin-care",
+      "category": "skin",
+      "name": {
+        "tr": "Cilt bakımı",
+        "en": "Facial / skin care"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "needle-free-mesotherapy",
+      "category": "skin",
+      "name": {
+        "tr": "İğnesiz mezoterapi",
+        "en": "Needle-free mesotherapy"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "enzyme-peel",
+      "category": "skin",
+      "name": {
+        "tr": "Enzim peeling",
+        "en": "Enzyme peel"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "g5-massage",
+      "category": "body",
+      "name": {
+        "tr": "G5 masajı",
+        "en": "G5 massage"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "lymph-drainage",
+      "category": "body",
+      "name": {
+        "tr": "Lenf drenaj",
+        "en": "Lymphatic drainage"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "lash-lift",
+      "category": "lashes",
+      "name": {
+        "tr": "Kirpik lifting",
+        "en": "Lash lift"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    }
+  ],
+  "doctors": [
+    {
+      "name": "Işıl Hanım",
+      "role": {
+        "tr": "Uzman",
+        "en": "Specialist"
+      },
+      "status": "verified-single"
+    },
+    {
+      "name": "[TO CONFIRM]",
+      "role": {
+        "tr": "Uzman",
+        "en": "Specialist"
+      },
+      "status": "placeholder"
+    },
+    {
+      "name": "[TO CONFIRM]",
+      "role": {
+        "tr": "Uzman",
+        "en": "Specialist"
+      },
+      "status": "placeholder"
+    }
+  ],
+  "whyUs": [
+    {
+      "icon": "sparkle",
+      "title": {
+        "tr": "Epilasyondan cilt bakımına",
+        "en": "From hair removal to skin care"
+      },
+      "text": {
+        "tr": "Epilasyon, cilt bakımı, mezoterapi, lenf drenaj ve kirpik lifting tek adreste.",
+        "en": "Hair removal, facials, mesotherapy, lymphatic drainage and lash lifts under one roof."
+      },
+      "status": "verified-single"
+    },
+    {
+      "icon": "home",
+      "title": {
+        "tr": "Ayrı kadın ve erkek şubeleri",
+        "en": "Separate women's and men's branches"
+      },
+      "text": {
+        "tr": "Etlik'teki bu şube kadın müşterilere hizmet verir; erkekler için ayrı bir şube vardır.",
+        "en": "This Etlik branch is for women; there is a separate branch for men."
+      },
+      "status": "verified-single"
+    },
+    {
+      "icon": "calendar",
+      "title": {
+        "tr": "Online randevu",
+        "en": "Online booking"
+      },
+      "text": {
+        "tr": "Bir dakikada online randevu alın; randevudan bir gün önce WhatsApp'tan hatırlatma gelsin.",
+        "en": "Book online in a minute and get a WhatsApp reminder the day before."
+      },
+      "status": "design"
+    },
+    {
+      "icon": "clock",
+      "title": {
+        "tr": "Seansınızı kaçırmayın",
+        "en": "Never miss a session"
+      },
+      "text": {
+        "tr": "Paket ve bakım seanslarınızın zamanı geldiğinde WhatsApp'tan hatırlatıyoruz.",
+        "en": "We remind you on WhatsApp when your next package or care session is due."
+      },
+      "status": "design"
+    }
+  ],
+  "rating": {
+    "platform": "Google",
+    "value": "5.0",
+    "kind": "stars",
+    "count": 647,
+    "asOf": "secondhand (guzelliktakip.com copy of Google), date unknown",
+    "source": "https://www.google.com/maps/search/?api=1&query=I%C5%9F%C4%B1l%20I%C5%9F%C4%B1l%20Lazer%20Epilasyon%20ve%20G%C3%BCzellik%20Salonu%20Ke%C3%A7i%C3%B6ren%20Etlik"
+  },
+  "provenance": {
+    "name": {
+      "status": "verified",
+      "sources": [
+        "https://guzelliktakip.com/merkez/isil-isil-lazer-epilasyon-ve-guzellik-salonu-kecioren-etlik-bayan-subesi-kecioren",
+        "https://www.isilisilguzellik.com/",
+        "https://www.google.com/maps/search/?api=1&query=I%C5%9F%C4%B1l%20I%C5%9F%C4%B1l%20Lazer%20Epilasyon%20ve%20G%C3%BCzellik%20Salonu%20Ke%C3%A7i%C3%B6ren%20Etlik"
+      ],
+      "note": "Women's branch name as on the Google listing and directories."
+    },
+    "address": {
+      "status": "conflict",
+      "sources": [
+        "https://www.hospitalim.com/hospital/isil-isil-lazer-epilasyon-ve-guzellik-salonu-kecioren-etlik-bayan-subesi-10301.html",
+        "https://guzelliktakip.com/merkez/isil-isil-lazer-epilasyon-ve-guzellik-salonu-kecioren-etlik-bayan-subesi-kecioren"
+      ],
+      "note": "Shown: Gen. Dr. Tevfik Sağlam Cd. 63/5 (hospitalim). Another directory gives Mestan Sk. 2B / 9/3. Confirm."
+    },
+    "district": {
+      "status": "verified",
+      "sources": [
+        "https://www.hospitalim.com/hospital/isil-isil-lazer-epilasyon-ve-guzellik-salonu-kecioren-etlik-bayan-subesi-10301.html",
+        "https://guzelliktakip.com/merkez/isil-isil-lazer-epilasyon-ve-guzellik-salonu-kecioren-etlik-bayan-subesi-kecioren"
+      ]
+    },
+    "phones": {
+      "status": "conflict",
+      "sources": [
+        "https://guzelliktakip.com/merkez/isil-isil-lazer-epilasyon-ve-guzellik-salonu-kecioren-etlik-bayan-subesi-kecioren",
+        "https://eniyi8.com/ankara/en-iyi-8-lazer-epilasyon-merkezi",
+        "https://www.hospitalim.com/hospital/isil-isil-lazer-epilasyon-ve-guzellik-salonu-kecioren-etlik-bayan-subesi-10301.html"
+      ],
+      "note": "0541 506 76 01 on two directories; hospitalim lists +90 312 322 15 55. Men's branch: 0544 516 59 06."
+    },
+    "whatsapp": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "No WhatsApp number confirmed (the mobile may be on WhatsApp)."
+    },
+    "instagram": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.instagram.com/isilisilepilasyon/"
+      ],
+      "note": "@isilisilepilasyon, about 4.3K followers (cached snippet)."
+    },
+    "website": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.isilisilguzellik.com/"
+      ],
+      "note": "Brochure-style site (home, laser, G5 massage, gallery); no booking page found."
+    },
+    "hours": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Not found; the booking form uses a default 09:00–19:00 window."
+    },
+    "services": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.isilisilguzellik.com/",
+        "https://www.google.com/maps/search/?api=1&query=I%C5%9F%C4%B1l%20I%C5%9F%C4%B1l%20Lazer%20Epilasyon%20ve%20G%C3%BCzellik%20Salonu%20Ke%C3%A7i%C3%B6ren%20Etlik"
+      ],
+      "note": "From the business's own site; lymphatic drainage from a Google review."
+    },
+    "prices": {
+      "status": "placeholder",
+      "sources": []
+    },
+    "courses": {
+      "status": "design",
+      "sources": [],
+      "note": "Course settings (8 sessions, 6 weeks apart) are demo defaults for the next-session reminder; not shown on the site — set them with the business."
+    },
+    "doctors": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=I%C5%9F%C4%B1l%20I%C5%9F%C4%B1l%20Lazer%20Epilasyon%20ve%20G%C3%BCzellik%20Salonu%20Ke%C3%A7i%C3%B6ren%20Etlik"
+      ],
+      "note": "'Işıl Hanım' is named in a Google review."
+    },
+    "rating": {
+      "status": "outdated",
+      "sources": [
+        "https://guzelliktakip.com/merkez/isil-isil-lazer-epilasyon-ve-guzellik-salonu-kecioren-etlik-bayan-subesi-kecioren",
+        "https://eniyi8.com/ankara/en-iyi-8-lazer-epilasyon-merkezi"
+      ],
+      "note": "5.0 from 647 (guzelliktakip) / 666 (eniyi8) — secondhand copies of Google. Update from the live listing."
+    },
+    "map": {
+      "status": "constructed",
+      "sources": [],
+      "note": "Search link built from the business name and address."
+    },
+    "brandColor": {
+      "status": "design",
+      "sources": [],
+      "note": "Our choice; the business's logo and photos were not copied."
+    },
+    "photos": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Neutral illustrations."
+    },
+    "reviews": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=I%C5%9F%C4%B1l%20I%C5%9F%C4%B1l%20Lazer%20Epilasyon%20ve%20G%C3%BCzellik%20Salonu%20Ke%C3%A7i%C3%B6ren%20Etlik"
+      ],
+      "note": "Reviews copied word for word from the business's Google listing on 2026-10-23 (screenshots supplied by the agency's partner); names shortened to first name + surname initial, or 'Google kullanıcısı' where the name was not visible. Relative dates as of that day; '…' marks text Google had cut off. For the demo only; switch to the live Google feed or get the business's OK before going public."
+    }
+  }
+}

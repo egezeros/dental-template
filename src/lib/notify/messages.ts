@@ -2,16 +2,23 @@ import { detailLines } from "../booking/fields";
 import type { Booking } from "../booking/types";
 import type { Clinic } from "../clinics/schema";
 import type { FollowUp } from "../followups";
-import { isLocale, INTL_LOCALE, type Locale } from "../i18n";
+import { isLocale, INTL_LOCALE, tr, type Locale } from "../i18n";
 import type { PreparedReminder } from "../messaging";
+import { envKey } from "../config";
 import { getNiche } from "../niches/load";
 import { formatDate } from "../time";
 import { escapeHtml } from "./telegram";
 
-/** Language of staff notifications (Telegram). STAFF_LOCALE=az|ru|en, default az. */
-export function staffLocale(): Locale {
-  const v = process.env.STAFF_LOCALE;
-  return isLocale(v) ? v : "az";
+/**
+ * Language of a business's staff notifications (Telegram): STAFF_LOCALE_<SLUG>, else
+ * STAFF_LOCALE when the business uses that language, else the business's default language.
+ */
+export function staffLocale(clinic: Pick<Clinic, "slug" | "locales">): Locale {
+  const own = process.env[`STAFF_LOCALE_${envKey(clinic.slug)}`];
+  if (isLocale(own)) return own;
+  const global = process.env.STAFF_LOCALE;
+  if (isLocale(global) && clinic.locales.includes(global)) return global;
+  return clinic.locales[0];
 }
 
 const L = {
@@ -81,15 +88,38 @@ const L = {
     overdue: "overdue",
     session: "session",
   },
+  tr: {
+    newBooking: "Yeni randevu talebi",
+    specialist: "Uzman",
+    name: "Ad",
+    phone: "Telefon",
+    service: "Hizmet",
+    when: "Tercih edilen zaman",
+    lang: "Dil",
+    admin: "Yönetim paneli",
+    demo: "DEMO — test talebi",
+    tomorrow: "⏰ Yarının randevuları",
+    tapToRemind: "WhatsApp hatırlatması gönder",
+    sentViaApi: "WhatsApp API ile gönderildi",
+    statusNew: "onaylanmadı",
+    statusConfirmed: "onaylandı",
+    followUps: "🔁 Tekrar ziyaret zamanı gelenler",
+    tapToSend: "WhatsApp mesajını gönder",
+    lastVisit: "son ziyaret",
+    due: "zamanı",
+    overdue: "gecikti",
+    session: "seans",
+  },
 } satisfies Record<Locale, Record<string, string>>;
 
 const e = escapeHtml;
 
 export function newBookingMessage(booking: Booking, clinic: Clinic, adminUrl: string, demo: boolean): string {
-  const t = L[staffLocale()];
+  const locale = staffLocale(clinic);
+  const t = L[locale];
   const niche = getNiche(clinic.niche);
-  const when = `${formatDate(booking.date, INTL_LOCALE[staffLocale()])}, ${booking.time}`;
-  const details = detailLines(booking, niche, staffLocale(), { specialist: t.specialist });
+  const when = `${formatDate(booking.date, INTL_LOCALE[locale])}, ${booking.time}`;
+  const details = detailLines(booking, niche, locale, { specialist: t.specialist });
   return [
     demo ? `<i>${t.demo}</i>` : null,
     `<b>${niche.theme.emoji} ${t.newBooking} — ${e(clinic.name)}</b>`,
@@ -116,11 +146,12 @@ export function reminderDigestMessages(
   items: { booking: Booking; reminder: PreparedReminder }[],
   demo: boolean,
 ): string[] {
-  const t = L[staffLocale()];
+  const locale = staffLocale(clinic);
+  const t = L[locale];
   const header = [
     demo ? `<i>${t.demo}</i>` : null,
     `<b>${t.tomorrow} — ${e(clinic.name)}</b>`,
-    e(formatDate(date, INTL_LOCALE[staffLocale()])),
+    e(formatDate(date, INTL_LOCALE[locale])),
   ]
     .filter((l) => l !== null)
     .join("\n");
@@ -159,7 +190,7 @@ export function followUpDigestMessages(
   items: { followUp: FollowUp; message: PreparedReminder }[],
   demo: boolean,
 ): string[] {
-  const locale = staffLocale();
+  const locale = staffLocale(clinic);
   const t = L[locale];
   const fmt = (d: string) => formatDate(d, INTL_LOCALE[locale]);
   const header = [demo ? `<i>${t.demo}</i>` : null, `<b>${t.followUps} — ${e(clinic.name)}</b>`]
@@ -173,7 +204,7 @@ export function followUpDigestMessages(
       ? `✅ ${t.sentViaApi}`
       : `👉 <a href="${e(message.link)}">${t.tapToSend}</a>`;
     return [
-      `${i + 1}. <b>${who}</b> — ${e(f.rule.label[locale])}${session}`,
+      `${i + 1}. <b>${who}</b> — ${e(tr(f.rule.label, locale))}${session}`,
       `   ${t.lastVisit}: ${fmt(f.lastVisitDate)} · ${when}`,
       `   <a href="tel:${e(f.phone)}">${e(f.phone)}</a> · ${action}`,
     ].join("\n");
