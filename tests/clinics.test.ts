@@ -8,11 +8,12 @@ import { testClinic } from "./fixtures";
 describe("clinic files", () => {
   const clinics = getClinics();
 
-  it("all validate and include the three demo clinics", () => {
-    // The dental set is unchanged; aesthetic and vet demos were added alongside it.
+  it("all validate and include the dental demo clinics", () => {
     expect(clinics.filter((c) => c.niche === "dental").map((c) => c.slug).sort()).toEqual([
+      "beyaz-dis",
       "dent-star",
       "dental-club",
+      "one-dent",
       "white-estetic-dental",
     ]);
   });

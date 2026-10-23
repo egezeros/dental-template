@@ -1,0 +1,354 @@
+{
+  "slug": "one-dent",
+  "niche": "dental",
+  "name": "One Dent",
+  "brandColor": "#25427f",
+  "tagline": {
+    "az": "Gənclikdə estetik stomatologiya, implant və ortodontiya",
+    "ru": "Эстетическая стоматология, имплантация и ортодонтия у метро Гянджлик",
+    "en": "Aesthetic dentistry, implants and orthodontics near Ganjlik"
+  },
+  "intro": {
+    "az": "One Dent — vinirlər, sirkon tac, implantasiya, breketlər və elaynerlər. Onlayn yazılın — administrator vaxtı təsdiqləmək üçün sizinlə əlaqə saxlayacaq.",
+    "ru": "One Dent — виниры, циркониевые коронки, имплантация, брекеты и элайнеры. Запишитесь онлайн — администратор свяжется с вами, чтобы подтвердить время.",
+    "en": "One Dent offers veneers, zirconia crowns, implants, braces and aligners. Book online and our administrator will contact you to confirm the time."
+  },
+  "address": {
+    "az": "Xan Şuşinski küç. 90 / Möhsün Sənani küç. 147-149, Bakı",
+    "ru": "ул. Хана Шушинского, 90 / ул. Мохсуна Санани, 147-149, Баку",
+    "en": "90 Khan Shushinski St / 147-149 Mohsun Sanani St, Baku"
+  },
+  "district": {
+    "az": "Gənclik m.",
+    "ru": "м. Гянджлик",
+    "en": "Ganjlik metro"
+  },
+  "phones": [
+    {
+      "display": "(+994 50) 863-66-88",
+      "tel": "+994508636688"
+    }
+  ],
+  "whatsapp": "[TO CONFIRM]",
+  "facebook": "https://www.facebook.com/onedent.aze/",
+  "map": {
+    "query": "One Dent, Xan Şuşinski 90, Bakı"
+  },
+  "featuredReviews": {
+    "url": "https://www.google.com/maps/search/?api=1&query=One%20Dent%2C%20Xan%20%C5%9Eu%C5%9Finski%2C%20Bak%C4%B1",
+    "items": [
+      {
+        "author": "Sinenhlanhla M.",
+        "rating": 5,
+        "text": "Lovely experience. I've had a cavity at the front of my tooth bothering me for so long. Mr Elchin, and the staff assisted me so much 🤗🤭, my Lovely Dr, Elvira xanim 🫶🫶🫶 treated all my teeth with the cleaning. Thanking Konul xanim too, for her lovely welcome. I'm grateful to OneDent staff for all the help and warm welcome 🙏 🤗 😊 💗💞💕💗",
+        "date": {
+          "az": "5 ay əvvəl",
+          "ru": "5 месяцев назад",
+          "en": "5 months ago"
+        }
+      },
+      {
+        "author": "Gudrat I.",
+        "rating": 5,
+        "text": "I've been doing my aligner treatment with One Dent, and so far I'm very happy with the experience. The staff has been professional, friendly, and helpful throughout the process. Everything has been explained clearly, and the treatment has …",
+        "date": {
+          "az": "4 ay əvvəl",
+          "ru": "4 месяца назад",
+          "en": "4 months ago"
+        }
+      },
+      {
+        "author": "Faruk K.",
+        "rating": 5,
+        "text": "One Dent hem yaklaşım tarzları olarak çok samimi hem de yaptıkları işler olarak harikulade bir iş yapıyorlar. Kendilerinden çok memnun kaldım. Bunu sözle ifade etmek çok zor ancak dişlerini yaptırırsanız aradaki farkı görebilirsiniz. Ekiplerine sonsuz teşekkürler.",
+        "date": {
+          "az": "4 ay əvvəl",
+          "ru": "4 месяца назад",
+          "en": "4 months ago"
+        }
+      }
+    ]
+  },
+  "hours": "[TO CONFIRM]",
+  "services": [
+    {
+      "id": "consultation",
+      "name": {
+        "az": "Müayinə və konsultasiya",
+        "ru": "Осмотр и консультация",
+        "en": "Check-up & consultation"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder"
+    },
+    {
+      "id": "fillings",
+      "name": {
+        "az": "Kariyes müalicəsi",
+        "ru": "Лечение кариеса",
+        "en": "Cavity treatment"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "cleaning",
+      "name": {
+        "az": "Peşəkar gigiyena (təmizləmə)",
+        "ru": "Профессиональная гигиена (чистка)",
+        "en": "Professional cleaning"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "veneers",
+      "name": {
+        "az": "Vinirlər",
+        "ru": "Виниры",
+        "en": "Veneers"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "zirconia",
+      "name": {
+        "az": "Sirkon tac",
+        "ru": "Циркониевые коронки",
+        "en": "Zirconia crowns"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "implants",
+      "name": {
+        "az": "İmplantasiya",
+        "ru": "Имплантация",
+        "en": "Dental implants"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "braces",
+      "name": {
+        "az": "Breketlər",
+        "ru": "Брекеты",
+        "en": "Braces"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "aligners",
+      "name": {
+        "az": "Elaynerlər (şəffaf kappalar)",
+        "ru": "Элайнеры (прозрачные капы)",
+        "en": "Clear aligners"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    }
+  ],
+  "doctors": [
+    {
+      "name": "Dr. Elvira",
+      "role": {
+        "az": "Stomatoloq",
+        "ru": "Стоматолог",
+        "en": "Dentist"
+      },
+      "status": "verified-single"
+    },
+    {
+      "name": "[TO CONFIRM]",
+      "role": {
+        "az": "Stomatoloq",
+        "ru": "Стоматолог",
+        "en": "Dentist"
+      },
+      "status": "placeholder"
+    },
+    {
+      "name": "[TO CONFIRM]",
+      "role": {
+        "az": "Stomatoloq",
+        "ru": "Стоматолог",
+        "en": "Dentist"
+      },
+      "status": "placeholder"
+    }
+  ],
+  "whyUs": [
+    {
+      "icon": "star",
+      "title": {
+        "az": "Google-da 4.9 — 244 rəy",
+        "ru": "4.9 в Google — 244 отзыва",
+        "en": "4.9 on Google — 244 reviews"
+      },
+      "text": {
+        "az": "Pasiyentlər komandanın səmimiyyətini və işin keyfiyyətini xüsusi qeyd edir.",
+        "ru": "Пациенты отмечают тёплое отношение команды и качество работы.",
+        "en": "Patients single out the team's warmth and the quality of the work."
+      },
+      "status": "verified"
+    },
+    {
+      "icon": "spark",
+      "title": {
+        "az": "Estetik stomatologiya",
+        "ru": "Эстетическая стоматология",
+        "en": "Aesthetic dentistry"
+      },
+      "text": {
+        "az": "Vinirlər və sirkon tac.",
+        "ru": "Виниры и циркониевые коронки.",
+        "en": "Veneers and zirconia crowns."
+      },
+      "status": "verified-single"
+    },
+    {
+      "icon": "scan",
+      "title": {
+        "az": "Breket və elaynerlər",
+        "ru": "Брекеты и элайнеры",
+        "en": "Braces & aligners"
+      },
+      "text": {
+        "az": "Dişlərin düzəldilməsi üçün həm breket, həm də şəffaf kappalar.",
+        "ru": "Для выравнивания зубов — и брекеты, и прозрачные капы.",
+        "en": "Both braces and clear aligners for straightening teeth."
+      },
+      "status": "verified-single"
+    },
+    {
+      "icon": "chat",
+      "title": {
+        "az": "Onlayn yazılış və xatırlatma",
+        "ru": "Онлайн-запись и напоминания",
+        "en": "Online booking & reminders"
+      },
+      "text": {
+        "az": "Bir dəqiqəyə onlayn yazılın və qəbuldan bir gün əvvəl WhatsApp-da xatırlatma alın.",
+        "ru": "Запишитесь онлайн за минуту и получите напоминание в WhatsApp за день до приёма.",
+        "en": "Book online in a minute and get a WhatsApp reminder the day before your visit."
+      },
+      "status": "design"
+    }
+  ],
+  "rating": {
+    "platform": "Google",
+    "value": "4.9",
+    "kind": "stars",
+    "count": 244,
+    "asOf": "2026-10-23 (Google Maps listing)",
+    "source": "https://www.google.com/maps/search/?api=1&query=One%20Dent%2C%20Xan%20%C5%9Eu%C5%9Finski%2C%20Bak%C4%B1"
+  },
+  "provenance": {
+    "name": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=One%20Dent%2C%20Xan%20%C5%9Eu%C5%9Finski%2C%20Bak%C4%B1",
+        "https://www.facebook.com/onedent.aze/",
+        "https://yandex.az/maps/org/156453762620/"
+      ]
+    },
+    "address": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=One%20Dent%2C%20Xan%20%C5%9Eu%C5%9Finski%2C%20Bak%C4%B1",
+        "https://2gis.az/baku/geo/70030076218155002/tab/inside",
+        "https://yandex.az/maps/org/156453762620/"
+      ],
+      "note": "Google shows 'Xan Şuşinski, Bakı 1022'; 2GIS lists One Dent in the corner building Möhsün Sənani 147-149 / Xan Şuşinski 90; Yandex: Möhsün Sənani 147, Gənclik metro. Older listings say Möhsün Sənani 33/1 (2GIS) and Möhsün Sənani 2 (YDoc) — probably a previous address."
+    },
+    "district": {
+      "status": "verified-single",
+      "sources": [
+        "https://yandex.az/maps/org/156453762620/"
+      ]
+    },
+    "phones": {
+      "status": "verified",
+      "sources": [
+        "https://www.facebook.com/onedent.aze/",
+        "https://yandex.az/maps/org/156453762620/"
+      ]
+    },
+    "whatsapp": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "No WhatsApp number found (the mobile number may be on WhatsApp — confirm)."
+    },
+    "instagram": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "No Instagram account found."
+    },
+    "website": {
+      "status": "verified",
+      "sources": [
+        "https://www.facebook.com/onedent.aze/"
+      ],
+      "note": "onedent.az (the Facebook page is named 'OneDent.az') does not work — the agency checked on 2026-10-23."
+    },
+    "hours": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "No published hours found; the booking form uses a default 09:00–19:00 window."
+    },
+    "services": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.facebook.com/onedent.aze/",
+        "https://www.google.com/maps/search/?api=1&query=One%20Dent%2C%20Xan%20%C5%9Eu%C5%9Finski%2C%20Bak%C4%B1",
+        "https://www.clinic4all.com/company/onedent/reviews/85738"
+      ],
+      "note": "Veneers, zirconia, implants, braces: Facebook page. Cavity treatment, cleaning, aligners: Google reviews. Consultation shown as a placeholder."
+    },
+    "prices": {
+      "status": "placeholder",
+      "sources": []
+    },
+    "doctors": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=One%20Dent%2C%20Xan%20%C5%9Eu%C5%9Finski%2C%20Bak%C4%B1",
+        "https://ydoc.az/baku/lpu/8159-stomatologiya-one-dent-van-dent/"
+      ],
+      "note": "'Dr. Elvira' is named in a Google review (first name only). YDoc lists 4 doctors without names in the snippet."
+    },
+    "rating": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=One%20Dent%2C%20Xan%20%C5%9Eu%C5%9Finski%2C%20Bak%C4%B1"
+      ],
+      "note": "4.9 from 244 reviews on the clinic's Google Maps listing (seen 2026-10-23). Yandex shows 4.1 from 4 ratings (not displayed)."
+    },
+    "map": {
+      "status": "constructed",
+      "sources": [],
+      "note": "Search link built from the clinic name and street."
+    },
+    "brandColor": {
+      "status": "design",
+      "sources": [],
+      "note": "Our choice; the clinic's logo and photos were not copied."
+    },
+    "photos": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Neutral illustrations."
+    },
+    "reviews": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=One%20Dent%2C%20Xan%20%C5%9Eu%C5%9Finski%2C%20Bak%C4%B1"
+      ],
+      "note": "3 reviews copied word for word (original language, not Google's translation) from the clinic's Google Maps listing on 2026-10-23 (screenshots supplied by the agency); names shortened to first name + surname initial. Relative dates as of that day. For the demo only; switch to the live Google feed or get the clinic's OK before going public."
+    }
+  }
+}
