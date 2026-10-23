@@ -1,0 +1,141 @@
+{
+  "id": "beauty",
+  "label": { "tr": "Güzellik salonu", "en": "Beauty salon", "az": "Gözəllik salonu", "ru": "Салон красоты" },
+  "theme": {
+    "preset": "luxe",
+    "brandColor": "#a0526e",
+    "icon": "sparkle",
+    "heroArt": "beauty",
+    "emoji": "✨"
+  },
+  "sections": ["hero", "services", "packages", "doctors", "why", "reviews", "faq", "booking", "location"],
+  "nav": ["services", "doctors", "reviews", "faq", "location"],
+  "services": {
+    "categories": [
+      { "id": "hair", "label": { "tr": "Saç", "en": "Hair" }, "icon": "scissors" },
+      { "id": "skin", "label": { "tr": "Cilt bakımı", "en": "Skin care" }, "icon": "drop" },
+      { "id": "epilation", "label": { "tr": "Epilasyon", "en": "Hair removal" }, "icon": "laser" },
+      { "id": "nails", "label": { "tr": "Tırnak", "en": "Nails" }, "icon": "sparkle" },
+      { "id": "lashes", "label": { "tr": "Kirpik ve kaş", "en": "Lashes & brows" }, "icon": "star" },
+      { "id": "body", "label": { "tr": "Vücut ve masaj", "en": "Body & massage" }, "icon": "leaf" },
+      { "id": "makeup", "label": { "tr": "Makyaj", "en": "Make-up" }, "icon": "heart" }
+    ]
+  },
+  "booking": {
+    "fields": [
+      { "id": "name", "type": "name" },
+      { "id": "phone", "type": "phone" },
+      { "id": "serviceId", "type": "service" },
+      { "id": "specialist", "type": "specialist", "required": false, "label": { "tr": "Uzman", "en": "Specialist" } },
+      { "id": "date", "type": "date" },
+      { "id": "time", "type": "time" },
+      { "id": "consent", "type": "consent" }
+    ]
+  },
+  "copy": {
+    "nav.doctors": { "tr": "Uzmanlarımız", "en": "Specialists" },
+    "doctors.title": { "tr": "Uzmanlarımız", "en": "Our specialists" },
+    "doctors.subtitle": { "tr": "Ekip", "en": "The team" },
+    "services.subtitle": {
+      "tr": "Fiyatlar bilgi amaçlıdır; size uygun uygulama ve fiyat ön görüşmede belirlenir. Sonuçlar kişiden kişiye değişir.",
+      "en": "Prices are indicative; the right treatment and price for you are agreed at the first visit. Results differ from person to person."
+    },
+    "booking.noHealthInfo": {
+      "tr": "Lütfen sağlığınızla ilgili bilgi yazmayın — uzmanımız gerekirse randevuda soracaktır.",
+      "en": "Please don't include any health details — our specialist will ask at your appointment if needed."
+    }
+  },
+  "adminCopy": {
+    "stats.dueBack": { "tr": "Geri gelmesi gereken müşteriler", "en": "Clients due back" }
+  },
+  "faq": [
+    {
+      "q": { "tr": "Epilasyon kaç seans sürer?", "en": "How many hair-removal sessions will I need?" },
+      "a": {
+        "tr": "Seans sayısı kişiye ve bölgeye göre değişir; ilk görüşmede birlikte planlıyoruz. Paket alan müşterilerimize her seanstan önce WhatsApp'tan hatırlatma gönderiyoruz.",
+        "en": "It depends on you and the area; we plan it together at the first visit. Clients on a package get a WhatsApp reminder before every session."
+      }
+    },
+    {
+      "q": { "tr": "İlk randevuda ne oluyor?", "en": "What happens at the first appointment?" },
+      "a": {
+        "tr": "İhtiyacınızı dinliyor, size uygun hizmeti ve fiyatı birlikte belirliyoruz.",
+        "en": "We listen to what you'd like and agree on the right service and price together."
+      }
+    },
+    {
+      "q": { "tr": "Randevumu nasıl değiştirebilirim?", "en": "How do I change my booking?" },
+      "a": {
+        "tr": "Bizi arayın veya WhatsApp'tan yazın — size yeni bir saat önerelim.",
+        "en": "Call us or message us on WhatsApp and we'll offer you a new time."
+      }
+    }
+  ],
+  "reminders": {
+    "followUps": [
+      {
+        "id": "next-session",
+        "type": "course",
+        "label": { "tr": "Paketin sonraki seansı", "en": "Next session of a package" },
+        "leadDays": 3,
+        "per": "patient",
+        "message": {
+          "tr": "Merhaba {firstName}! {service} paketinizin bir sonraki seansı ({session}/{sessions}) yaklaşıyor — yaklaşık {dueDate}. Uygun saati seçmek için bu mesajı yanıtlayın veya arayın: {phone}. — {clinic}",
+          "en": "Hi {firstName}! The next session ({session}/{sessions}) of your {service} package is coming up — around {dueDate}. Reply to this message or call {phone} to pick a time. — {clinic}"
+        }
+      },
+      {
+        "id": "skin-care",
+        "type": "interval",
+        "label": { "tr": "Aylık cilt bakımı", "en": "Monthly skin care" },
+        "match": { "categories": ["skin"] },
+        "afterDays": 30,
+        "leadDays": 3,
+        "per": "patient",
+        "message": {
+          "tr": "Merhaba {firstName}! Son cilt bakımınızın üzerinden yaklaşık bir ay geçti. Yeni seans için bu mesajı yanıtlayın veya arayın: {phone}. — {clinic}",
+          "en": "Hi {firstName}! It's been about a month since your last facial. Reply to this message or call {phone} to book the next one. — {clinic}"
+        }
+      },
+      {
+        "id": "nails-refill",
+        "type": "interval",
+        "label": { "tr": "Tırnak bakımı (3 hafta)", "en": "Nail refill (3 weeks)" },
+        "match": { "categories": ["nails"] },
+        "afterDays": 21,
+        "leadDays": 2,
+        "per": "patient",
+        "message": {
+          "tr": "Merhaba {firstName}! Son tırnak işleminizin üzerinden yaklaşık 3 hafta geçti — bakım zamanı. Randevu için bu mesajı yanıtlayın veya arayın: {phone}. — {clinic}",
+          "en": "Hi {firstName}! It's been about 3 weeks since your last nails appointment — time for a refill. Reply to this message or call {phone} to book. — {clinic}"
+        }
+      },
+      {
+        "id": "lash-refill",
+        "type": "interval",
+        "label": { "tr": "Kirpik/kaş tazeleme (3 hafta)", "en": "Lash/brow refill (3 weeks)" },
+        "match": { "categories": ["lashes"] },
+        "afterDays": 21,
+        "leadDays": 2,
+        "per": "patient",
+        "message": {
+          "tr": "Merhaba {firstName}! Son kirpik/kaş işleminizin üzerinden yaklaşık 3 hafta geçti — tazeleme zamanı. Randevu için bu mesajı yanıtlayın veya arayın: {phone}. — {clinic}",
+          "en": "Hi {firstName}! It's been about 3 weeks since your last lash/brow appointment — time for a refill. Reply to this message or call {phone} to book. — {clinic}"
+        }
+      },
+      {
+        "id": "hair-colour",
+        "type": "interval",
+        "label": { "tr": "Saç bakımı (6 hafta)", "en": "Hair appointment (6 weeks)" },
+        "match": { "categories": ["hair"] },
+        "afterDays": 42,
+        "leadDays": 4,
+        "per": "patient",
+        "message": {
+          "tr": "Merhaba {firstName}! Son saç işleminizin üzerinden yaklaşık 6 hafta geçti. Kesim ya da renk tazeleme için bu mesajı yanıtlayın veya arayın: {phone}. — {clinic}",
+          "en": "Hi {firstName}! It's been about 6 weeks since your last hair appointment. Reply to this message or call {phone} to book a cut or colour refresh. — {clinic}"
+        }
+      }
+    ]
+  }
+}

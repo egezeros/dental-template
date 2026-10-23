@@ -1,0 +1,394 @@
+{
+  "slug": "beyaz-dis",
+  "niche": "dental",
+  "name": "Bəyaz Diş",
+  "brandColor": "#0f7c86",
+  "tagline": {
+    "az": "Stomatoloji klinika və öz diş laboratoriyası",
+    "ru": "Стоматологическая клиника со своей зуботехнической лабораторией",
+    "en": "Dental clinic with its own dental laboratory"
+  },
+  "intro": {
+    "az": "Bəyaz Diş — terapiya, cərrahiyyə, implantasiya, protezləmə, ortodontiya və uşaq stomatologiyası bir ünvanda. Onlayn yazılın — administrator vaxtı təsdiqləmək üçün sizinlə əlaqə saxlayacaq.",
+    "ru": "Bəyaz Diş — терапия, хирургия, имплантация, протезирование, ортодонтия и детская стоматология по одному адресу. Запишитесь онлайн — администратор свяжется с вами, чтобы подтвердить время.",
+    "en": "Bəyaz Diş offers general, surgical, implant, prosthetic, orthodontic and children's dentistry in one place. Book online and our administrator will contact you to confirm the time."
+  },
+  "address": {
+    "az": "Həsənoğlu küç. 12c, Bakı",
+    "ru": "ул. Гасаноглу, 12c, Баку",
+    "en": "12c Hasanoglu St, Baku"
+  },
+  "district": {
+    "az": "Bakı",
+    "ru": "Баку",
+    "en": "Baku"
+  },
+  "phones": [
+    {
+      "display": "(+994 10) 511-08-01",
+      "tel": "+994105110801"
+    },
+    {
+      "display": "(+994 12) 310-40-33",
+      "tel": "+994123104033"
+    }
+  ],
+  "whatsapp": "[TO CONFIRM]",
+  "map": {
+    "query": "Bəyaz Diş Klinikası, Həsənoğlu küçəsi 12c, Bakı"
+  },
+  "featuredReviews": {
+    "url": "https://www.google.com/maps/search/?api=1&query=B%C9%99yaz%20Di%C5%9F%20Klinikas%C4%B1%2C%20H%C9%99s%C9%99no%C4%9Flu%20k%C3%BC%C3%A7%C9%99si%2C%20Bak%C4%B1",
+    "items": [
+      {
+        "author": "Fatima K.",
+        "rating": 5,
+        "text": "Staff was very professional.\nDr. Orkhan did great job!\nHighly recommended.",
+        "date": {
+          "az": "7 ay əvvəl",
+          "ru": "7 месяцев назад",
+          "en": "7 months ago"
+        }
+      },
+      {
+        "author": "Mansha D.",
+        "rating": 5,
+        "text": "My husband's mouth protese broke and we came to the Beyaz Dis clinic who gave excellent assistance.\nThe staff received us with big smiles and solved our problem.\nWe are very happy and will recommend the clinicb",
+        "date": {
+          "az": "5 ay əvvəl",
+          "ru": "5 месяцев назад",
+          "en": "5 months ago"
+        }
+      },
+      {
+        "author": "Amin T.",
+        "rating": 5,
+        "text": "I was deeply impressed with the comfort that I felt during my operation, which I had the pleasure of undergoing at Dr Orhan Novruzov’s dental office. Dr Novruzov’s tranquil nature coupled with utmost professionalism made me feel totally relaxed. As a result, I again chew with my teeth and feel like I am seventeen again! Thank you, Doctor!",
+        "date": {
+          "az": "7 ay əvvəl",
+          "ru": "7 месяцев назад",
+          "en": "7 months ago"
+        }
+      }
+    ]
+  },
+  "hours": {
+    "mon": [
+      "09:00",
+      "19:00"
+    ],
+    "tue": [
+      "09:00",
+      "19:00"
+    ],
+    "wed": [
+      "09:00",
+      "19:00"
+    ],
+    "thu": [
+      "09:00",
+      "19:00"
+    ],
+    "fri": [
+      "09:00",
+      "19:00"
+    ],
+    "sat": [
+      "09:00",
+      "19:00"
+    ],
+    "sun": "[TO CONFIRM]"
+  },
+  "services": [
+    {
+      "id": "consultation",
+      "name": {
+        "az": "Müayinə və konsultasiya",
+        "ru": "Осмотр и консультация",
+        "en": "Check-up & consultation"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder"
+    },
+    {
+      "id": "therapy",
+      "name": {
+        "az": "Terapevtik stomatologiya",
+        "ru": "Терапевтическая стоматология",
+        "en": "General & restorative dentistry"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "aesthetic",
+      "name": {
+        "az": "Estetik bərpa",
+        "ru": "Эстетическая реставрация",
+        "en": "Aesthetic restoration"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "whitening",
+      "name": {
+        "az": "Dişlərin ağardılması",
+        "ru": "Отбеливание зубов",
+        "en": "Teeth whitening"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "surgery",
+      "name": {
+        "az": "Cərrahi stomatologiya",
+        "ru": "Хирургическая стоматология",
+        "en": "Oral surgery"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "implants",
+      "name": {
+        "az": "İmplantasiya və protezləmə",
+        "ru": "Имплантация и протезирование",
+        "en": "Implants & prosthetics"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single",
+      "description": {
+        "az": "All-on-4 / All-on-6 daxil",
+        "ru": "Включая All-on-4 / All-on-6",
+        "en": "Including All-on-4 / All-on-6"
+      }
+    },
+    {
+      "id": "orthodontics",
+      "name": {
+        "az": "Ortodontiya (breketlər, elaynerlər)",
+        "ru": "Ортодонтия (брекеты, элайнеры)",
+        "en": "Orthodontics (braces, aligners)"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "kids",
+      "name": {
+        "az": "Uşaq stomatologiyası",
+        "ru": "Детская стоматология",
+        "en": "Children's dentistry"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    }
+  ],
+  "doctors": [
+    {
+      "name": "Dr. Orkhan Novruzov",
+      "role": {
+        "az": "Stomatoloq-terapevt",
+        "ru": "Стоматолог-терапевт",
+        "en": "Dentist (general & restorative)"
+      },
+      "status": "verified"
+    },
+    {
+      "name": "Dr. Nicat Abbasov",
+      "role": {
+        "az": "İmplantoloq-cərrah",
+        "ru": "Хирург-имплантолог",
+        "en": "Implant surgeon"
+      },
+      "status": "verified"
+    },
+    {
+      "name": "Dr. Telman Hadji",
+      "role": {
+        "az": "Ortodont",
+        "ru": "Ортодонт",
+        "en": "Orthodontist"
+      },
+      "status": "verified-single"
+    }
+  ],
+  "whyUs": [
+    {
+      "icon": "spark",
+      "title": {
+        "az": "Öz diş laboratoriyası",
+        "ru": "Своя зуботехническая лаборатория",
+        "en": "In-house dental laboratory"
+      },
+      "text": {
+        "az": "Klinika və laboratoriya bir yerdədir.",
+        "ru": "Клиника и лаборатория — под одной крышей.",
+        "en": "The clinic and the laboratory are under one roof."
+      },
+      "status": "verified"
+    },
+    {
+      "icon": "shield",
+      "title": {
+        "az": "Əməliyyat otağı daxil 5 kabinet",
+        "ru": "5 кабинетов, включая операционную",
+        "en": "5 rooms, including an operating room"
+      },
+      "text": {
+        "az": "Cərrahi və implant prosedurları klinikanın öz əməliyyat otağında aparılır.",
+        "ru": "Хирургические и имплантологические процедуры — в собственной операционной клиники.",
+        "en": "Surgical and implant procedures take place in the clinic's own operating room."
+      },
+      "status": "verified-single"
+    },
+    {
+      "icon": "star",
+      "title": {
+        "az": "Pasiyentlərin yüksək qiyməti",
+        "ru": "Высокие оценки пациентов",
+        "en": "Highly rated by patients"
+      },
+      "text": {
+        "az": "Google-da 696 rəy və 4.9 reytinq.",
+        "ru": "696 отзывов и рейтинг 4.9 в Google.",
+        "en": "696 reviews and a 4.9 rating on Google."
+      },
+      "status": "verified"
+    },
+    {
+      "icon": "chat",
+      "title": {
+        "az": "Onlayn yazılış və xatırlatma",
+        "ru": "Онлайн-запись и напоминания",
+        "en": "Online booking & reminders"
+      },
+      "text": {
+        "az": "Bir dəqiqəyə onlayn yazılın və qəbuldan bir gün əvvəl WhatsApp-da xatırlatma alın.",
+        "ru": "Запишитесь онлайн за минуту и получите напоминание в WhatsApp за день до приёма.",
+        "en": "Book online in a minute and get a WhatsApp reminder the day before your visit."
+      },
+      "status": "design"
+    }
+  ],
+  "rating": {
+    "platform": "Google",
+    "value": "4.9",
+    "kind": "stars",
+    "count": 696,
+    "asOf": "2026-10-23 (Google Maps listing)",
+    "source": "https://www.google.com/maps/search/?api=1&query=B%C9%99yaz%20Di%C5%9F%20Klinikas%C4%B1%2C%20H%C9%99s%C9%99no%C4%9Flu%20k%C3%BC%C3%A7%C9%99si%2C%20Bak%C4%B1"
+  },
+  "provenance": {
+    "name": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=B%C9%99yaz%20Di%C5%9F%20Klinikas%C4%B1%2C%20H%C9%99s%C9%99no%C4%9Flu%20k%C3%BC%C3%A7%C9%99si%2C%20Bak%C4%B1",
+        "https://2gis.az/baku/firm/70000001041119228",
+        "https://beyazdis.az/en/"
+      ],
+      "note": "Google Maps: 'Bəyaz Diş Klinikası (Official)'; 2GIS: 'Bəyaz Diş, stomatoloji klinika və laboratoriya'."
+    },
+    "address": {
+      "status": "conflict",
+      "sources": [
+        "https://2gis.az/baku/firm/70000001041119228",
+        "https://sosial.gov.az/nazirlik/sosial-terefdas/klinikalar",
+        "https://beyazdis.az/en/"
+      ],
+      "note": "Shown: Həsənoğlu 12c (2GIS). The ministry's partner-clinic list gives 15A; the (indexed) site says 'Fatali Khan Khoyski / Khasanoglu'. Confirm on the Google listing."
+    },
+    "district": {
+      "status": "constructed",
+      "sources": [],
+      "note": "District not found; 'Baku' shown."
+    },
+    "phones": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=B%C9%99yaz%20Di%C5%9F%20Klinikas%C4%B1%2C%20H%C9%99s%C9%99no%C4%9Flu%20k%C3%BC%C3%A7%C9%99si%2C%20Bak%C4%B1",
+        "https://beyazdis.az/services.html",
+        "https://sosial.gov.az/nazirlik/sosial-terefdas/klinikalar"
+      ],
+      "note": "010 511 08 01 is the number on the Google listing (seen 2026-10-23) and the indexed site. (+994 12) 310 40 33 is from the ministry's partner-clinic list only."
+    },
+    "whatsapp": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "No WhatsApp number found."
+    },
+    "instagram": {
+      "status": "placeholder",
+      "sources": [
+        "https://www.top-rated.online/cities/Baku/place/p/14130500/Dental+Kids+%26+Family"
+      ],
+      "note": "A directory links an 'official' Instagram, but the handle was not visible."
+    },
+    "website": {
+      "status": "verified",
+      "sources": [
+        "https://beyazdis.az/en/"
+      ],
+      "note": "No working website: the agency checked on 2026-10-23. Search engines still index pages of beyazdis.az (services, doctors), so the domain may have lapsed — a strong talking point."
+    },
+    "hours": {
+      "status": "verified-single",
+      "sources": [
+        "https://beyazdis.az/en/"
+      ],
+      "note": "Mon–Sat 09:00–19:00 from the indexed site; Sunday not stated — confirm."
+    },
+    "services": {
+      "status": "verified-single",
+      "sources": [
+        "https://beyazdis.az/services.html",
+        "https://beyazdis.az/en/dentists.html",
+        "https://beyazdis.az/service-aesthetic.html"
+      ],
+      "note": "Service lines from the indexed site; consultation shown as a placeholder. Whitening: mentioned in the Google review summary (seen 2026-10-23)."
+    },
+    "prices": {
+      "status": "placeholder",
+      "sources": []
+    },
+    "doctors": {
+      "status": "verified-single",
+      "sources": [
+        "https://beyazdis.az/en/dentists.html",
+        "https://www.google.com/maps/search/?api=1&query=B%C9%99yaz%20Di%C5%9F%20Klinikas%C4%B1%2C%20H%C9%99s%C9%99no%C4%9Flu%20k%C3%BC%C3%A7%C9%99si%2C%20Bak%C4%B1"
+      ],
+      "note": "Names and specialties from the indexed doctors page. Dr. Orkhan Novruzov is also named in two Google reviews. The Google review summary also thanks 'Dr. Nijat' (and a 'Dr. Ramiz' and 'İlahə doktor', not yet listed)."
+    },
+    "rating": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=B%C9%99yaz%20Di%C5%9F%20Klinikas%C4%B1%2C%20H%C9%99s%C9%99no%C4%9Flu%20k%C3%BC%C3%A7%C9%99si%2C%20Bak%C4%B1"
+      ],
+      "note": "4.9 from 696 reviews on the clinic's Google Maps listing (seen 2026-10-23; screenshot supplied by the agency). Earlier copies elsewhere showed 629."
+    },
+    "map": {
+      "status": "constructed",
+      "sources": [],
+      "note": "Search link built from the clinic name and street."
+    },
+    "brandColor": {
+      "status": "design",
+      "sources": [],
+      "note": "Our choice; the clinic's logo and photos were not copied."
+    },
+    "photos": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Neutral illustrations."
+    },
+    "reviews": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=B%C9%99yaz%20Di%C5%9F%20Klinikas%C4%B1%2C%20H%C9%99s%C9%99no%C4%9Flu%20k%C3%BC%C3%A7%C9%99si%2C%20Bak%C4%B1"
+      ],
+      "note": "3 reviews copied word for word (original language, not Google's translation) from the clinic's Google Maps listing on 2026-10-23 (screenshots supplied by the agency); names shortened to first name + surname initial. Relative dates as of that day. For the demo only; switch to the live Google feed or get the clinic's OK before going public."
+    }
+  }
+}

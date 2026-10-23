@@ -83,7 +83,18 @@ async function apiError(step: "search" | "details", res: Response, key: string):
 
 type CacheMode = { next: { revalidate: number } } | { cache: "no-store" };
 
-async function searchPlaceId(query: string, key: string, fetchImpl: FetchLike, cache: CacheMode): Promise<string | undefined> {
+/** Where to look: Baku businesses are searched only inside Baku; Turkish ones anywhere in Türkiye. */
+function searchArea(clinic: Clinic): { regionCode: string; locationRestriction?: { rectangle: typeof BAKU_RECTANGLE } } {
+  return clinic.country === "TR" ? { regionCode: "tr" } : { regionCode: "az", locationRestriction: { rectangle: BAKU_RECTANGLE } };
+}
+
+async function searchPlaceId(
+  clinic: Clinic,
+  query: string,
+  key: string,
+  fetchImpl: FetchLike,
+  cache: CacheMode,
+): Promise<string | undefined> {
   const res = await fetchImpl(`${API}/places:searchText`, {
     method: "POST",
     headers: {
@@ -92,7 +103,7 @@ async function searchPlaceId(query: string, key: string, fetchImpl: FetchLike, c
       // IDs-only field mask: the cheapest Text Search tier.
       "X-Goog-FieldMask": "places.id",
     },
-    body: JSON.stringify({ textQuery: query, regionCode: "az", pageSize: 1, locationRestriction: { rectangle: BAKU_RECTANGLE } }),
+    body: JSON.stringify({ textQuery: query, pageSize: 1, ...searchArea(clinic) }),
     ...cache,
   });
   if (!res.ok) throw await apiError("search", res, key);
@@ -100,9 +111,9 @@ async function searchPlaceId(query: string, key: string, fetchImpl: FetchLike, c
   return data.places?.[0]?.id;
 }
 
-/** Queries tried in order: the full map query (name + address), then just the name in Baku. */
+/** Queries tried in order: the full map query (name + address), then just the name (in Baku for Azerbaijan). */
 export function searchQueries(clinic: Clinic): string[] {
-  return [...new Set([clinic.map.query, `${clinic.name} Bakı`])];
+  return [...new Set([clinic.map.query, clinic.country === "TR" ? clinic.name : `${clinic.name} Bakı`])];
 }
 
 interface PlaceDetails {
@@ -155,7 +166,7 @@ async function loadPlace(clinic: Clinic, locale: Locale, key: string, fetchImpl:
   let matchedQuery: string | undefined;
   if (!placeId) {
     for (const q of searchQueries(clinic)) {
-      placeId = await searchPlaceId(q, key, fetchImpl, cache);
+      placeId = await searchPlaceId(clinic, q, key, fetchImpl, cache);
       if (placeId) {
         matchedQuery = q;
         break;
@@ -163,7 +174,7 @@ async function loadPlace(clinic: Clinic, locale: Locale, key: string, fetchImpl:
     }
   }
   if (!placeId) return { placeId: null, data: null };
-  const res = await fetchImpl(`${API}/places/${encodeURIComponent(placeId)}?languageCode=${locale}&regionCode=az`, {
+  const res = await fetchImpl(`${API}/places/${encodeURIComponent(placeId)}?languageCode=${locale}&regionCode=${searchArea(clinic).regionCode}`, {
     headers: {
       "X-Goog-Api-Key": key,
       "X-Goog-FieldMask": "id,displayName,rating,userRatingCount,googleMapsUri,reviews",

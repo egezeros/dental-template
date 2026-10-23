@@ -2,7 +2,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { getNiche } from "../niches/load";
 import type { Niche } from "../niches/schema";
-import { clinicSchema, REQUIRED_PROVENANCE, type Clinic } from "./schema";
+import { LOCALES, type Locale } from "../i18n";
+import { clinicSchema, COUNTRIES, REQUIRED_PROVENANCE, type Clinic } from "./schema";
 
 const CLINICS_DIR = path.join(process.cwd(), "clinics");
 
@@ -33,14 +34,37 @@ export function parseClinic(raw: unknown, fileName: string): Clinic {
   } catch (err) {
     throw new Error(`Invalid clinic file ${fileName}: ${(err as Error).message}`);
   }
-  const problems = checkAgainstNiche(clinic, niche, serviceIds);
+  const problems = [
+    ...checkAgainstNiche(clinic, niche, serviceIds),
+    ...missingTranslations(clinic, clinic.locales, "").map((p) => `${p} has no text for ${clinic.locales.join("/")}`),
+    ...missingTranslations(niche, clinic.locales, `niche "${niche.id}" `).map(
+      (p) => `${p} has no text for ${clinic.locales.join("/")} (add it to niches/${niche.id}.json)`,
+    ),
+  ];
   if (problems.length) throw new Error(`Invalid clinic file ${fileName}:\n${problems.map((p) => `  - ${p}`).join("\n")}`);
-  return { ...clinic, brandColor: clinic.brandColor ?? niche.theme.brandColor };
+  return {
+    ...clinic,
+    brandColor: clinic.brandColor ?? niche.theme.brandColor,
+    timeZone: clinic.timeZone ?? COUNTRIES[clinic.country].timeZone,
+  };
+}
+
+const isTranslation = (v: object) =>
+  Object.keys(v).length > 0 && Object.entries(v).every(([k, x]) => (LOCALES as readonly string[]).includes(k) && typeof x === "string");
+
+/** Paths of translated texts ({ "az": …, "tr": … }) that lack one of the business's languages. */
+function missingTranslations(value: unknown, locales: Locale[], path: string): string[] {
+  if (Array.isArray(value)) return value.flatMap((v, i) => missingTranslations(v, locales, `${path}[${i}]`));
+  if (!value || typeof value !== "object") return [];
+  if (isTranslation(value)) {
+    return locales.some((l) => !(l in value)) ? [path.replace(/^\./, "") || "(root)"] : [];
+  }
+  return Object.entries(value).flatMap(([k, v]) => (k === "provenance" ? [] : missingTranslations(v, locales, `${path}.${k}`)));
 }
 
 /** Business data must fit its niche: known categories, audience options and service references. */
 function checkAgainstNiche(
-  clinic: Omit<Clinic, "brandColor">,
+  clinic: Omit<Clinic, "brandColor" | "timeZone">,
   niche: Niche,
   serviceIds: Set<string>,
 ): string[] {

@@ -18,7 +18,8 @@ import { getStore } from "@/lib/storage";
 
 function adminPath(slug: string, lang?: string | null, extra = ""): string {
   const params = new URLSearchParams();
-  if (lang && isLocale(lang) && lang !== "az") params.set("lang", lang);
+  const defaultLocale = getClinic(slug)?.locales[0] ?? "az";
+  if (lang && isLocale(lang) && lang !== defaultLocale) params.set("lang", lang);
   if (extra) for (const [k, v] of new URLSearchParams(extra)) params.set(k, v);
   const q = params.toString();
   return `/${slug}/admin${q ? `?${q}` : ""}`;

@@ -1,0 +1,279 @@
+{
+  "slug": "berber-omer-aykut",
+  "niche": "barber",
+  "country": "TR",
+  "locales": [
+    "tr",
+    "en"
+  ],
+  "whatsapp": "[TO CONFIRM]",
+  "name": "Berber Ömer Aykut",
+  "brandColor": "#1f2f4f",
+  "tagline": {
+    "tr": "Kızılay'da saç kesimi ve erkek cilt bakımı",
+    "en": "Haircuts and men's skin care in Kızılay"
+  },
+  "intro": {
+    "tr": "Kızılay'ın göbeğinde saç kesimi ve erkeklere özel cilt bakımı. Online randevu alın, gelin, beklemeden koltuğa oturun.",
+    "en": "Haircuts and men's skin care in the heart of Kızılay. Book online, come in and sit straight down."
+  },
+  "address": {
+    "tr": "Meşrutiyet Mah., Karanfil Sk. No:47, Çankaya, Ankara",
+    "en": "47 Karanfil St, Meşrutiyet, Çankaya, Ankara"
+  },
+  "district": {
+    "tr": "Kızılay",
+    "en": "Kızılay"
+  },
+  "phones": [
+    {
+      "display": "0553 687 99 34",
+      "tel": "+905536879934"
+    }
+  ],
+  "map": {
+    "query": "Berber Ömer Aykut, Karanfil Sokak 47, Kızılay, Ankara"
+  },
+  "featuredReviews": {
+    "url": "https://www.google.com/maps/search/?api=1&query=Berber%20%C3%96mer%20Aykut%20K%C4%B1z%C4%B1lay%20Ankara",
+    "items": [
+      {
+        "author": "Kaan Berat Ç.",
+        "rating": 5,
+        "text": "Ankara Kızılay'ın en iyisidir kesinlikle tavsiye ederim ilgileri alakaları samimi sohbetleri ve sonunda cilt bakımıyla 10/10 bir işletme.",
+        "date": {
+          "tr": "4 ay önce",
+          "en": "4 months ago"
+        }
+      },
+      {
+        "author": "Wraity",
+        "rating": 5,
+        "text": "Ankara Kızılay'da güzel bir berber gideceğiz gitmeme rağmen saçlarımı buz kat yaparak kafa anatomia uygun kesim yaptı eline sağlık teşekkürler ve bu arada cilt bakımında gayet başarılı ve güzel profesyonel yapıyorlar hidrofen bakımı var asker ve öğrenciye%25 indirim ne sağlıyorlar tam öğrenci askeriyede mülakata geldim ve başarılı bir deneyim oldu",
+        "date": {
+          "tr": "2 ay önce",
+          "en": "2 months ago"
+        }
+      }
+    ]
+  },
+  "hours": "[TO CONFIRM]",
+  "services": [
+    {
+      "id": "haircut",
+      "category": "haircut",
+      "name": {
+        "tr": "Saç kesimi",
+        "en": "Haircut"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single",
+      "description": {
+        "tr": "Buz kat dahil, kafa yapınıza uygun kesim",
+        "en": "Including ice-cut styles, shaped to your head"
+      }
+    },
+    {
+      "id": "beard",
+      "category": "beard",
+      "name": {
+        "tr": "Sakal tıraşı",
+        "en": "Beard trim & shave"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder"
+    },
+    {
+      "id": "skin-care",
+      "category": "care",
+      "name": {
+        "tr": "Erkek cilt bakımı",
+        "en": "Men's skin care"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified"
+    },
+    {
+      "id": "hydrafacial",
+      "category": "care",
+      "name": {
+        "tr": "Hidrofen (Hydrafacial) bakımı",
+        "en": "Hydrafacial"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    }
+  ],
+  "doctors": [
+    {
+      "name": "Ömer Aykut",
+      "role": {
+        "tr": "Usta",
+        "en": "Barber"
+      },
+      "status": "verified-single"
+    },
+    {
+      "name": "[TO CONFIRM]",
+      "role": {
+        "tr": "Usta",
+        "en": "Barber"
+      },
+      "status": "placeholder"
+    }
+  ],
+  "whyUs": [
+    {
+      "icon": "drop",
+      "title": {
+        "tr": "Erkeklere özel cilt bakımı",
+        "en": "Skin care for men"
+      },
+      "text": {
+        "tr": "Tıraşın ardından profesyonel cilt bakımı ve Hydrafacial.",
+        "en": "Professional skin care and Hydrafacial after your cut."
+      },
+      "status": "verified"
+    },
+    {
+      "icon": "star",
+      "title": {
+        "tr": "Öğrenci ve askere indirim",
+        "en": "Student and military discount"
+      },
+      "text": {
+        "tr": "Öğrenci ve askerlere %25 indirim (koşullar [TO CONFIRM]).",
+        "en": "25% off for students and soldiers (terms [TO CONFIRM])."
+      },
+      "status": "verified-single"
+    },
+    {
+      "icon": "calendar",
+      "title": {
+        "tr": "Online randevu",
+        "en": "Online booking"
+      },
+      "text": {
+        "tr": "Bir dakikada online randevu alın; randevudan bir gün önce WhatsApp'tan hatırlatma gelsin.",
+        "en": "Book online in a minute and get a WhatsApp reminder the day before."
+      },
+      "status": "design"
+    },
+    {
+      "icon": "clock",
+      "title": {
+        "tr": "4 haftada bir hatırlatma",
+        "en": "A reminder every 4 weeks"
+      },
+      "text": {
+        "tr": "Tıraş zamanınız geldiğinde WhatsApp'tan haber veriyoruz.",
+        "en": "We let you know on WhatsApp when you're due for a cut."
+      },
+      "status": "design"
+    }
+  ],
+  "rating": {
+    "platform": "Google",
+    "value": "4.8",
+    "kind": "stars",
+    "count": 600,
+    "asOf": "secondhand (eniyi8.com list of Google ratings), 2026",
+    "source": "https://www.google.com/maps/search/?api=1&query=Berber%20%C3%96mer%20Aykut%20K%C4%B1z%C4%B1lay%20Ankara"
+  },
+  "provenance": {
+    "name": {
+      "status": "verified",
+      "sources": [
+        "https://eniyi8.com/ankara/en-iyi-8-erkek-kuaforu-berber",
+        "https://www.google.com/maps/search/?api=1&query=Berber%20%C3%96mer%20Aykut%20K%C4%B1z%C4%B1lay%20Ankara"
+      ]
+    },
+    "address": {
+      "status": "verified-single",
+      "sources": [
+        "https://eniyi8.com/ankara/en-iyi-8-erkek-kuaforu-berber"
+      ]
+    },
+    "district": {
+      "status": "verified",
+      "sources": [
+        "https://eniyi8.com/ankara/en-iyi-8-erkek-kuaforu-berber",
+        "https://www.google.com/maps/search/?api=1&query=Berber%20%C3%96mer%20Aykut%20K%C4%B1z%C4%B1lay%20Ankara"
+      ]
+    },
+    "phones": {
+      "status": "verified-single",
+      "sources": [
+        "https://eniyi8.com/ankara/en-iyi-8-erkek-kuaforu-berber"
+      ]
+    },
+    "whatsapp": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "No WhatsApp number confirmed."
+    },
+    "instagram": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "A possible account (@my.style.98) could not be tied to the shop."
+    },
+    "website": {
+      "status": "verified",
+      "sources": [],
+      "note": "No website found (search and the eniyi8 listing)."
+    },
+    "hours": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Not found; the booking form uses a default 09:00–19:00 window."
+    },
+    "services": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Berber%20%C3%96mer%20Aykut%20K%C4%B1z%C4%B1lay%20Ankara"
+      ],
+      "note": "Haircuts, skin care and Hydrafacial from Google reviews (skin care in three). Beard is a template entry."
+    },
+    "prices": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "The 25% student/soldier discount comes from one Google review."
+    },
+    "doctors": {
+      "status": "verified-single",
+      "sources": [
+        "https://eniyi8.com/ankara/en-iyi-8-erkek-kuaforu-berber"
+      ],
+      "note": "The shop is named after its barber; other staff unknown."
+    },
+    "rating": {
+      "status": "outdated",
+      "sources": [
+        "https://eniyi8.com/ankara/en-iyi-8-erkek-kuaforu-berber"
+      ],
+      "note": "4.8 from 600 per eniyi8's 2026 list (a copy of Google data). Update from the live listing."
+    },
+    "map": {
+      "status": "constructed",
+      "sources": [],
+      "note": "Search link built from the business name and address."
+    },
+    "brandColor": {
+      "status": "design",
+      "sources": [],
+      "note": "Our choice; the business's logo and photos were not copied."
+    },
+    "photos": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Neutral illustrations."
+    },
+    "reviews": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Berber%20%C3%96mer%20Aykut%20K%C4%B1z%C4%B1lay%20Ankara"
+      ],
+      "note": "Reviews copied word for word from the business's Google listing on 2026-10-23 (screenshots supplied by the agency's partner); names shortened to first name + surname initial, or 'Google kullanıcısı' where the name was not visible. Relative dates as of that day; '…' marks text Google had cut off. For the demo only; switch to the live Google feed or get the business's OK before going public. A third review was left out because of a typo that reads badly out of context."
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import type { Booking } from "./booking/types";
 import { REMINDABLE_STATUSES } from "./reminders";
-import { addDays, bakuDate, startOfWeek } from "./time";
+import { addDays, CLINIC_TIME_ZONE, startOfWeek, zonedDate } from "./time";
 
 export interface DashboardStats {
   /** Appointments scheduled this calendar week (Mon–Sun, Baku), excluding cancelled. */
@@ -13,8 +13,8 @@ export interface DashboardStats {
   noShowRate: number | null;
 }
 
-export function computeStats(bookings: Booking[], now: Date = new Date()): DashboardStats {
-  const today = bakuDate(now);
+export function computeStats(bookings: Booking[], now: Date = new Date(), timeZone: string = CLINIC_TIME_ZONE): DashboardStats {
+  const today = zonedDate(now, timeZone);
   const weekStart = startOfWeek(today);
   const weekEnd = addDays(weekStart, 6);
   const windowStart = addDays(today, -30);

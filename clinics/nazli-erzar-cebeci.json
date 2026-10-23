@@ -1,0 +1,339 @@
+{
+  "slug": "nazli-erzar-cebeci",
+  "niche": "beauty",
+  "country": "TR",
+  "locales": [
+    "tr",
+    "en"
+  ],
+  "whatsapp": "[TO CONFIRM]",
+  "name": "Nazlı Erzar – Cebeci",
+  "brandColor": "#9a6a3c",
+  "tagline": {
+    "tr": "Cebeci'de epilasyon, cilt bakımı ve tırnak",
+    "en": "Hair removal, skin care and nails in Cebeci"
+  },
+  "intro": {
+    "tr": "Nazlı Erzar Epilasyon ve Güzellik Merkezi'nin Cebeci şubesi: epilasyon, cilt bakımı, kirpik, tırnak ve makyaj. Online randevu alın — saati onaylamak için size dönüş yapacağız.",
+    "en": "The Cebeci branch of Nazlı Erzar Epilation & Beauty: hair removal, skin care, lashes, nails and make-up. Book online and we'll get back to you to confirm the time."
+  },
+  "address": {
+    "tr": "Cemal Gürsel Cd. No:65/1, Cebeci, 06590 Çankaya, Ankara",
+    "en": "65/1 Cemal Gürsel St, Cebeci, 06590 Çankaya, Ankara"
+  },
+  "district": {
+    "tr": "Cebeci",
+    "en": "Cebeci"
+  },
+  "phones": [
+    {
+      "display": "0541 495 08 84",
+      "tel": "+905414950884"
+    }
+  ],
+  "website": "https://www.nazlierzar.com.tr/nazli-erzar-cebeci-subesi-epilasyon-ve-guzellik-merkezi/",
+  "map": {
+    "query": "Nazlı Erzar Cebeci Şubesi, Cemal Gürsel Caddesi 65, Çankaya, Ankara"
+  },
+  "featuredReviews": {
+    "url": "https://www.google.com/maps/search/?api=1&query=Nazl%C4%B1%20ERZAR%20Cebeci%20%C5%9Eubesi%20Epilasyon%20ve%20G%C3%BCzellik%20Merkezi%20Ankara",
+    "items": [
+      {
+        "author": "Esma S.",
+        "rating": 5,
+        "text": "Bir süredir lazer hizmeti alıyorum ve çok memnunum. Özellikle Buse Hanım ve Nazlı Hanım'ın ilgi ve alakaları harika; kendileri hem çok güler yüzlü hem de işlerinde çok profesyoneller. Gönül rahatlığıyla tercih edebileceğiniz, hijyenik ve ilgili bir yer. Kesinlikle 5 yıldızı hak ediyorlar, her şey için çok teşekkür ederim🤗🥰",
+        "date": {
+          "tr": "3 ay önce",
+          "en": "3 months ago"
+        }
+      },
+      {
+        "author": "Safiye İ.",
+        "rating": 5,
+        "text": "Nazlı hanım ve ekibine her şey için çok teşekkür ediyorum. Özellikle Esra hanım inanılmaz güzel tırnak yapıyor çok ilgili ve alakalılar inanılmaz özenli çalışıyorlar çok samimi bir ortam mutlaka tavsiye ediyorum",
+        "date": {
+          "tr": "10 ay önce",
+          "en": "10 months ago"
+        }
+      },
+      {
+        "author": "Google kullanıcısı",
+        "rating": 5,
+        "text": "Kalıcı oje yaptırdım ve sonuçtan çok memnun kaldım. Nazlı hanım ve ekibine gösterdikleri özen ve ilgi için çok teşekkür ediyorum, ellerinize sağlık 💗💗",
+        "date": {
+          "tr": "11 ay önce",
+          "en": "11 months ago"
+        }
+      }
+    ]
+  },
+  "hours": "[TO CONFIRM]",
+  "services": [
+    {
+      "id": "laser-hair-removal",
+      "category": "epilation",
+      "name": {
+        "tr": "Lazer epilasyon",
+        "en": "Laser hair removal"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified",
+      "course": {
+        "sessions": 8,
+        "intervalDays": 42
+      }
+    },
+    {
+      "id": "skin-care",
+      "category": "skin",
+      "name": {
+        "tr": "Cilt bakımı",
+        "en": "Facial / skin care"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "lashes",
+      "category": "lashes",
+      "name": {
+        "tr": "Kirpik uygulamaları",
+        "en": "Lash treatments"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "gel-polish",
+      "category": "nails",
+      "name": {
+        "tr": "Kalıcı oje",
+        "en": "Gel polish"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "mani-pedi",
+      "category": "nails",
+      "name": {
+        "tr": "Manikür ve pedikür",
+        "en": "Manicure & pedicure"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "makeup",
+      "category": "makeup",
+      "name": {
+        "tr": "Makyaj",
+        "en": "Make-up"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "massage",
+      "category": "body",
+      "name": {
+        "tr": "Masaj",
+        "en": "Massage"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    }
+  ],
+  "doctors": [
+    {
+      "name": "Nazlı Erzar",
+      "role": {
+        "tr": "Kurucu",
+        "en": "Founder"
+      },
+      "status": "verified"
+    },
+    {
+      "name": "Buse Hanım",
+      "role": {
+        "tr": "Epilasyon uzmanı",
+        "en": "Hair-removal specialist"
+      },
+      "status": "verified-single"
+    },
+    {
+      "name": "Esra Hanım",
+      "role": {
+        "tr": "Tırnak uzmanı",
+        "en": "Nail artist"
+      },
+      "status": "verified-single"
+    }
+  ],
+  "whyUs": [
+    {
+      "icon": "map",
+      "title": {
+        "tr": "Ankara'da birden fazla şube",
+        "en": "Several branches in Ankara"
+      },
+      "text": {
+        "tr": "Cebeci, Karanfil ve Ziya Gökalp şubeleri ile Kızılay'da erkek şubesi.",
+        "en": "Branches in Cebeci, Karanfil and Ziya Gökalp, plus a men's branch in Kızılay."
+      },
+      "status": "verified-single"
+    },
+    {
+      "icon": "sparkle",
+      "title": {
+        "tr": "Epilasyondan tırnağa tek adreste",
+        "en": "From hair removal to nails in one place"
+      },
+      "text": {
+        "tr": "Epilasyon, cilt bakımı, kirpik, tırnak, makyaj ve masaj.",
+        "en": "Hair removal, skin care, lashes, nails, make-up and massage."
+      },
+      "status": "verified-single"
+    },
+    {
+      "icon": "calendar",
+      "title": {
+        "tr": "Online randevu",
+        "en": "Online booking"
+      },
+      "text": {
+        "tr": "Bir dakikada online randevu alın; randevudan bir gün önce WhatsApp'tan hatırlatma gelsin.",
+        "en": "Book online in a minute and get a WhatsApp reminder the day before."
+      },
+      "status": "design"
+    },
+    {
+      "icon": "clock",
+      "title": {
+        "tr": "Seansınızı kaçırmayın",
+        "en": "Never miss a session"
+      },
+      "text": {
+        "tr": "Paket ve bakım seanslarınızın zamanı geldiğinde WhatsApp'tan hatırlatıyoruz.",
+        "en": "We remind you on WhatsApp when your next package or care session is due."
+      },
+      "status": "design"
+    }
+  ],
+  "rating": {
+    "platform": "Google",
+    "value": "5.0",
+    "kind": "stars",
+    "count": 1117,
+    "asOf": "2026-10-23 (Google Maps listing)",
+    "source": "https://www.google.com/maps/search/?api=1&query=Nazl%C4%B1%20ERZAR%20Cebeci%20%C5%9Eubesi%20Epilasyon%20ve%20G%C3%BCzellik%20Merkezi%20Ankara"
+  },
+  "provenance": {
+    "name": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Nazl%C4%B1%20ERZAR%20Cebeci%20%C5%9Eubesi%20Epilasyon%20ve%20G%C3%BCzellik%20Merkezi%20Ankara",
+        "https://www.nazlierzar.com.tr/nazli-erzar-cebeci-subesi-epilasyon-ve-guzellik-merkezi/"
+      ],
+      "note": "Google: 'Nazlı ERZAR - Cebeci Şubesi - Epilasyon ve Güzellik Merkezi'."
+    },
+    "address": {
+      "status": "verified",
+      "sources": [
+        "https://www.nazlierzar.com.tr/nazli-erzar-cebeci-subesi-epilasyon-ve-guzellik-merkezi/",
+        "https://www.google.com/maps/search/?api=1&query=Nazl%C4%B1%20ERZAR%20Cebeci%20%C5%9Eubesi%20Epilasyon%20ve%20G%C3%BCzellik%20Merkezi%20Ankara"
+      ]
+    },
+    "district": {
+      "status": "verified",
+      "sources": [
+        "https://www.nazlierzar.com.tr/nazli-erzar-cebeci-subesi-epilasyon-ve-guzellik-merkezi/",
+        "https://www.google.com/maps/search/?api=1&query=Nazl%C4%B1%20ERZAR%20Cebeci%20%C5%9Eubesi%20Epilasyon%20ve%20G%C3%BCzellik%20Merkezi%20Ankara"
+      ]
+    },
+    "phones": {
+      "status": "conflict",
+      "sources": [
+        "https://www.nazlierzar.com.tr/nazli-erzar-cebeci-subesi-epilasyon-ve-guzellik-merkezi/",
+        "https://birmilyonnokta.com/firmalar/nazli-erzar-epilasyon-ve-guzellik-merkezi"
+      ],
+      "note": "0541 495 08 84 on the business's site; a directory lists a 0312 363 27 .. landline."
+    },
+    "whatsapp": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "No WhatsApp number confirmed."
+    },
+    "instagram": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "No account found for the women's / Cebeci branch (the men's branch has @nazlierzar.erkeksube)."
+    },
+    "website": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.nazlierzar.com.tr/nazli-erzar-cebeci-subesi-epilasyon-ve-guzellik-merkezi/"
+      ],
+      "note": "nazlierzar.com.tr has a page per branch; bookings by phone ('call to book'); online reservation not active on a directory profile."
+    },
+    "hours": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Not found; the booking form uses a default 09:00–19:00 window."
+    },
+    "services": {
+      "status": "verified-single",
+      "sources": [
+        "https://doktorgel.com/kurum/nazli-erzar-cebeci-subesi-epilasyon-ve-guzellik-merkezi-p-KR3762",
+        "https://www.google.com/maps/search/?api=1&query=Nazl%C4%B1%20ERZAR%20Cebeci%20%C5%9Eubesi%20Epilasyon%20ve%20G%C3%BCzellik%20Merkezi%20Ankara"
+      ],
+      "note": "From a directory profile and Google reviews (laser in a review's service tag)."
+    },
+    "prices": {
+      "status": "placeholder",
+      "sources": []
+    },
+    "courses": {
+      "status": "design",
+      "sources": [],
+      "note": "Course settings (8 sessions, 6 weeks apart) are demo defaults for the next-session reminder; not shown on the site — set them with the business."
+    },
+    "doctors": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Nazl%C4%B1%20ERZAR%20Cebeci%20%C5%9Eubesi%20Epilasyon%20ve%20G%C3%BCzellik%20Merkezi%20Ankara",
+        "https://www.nazlierzar.com.tr/nazli-erzar-cebeci-subesi-epilasyon-ve-guzellik-merkezi/"
+      ],
+      "note": "Nazlı (the brand), Buse and Esra are named in Google reviews."
+    },
+    "rating": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Nazl%C4%B1%20ERZAR%20Cebeci%20%C5%9Eubesi%20Epilasyon%20ve%20G%C3%BCzellik%20Merkezi%20Ankara"
+      ],
+      "note": "5.0 from 1,117 reviews on the Google listing (seen 2026-10-23)."
+    },
+    "map": {
+      "status": "constructed",
+      "sources": [],
+      "note": "Search link built from the business name and address."
+    },
+    "brandColor": {
+      "status": "design",
+      "sources": [],
+      "note": "Our choice; the business's logo and photos were not copied."
+    },
+    "photos": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Neutral illustrations."
+    },
+    "reviews": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Nazl%C4%B1%20ERZAR%20Cebeci%20%C5%9Eubesi%20Epilasyon%20ve%20G%C3%BCzellik%20Merkezi%20Ankara"
+      ],
+      "note": "Reviews copied word for word from the business's Google listing on 2026-10-23 (screenshots supplied by the agency's partner); names shortened to first name + surname initial, or 'Google kullanıcısı' where the name was not visible. Relative dates as of that day; '…' marks text Google had cut off. For the demo only; switch to the live Google feed or get the business's OK before going public."
+    }
+  }
+}

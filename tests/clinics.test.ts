@@ -8,13 +8,31 @@ import { testClinic } from "./fixtures";
 describe("clinic files", () => {
   const clinics = getClinics();
 
-  it("all validate and include the three demo clinics", () => {
-    // The dental set is unchanged; aesthetic and vet demos were added alongside it.
+  it("all validate and include the dental demo clinics", () => {
     expect(clinics.filter((c) => c.niche === "dental").map((c) => c.slug).sort()).toEqual([
+      "beyaz-dis",
       "dent-star",
       "dental-club",
+      "one-dent",
       "white-estetic-dental",
     ]);
+  });
+
+  it("include the Ankara barbers and beauty salons, in Turkish and English", () => {
+    const tr = clinics.filter((c) => c.country === "TR");
+    expect(tr.map((c) => c.slug).sort()).toEqual([
+      "berber-omer-aykut",
+      "efendi-erkek-kuaforu",
+      "emy-kuafor",
+      "inter-jr-barbers-club",
+      "isil-isil",
+      "nazli-erzar-cebeci",
+      "zest-guzellik",
+    ]);
+    for (const c of tr) {
+      expect(c.locales).toEqual(["tr", "en"]);
+      expect(c.timeZone).toBe("Europe/Istanbul");
+    }
   });
 
   it("include three aesthetic and three vet businesses", () => {

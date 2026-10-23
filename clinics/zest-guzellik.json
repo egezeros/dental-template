@@ -1,0 +1,345 @@
+{
+  "slug": "zest-guzellik",
+  "niche": "beauty",
+  "country": "TR",
+  "locales": [
+    "tr",
+    "en"
+  ],
+  "whatsapp": "[TO CONFIRM]",
+  "name": "Zest Güzellik Salonu",
+  "brandColor": "#5e7f2d",
+  "tagline": {
+    "tr": "Kızılay'da kadınlara özel epilasyon ve cilt bakımı",
+    "en": "Women-only hair removal and skin care in Kızılay"
+  },
+  "intro": {
+    "tr": "Zest, Kızılay'da kadınlara özel lazer ve buz lazer epilasyon, cilt bakımı, Hydrafacial ve kalıcı makyaj sunar. Online randevu alın — saati onaylamak için size dönüş yapacağız.",
+    "en": "Zest in Kızılay offers women-only laser and ice-laser hair removal, skin care, Hydrafacial and permanent make-up. Book online and we'll get back to you to confirm the time."
+  },
+  "address": {
+    "tr": "Kızılay, İzmir-2 Cd. No:49 D:16, 06420 Çankaya, Ankara",
+    "en": "49/16 İzmir-2 St, Kızılay, 06420 Çankaya, Ankara"
+  },
+  "district": {
+    "tr": "Kızılay",
+    "en": "Kızılay"
+  },
+  "phones": [
+    {
+      "display": "0533 456 20 40",
+      "tel": "+905334562040"
+    }
+  ],
+  "instagram": "zestguzellik",
+  "facebook": "https://www.facebook.com/zestguzellik/",
+  "map": {
+    "query": "Zest Güzellik Salonu, İzmir-2 Caddesi 49, Kızılay, Ankara"
+  },
+  "featuredReviews": {
+    "url": "https://www.google.com/maps/search/?api=1&query=Zest%20G%C3%BCzellik%20Salonu%20%C4%B0zmir-2%20Caddesi%2049%20K%C4%B1z%C4%B1lay%20Ankara",
+    "items": [
+      {
+        "author": "Yağmur Ayça Ö.",
+        "rating": 5,
+        "text": "İlk önce yüzüme lazer ile başladım yüzümde gerçekten azalmalar oldu. Daha sonrasında cilt bakım seansları ile bu serüvene devam ettim ciddi anlamda gözle görülür bir şekilde cildim ışıl ışıl be tam istediğim gibi pürüzsüz oldu çok memnun kaldım. Zehra Hanım ve Sevim Hanım'a da çok teşekkür ederim, bu süreçte aşırı ilgili ve naziktiler. İşlerinde gerçekten harikalar kesinlikle tavsiye ederimm",
+        "date": {
+          "tr": "5 ay önce",
+          "en": "5 months ago"
+        }
+      },
+      {
+        "author": "Beyza Ö.",
+        "rating": 5,
+        "text": "kesinlikle tavsiye ederim. Zehra hanımda sevim hanımda acayip ilgililer. buz lazere gidiyorum. çok özenli bir hizmet alıyorum. güler yüzleri, çalışma şekilleri, güven duygusu vermeleri. Her şeyiyle çok güzel bir işletme. kesinlikle öneriyorummm 💗🙏",
+        "date": {
+          "tr": "2 ay önce",
+          "en": "2 months ago"
+        }
+      },
+      {
+        "author": "Google kullanıcısı",
+        "rating": 5,
+        "text": "Hem cilt bakımı hem de lazer epilasyon için gidiyorum. Özellikle akne problemimde çok ciddi bir ilerleme kaydettik, lazer sonuçları da oldukça başarılı.\nSevim Abla ve Zehra Abla gerçekten çok ilgili ve güler yüzlü insanlar. İşlerini titizlikle yapıyorlar, kendinizi güvenle teslim edebilirsiniz. Almak istediğim hizmetten tam anlamıyla memnun kaldığım bir yer, ihtiyacı olan herkese gönül rahatlığıyla tavsiye ederim🫶",
+        "date": {
+          "tr": "5 ay önce",
+          "en": "5 months ago"
+        }
+      }
+    ]
+  },
+  "hours": "[TO CONFIRM]",
+  "services": [
+    {
+      "id": "laser-hair-removal",
+      "category": "epilation",
+      "name": {
+        "tr": "Lazer epilasyon",
+        "en": "Laser hair removal"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified",
+      "course": {
+        "sessions": 8,
+        "intervalDays": 42
+      }
+    },
+    {
+      "id": "ice-laser",
+      "category": "epilation",
+      "name": {
+        "tr": "Buz lazer epilasyon",
+        "en": "Ice-laser hair removal"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified",
+      "course": {
+        "sessions": 8,
+        "intervalDays": 42
+      }
+    },
+    {
+      "id": "skin-care",
+      "category": "skin",
+      "name": {
+        "tr": "Cilt bakımı",
+        "en": "Facial / skin care"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified"
+    },
+    {
+      "id": "hydrafacial",
+      "category": "skin",
+      "name": {
+        "tr": "Hydrafacial",
+        "en": "Hydrafacial"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "herbal-peel",
+      "category": "skin",
+      "name": {
+        "tr": "Bitkisel peeling",
+        "en": "Herbal peel"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "pumpkin",
+      "category": "skin",
+      "name": {
+        "tr": "Kabak terapisi",
+        "en": "Pumpkin facial"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "permanent-makeup",
+      "category": "makeup",
+      "name": {
+        "tr": "Kalıcı makyaj",
+        "en": "Permanent make-up"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "gel-nails",
+      "category": "nails",
+      "name": {
+        "tr": "Protez tırnak",
+        "en": "Gel nails"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    }
+  ],
+  "doctors": [
+    {
+      "name": "Sevim Hanım",
+      "role": {
+        "tr": "Uzman",
+        "en": "Specialist"
+      },
+      "status": "verified"
+    },
+    {
+      "name": "Zehra Hanım",
+      "role": {
+        "tr": "Uzman",
+        "en": "Specialist"
+      },
+      "status": "verified"
+    }
+  ],
+  "whyUs": [
+    {
+      "icon": "heart",
+      "title": {
+        "tr": "Kadınlara özel",
+        "en": "Women only"
+      },
+      "text": {
+        "tr": "Lazer epilasyon yalnızca kadın müşterilere yapılır.",
+        "en": "Laser hair removal is for women clients only."
+      },
+      "status": "verified-single"
+    },
+    {
+      "icon": "drop",
+      "title": {
+        "tr": "Lazer ve cilt bakımı bir arada",
+        "en": "Laser and skin care together"
+      },
+      "text": {
+        "tr": "Lazer ve buz lazer epilasyonun yanında cilt bakımı, Hydrafacial ve peeling.",
+        "en": "Laser and ice-laser hair removal plus facials, Hydrafacial and peels."
+      },
+      "status": "verified"
+    },
+    {
+      "icon": "calendar",
+      "title": {
+        "tr": "Online randevu",
+        "en": "Online booking"
+      },
+      "text": {
+        "tr": "Bir dakikada online randevu alın; randevudan bir gün önce WhatsApp'tan hatırlatma gelsin.",
+        "en": "Book online in a minute and get a WhatsApp reminder the day before."
+      },
+      "status": "design"
+    },
+    {
+      "icon": "clock",
+      "title": {
+        "tr": "Seansınızı kaçırmayın",
+        "en": "Never miss a session"
+      },
+      "text": {
+        "tr": "Paket ve bakım seanslarınızın zamanı geldiğinde WhatsApp'tan hatırlatıyoruz.",
+        "en": "We remind you on WhatsApp when your next package or care session is due."
+      },
+      "status": "design"
+    }
+  ],
+  "rating": {
+    "platform": "Google",
+    "value": "5.0",
+    "kind": "stars",
+    "count": 203,
+    "asOf": "2026-10-23 (Google Maps listing)",
+    "source": "https://www.google.com/maps/search/?api=1&query=Zest%20G%C3%BCzellik%20Salonu%20%C4%B0zmir-2%20Caddesi%2049%20K%C4%B1z%C4%B1lay%20Ankara"
+  },
+  "provenance": {
+    "name": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Zest%20G%C3%BCzellik%20Salonu%20%C4%B0zmir-2%20Caddesi%2049%20K%C4%B1z%C4%B1lay%20Ankara",
+        "https://kuaforler.net/isletme/guzellik-salonu/ankara/cankaya/zest-guzellik-salonu-ankara-lazer-epilasyon-ankara-buz-lazer-cilt-bakimi-kizilay-cankaya/",
+        "https://www.facebook.com/zestguzellik/"
+      ],
+      "note": "Google lists it as 'Zest Güzellik Salonu | Ankara Lazer Epilasyon (Kadın Müşteri)| Ankara Buz Lazer | Cilt Bakımı'. Also known as Zest Güzellik Noktası."
+    },
+    "address": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Zest%20G%C3%BCzellik%20Salonu%20%C4%B0zmir-2%20Caddesi%2049%20K%C4%B1z%C4%B1lay%20Ankara",
+        "https://kuaforler.net/isletme/guzellik-salonu/ankara/cankaya/zest-guzellik-salonu-ankara-lazer-epilasyon-ankara-buz-lazer-cilt-bakimi-kizilay-cankaya/"
+      ],
+      "note": "From the Google listing header (seen 2026-10-23)."
+    },
+    "district": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Zest%20G%C3%BCzellik%20Salonu%20%C4%B0zmir-2%20Caddesi%2049%20K%C4%B1z%C4%B1lay%20Ankara",
+        "https://kuaforler.net/isletme/guzellik-salonu/ankara/cankaya/zest-guzellik-salonu-ankara-lazer-epilasyon-ankara-buz-lazer-cilt-bakimi-kizilay-cankaya/"
+      ]
+    },
+    "phones": {
+      "status": "verified-single",
+      "sources": [
+        "https://kuaforler.net/isletme/guzellik-salonu/ankara/cankaya/zest-guzellik-salonu-ankara-lazer-epilasyon-ankara-buz-lazer-cilt-bakimi-kizilay-cankaya/"
+      ]
+    },
+    "whatsapp": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "No WhatsApp number confirmed."
+    },
+    "instagram": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.instagram.com/zestguzellik/"
+      ],
+      "note": "@zestguzellik, about 5.5K followers (cached snippet)."
+    },
+    "website": {
+      "status": "verified",
+      "sources": [],
+      "note": "No website found: searches turned up only Facebook, Instagram and directories."
+    },
+    "hours": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Not found; the booking form uses a default 09:00–19:00 window."
+    },
+    "services": {
+      "status": "verified-single",
+      "sources": [
+        "https://kuaforler.net/isletme/guzellik-salonu/ankara/cankaya/zest-guzellik-salonu-ankara-lazer-epilasyon-ankara-buz-lazer-cilt-bakimi-kizilay-cankaya/",
+        "https://www.google.com/maps/search/?api=1&query=Zest%20G%C3%BCzellik%20Salonu%20%C4%B0zmir-2%20Caddesi%2049%20K%C4%B1z%C4%B1lay%20Ankara"
+      ],
+      "note": "From a directory listing and the Google listing name; laser, ice laser and skin care also in Google reviews."
+    },
+    "prices": {
+      "status": "placeholder",
+      "sources": []
+    },
+    "courses": {
+      "status": "design",
+      "sources": [],
+      "note": "Course settings (8 sessions, 6 weeks apart) are demo defaults for the next-session reminder; not shown on the site — set them with the business."
+    },
+    "doctors": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Zest%20G%C3%BCzellik%20Salonu%20%C4%B0zmir-2%20Caddesi%2049%20K%C4%B1z%C4%B1lay%20Ankara"
+      ],
+      "note": "Sevim and Zehra are named in three Google reviews."
+    },
+    "rating": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Zest%20G%C3%BCzellik%20Salonu%20%C4%B0zmir-2%20Caddesi%2049%20K%C4%B1z%C4%B1lay%20Ankara"
+      ],
+      "note": "5.0 from 203 reviews on the Google listing (seen 2026-10-23)."
+    },
+    "map": {
+      "status": "constructed",
+      "sources": [],
+      "note": "Search link built from the business name and address."
+    },
+    "brandColor": {
+      "status": "design",
+      "sources": [],
+      "note": "Our choice; the business's logo and photos were not copied."
+    },
+    "photos": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Neutral illustrations."
+    },
+    "reviews": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Zest%20G%C3%BCzellik%20Salonu%20%C4%B0zmir-2%20Caddesi%2049%20K%C4%B1z%C4%B1lay%20Ankara"
+      ],
+      "note": "Reviews copied word for word from the business's Google listing on 2026-10-23 (screenshots supplied by the agency's partner); names shortened to first name + surname initial, or 'Google kullanıcısı' where the name was not visible. Relative dates as of that day; '…' marks text Google had cut off. For the demo only; switch to the live Google feed or get the business's OK before going public."
+    }
+  }
+}

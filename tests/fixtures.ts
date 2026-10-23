@@ -1,4 +1,4 @@
-import { clinicSchema, type Clinic } from "@/lib/clinics/schema";
+import { clinicSchema, COUNTRIES, type Clinic } from "@/lib/clinics/schema";
 
 /** A minimal synthetic clinic (not one of the real demo clinics) for deterministic tests. */
 export function testClinic(overrides: Partial<Record<string, unknown>> = {}): Clinic {
@@ -32,7 +32,11 @@ export function testClinic(overrides: Partial<Record<string, unknown>> = {}): Cl
     provenance: {},
     ...overrides,
   });
-  return { ...parsed, brandColor: parsed.brandColor ?? "#123456" };
+  return {
+    ...parsed,
+    brandColor: parsed.brandColor ?? "#123456",
+    timeZone: parsed.timeZone ?? COUNTRIES[parsed.country].timeZone,
+  };
 }
 
 /** 2026-10-21 10:00 in Baku (UTC+4) — a Wednesday. */

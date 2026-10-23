@@ -18,9 +18,11 @@ three dental clinics ([REPORT.md](REPORT.md)), three aesthetic clinics and three
 
 Demo sites:
 
-- Dental: `/dent-star`, `/white-estetic-dental`, `/dental-club`
+- Dental: `/dent-star`, `/white-estetic-dental`, `/dental-club`, `/beyaz-dis`, `/one-dent`
 - Aesthetic: `/ahu-estetik-klinika`, `/aspera`, `/miss-laser`
 - Vet: `/bona-vet-clinic`, `/myvet`, `/tarvet`
+- Ankara (TR/EN): barbers `/berber-omer-aykut`, `/efendi-erkek-kuaforu`, `/inter-jr-barbers-club`;
+  beauty `/isil-isil`, `/emy-kuafor`, `/nazli-erzar-cebeci`, `/zest-guzellik`
 
 ---
 
@@ -103,6 +105,22 @@ phone number, `pet` = phone + pet name) and a `message` in AZ/RU/EN with placeho
    missing core field, a copy key that doesn't exist, …).
 3. Add businesses for it (below). That's all. A new section type, icon, field type or theme preset
    would be a code change; the libraries are in `src/lib/niches/schema.ts`.
+
+### Businesses outside Azerbaijan (Türkiye)
+
+A business file can set:
+- `"locales": ["tr", "en"]` — site languages; the first one is served at `/<slug>`, the others at `/<slug>/<lang>`;
+- `"country": "TR"` — Turkish phone formats (`0532 123 45 67` → `+905321234567`) and the
+  `Europe/Istanbul` time zone, so "today", tomorrow's reminders and follow-ups follow Ankara time
+  (override with `"timeZone"`).
+
+Every translated text in the file **and in its niche** must exist in each of the business's
+languages; validation names any that are missing. The `barber` and `beauty` niches are written in
+Turkish and English. Staff Telegram messages use `STAFF_LOCALE_<SLUG>`, else `STAFF_LOCALE` if the
+business uses that language, else the business's first language. Before taking a Turkish **clinic**
+live, read the notes on Türkiye's health-advertising rules in
+[research/RESEARCH-NOTES-turkiye.md](research/RESEARCH-NOTES-turkiye.md) — patient reviews,
+prices and campaigns can't be shown there.
 
 ## Add a business
 

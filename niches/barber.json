@@ -1,0 +1,84 @@
+{
+  "id": "barber",
+  "label": { "tr": "Berber", "en": "Barber", "az": "Bərbər", "ru": "Барбершоп" },
+  "theme": {
+    "preset": "bold",
+    "brandColor": "#9b2c2c",
+    "icon": "scissors",
+    "heroArt": "barber",
+    "emoji": "💈"
+  },
+  "sections": ["hero", "services", "doctors", "why", "reviews", "faq", "booking", "location"],
+  "nav": ["services", "doctors", "reviews", "location"],
+  "services": {
+    "categories": [
+      { "id": "haircut", "label": { "tr": "Saç", "en": "Hair" }, "icon": "scissors" },
+      { "id": "beard", "label": { "tr": "Sakal ve tıraş", "en": "Beard & shave" }, "icon": "razor" },
+      { "id": "care", "label": { "tr": "Bakım", "en": "Grooming" }, "icon": "drop" }
+    ]
+  },
+  "booking": {
+    "fields": [
+      { "id": "name", "type": "name", "placeholder": { "tr": "Örn. Mehmet", "en": "e.g. Mehmet" } },
+      { "id": "phone", "type": "phone" },
+      { "id": "serviceId", "type": "service" },
+      { "id": "specialist", "type": "specialist", "required": false, "label": { "tr": "Usta", "en": "Barber" } },
+      { "id": "date", "type": "date" },
+      { "id": "time", "type": "time" },
+      { "id": "consent", "type": "consent" }
+    ]
+  },
+  "copy": {
+    "nav.doctors": { "tr": "Ustalarımız", "en": "Barbers" },
+    "doctors.title": { "tr": "Ustalarımız", "en": "Our barbers" },
+    "doctors.subtitle": { "tr": "Ekip", "en": "The team" },
+    "services.subtitle": {
+      "tr": "Fiyatlar bilgi amaçlıdır; kesin fiyatı salonda öğrenebilirsiniz.",
+      "en": "Prices are indicative; ask in the shop for the exact price."
+    },
+    "booking.subtitle": {
+      "tr": "Formu doldurun — saati onaylamak için size dönüş yapacağız. Gelin, beklemeden koltuğa oturun.",
+      "en": "Fill in the form and we'll confirm the time. Come in and sit straight down — no waiting."
+    },
+    "booking.noHealthInfo": {
+      "tr": "Randevu için adınız ve telefon numaranız yeterli.",
+      "en": "Your name and phone number are all we need to book you in."
+    }
+  },
+  "adminCopy": {
+    "stats.dueBack": { "tr": "Tıraş zamanı gelenler", "en": "Due for a cut" }
+  },
+  "faq": [
+    {
+      "q": { "tr": "Randevumu nasıl değiştirebilirim?", "en": "How do I change my booking?" },
+      "a": {
+        "tr": "Bizi arayın veya WhatsApp'tan yazın — size yeni bir saat önerelim.",
+        "en": "Call us or message us on WhatsApp and we'll offer you a new time."
+      }
+    },
+    {
+      "q": { "tr": "Randevumu unutursam?", "en": "What if I forget my appointment?" },
+      "a": {
+        "tr": "Unutmazsınız: randevunuzdan bir gün önce WhatsApp'tan hatırlatma gönderiyoruz.",
+        "en": "You won't — we send a WhatsApp reminder the day before your appointment."
+      }
+    }
+  ],
+  "reminders": {
+    "followUps": [
+      {
+        "id": "next-cut",
+        "type": "interval",
+        "label": { "tr": "4 haftalık tıraş hatırlatması", "en": "4-week haircut reminder" },
+        "afterDays": 28,
+        "leadDays": 2,
+        "stopAfterDays": 21,
+        "per": "patient",
+        "message": {
+          "tr": "Merhaba {firstName}! Son tıraşınızın üzerinden yaklaşık 4 hafta geçti — {clinic} sizi bekliyor. Randevu için bu mesajı yanıtlayın veya arayın: {phone}.",
+          "en": "Hi {firstName}! It's been about 4 weeks since your last cut — {clinic} is ready when you are. Reply to this message or call {phone} to book."
+        }
+      }
+    ]
+  }
+}

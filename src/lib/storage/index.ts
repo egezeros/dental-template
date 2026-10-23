@@ -1,6 +1,6 @@
 import type { Clinic } from "../clinics/schema";
 import { demoSeedEnabled, sqlitePath, storageDriver, supabaseConfig } from "../config";
-import { bakuDate } from "../time";
+import { zonedDate } from "../time";
 import { buildDemoBookings } from "./demo-seed";
 import { MemoryBookingStore } from "./memory";
 import type { BookingStore } from "./types";
@@ -41,7 +41,7 @@ export async function getStore(): Promise<BookingStore> {
  */
 export async function ensureDemoData(store: BookingStore, clinic: Clinic, now: Date = new Date()): Promise<void> {
   if (!demoSeedEnabled()) return;
-  const key = `${clinic.slug}:${bakuDate(now)}`;
+  const key = `${clinic.slug}:${zonedDate(now, clinic.timeZone)}`;
   g.__seeded ??= new Set();
   if (g.__seeded.has(key)) return;
   await store.replaceDemoBookings(clinic.slug, buildDemoBookings(clinic, now));

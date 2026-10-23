@@ -1,7 +1,7 @@
 import { adminDict, siteDict, type AdminDictionary, type Locale, type SiteDictionary } from "../i18n";
 import type { Niche } from "./schema";
 
-type Overrides = Record<string, Record<Locale, string>>;
+type Overrides = Record<string, Partial<Record<Locale, string>>>;
 
 /** Deep copy that keeps functions (dictionary entries like demoBanner(name) are functions). */
 function cloneDict<T>(value: T): T {
@@ -28,7 +28,10 @@ export function applyCopy<T extends object>(base: T, overrides: Overrides, local
     }
     const last = keys[keys.length - 1];
     if (typeof node[last] !== "string") throw new Error(`copy key "${dotted}" is not a plain text entry`);
-    node[last] = value[locale];
+    // A language the override doesn't cover keeps the base text (the loader checks each
+    // business's languages are covered).
+    const text = value[locale];
+    if (text !== undefined) node[last] = text;
   }
   return out;
 }

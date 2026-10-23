@@ -4,13 +4,18 @@ import type { MessagingProvider, PreparedReminder } from "./messaging";
 import { reminderDigestMessages } from "./notify/messages";
 import type { OutboxEntry } from "./notify/telegram";
 import type { BookingStore } from "./storage/types";
-import { addDays, bakuDate } from "./time";
+import { addDays, bakuDate, zonedDate } from "./time";
 
 /** Statuses that still expect the patient to show up. */
 export const REMINDABLE_STATUSES: readonly BookingStatus[] = ["new", "confirmed"];
 
 export function tomorrowInBaku(now: Date): string {
   return addDays(bakuDate(now), 1);
+}
+
+/** Tomorrow's calendar date in a business's time zone. */
+export function tomorrowIn(now: Date, timeZone: string): string {
+  return addDays(zonedDate(now, timeZone), 1);
 }
 
 /**
@@ -20,9 +25,9 @@ export function tomorrowInBaku(now: Date): string {
 export function selectNextDayAppointments(
   bookings: Booking[],
   now: Date,
-  options: { includeAlreadyReminded?: boolean } = {},
+  options: { includeAlreadyReminded?: boolean; timeZone?: string } = {},
 ): Booking[] {
-  const tomorrow = tomorrowInBaku(now);
+  const tomorrow = options.timeZone ? tomorrowIn(now, options.timeZone) : tomorrowInBaku(now);
   return bookings
     .filter(
       (b) =>
@@ -53,11 +58,11 @@ export interface ReminderDeps {
  * digest, and mark the bookings as reminded so a re-run does not duplicate them.
  */
 export async function runReminders(clinics: Clinic[], now: Date, deps: ReminderDeps): Promise<ReminderRunResult[]> {
-  const date = tomorrowInBaku(now);
   const results: ReminderRunResult[] = [];
   for (const clinic of clinics) {
+    const date = tomorrowIn(now, clinic.timeZone);
     const rows = await deps.store.list(clinic.slug, { fromDate: date, toDate: date });
-    const due = selectNextDayAppointments(rows, now);
+    const due = selectNextDayAppointments(rows, now, { timeZone: clinic.timeZone });
     if (due.length === 0) {
       results.push({ clinicSlug: clinic.slug, date, reminders: [], notifications: [] });
       continue;

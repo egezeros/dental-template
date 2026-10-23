@@ -11,17 +11,17 @@ import { getClinic } from "@/lib/clinics/load";
 import type { Clinic } from "@/lib/clinics/schema";
 import { adminPassword, isDemoMode, usingDefaultDemoPassword } from "@/lib/config";
 import { computeFollowUps, countDueBack, followUpText, type FollowUp, type FollowUpState } from "@/lib/followups";
-import { INTL_LOCALE, isLocale, LOCALE_LABELS, LOCALES, siteDict, type Locale } from "@/lib/i18n";
+import { INTL_LOCALE, isLocale, LOCALE_LABELS, siteDict, tr, type Locale } from "@/lib/i18n";
 import { WaLinkProvider } from "@/lib/messaging";
 import { waMeLink } from "@/lib/messaging/templates";
 import { nicheAdminDict } from "@/lib/niches/copy";
 import { getNiche } from "@/lib/niches/load";
 import type { Niche } from "@/lib/niches/schema";
 import { getOutbox } from "@/lib/notify/telegram";
-import { selectNextDayAppointments, tomorrowInBaku } from "@/lib/reminders";
+import { selectNextDayAppointments, tomorrowIn } from "@/lib/reminders";
 import { computeStats } from "@/lib/stats";
 import { ensureDemoData, getStore } from "@/lib/storage";
-import { bakuDate, formatDate } from "@/lib/time";
+import { formatDate, zonedDate } from "@/lib/time";
 import { login, logout, markFollowUpSent, runFollowUpsNow, runRemindersNow, setBookingStatus } from "./actions";
 
 export const dynamic = "force-dynamic";
@@ -55,13 +55,14 @@ export default async function AdminPage({ params, searchParams }: Props) {
   const clinic = getClinic(slug);
   if (!clinic) notFound();
 
-  const locale: Locale = isLocale(sp.lang) ? sp.lang : "az";
+  const defaultLocale = clinic.locales[0];
+  const locale: Locale = isLocale(sp.lang) && clinic.locales.includes(sp.lang) ? sp.lang : defaultLocale;
   const niche = getNiche(clinic.niche);
   const t = nicheAdminDict(niche, locale);
   const Icon = ICONS[niche.theme.icon];
   const demo = isDemoMode();
   const langQuery = (l: Locale, extra: Record<string, string> = {}) => {
-    const q = new URLSearchParams({ ...(l !== "az" ? { lang: l } : {}), ...extra }).toString();
+    const q = new URLSearchParams({ ...(l !== defaultLocale ? { lang: l } : {}), ...extra }).toString();
     return `/${slug}/admin${q ? `?${q}` : ""}`;
   };
   const style = { "--brand": clinic.brandColor } as CSSProperties;
@@ -110,7 +111,7 @@ export default async function AdminPage({ params, searchParams }: Props) {
 
   const store = await getStore();
   const now = new Date();
-  const today = bakuDate(now);
+  const today = zonedDate(now, clinic.timeZone);
   let all: Booking[];
   try {
     await ensureDemoData(store, clinic, now);
@@ -129,7 +130,7 @@ export default async function AdminPage({ params, searchParams }: Props) {
   // On Vercel each route runs in its own serverless instance, so in-memory bookings made on
   // the public site are invisible here. Say so instead of looking broken.
   const memoryOnServerless = store.driver === "memory" && Boolean(process.env.VERCEL);
-  const stats = computeStats(all, now);
+  const stats = computeStats(all, now, clinic.timeZone);
   const tab = sp.tab === "past" || sp.tab === "all" ? sp.tab : "upcoming";
   const rows =
     tab === "all"
@@ -138,10 +139,10 @@ export default async function AdminPage({ params, searchParams }: Props) {
         ? all.filter((b) => b.date < today).reverse()
         : all.filter((b) => b.date >= today);
 
-  const tomorrow = tomorrowInBaku(now);
+  const tomorrow = tomorrowIn(now, clinic.timeZone);
   const wa = new WaLinkProvider();
   const tomorrowRows = await Promise.all(
-    selectNextDayAppointments(all, now, { includeAlreadyReminded: true }).map(async (b) => ({
+    selectNextDayAppointments(all, now, { includeAlreadyReminded: true, timeZone: clinic.timeZone }).map(async (b) => ({
       booking: b,
       reminder: await wa.sendReminder(b, clinic),
     })),
@@ -168,7 +169,7 @@ export default async function AdminPage({ params, searchParams }: Props) {
             </p>
           </div>
           <div className="flex items-center gap-2 text-xs">
-            {LOCALES.map((l) => (
+            {clinic.locales.map((l) => (
               <Link
                 key={l}
                 href={langQuery(l, tab !== "upcoming" ? { tab } : {})}
@@ -301,7 +302,7 @@ export default async function AdminPage({ params, searchParams }: Props) {
                 <li key={o.id} className="rounded-xl bg-canvas p-3 ring-1 ring-line">
                   <p className="flex flex-wrap items-center justify-between gap-2 text-[11px] text-muted">
                     <span>
-                      {new Date(o.at).toLocaleString(INTL_LOCALE[locale], { timeZone: "Asia/Baku" })} · {o.kind}
+                      {new Date(o.at).toLocaleString(INTL_LOCALE[locale], { timeZone: clinic.timeZone })} · {o.kind}
                     </span>
                     <span
                       className={`rounded-full px-2 py-0.5 font-semibold ring-1 ${
@@ -371,7 +372,7 @@ function FollowUpsPanel({
           <h2 className="font-semibold">{t.followUps.title}</h2>
           <p className="text-xs text-muted">{t.followUps.subtitle}</p>
           <p className="mt-1 text-[11px] text-muted">
-            {niche.reminders.followUps.map((r) => r.label[locale]).join(" · ")}
+            {niche.reminders.followUps.map((r) => tr(r.label, locale)).join(" · ")}
           </p>
         </div>
         <form action={runFollowUpsNow.bind(null, slug)}>
@@ -383,8 +384,9 @@ function FollowUpsPanel({
       ) : (
         <ul className="mt-4 divide-y divide-line">
           {items.map((f) => {
-            // Message in the patient's language, plus the other of AZ/RU for staff to choose.
-            const other: Locale = f.locale === "ru" ? "az" : "ru";
+            // Message in the patient's language, plus one other language of the business (AZ↔RU, TR↔EN).
+            const others = clinic.locales.filter((l) => l !== f.locale);
+            const other: Locale = others.find((l) => l !== "en") ?? others[0] ?? f.locale;
             const link = waMeLink(f.phone, followUpText(f, clinic));
             const otherLink = waMeLink(f.phone, followUpText(f, clinic, other));
             return (
@@ -398,7 +400,7 @@ function FollowUpsPanel({
                     </span>
                   </p>
                   <p className="text-xs text-muted">
-                    {f.rule.label[locale]}
+                    {tr(f.rule.label, locale)}
                     {f.session ? ` · ${t.followUps.session(f.session, f.sessions!)}` : ""} · {f.visit.serviceName}
                   </p>
                   <p className="text-xs text-muted">

@@ -92,7 +92,7 @@ export class WhatsAppCloudProvider implements MessagingProvider {
     templateName: string,
     params: string[],
   ): Promise<PreparedReminder> {
-    const languageCode = locale === "ru" ? "ru" : locale === "en" ? "en" : "az";
+    const languageCode = locale;
     try {
       const res = await this.fetchImpl(
         `https://graph.facebook.com/${this.cfg.apiVersion}/${this.cfg.phoneNumberId}/messages`,

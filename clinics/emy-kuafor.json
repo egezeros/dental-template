@@ -1,0 +1,317 @@
+{
+  "slug": "emy-kuafor",
+  "niche": "beauty",
+  "country": "TR",
+  "locales": [
+    "tr",
+    "en"
+  ],
+  "whatsapp": "[TO CONFIRM]",
+  "name": "Bilkent Emy Kuaför",
+  "brandColor": "#7b4f8e",
+  "sections": [
+    "hero",
+    "services",
+    "doctors",
+    "why",
+    "reviews",
+    "faq",
+    "booking",
+    "location"
+  ],
+  "tagline": {
+    "tr": "Ankuva AVM'de saç rengi, ombre ve gelin saçı",
+    "en": "Hair colour, ombré and bridal hair at Ankuva Mall"
+  },
+  "intro": {
+    "tr": "Bilkent Emy Kuaför, Ankuva AVM'de saç boyası, röfle, ombre ve gelin saçı hizmeti verir. Online randevu alın — saati onaylamak için size dönüş yapacağız.",
+    "en": "Bilkent Emy Kuaför at Ankuva Mall does hair colour, highlights, ombré and bridal hair. Book online and we'll get back to you to confirm the time."
+  },
+  "address": {
+    "tr": "Üniversiteler Mah., Ankuva AVM Kat:1 No:37, 06800 Çankaya, Ankara",
+    "en": "Ankuva Mall, 1st floor No:37, Üniversiteler, 06800 Çankaya, Ankara"
+  },
+  "district": {
+    "tr": "Bilkent",
+    "en": "Bilkent"
+  },
+  "phones": [
+    {
+      "display": "0312 266 00 12",
+      "tel": "+903122660012"
+    },
+    {
+      "display": "0532 394 27 90",
+      "tel": "+905323942790"
+    }
+  ],
+  "facebook": "https://www.facebook.com/emykuafor/",
+  "website": "http://emy.oxit.web.tr/",
+  "map": {
+    "query": "Bilkent Emy Kuaför, Ankuva AVM, Üniversiteler, Çankaya, Ankara"
+  },
+  "featuredReviews": {
+    "url": "https://www.google.com/maps/search/?api=1&query=Bilkent%20Emy%20Kuaf%C3%B6r%20g%C3%BCzellik%20salonu%20Ankuva%20AVM%20Ankara",
+    "items": [
+      {
+        "author": "Gizem",
+        "rating": 5,
+        "text": "Metin beye hafif röfle yaptırdım ve gerçekten tam istediğim, hayal ettiğim gibi oldu. Kendisi gerçekten beni doğru yönlendirdi ve özenli bir iş çıkardı. Çok mutlu ayrıldım. Emeği geçenlere teşekkür ediyorum 🙏🏻",
+        "date": {
+          "tr": "6 ay önce",
+          "en": "6 months ago"
+        }
+      },
+      {
+        "author": "Yüsra S.",
+        "rating": 5,
+        "text": "Saçlarım önceden gittiğim çok bilindik bir kuaför yüzünden çok yıpranmıştı ve asla istediğim renk olmamıştı, Metin bey sayesinde istediğim saç rengine kavuştum. Kendisi bu işte ne kadar iyi olduğunu bir kez daha kanıtladı.Kendisine ve yanındaki çalışanlara emekleri ve güler yüzleri için çok teşekkür ederim. 👌🏻💗",
+        "date": {
+          "tr": "5 ay önce",
+          "en": "5 months ago"
+        }
+      },
+      {
+        "author": "Tuba Y.",
+        "rating": 5,
+        "text": "İnanılmaz yetenekli ve kaliteli insanların çalıştığı işletmedir. Metin Bey ombre konusunda muazzam, kullandığı malzeme ve işçilik birinci sınıf. Gözü kapalı tavsiye ederim bilhassa saç boyası konusunda …",
+        "date": {
+          "tr": "7 ay önce",
+          "en": "7 months ago"
+        }
+      }
+    ]
+  },
+  "hours": "[TO CONFIRM]",
+  "services": [
+    {
+      "id": "haircut",
+      "category": "hair",
+      "name": {
+        "tr": "Saç kesimi ve fön",
+        "en": "Cut & blow-dry"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder"
+    },
+    {
+      "id": "colour",
+      "category": "hair",
+      "name": {
+        "tr": "Saç boyası",
+        "en": "Hair colour"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "highlights",
+      "category": "hair",
+      "name": {
+        "tr": "Röfle",
+        "en": "Highlights"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "ombre",
+      "category": "hair",
+      "name": {
+        "tr": "Ombre",
+        "en": "Ombré"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "bridal",
+      "category": "makeup",
+      "name": {
+        "tr": "Gelin saçı ve makyajı",
+        "en": "Bridal hair & make-up"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    }
+  ],
+  "doctors": [
+    {
+      "name": "Metin Bey",
+      "role": {
+        "tr": "Saç ve renk uzmanı",
+        "en": "Hair & colour specialist"
+      },
+      "status": "verified"
+    },
+    {
+      "name": "[TO CONFIRM]",
+      "role": {
+        "tr": "Uzman",
+        "en": "Specialist"
+      },
+      "status": "placeholder"
+    }
+  ],
+  "whyUs": [
+    {
+      "icon": "star",
+      "title": {
+        "tr": "Renk ve ombre uzmanlığı",
+        "en": "Colour and ombré expertise"
+      },
+      "text": {
+        "tr": "Müşteriler özellikle saç boyası, röfle ve ombre işlerini öne çıkarıyor.",
+        "en": "Clients single out the colour, highlights and ombré work."
+      },
+      "status": "verified"
+    },
+    {
+      "icon": "map",
+      "title": {
+        "tr": "Ankuva AVM içinde",
+        "en": "Inside Ankuva Mall"
+      },
+      "text": {
+        "tr": "Bilkent'te, Ankuva AVM'nin 1. katında.",
+        "en": "In Bilkent, on the 1st floor of Ankuva Mall."
+      },
+      "status": "verified"
+    },
+    {
+      "icon": "calendar",
+      "title": {
+        "tr": "Online randevu",
+        "en": "Online booking"
+      },
+      "text": {
+        "tr": "Bir dakikada online randevu alın; randevudan bir gün önce WhatsApp'tan hatırlatma gelsin.",
+        "en": "Book online in a minute and get a WhatsApp reminder the day before."
+      },
+      "status": "design"
+    },
+    {
+      "icon": "clock",
+      "title": {
+        "tr": "Seansınızı kaçırmayın",
+        "en": "Never miss a session"
+      },
+      "text": {
+        "tr": "Paket ve bakım seanslarınızın zamanı geldiğinde WhatsApp'tan hatırlatıyoruz.",
+        "en": "We remind you on WhatsApp when your next package or care session is due."
+      },
+      "status": "design"
+    }
+  ],
+  "rating": {
+    "platform": "Google",
+    "value": "4.9",
+    "kind": "stars",
+    "count": 572,
+    "asOf": "2026-10-23 (Google Maps listing)",
+    "source": "https://www.google.com/maps/search/?api=1&query=Bilkent%20Emy%20Kuaf%C3%B6r%20g%C3%BCzellik%20salonu%20Ankuva%20AVM%20Ankara"
+  },
+  "provenance": {
+    "name": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Bilkent%20Emy%20Kuaf%C3%B6r%20g%C3%BCzellik%20salonu%20Ankuva%20AVM%20Ankara",
+        "https://yandex.com/maps/org/emy_kuafor/149449327617/",
+        "http://emy.oxit.web.tr/iletisim/"
+      ],
+      "note": "Google: 'Bilkent Emy Kuaför güzellik salonu Ankara'."
+    },
+    "address": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Bilkent%20Emy%20Kuaf%C3%B6r%20g%C3%BCzellik%20salonu%20Ankuva%20AVM%20Ankara",
+        "https://yandex.com/maps/org/emy_kuafor/149449327617/"
+      ],
+      "note": "From the Google listing header (seen 2026-10-23)."
+    },
+    "district": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Bilkent%20Emy%20Kuaf%C3%B6r%20g%C3%BCzellik%20salonu%20Ankuva%20AVM%20Ankara",
+        "https://yandex.com/maps/org/emy_kuafor/149449327617/"
+      ]
+    },
+    "phones": {
+      "status": "verified-single",
+      "sources": [
+        "http://emy.oxit.web.tr/iletisim/"
+      ],
+      "note": "From the salon's own (old) contact page."
+    },
+    "whatsapp": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "No WhatsApp number confirmed."
+    },
+    "instagram": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "No Instagram account found; a Facebook page exists."
+    },
+    "website": {
+      "status": "outdated",
+      "sources": [
+        "http://emy.oxit.web.tr/iletisim/"
+      ],
+      "note": "emy.oxit.web.tr is an old template page (about 2018, with COVID-era rules); no online booking."
+    },
+    "hours": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Not found; the booking form uses a default 09:00–19:00 window."
+    },
+    "services": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Bilkent%20Emy%20Kuaf%C3%B6r%20g%C3%BCzellik%20salonu%20Ankuva%20AVM%20Ankara",
+        "https://dugun.com/gelin-saci-ve-makyaji/ankara/emy-kuafor"
+      ],
+      "note": "Colour, highlights and ombré from Google reviews; bridal from dugun.com. Cut & blow-dry is a template entry."
+    },
+    "prices": {
+      "status": "placeholder",
+      "sources": []
+    },
+    "doctors": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Bilkent%20Emy%20Kuaf%C3%B6r%20g%C3%BCzellik%20salonu%20Ankuva%20AVM%20Ankara"
+      ],
+      "note": "'Metin Bey' is named in three Google reviews."
+    },
+    "rating": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Bilkent%20Emy%20Kuaf%C3%B6r%20g%C3%BCzellik%20salonu%20Ankuva%20AVM%20Ankara"
+      ],
+      "note": "4.9 from 572 reviews on the Google listing (seen 2026-10-23)."
+    },
+    "map": {
+      "status": "constructed",
+      "sources": [],
+      "note": "Search link built from the business name and address."
+    },
+    "brandColor": {
+      "status": "design",
+      "sources": [],
+      "note": "Our choice; the business's logo and photos were not copied."
+    },
+    "photos": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Neutral illustrations."
+    },
+    "reviews": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Bilkent%20Emy%20Kuaf%C3%B6r%20g%C3%BCzellik%20salonu%20Ankuva%20AVM%20Ankara"
+      ],
+      "note": "Reviews copied word for word from the business's Google listing on 2026-10-23 (screenshots supplied by the agency's partner); names shortened to first name + surname initial, or 'Google kullanıcısı' where the name was not visible. Relative dates as of that day; '…' marks text Google had cut off. For the demo only; switch to the live Google feed or get the business's OK before going public."
+    }
+  }
+}

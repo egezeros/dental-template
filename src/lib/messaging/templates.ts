@@ -10,7 +10,7 @@ export function firstNameOf(name: string): string {
 }
 
 /** Used when a template mentions {petName} but the booking has none. */
-const PET_FALLBACK: Record<Locale, string> = { az: "ev heyvanınız", ru: "вашего питомца", en: "your pet" };
+const PET_FALLBACK: Record<Locale, string> = { az: "ev heyvanınız", ru: "вашего питомца", en: "your pet", tr: "evcil dostunuz" };
 
 /** Replace {placeholders} in a niche message template. Unknown placeholders become empty. */
 export function fillTemplate(template: string, vars: Record<string, string | number | undefined>): string {
@@ -31,7 +31,8 @@ export function reminderText(booking: Booking, clinic: Clinic): string {
   const firstName = firstNameOf(booking.name);
   const address = tr(clinic.address, locale);
   const phone = clinic.phones[0]?.display ?? "";
-  const template = getNiche(clinic.niche).reminders.appointment.message?.[locale];
+  const message = getNiche(clinic.niche).reminders.appointment.message;
+  const template = message ? tr(message, locale) : undefined;
   if (template) {
     return fillTemplate(template, {
       firstName,
@@ -50,6 +51,12 @@ export function reminderText(booking: Booking, clinic: Clinic): string {
         `Здравствуйте, ${firstName}! Напоминаем о вашем приёме в клинике ${clinic.name} ` +
         `завтра, ${date}, в ${booking.time} (${booking.serviceName}). Адрес: ${address}. ` +
         `Если планы изменились, пожалуйста, ответьте на это сообщение или позвоните: ${phone}. Ждём вас!`
+      );
+    case "tr":
+      return (
+        `Merhaba ${firstName}! ${clinic.name} randevunuzu hatırlatırız: yarın, ${date}, saat ${booking.time} ` +
+        `(${booking.serviceName}). Adres: ${address}. Planınız değiştiyse lütfen bu mesajı yanıtlayın veya arayın: ${phone}. ` +
+        `Görüşmek üzere!`
       );
     case "en":
       return (

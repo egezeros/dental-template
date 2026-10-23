@@ -2,7 +2,7 @@
  * Neutral, self-made illustrations. They stand in for real clinic photos, which
  * must come from the clinic (we never copy their photos or logos).
  */
-export type HeroArt = "dental" | "beauty" | "pet";
+export type HeroArt = "dental" | "beauty" | "pet" | "barber";
 
 export function PlaceholderImage({
   label,
@@ -22,7 +22,7 @@ export function PlaceholderImage({
             <stop offset="1" stopColor="var(--brand)" stopOpacity="0.04" />
           </linearGradient>
         </defs>
-        {art === "beauty" ? <BeautyArt /> : art === "pet" ? <PetArt /> : <DentalArt />}
+        {art === "beauty" ? <BeautyArt /> : art === "pet" ? <PetArt /> : art === "barber" ? <BarberArt /> : <DentalArt />}
       </svg>
       <figcaption className="absolute inset-x-3 bottom-3 rounded-xl bg-white/90 px-3 py-2 text-center text-[11px] font-medium text-muted ring-1 ring-line backdrop-blur">
         {label}
@@ -134,6 +134,47 @@ function PetArt() {
       <path d="M424 274l6 6 6-6Z" fill="var(--brand)" fillOpacity="0.55" />
       <path d="M380 276l-26-4M380 286l-26 6M480 276l26-4M480 286l26 6" stroke="var(--brand)" strokeOpacity="0.3" strokeWidth="3" strokeLinecap="round" />
       <path d="M318 120c-10-14-34-6-30 12 3 12 30 28 30 28s27-16 30-28c4-18-20-26-30-12Z" fill="var(--brand)" fillOpacity="0.3" />
+    </>
+  );
+}
+
+/** Barber shop still life: pole, chair, mirror, scissors and comb. */
+function BarberArt() {
+  return (
+    <>
+      <rect width="640" height="480" fill="url(#ph-bg-barber)" />
+      <circle cx="540" cy="80" r="120" fill="var(--brand)" fillOpacity="0.07" />
+      {/* mirror */}
+      <rect x="250" y="70" width="190" height="170" rx="16" fill="#fff" fillOpacity="0.85" stroke="var(--brand)" strokeOpacity="0.2" strokeWidth="4" />
+      <path d="M285 110l40-30M300 140l70-55" stroke="var(--brand)" strokeOpacity="0.12" strokeWidth="8" strokeLinecap="round" />
+      {/* barber pole */}
+      <rect x="92" y="80" width="54" height="250" rx="27" fill="#fff" stroke="var(--brand)" strokeOpacity="0.35" strokeWidth="4" />
+      <clipPath id="pole-clip">
+        <rect x="94" y="82" width="50" height="246" rx="25" />
+      </clipPath>
+      <g clipPath="url(#pole-clip)" fill="var(--brand)" fillOpacity="0.35">
+        {Array.from({ length: 9 }, (_, i) => (
+          <path key={i} d={`M80 ${70 + i * 34}l80 -46v22l-80 46Z`} />
+        ))}
+      </g>
+      <rect x="84" y="62" width="70" height="22" rx="8" fill="var(--brand)" fillOpacity="0.45" />
+      <rect x="84" y="326" width="70" height="22" rx="8" fill="var(--brand)" fillOpacity="0.45" />
+      {/* chair */}
+      <path d="M290 250h110c14 0 24 10 24 24v56H266v-56c0-14 10-24 24-24Z" fill="#fff" stroke="var(--brand)" strokeOpacity="0.35" strokeWidth="4" />
+      <path d="M250 330h190c10 0 16 6 16 16v6H234v-6c0-10 6-16 16-16Z" fill="var(--brand)" fillOpacity="0.25" />
+      <path d="M345 352v58M300 410h90" stroke="var(--brand)" strokeOpacity="0.4" strokeWidth="8" strokeLinecap="round" />
+      {/* scissors and comb */}
+      <g transform="translate(480 250) rotate(-30)" stroke="var(--brand)" strokeOpacity="0.5" strokeWidth="5" fill="none">
+        <circle cx="0" cy="0" r="16" />
+        <circle cx="0" cy="44" r="16" />
+        <path d="M14 8l70 40M14 36l70-40" strokeLinecap="round" />
+      </g>
+      <g transform="translate(470 360)">
+        <rect width="110" height="18" rx="6" fill="var(--brand)" fillOpacity="0.35" />
+        {Array.from({ length: 12 }, (_, i) => (
+          <rect key={i} x={6 + i * 8.5} y="16" width="4" height="18" rx="2" fill="var(--brand)" fillOpacity="0.35" />
+        ))}
+      </g>
     </>
   );
 }

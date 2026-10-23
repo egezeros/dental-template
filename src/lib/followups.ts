@@ -9,7 +9,7 @@ import { followUpDigestMessages } from "./notify/messages";
 import type { OutboxEntry } from "./notify/telegram";
 import { REMINDABLE_STATUSES } from "./reminders";
 import type { BookingStore } from "./storage/types";
-import { addDays, bakuDate, daysBetween, formatDate } from "./time";
+import { addDays, daysBetween, formatDate, zonedDate } from "./time";
 
 /** How far ahead the dashboard lists follow-ups that are not due yet. */
 export const FOLLOW_UP_HORIZON_DAYS = 30;
@@ -147,7 +147,7 @@ export function computeFollowUps(
 ): FollowUp[] {
   const niche = options.niche ?? getNiche(clinic.niche);
   const horizon = options.horizonDays ?? FOLLOW_UP_HORIZON_DAYS;
-  const today = bakuDate(now);
+  const today = zonedDate(now, clinic.timeZone);
   const out: FollowUp[] = [];
   for (const rule of niche.reminders.followUps) {
     for (const c of candidates(rule, clinic, bookings, today)) {
@@ -199,7 +199,7 @@ export function countDueBack(items: FollowUp[]): number {
 /** Patient message for a follow-up, in the patient's language unless another is asked for. */
 export function followUpText(f: FollowUp, clinic: Clinic, locale: Locale = f.locale): string {
   const service = clinic.services.find((s) => s.id === f.serviceId);
-  return fillTemplate(f.rule.message[locale], {
+  return fillTemplate(tr(f.rule.message, locale), {
     firstName: firstNameOf(f.name),
     clinic: clinic.name,
     service: service ? tr(service.name, locale) : f.visit.serviceName,
@@ -249,7 +249,7 @@ export async function runFollowUps(clinics: Clinic[], now: Date, deps: FollowUpD
       results.push({ clinicSlug: clinic.slug, sent: [], notifications: [] });
       continue;
     }
-    const fromDate = addDays(bakuDate(now), -followUpLookbackDays(clinic, niche));
+    const fromDate = addDays(zonedDate(now, clinic.timeZone), -followUpLookbackDays(clinic, niche));
     const rows = await deps.store.list(clinic.slug, { fromDate });
     const due = computeFollowUps(clinic, rows, now, { niche }).filter((f) => isActionable(f) && !f.sentAt);
     if (due.length === 0) {

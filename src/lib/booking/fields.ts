@@ -1,5 +1,5 @@
 import { isPlaceholder, type Clinic } from "../clinics/schema";
-import type { Locale } from "../i18n";
+import { tr, type Locale, type Localized } from "../i18n";
 import type { BookingFieldConfig, Niche } from "../niches/schema";
 import type { Booking } from "./types";
 
@@ -13,7 +13,7 @@ export interface ExtraField {
   required: boolean;
   maxLength: number;
   /** Allowed values for select / specialist fields. */
-  options: { value: string; label: Record<Locale, string> | string }[];
+  options: { value: string; label: Localized }[];
   config: BookingFieldConfig;
 }
 
@@ -54,9 +54,9 @@ export function detailLines(
   for (const f of niche.booking.fields) {
     const value = booking.details[f.id];
     if (!value) continue;
-    const label = f.label?.[locale] ?? (f.type === "specialist" ? defaults.specialist : f.id);
+    const label = f.label ? tr(f.label, locale) : f.type === "specialist" ? defaults.specialist : f.id;
     const option = f.type === "select" ? f.options?.find((o) => o.value === value) : undefined;
-    lines.push({ id: f.id, label, value: option ? option.label[locale] : value });
+    lines.push({ id: f.id, label, value: option ? tr(option.label, locale) : value });
   }
   return lines;
 }

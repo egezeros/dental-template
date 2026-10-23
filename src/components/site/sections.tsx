@@ -15,7 +15,7 @@ import {
   StarIcon,
 } from "@/components/icons";
 import { extraFields } from "@/lib/booking/fields";
-import { isPlaceholder, PLACEHOLDER, type Clinic, type FactStatus } from "@/lib/clinics/schema";
+import { COUNTRIES, isPlaceholder, PLACEHOLDER, type Clinic, type FactStatus } from "@/lib/clinics/schema";
 import { slotsByWeekday } from "@/lib/clinics/slots";
 import type { GooglePlaceReviews } from "@/lib/google-reviews";
 import { tr, WEEKDAYS, type Locale, type Localized, type SiteDictionary } from "@/lib/i18n";
@@ -103,8 +103,8 @@ export function bookingFormFields(ctx: SiteContext): FormField[] {
   };
   const out: FormField[] = [];
   for (const f of niche.booking.fields) {
-    const label = f.label?.[locale];
-    const placeholder = f.placeholder?.[locale];
+    const label = f.label ? tr(f.label, locale) : undefined;
+    const placeholder = f.placeholder ? tr(f.placeholder, locale) : undefined;
     if (f.type in core) {
       out.push({ id: f.id, type: f.type, label: label ?? core[f.type], placeholder, required: true });
       continue;
@@ -138,6 +138,12 @@ const HERO_BACKDROP: Record<Niche["theme"]["preset"], CSSProperties | undefined>
     background:
       "radial-gradient(60% 70% at 100% 0%, color-mix(in oklab, var(--brand) 14%, transparent), transparent 70%)," +
       "radial-gradient(40% 50% at 0% 90%, color-mix(in oklab, #f2b33d 16%, transparent), transparent 70%)",
+  },
+  // Barber: a faint diagonal stripe, a nod to the barber pole.
+  bold: {
+    background:
+      "repeating-linear-gradient(135deg, color-mix(in oklab, var(--brand) 6%, transparent) 0 18px, transparent 18px 46px)," +
+      "linear-gradient(180deg, color-mix(in oklab, var(--brand) 8%, transparent), transparent 85%)",
   },
 };
 
@@ -173,7 +179,9 @@ function Hero(ctx: SiteContext) {
                 ? "text-5xl leading-[1.02] font-medium md:text-7xl"
                 : preset === "warm"
                   ? "text-4xl font-extrabold md:text-5xl"
-                  : "text-4xl font-semibold md:text-5xl"
+                  : preset === "bold"
+                    ? "text-5xl leading-[1.08] font-bold uppercase md:text-7xl"
+                    : "text-4xl font-semibold md:text-5xl"
             }`}
           >
             {clinic.name}
@@ -620,6 +628,8 @@ function Booking(ctx: SiteContext, tone: Tone) {
             slotsByWeekday={slotsByWeekday(clinic)}
             text={formText}
             demo={ctx.demo}
+            timeZone={clinic.timeZone}
+            phonePlaceholder={COUNTRIES[clinic.country].phonePlaceholder}
           />
         </div>
       </div>
@@ -695,7 +705,7 @@ function Location(ctx: SiteContext, tone: Tone) {
       </div>
       <div id="hours">
         <Heading eyebrow={t.nav.hours} title={t.hours.title} badge={ctx.status("hours")} />
-        <HoursTable rows={hoursRows} todayLabel={t.hours.today} />
+        <HoursTable rows={hoursRows} todayLabel={t.hours.today} timeZone={clinic.timeZone} />
         {clinic.open24h && clinic.bookingSlots && (
           <p className="mt-3 text-xs text-muted">{t.hours.nightNote(clinic.bookingSlots.start, clinic.bookingSlots.end)}</p>
         )}
