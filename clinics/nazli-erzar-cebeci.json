@@ -77,11 +77,7 @@
         "en": "Laser hair removal"
       },
       "price": "[TO CONFIRM]",
-      "status": "verified",
-      "course": {
-        "sessions": 8,
-        "intervalDays": 42
-      }
+      "status": "verified"
     },
     {
       "id": "skin-care",
@@ -206,18 +202,6 @@
         "en": "Book online in a minute and get a WhatsApp reminder the day before."
       },
       "status": "design"
-    },
-    {
-      "icon": "clock",
-      "title": {
-        "tr": "Seansınızı kaçırmayın",
-        "en": "Never miss a session"
-      },
-      "text": {
-        "tr": "Paket ve bakım seanslarınızın zamanı geldiğinde WhatsApp'tan hatırlatıyoruz.",
-        "en": "We remind you on WhatsApp when your next package or care session is due."
-      },
-      "status": "design"
     }
   ],
   "rating": {
@@ -292,11 +276,6 @@
     "prices": {
       "status": "placeholder",
       "sources": []
-    },
-    "courses": {
-      "status": "design",
-      "sources": [],
-      "note": "Course settings (8 sessions, 6 weeks apart) are demo defaults for the next-session reminder; not shown on the site — set them with the business."
     },
     "doctors": {
       "status": "verified-single",

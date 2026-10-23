@@ -189,18 +189,6 @@
         "en": "Book online in a minute and get a WhatsApp reminder the day before."
       },
       "status": "design"
-    },
-    {
-      "icon": "clock",
-      "title": {
-        "tr": "Seansınızı kaçırmayın",
-        "en": "Never miss a session"
-      },
-      "text": {
-        "tr": "Paket ve bakım seanslarınızın zamanı geldiğinde WhatsApp'tan hatırlatıyoruz.",
-        "en": "We remind you on WhatsApp when your next package or care session is due."
-      },
-      "status": "design"
     }
   ],
   "rating": {

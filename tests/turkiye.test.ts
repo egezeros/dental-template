@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import { normalizePhone, validateBookingRequest } from "@/lib/booking/validate";
 import { getClinic, parseClinic } from "@/lib/clinics/load";
 import { computeFollowUps, followUpText } from "@/lib/followups";
+import { getNiche } from "@/lib/niches/load";
 import { reminderText } from "@/lib/messaging/templates";
 import { staffLocale } from "@/lib/notify/messages";
 import { buildDemoBookings } from "@/lib/storage/demo-seed";
@@ -70,13 +71,26 @@ describe("Turkish businesses", () => {
     expect(reminderText({ ...booking, locale: "tr" }, c)).toMatch(/^Merhaba .*randevunuzu hatırlatırız/);
     expect(staffLocale(c)).toBe("tr");
 
-    // Barbers have no follow-up rule until real shops tell us their customers' rhythm.
-    expect(computeFollowUps(c, [{ ...booking, date: "2026-08-01" }], new Date("2026-10-21T06:00:00Z"))).toEqual([]);
+    // Barbers and salons have no follow-up rules until real businesses give us their customers' rhythm.
+    const now = new Date("2026-10-21T06:00:00Z");
+    expect(computeFollowUps(c, [{ ...booking, date: "2026-08-01" }], now)).toEqual([]);
 
-    const salon = getClinic("zest-guzellik")!;
-    const facial = { ...booking, clinicSlug: salon.slug, serviceId: "skin-care", date: "2026-09-21" };
-    const items = computeFollowUps(salon, [facial], new Date("2026-10-21T06:00:00Z"));
-    expect(items.map((f) => [f.rule.id, f.dueDate, f.state])).toEqual([["skin-care", "2026-10-21", "due"]]);
-    expect(followUpText(items[0], salon, "tr")).toMatch(/^Merhaba .*Son cilt bakımınızın/);
+    // A rule added later is sent in Turkish.
+    const rule = {
+      id: "next-cut",
+      type: "interval" as const,
+      label: { tr: "Tıraş", en: "Cut" },
+      afterDays: 26,
+      leadDays: 2,
+      stopAfterDays: 21,
+      per: "patient" as const,
+      match: {},
+      message: { tr: "Merhaba {firstName}! {clinic} sizi bekliyor: {phone}.", en: "Hi {firstName}!" },
+    };
+    const base = getNiche("barber");
+    const niche = { ...base, reminders: { ...base.reminders, followUps: [rule] } };
+    const items = computeFollowUps(c, [{ ...booking, date: "2026-09-25" }], now, { niche });
+    expect(items.map((f) => [f.rule.id, f.dueDate, f.state])).toEqual([["next-cut", "2026-10-21", "due"]]);
+    expect(followUpText(items[0], c, "tr")).toMatch(/^Merhaba .+! Efendi Erkek Kuaförü sizi bekliyor: /);
   });
 });
