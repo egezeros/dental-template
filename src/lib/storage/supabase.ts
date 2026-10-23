@@ -33,18 +33,31 @@ export function isMissingColumn(err: unknown): boolean {
   return err.code === "PGRST204" || err.code === "42703" || /column .* does not exist|find the '.*' column/i.test(err.message);
 }
 
+/** A table created before Turkish was added: its language check rejects 'tr'. */
+export function isOutdatedLocaleCheck(err: unknown): boolean {
+  if (!(err instanceof SupabaseError)) return false;
+  return err.code === "23514" && /bookings_locale_check/.test(err.message);
+}
+
+type SchemaReason = "table" | "columns" | "locale";
+
+const OUTDATED: Record<Exclude<SchemaReason, "table">, string> = {
+  columns: "lacks the columns 'details' and 'followups'",
+  locale: "does not accept Turkish ('tr') bookings",
+};
+
 /**
  * Create or upgrade the table from supabase/schema.sql (idempotent) over a direct Postgres
  * connection. Vercel's Supabase integration provides POSTGRES_URL; without it, run the SQL by hand.
  */
-async function createSchema(reason: "table" | "columns"): Promise<void> {
+async function createSchema(reason: SchemaReason): Promise<void> {
   const url = postgresUrl();
   if (!url) {
     throw new Error(
       reason === "table"
         ? "The Supabase table 'bookings' does not exist yet. Open Supabase → SQL Editor and run supabase/schema.sql " +
             "(or connect Supabase from Vercel's Storage tab, which sets POSTGRES_URL so the table is created automatically)."
-        : "The Supabase table 'bookings' was created by an older version and lacks the columns 'details' and 'followups'. " +
+        : `The Supabase table 'bookings' was created by an older version and ${OUTDATED[reason]}. ` +
             "Open Supabase → SQL Editor and run supabase/schema.sql again (it only adds what is missing), " +
             "or set POSTGRES_URL so the app upgrades the table automatically.",
     );
@@ -81,12 +94,18 @@ export class SupabaseBookingStore implements BookingStore {
     });
   }
 
-  /** Run an operation; if the table (or a newer column) is missing, run the schema once and retry. */
+  /** Run an operation; if the table is missing or outdated, run the schema once and retry. */
   private async withTable<T>(op: () => Promise<T>): Promise<T> {
     try {
       return await op();
     } catch (err) {
-      const reason = isMissingColumn(err) ? "columns" : isMissingTable(err) ? "table" : null;
+      const reason: SchemaReason | null = isMissingColumn(err)
+        ? "columns"
+        : isOutdatedLocaleCheck(err)
+          ? "locale"
+          : isMissingTable(err)
+            ? "table"
+            : null;
       if (!reason) throw err;
       // Retry the creation on the next request if it failed (e.g. after the SQL was run by hand).
       this.schemaAttempt ??= createSchema(reason).catch((e: unknown) => {

@@ -2,6 +2,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { beforeEach, describe, expect, it } from "vitest";
+import { LOCALES } from "@/lib/i18n";
 import { ensureDemoData, setStoreForTesting } from "@/lib/storage";
 import { buildDemoBookings, demoBookingId } from "@/lib/storage/demo-seed";
 import { MemoryBookingStore } from "@/lib/storage/memory";
@@ -164,6 +165,27 @@ describe("Supabase store", () => {
     await expect(store.markFollowUpSent("test-clinic", [{ id: "a", key: "k" }], "now")).rejects.toThrow(
       /older version.*details.*followups.*schema\.sql again/,
     );
+  });
+
+  it("explains how to upgrade a table whose language check predates Turkish", async () => {
+    delete process.env.POSTGRES_URL;
+    delete process.env.POSTGRES_URL_NON_POOLING;
+    const store = new SupabaseBookingStore(
+      "https://example.supabase.co",
+      "service-key",
+      postgrest(400, {
+        code: "23514",
+        message: 'new row for relation "bookings" violates check constraint "bookings_locale_check"',
+      }),
+    );
+    await expect(store.create({ ...webBooking, locale: "tr" })).rejects.toThrow(/older version.*Turkish.*schema\.sql again/);
+  });
+
+  it("allows every app language in supabase/schema.sql, also on upgraded tables", () => {
+    const sql = fs.readFileSync("supabase/schema.sql", "utf8");
+    const allowed = `locale in (${LOCALES.map((l) => `'${l}'`).join(", ")})`;
+    expect(sql).toContain(`check (${allowed})`);
+    expect(sql).toContain(`add constraint bookings_locale_check check (${allowed})`);
   });
 
   it("passes other errors through unchanged", async () => {
