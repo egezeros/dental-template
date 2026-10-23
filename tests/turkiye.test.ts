@@ -70,8 +70,13 @@ describe("Turkish businesses", () => {
     expect(reminderText({ ...booking, locale: "tr" }, c)).toMatch(/^Merhaba .*randevunuzu hatırlatırız/);
     expect(staffLocale(c)).toBe("tr");
 
-    const items = computeFollowUps(c, [{ ...booking, date: "2026-09-25" }], new Date("2026-10-21T06:00:00Z"));
-    expect(items.map((f) => [f.rule.id, f.dueDate, f.state])).toEqual([["next-cut", "2026-10-23", "due"]]);
-    expect(followUpText(items[0], c, "tr")).toContain("Son tıraşınızın üzerinden yaklaşık 4 hafta geçti");
+    // Barbers have no follow-up rule until real shops tell us their customers' rhythm.
+    expect(computeFollowUps(c, [{ ...booking, date: "2026-08-01" }], new Date("2026-10-21T06:00:00Z"))).toEqual([]);
+
+    const salon = getClinic("zest-guzellik")!;
+    const facial = { ...booking, clinicSlug: salon.slug, serviceId: "skin-care", date: "2026-09-21" };
+    const items = computeFollowUps(salon, [facial], new Date("2026-10-21T06:00:00Z"));
+    expect(items.map((f) => [f.rule.id, f.dueDate, f.state])).toEqual([["skin-care", "2026-10-21", "due"]]);
+    expect(followUpText(items[0], salon, "tr")).toMatch(/^Merhaba .*Son cilt bakımınızın/);
   });
 });

@@ -65,20 +65,6 @@
     }
   ],
   "reminders": {
-    "followUps": [
-      {
-        "id": "next-cut",
-        "type": "interval",
-        "label": { "tr": "4 haftalık tıraş hatırlatması", "en": "4-week haircut reminder" },
-        "afterDays": 28,
-        "leadDays": 2,
-        "stopAfterDays": 21,
-        "per": "patient",
-        "message": {
-          "tr": "Merhaba {firstName}! Son tıraşınızın üzerinden yaklaşık 4 hafta geçti — {clinic} sizi bekliyor. Randevu için bu mesajı yanıtlayın veya arayın: {phone}.",
-          "en": "Hi {firstName}! It's been about 4 weeks since your last cut — {clinic} is ready when you are. Reply to this message or call {phone} to book."
-        }
-      }
-    ]
+    "followUps": []
   }
 }

@@ -3,6 +3,7 @@ import type { Booking, BookingStatus } from "@/lib/booking/types";
 import { getClinics } from "@/lib/clinics/load";
 import { computeFollowUps, countDueBack, followUpText, runFollowUps } from "@/lib/followups";
 import { WaLinkProvider } from "@/lib/messaging";
+import { getNiche } from "@/lib/niches/load";
 import type { OutboxEntry } from "@/lib/notify/telegram";
 import { buildDemoBookings } from "@/lib/storage/demo-seed";
 import { MemoryBookingStore } from "@/lib/storage/memory";
@@ -190,7 +191,8 @@ describe("runFollowUps", () => {
 });
 
 describe("demo mode", () => {
-  it.each(getClinics().map((c) => [c.slug, c] as const))("%s: seeded mock data shows due and upcoming follow-ups", (_slug, c) => {
+  const withRules = getClinics().filter((c) => getNiche(c.niche).reminders.followUps.length > 0);
+  it.each(withRules.map((c) => [c.slug, c] as const))("%s: seeded mock data shows due and upcoming follow-ups", (_slug, c) => {
     const rows: Booking[] = buildDemoBookings(c, WED_10AM_BAKU).map((b) => ({
       ...b,
       status: b.status ?? "new",
