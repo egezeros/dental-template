@@ -1,5 +1,5 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
-import { adminPassword } from "./config";
+import { adminPassword, demoIndexPassword } from "./config";
 
 /** Cookie name per clinic so one browser can be logged into several demo dashboards. */
 export function sessionCookieName(slug: string): string {
@@ -25,30 +25,59 @@ function safeEqual(a: string, b: string): boolean {
   return ab.length === bb.length && timingSafeEqual(ab, bb);
 }
 
-export function checkPassword(slug: string, attempt: string): boolean {
-  const password = adminPassword(slug);
+function passwordMatches(password: string | undefined, attempt: string): boolean {
   if (!password) return false;
   const a = createHmac("sha256", "pw").update(attempt).digest();
   const b = createHmac("sha256", "pw").update(password).digest();
   return timingSafeEqual(a, b);
 }
 
-export function createSessionToken(slug: string, now = Date.now()): string | undefined {
-  const secret = secretFor(slug);
+function issueToken(subject: string, secret: string | undefined, ttlSeconds: number, now: number): string | undefined {
   if (!secret) return undefined;
-  const exp = Math.floor(now / 1000) + SESSION_TTL_SECONDS;
-  const payload = `${slug}.${exp}`;
+  const exp = Math.floor(now / 1000) + ttlSeconds;
+  const payload = `${subject}.${exp}`;
   return `${payload}.${sign(payload, secret)}`;
 }
 
-export function verifySessionToken(slug: string, token: string | undefined, now = Date.now()): boolean {
-  if (!token) return false;
-  const secret = secretFor(slug);
-  if (!secret) return false;
+function verifyToken(subject: string, token: string | undefined, secret: string | undefined, now: number): boolean {
+  if (!token || !secret) return false;
   const parts = token.split(".");
   if (parts.length !== 3) return false;
-  const [tokenSlug, exp, sig] = parts;
-  if (tokenSlug !== slug) return false;
+  const [tokenSubject, exp, sig] = parts;
+  if (tokenSubject !== subject) return false;
   if (!/^\d+$/.test(exp) || Number(exp) * 1000 < now) return false;
-  return safeEqual(sig, sign(`${tokenSlug}.${exp}`, secret));
+  return safeEqual(sig, sign(`${tokenSubject}.${exp}`, secret));
+}
+
+export function checkPassword(slug: string, attempt: string): boolean {
+  return passwordMatches(adminPassword(slug), attempt);
+}
+
+export function createSessionToken(slug: string, now = Date.now()): string | undefined {
+  return issueToken(slug, secretFor(slug), SESSION_TTL_SECONDS, now);
+}
+
+export function verifySessionToken(slug: string, token: string | undefined, now = Date.now()): boolean {
+  return verifyToken(slug, token, secretFor(slug), now);
+}
+
+/** The demo list on "/" (DEMO_INDEX_PASSWORD): one cookie for the whole site, kept 30 days. */
+export const INDEX_COOKIE = "demo_index";
+export const INDEX_SESSION_TTL_SECONDS = 60 * 60 * 24 * 30;
+
+function indexSecret(): string | undefined {
+  const password = demoIndexPassword();
+  return password ? `${process.env.ADMIN_SESSION_SECRET ?? ""}:demo-index:${password}` : undefined;
+}
+
+export function checkIndexPassword(attempt: string): boolean {
+  return passwordMatches(demoIndexPassword(), attempt);
+}
+
+export function createIndexToken(now = Date.now()): string | undefined {
+  return issueToken("index", indexSecret(), INDEX_SESSION_TTL_SECONDS, now);
+}
+
+export function verifyIndexToken(token: string | undefined, now = Date.now()): boolean {
+  return verifyToken("index", token, indexSecret(), now);
 }

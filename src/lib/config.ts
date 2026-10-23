@@ -48,6 +48,11 @@ export function showDemoIndex(): boolean {
   return isDemoMode() && !flag("HIDE_DEMO_INDEX", false);
 }
 
+/** When set, the demo list on "/" asks for this password, so businesses can't browse it. */
+export function demoIndexPassword(): string | undefined {
+  return process.env.DEMO_INDEX_PASSWORD?.trim() || undefined;
+}
+
 export const DEFAULT_DEMO_PASSWORD = "demo";
 
 /**

@@ -14,7 +14,7 @@ three dental clinics ([REPORT.md](REPORT.md)), three aesthetic clinics and three
 | `/<slug>/admin` | Staff dashboard (password protected) |
 | `/api/clinics/<slug>/bookings` | `POST` booking endpoint used by the form |
 | `/api/cron/reminders` | Daily job (Vercel Cron): tomorrow's reminders + due follow-ups |
-| `/` | List of demo sites (demo mode only; hide with `HIDE_DEMO_INDEX=true`) |
+| `/` | List of demo sites (demo mode only; protect with `DEMO_INDEX_PASSWORD` or hide with `HIDE_DEMO_INDEX=true`) |
 
 Demo sites:
 
@@ -172,7 +172,8 @@ Copy `.env.example` to `.env.local` and fill in what you need. Everything is opt
 | `NEXT_PUBLIC_SITE_URL` | Public URL used in Telegram links (falls back to `VERCEL_URL`). |
 | `NEXT_PUBLIC_AGENCY_NAME` | Your agency name in the footer demo note. |
 | `DEMO_WHATSAPP_NUMBER` | Demo only: route all WhatsApp buttons and demo patients to your number. |
-| `HIDE_DEMO_INDEX` | `true` hides the demo list on `/`. |
+| `DEMO_INDEX_PASSWORD` | Puts the demo list on `/` behind this password (remembered for 30 days), so you can open it but businesses can't. |
+| `HIDE_DEMO_INDEX` | `true` hides the demo list on `/` completely (wins over `DEMO_INDEX_PASSWORD`). |
 | `ADMIN_PASSWORD`, `ADMIN_PASSWORD_<SLUG>` | Dashboard password (global or per clinic, e.g. `ADMIN_PASSWORD_DENT_STAR`). Required when `DEMO_MODE=false`. |
 | `ADMIN_SESSION_SECRET` | Extra secret mixed into the session cookie signature. |
 | `STORAGE_DRIVER` | `supabase` \| `sqlite` \| `memory`. Auto-detected when empty. |
@@ -306,8 +307,8 @@ provider (e.g. a Twilio or 360dialog BSP), implement the `MessagingProvider` int
 1. Push this repository to GitHub and **Import** it in Vercel (framework preset: Next.js).
 2. Add environment variables (Project → Settings → Environment Variables):
    - Demo deployment: `DEMO_MODE=true`, optionally `NEXT_PUBLIC_AGENCY_NAME`,
-     `DEMO_WHATSAPP_NUMBER`, `TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHAT_ID`, and `HIDE_DEMO_INDEX=true`
-     before sending links to clinics.
+     `DEMO_WHATSAPP_NUMBER`, `TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHAT_ID`, and `DEMO_INDEX_PASSWORD`
+     (or `HIDE_DEMO_INDEX=true`) before sending links to clinics.
    - Real client: `DEMO_MODE=false`, `ADMIN_PASSWORD_<SLUG>`, `CRON_SECRET`, `SUPABASE_URL`,
      `SUPABASE_SERVICE_ROLE_KEY`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID_<SLUG>`, `NEXT_PUBLIC_SITE_URL`.
 3. Deploy. The cron job in `vercel.json` is registered automatically. The Hobby plan allows
