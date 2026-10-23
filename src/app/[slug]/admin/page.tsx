@@ -17,7 +17,6 @@ import { waMeLink } from "@/lib/messaging/templates";
 import { nicheAdminDict } from "@/lib/niches/copy";
 import { getNiche } from "@/lib/niches/load";
 import type { Niche } from "@/lib/niches/schema";
-import { getOutbox } from "@/lib/notify/telegram";
 import { selectNextDayAppointments, tomorrowIn } from "@/lib/reminders";
 import { computeStats } from "@/lib/stats";
 import { ensureDemoData, getStore } from "@/lib/storage";
@@ -147,7 +146,6 @@ export default async function AdminPage({ params, searchParams }: Props) {
       reminder: await wa.sendReminder(b, clinic),
     })),
   );
-  const outbox = getOutbox(slug).slice(0, 10);
   const fmt = (d: string) => formatDate(d, INTL_LOCALE[locale]);
   const followUps = computeFollowUps(clinic, all, now, { niche });
   const specialistLabel = siteDict(locale).booking.specialist;
@@ -196,7 +194,7 @@ export default async function AdminPage({ params, searchParams }: Props) {
         )}
         {demo && (
           <p className="rounded-xl bg-amber-50 px-4 py-2 text-xs font-medium text-amber-900 ring-1 ring-amber-200">
-            {t.demoData} · {t.storage}: {store.driver}
+            {t.demoData}
           </p>
         )}
 
@@ -291,38 +289,6 @@ export default async function AdminPage({ params, searchParams }: Props) {
           )}
         </section>
 
-        <section className="card p-4 md:p-5">
-          <h2 className="font-semibold">{t.outbox.title}</h2>
-          <p className="text-xs text-muted">{t.outbox.subtitle}</p>
-          {outbox.length === 0 ? (
-            <p className="mt-4 text-sm text-muted">{t.outbox.empty}</p>
-          ) : (
-            <ul className="mt-4 space-y-3">
-              {outbox.map((o) => (
-                <li key={o.id} className="rounded-xl bg-canvas p-3 ring-1 ring-line">
-                  <p className="flex flex-wrap items-center justify-between gap-2 text-[11px] text-muted">
-                    <span>
-                      {new Date(o.at).toLocaleString(INTL_LOCALE[locale], { timeZone: clinic.timeZone })} · {o.kind}
-                    </span>
-                    <span
-                      className={`rounded-full px-2 py-0.5 font-semibold ring-1 ${
-                        o.status === "delivered"
-                          ? "bg-emerald-50 text-emerald-700 ring-emerald-200"
-                          : o.status === "failed"
-                            ? "bg-rose-50 text-rose-700 ring-rose-200"
-                            : "bg-slate-100 text-slate-600 ring-slate-200"
-                      }`}
-                    >
-                      {t.outbox[o.status === "delivered" ? "delivered" : o.status === "failed" ? "failed" : "simulated"]}
-                    </span>
-                  </p>
-                  <pre className="mt-2 font-sans text-xs whitespace-pre-wrap text-ink">{telegramToPlain(o.text)}</pre>
-                  {o.error && <p className="mt-1 text-[11px] text-rose-600">{o.error}</p>}
-                </li>
-              ))}
-            </ul>
-          )}
-        </section>
       </main>
     </Shell>
   );
@@ -497,17 +463,4 @@ function BookingRow({
       </div>
     </li>
   );
-}
-
-/** Telegram HTML → readable plain text for the in-dashboard log. */
-function telegramToPlain(html: string): string {
-  return html
-    .replace(/<a href="([^"]*)">([^<]*)<\/a>/g, (_m, href: string, label: string) =>
-      href.startsWith("https://wa.me/") ? `${label} [wa.me]` : label,
-    )
-    .replace(/<[^>]+>/g, "")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .replace(/&quot;/g, '"')
-    .replace(/&amp;/g, "&");
 }

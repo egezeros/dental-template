@@ -232,7 +232,7 @@ overdue, due and coming up. Set `DEMO_SEED=false` to turn that off.
    `https://api.telegram.org/bot<TOKEN>/getUpdates` and copy `chat.id` (groups are negative numbers).
 3. Set `TELEGRAM_CHAT_ID_<SLUG>` per clinic (or `TELEGRAM_CHAT_ID` for one shared chat).
 
-Without a token, messages are logged and shown in the dashboard's **Notification log** as "simulated".
+Without a token, messages are only written to the server log (marked "simulated").
 
 ### Google reviews (live)
 

@@ -121,7 +121,6 @@ const site = {
       successText: "Administrator vaxtı təsdiqləmək üçün tezliklə sizə zəng edəcək və ya yazacaq.",
       another: "Yeni müraciət",
       error: "Göndərmək alınmadı. Zəhmət olmasa, yenidən cəhd edin və ya bizə zəng edin.",
-      demoNote: "Demo rejimi: müraciət klinikaya göndərilmir, yalnız demo paneldə görünür.",
       closedDay: "Bu gün klinika bağlıdır — başqa tarix seçin.",
       errors: {
         name: "Adınızı daxil edin",
@@ -247,7 +246,6 @@ const site = {
       successText: "Администратор скоро позвонит или напишет вам, чтобы подтвердить время.",
       another: "Новая заявка",
       error: "Не удалось отправить. Попробуйте ещё раз или позвоните нам.",
-      demoNote: "Демо-режим: заявка не отправляется в клинику и видна только в демо-панели.",
       closedDay: "В этот день клиника не работает — выберите другую дату.",
       errors: {
         name: "Введите имя",
@@ -371,7 +369,6 @@ const site = {
       successText: "Our administrator will call or message you shortly to confirm the time.",
       another: "New request",
       error: "Something went wrong. Please try again or call us.",
-      demoNote: "Demo mode: this request is not sent to the clinic; it only appears in the demo dashboard.",
       closedDay: "The clinic is closed on this day — please choose another date.",
       errors: {
         name: "Please enter your name",
@@ -496,7 +493,6 @@ const site = {
       successText: "Saati onaylamak için kısa süre içinde sizi arayacağız veya yazacağız.",
       another: "Yeni talep",
       error: "Gönderilemedi. Lütfen tekrar deneyin veya bizi arayın.",
-      demoNote: "Demo modu: talep işletmeye gönderilmez, yalnızca demo panelinde görünür.",
       closedDay: "Bu gün kapalıyız — lütfen başka bir tarih seçin.",
       errors: {
         name: "Adınızı girin",
@@ -589,15 +585,6 @@ const admin = {
       lastVisit: (d: string) => `son qəbul: ${d}`,
       session: (n: number, total: number) => `seans ${n}/${total}`,
     },
-    outbox: {
-      title: "Bildiriş jurnalı",
-      subtitle: "Telegram-a göndərilən (və ya demo rejimdə göndəriləcək) mesajlar.",
-      empty: "Hələ bildiriş yoxdur",
-      delivered: "Telegram-a göndərildi",
-      simulated: "Simulyasiya (Telegram açarı yoxdur)",
-      failed: "Xəta",
-    },
-    storage: "Yaddaş",
     memoryWarning:
       "Verilənlər bazası qoşulmayıb: saytdan gələn müraciətlər burada görünməyəcək. Vercel-də Storage bölməsindən Supabase qoşun (README-yə baxın).",
     storageError: "Verilənlər bazası ilə əlaqə alınmadı:",
@@ -647,15 +634,6 @@ const admin = {
       lastVisit: (d: string) => `последний визит: ${d}`,
       session: (n: number, total: number) => `сеанс ${n}/${total}`,
     },
-    outbox: {
-      title: "Журнал уведомлений",
-      subtitle: "Сообщения, отправленные в Telegram (или которые были бы отправлены в демо-режиме).",
-      empty: "Уведомлений пока нет",
-      delivered: "Отправлено в Telegram",
-      simulated: "Симуляция (нет ключа Telegram)",
-      failed: "Ошибка",
-    },
-    storage: "Хранилище",
     memoryWarning:
       "База данных не подключена: заявки с сайта здесь не появятся. Подключите Supabase в разделе Storage на Vercel (см. README).",
     storageError: "Не удалось подключиться к базе данных:",
@@ -705,15 +683,6 @@ const admin = {
       lastVisit: (d: string) => `last visit ${d}`,
       session: (n: number, total: number) => `session ${n}/${total}`,
     },
-    outbox: {
-      title: "Notification log",
-      subtitle: "Messages sent to Telegram (or that would be sent, in demo mode).",
-      empty: "No notifications yet",
-      delivered: "Delivered to Telegram",
-      simulated: "Simulated (no Telegram key)",
-      failed: "Failed",
-    },
-    storage: "Storage",
     memoryWarning:
       "No database connected: bookings made on the website won't show up here. Connect Supabase from Vercel's Storage tab (see README).",
     storageError: "Could not reach the database:",
@@ -763,15 +732,6 @@ const admin = {
       lastVisit: (d: string) => `son ziyaret: ${d}`,
       session: (n: number, total: number) => `seans ${n}/${total}`,
     },
-    outbox: {
-      title: "Bildirim günlüğü",
-      subtitle: "Telegram'a gönderilen (veya demo modunda gönderilecek) mesajlar.",
-      empty: "Henüz bildirim yok",
-      delivered: "Telegram'a gönderildi",
-      simulated: "Simülasyon (Telegram anahtarı yok)",
-      failed: "Hata",
-    },
-    storage: "Depolama",
     memoryWarning:
       "Veritabanı bağlı değil: siteden gelen talepler burada görünmez. Vercel'in Storage bölümünden Supabase bağlayın (README'ye bakın).",
     storageError: "Veritabanına bağlanılamadı:",
