@@ -141,18 +141,6 @@
         "en": "Clients praise the products used and the spacious, clean shop."
       },
       "status": "verified-single"
-    },
-    {
-      "icon": "clock",
-      "title": {
-        "tr": "4 haftada bir hatırlatma",
-        "en": "A reminder every 4 weeks"
-      },
-      "text": {
-        "tr": "Tıraş zamanınız geldiğinde WhatsApp'tan haber veriyoruz.",
-        "en": "We let you know on WhatsApp when you're due for a cut."
-      },
-      "status": "design"
     }
   ],
   "provenance": {

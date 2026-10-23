@@ -52,8 +52,8 @@
     {
       "q": { "tr": "Epilasyon kaç seans sürer?", "en": "How many hair-removal sessions will I need?" },
       "a": {
-        "tr": "Seans sayısı kişiye ve bölgeye göre değişir; ilk görüşmede birlikte planlıyoruz. Paket alan müşterilerimize her seanstan önce WhatsApp'tan hatırlatma gönderiyoruz.",
-        "en": "It depends on you and the area; we plan it together at the first visit. Clients on a package get a WhatsApp reminder before every session."
+        "tr": "Seans sayısı kişiye ve bölgeye göre değişir; ilk görüşmede birlikte planlıyoruz. Her randevunuzdan bir gün önce WhatsApp'tan hatırlatma gönderiyoruz.",
+        "en": "It depends on you and the area; we plan it together at the first visit. We send a WhatsApp reminder the day before each appointment."
       }
     },
     {
@@ -72,70 +72,6 @@
     }
   ],
   "reminders": {
-    "followUps": [
-      {
-        "id": "next-session",
-        "type": "course",
-        "label": { "tr": "Paketin sonraki seansı", "en": "Next session of a package" },
-        "leadDays": 3,
-        "per": "patient",
-        "message": {
-          "tr": "Merhaba {firstName}! {service} paketinizin bir sonraki seansı ({session}/{sessions}) yaklaşıyor — yaklaşık {dueDate}. Uygun saati seçmek için bu mesajı yanıtlayın veya arayın: {phone}. — {clinic}",
-          "en": "Hi {firstName}! The next session ({session}/{sessions}) of your {service} package is coming up — around {dueDate}. Reply to this message or call {phone} to pick a time. — {clinic}"
-        }
-      },
-      {
-        "id": "skin-care",
-        "type": "interval",
-        "label": { "tr": "Aylık cilt bakımı", "en": "Monthly skin care" },
-        "match": { "categories": ["skin"] },
-        "afterDays": 30,
-        "leadDays": 3,
-        "per": "patient",
-        "message": {
-          "tr": "Merhaba {firstName}! Son cilt bakımınızın üzerinden yaklaşık bir ay geçti. Yeni seans için bu mesajı yanıtlayın veya arayın: {phone}. — {clinic}",
-          "en": "Hi {firstName}! It's been about a month since your last facial. Reply to this message or call {phone} to book the next one. — {clinic}"
-        }
-      },
-      {
-        "id": "nails-refill",
-        "type": "interval",
-        "label": { "tr": "Tırnak bakımı (3 hafta)", "en": "Nail refill (3 weeks)" },
-        "match": { "categories": ["nails"] },
-        "afterDays": 21,
-        "leadDays": 2,
-        "per": "patient",
-        "message": {
-          "tr": "Merhaba {firstName}! Son tırnak işleminizin üzerinden yaklaşık 3 hafta geçti — bakım zamanı. Randevu için bu mesajı yanıtlayın veya arayın: {phone}. — {clinic}",
-          "en": "Hi {firstName}! It's been about 3 weeks since your last nails appointment — time for a refill. Reply to this message or call {phone} to book. — {clinic}"
-        }
-      },
-      {
-        "id": "lash-refill",
-        "type": "interval",
-        "label": { "tr": "Kirpik/kaş tazeleme (3 hafta)", "en": "Lash/brow refill (3 weeks)" },
-        "match": { "categories": ["lashes"] },
-        "afterDays": 21,
-        "leadDays": 2,
-        "per": "patient",
-        "message": {
-          "tr": "Merhaba {firstName}! Son kirpik/kaş işleminizin üzerinden yaklaşık 3 hafta geçti — tazeleme zamanı. Randevu için bu mesajı yanıtlayın veya arayın: {phone}. — {clinic}",
-          "en": "Hi {firstName}! It's been about 3 weeks since your last lash/brow appointment — time for a refill. Reply to this message or call {phone} to book. — {clinic}"
-        }
-      },
-      {
-        "id": "hair-colour",
-        "type": "interval",
-        "label": { "tr": "Saç bakımı (6 hafta)", "en": "Hair appointment (6 weeks)" },
-        "match": { "categories": ["hair"] },
-        "afterDays": 42,
-        "leadDays": 4,
-        "per": "patient",
-        "message": {
-          "tr": "Merhaba {firstName}! Son saç işleminizin üzerinden yaklaşık 6 hafta geçti. Kesim ya da renk tazeleme için bu mesajı yanıtlayın veya arayın: {phone}. — {clinic}",
-          "en": "Hi {firstName}! It's been about 6 weeks since your last hair appointment. Reply to this message or call {phone} to book a cut or colour refresh. — {clinic}"
-        }
-      }
-    ]
+    "followUps": []
   }
 }
