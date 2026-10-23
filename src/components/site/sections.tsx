@@ -627,7 +627,6 @@ function Booking(ctx: SiteContext, tone: Tone) {
             services={clinic.services.map((s) => ({ id: s.id, name: L(s.name) }))}
             slotsByWeekday={slotsByWeekday(clinic)}
             text={formText}
-            demo={ctx.demo}
             timeZone={clinic.timeZone}
             phonePlaceholder={COUNTRIES[clinic.country].phonePlaceholder}
           />

@@ -25,7 +25,6 @@ export interface BookingFormText {
   successText: string;
   another: string;
   error: string;
-  demoNote: string;
   closedDay: string;
   errors: Record<CoreError | "field", string>;
 }
@@ -83,7 +82,6 @@ export function BookingForm(props: {
   services: { id: string; name: string }[];
   slotsByWeekday: Record<Weekday, string[]>;
   text: BookingFormText;
-  demo: boolean;
   timeZone: string;
   phonePlaceholder: string;
 }) {
@@ -183,7 +181,6 @@ export function BookingForm(props: {
         </span>
         <h3 className="mt-4 text-xl font-semibold">{text.successTitle}</h3>
         <p className="mt-2 max-w-sm text-muted">{text.successText}</p>
-        {props.demo && <p className="mt-3 text-xs text-amber-700">{text.demoNote}</p>}
         <button type="button" onClick={reset} className="btn-secondary mt-6">
           {text.another}
         </button>
@@ -409,7 +406,6 @@ export function BookingForm(props: {
           {text.error}
         </p>
       )}
-      {props.demo && <p className="text-center text-xs text-amber-700">{text.demoNote}</p>}
     </form>
   );
 }
