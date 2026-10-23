@@ -131,6 +131,16 @@
       "status": "verified-single"
     },
     {
+      "id": "whitening",
+      "name": {
+        "az": "Dişlərin ağardılması",
+        "ru": "Отбеливание зубов",
+        "en": "Teeth whitening"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
       "id": "surgery",
       "name": {
         "az": "Cərrahi stomatologiya",
@@ -193,7 +203,7 @@
         "ru": "Хирург-имплантолог",
         "en": "Implant surgeon"
       },
-      "status": "verified-single"
+      "status": "verified"
     },
     {
       "name": "Dr. Telman Hadji",
@@ -242,11 +252,11 @@
         "en": "Highly rated by patients"
       },
       "text": {
-        "az": "Google-da yüzlərlə rəy və 4.9 reytinq.",
-        "ru": "Сотни отзывов и рейтинг 4.9 в Google.",
-        "en": "Hundreds of reviews and a 4.9 rating on Google."
+        "az": "Google-da 696 rəy və 4.9 reytinq.",
+        "ru": "696 отзывов и рейтинг 4.9 в Google.",
+        "en": "696 reviews and a 4.9 rating on Google."
       },
-      "status": "outdated"
+      "status": "verified"
     },
     {
       "icon": "chat",
@@ -267,8 +277,8 @@
     "platform": "Google",
     "value": "4.9",
     "kind": "stars",
-    "count": 629,
-    "asOf": "about 2026-06 (copy of Google reviews on top-rated.online)",
+    "count": 696,
+    "asOf": "2026-10-23 (Google Maps listing)",
     "source": "https://www.google.com/maps/search/?api=1&query=B%C9%99yaz%20Di%C5%9F%20Klinikas%C4%B1%2C%20H%C9%99s%C9%99no%C4%9Flu%20k%C3%BC%C3%A7%C9%99si%2C%20Bak%C4%B1"
   },
   "provenance": {
@@ -296,12 +306,13 @@
       "note": "District not found; 'Baku' shown."
     },
     "phones": {
-      "status": "verified-single",
+      "status": "verified",
       "sources": [
+        "https://www.google.com/maps/search/?api=1&query=B%C9%99yaz%20Di%C5%9F%20Klinikas%C4%B1%2C%20H%C9%99s%C9%99no%C4%9Flu%20k%C3%BC%C3%A7%C9%99si%2C%20Bak%C4%B1",
         "https://beyazdis.az/services.html",
         "https://sosial.gov.az/nazirlik/sosial-terefdas/klinikalar"
       ],
-      "note": "+994 10 511 08 01 from the indexed site; (+994 12) 310 40 33 from the ministry list. Confirm which line takes bookings."
+      "note": "010 511 08 01 is the number on the Google listing (seen 2026-10-23) and the indexed site. (+994 12) 310 40 33 is from the ministry's partner-clinic list only."
     },
     "whatsapp": {
       "status": "placeholder",
@@ -336,7 +347,7 @@
         "https://beyazdis.az/en/dentists.html",
         "https://beyazdis.az/service-aesthetic.html"
       ],
-      "note": "Service lines from the indexed site; consultation shown as a placeholder."
+      "note": "Service lines from the indexed site; consultation shown as a placeholder. Whitening: mentioned in the Google review summary (seen 2026-10-23)."
     },
     "prices": {
       "status": "placeholder",
@@ -348,15 +359,14 @@
         "https://beyazdis.az/en/dentists.html",
         "https://www.google.com/maps/search/?api=1&query=B%C9%99yaz%20Di%C5%9F%20Klinikas%C4%B1%2C%20H%C9%99s%C9%99no%C4%9Flu%20k%C3%BC%C3%A7%C9%99si%2C%20Bak%C4%B1"
       ],
-      "note": "Names and specialties from the indexed doctors page. Dr. Orkhan Novruzov is also named in two Google reviews."
+      "note": "Names and specialties from the indexed doctors page. Dr. Orkhan Novruzov is also named in two Google reviews. The Google review summary also thanks 'Dr. Nijat' (and a 'Dr. Ramiz' and 'İlahə doktor', not yet listed)."
     },
     "rating": {
-      "status": "outdated",
+      "status": "verified",
       "sources": [
-        "https://www.top-rated.online/cities/Baku/place/p/14130500/Dental+Kids+%26+Family",
         "https://www.google.com/maps/search/?api=1&query=B%C9%99yaz%20Di%C5%9F%20Klinikas%C4%B1%2C%20H%C9%99s%C9%99no%C4%9Flu%20k%C3%BC%C3%A7%C9%99si%2C%20Bak%C4%B1"
       ],
-      "note": "4.9 from 629 Google reviews per top-rated.online (a copy of Google data, about 4 months old). Update from the live Google listing before sending."
+      "note": "4.9 from 696 reviews on the clinic's Google Maps listing (seen 2026-10-23; screenshot supplied by the agency). Earlier copies elsewhere showed 629."
     },
     "map": {
       "status": "constructed",
