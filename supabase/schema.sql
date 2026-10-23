@@ -13,7 +13,7 @@ create table if not exists public.bookings (
   service_name     text        not null,
   date             date        not null,
   time             text        not null check (time ~ '^\d{2}:\d{2}$'),
-  locale           text        not null default 'az' check (locale in ('az', 'ru', 'en')),
+  locale           text        not null default 'az' check (locale in ('az', 'ru', 'en', 'tr')),
   status           text        not null default 'new' check (status in ('new', 'confirmed', 'cancelled', 'no_show')),
   consent_at       timestamptz not null,
   created_at       timestamptz not null default now(),
@@ -30,6 +30,10 @@ create table if not exists public.bookings (
 -- Tables created before the multi-niche release: add the new columns (no-op when present).
 alter table public.bookings add column if not exists details jsonb;
 alter table public.bookings add column if not exists followups jsonb;
+
+-- Tables created before Turkish was added: widen the language check (same result when current).
+alter table public.bookings drop constraint if exists bookings_locale_check;
+alter table public.bookings add constraint bookings_locale_check check (locale in ('az', 'ru', 'en', 'tr'));
 
 create index if not exists bookings_clinic_date on public.bookings (clinic_slug, date);
 

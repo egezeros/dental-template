@@ -1,15 +1,23 @@
+import { cookies } from "next/headers";
 import Link from "next/link";
+import { INDEX_COOKIE, verifyIndexToken } from "@/lib/auth";
 import { getClinics } from "@/lib/clinics/load";
-import { showDemoIndex } from "@/lib/config";
+import { demoIndexPassword, showDemoIndex } from "@/lib/config";
 import { tr } from "@/lib/i18n";
 import { getNiches } from "@/lib/niches/load";
+import { unlockDemoIndex } from "./actions";
 
 /**
- * Root page. In demo mode it lists the demo sites by niche (handy on your phone); set
- * HIDE_DEMO_INDEX=true before sending links to businesses so they can't see each other's demos.
+ * Root page. In demo mode it lists the demo sites by niche (handy on your phone). Before sending
+ * links to businesses, set DEMO_INDEX_PASSWORD (the list asks for it) or HIDE_DEMO_INDEX=true
+ * (no list at all), so they can't see each other's demos.
  */
-export default function Home() {
-  const clinics = showDemoIndex() ? getClinics() : [];
+export default async function Home({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
+  // Reading the cookie on every request also keeps this page from being prerendered with the list.
+  const jar = await cookies();
+  const locked = showDemoIndex() && !!demoIndexPassword() && !verifyIndexToken(jar.get(INDEX_COOKIE)?.value);
+  const clinics = showDemoIndex() && !locked ? getClinics() : [];
+  const { error } = locked ? await searchParams : {};
   const groups = getNiches()
     .map((n) => ({ niche: n, clinics: clinics.filter((c) => c.niche === n.id) }))
     .filter((g) => g.clinics.length > 0);
@@ -51,6 +59,19 @@ export default function Home() {
             </section>
           ))}
         </>
+      ) : locked ? (
+        <form action={unlockDemoIndex} className="card mt-8 grid max-w-sm gap-4 p-6">
+          <label className="grid gap-1.5">
+            <span className="field-label mb-0">Password</span>
+            <input name="password" type="password" autoComplete="current-password" className="field" required autoFocus />
+          </label>
+          {error && (
+            <p className="field-error mt-0">
+              {error === "rate" ? "Too many attempts. Try again in 15 minutes." : "Wrong password."}
+            </p>
+          )}
+          <button className="btn-primary w-full">Open</button>
+        </form>
       ) : (
         <p className="mt-2 text-sm text-slate-500">Nothing to see here.</p>
       )}
