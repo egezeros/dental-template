@@ -1,5 +1,12 @@
 import type { Booking, BookingStatus, DemoBooking, NewBooking } from "../booking/types";
 
+export interface FollowUpMark {
+  /** The visit (booking) the follow-up was computed from. */
+  id: string;
+  /** Follow-up rule id. */
+  key: string;
+}
+
 export interface ListOptions {
   /** Inclusive YYYY-MM-DD bounds on the appointment date. */
   fromDate?: string;
@@ -16,6 +23,8 @@ export interface BookingStore {
   list(clinicSlug: string, options?: ListOptions): Promise<Booking[]>;
   updateStatus(clinicSlug: string, id: string, status: BookingStatus): Promise<Booking | null>;
   markReminderSent(clinicSlug: string, ids: string[], at: string): Promise<void>;
+  /** Record that follow-up rule `key` was sent for visit `id` (merged into the booking's followUps). */
+  markFollowUpSent(clinicSlug: string, items: FollowUpMark[], at: string): Promise<void>;
   /** Number of bookings stored for a clinic. */
   count(clinicSlug: string): Promise<number>;
   /**

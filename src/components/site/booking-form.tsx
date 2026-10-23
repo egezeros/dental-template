@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { Fragment, useEffect, useMemo, useState } from "react";
 import { CheckIcon } from "@/components/icons";
 import type { Weekday } from "@/lib/i18n";
 
@@ -15,6 +15,8 @@ export interface BookingFormText {
   date: string;
   time: string;
   selectTime: string;
+  selectOption: string;
+  optional: string;
   consent: string;
   noHealthInfo: string;
   submit: string;
@@ -25,10 +27,25 @@ export interface BookingFormText {
   error: string;
   demoNote: string;
   closedDay: string;
-  errors: Record<Field, string>;
+  errors: Record<CoreError | "field", string>;
 }
 
-type Field = "name" | "phone" | "service" | "date" | "time" | "consent";
+/**
+ * One form field, resolved on the server from the niche config (labels in the page language).
+ * Core fields keep fixed ids (name, phone, serviceId, date, time, consent); extra fields
+ * (text, select, specialist) are posted under their own id.
+ */
+export interface FormField {
+  id: string;
+  type: "name" | "phone" | "service" | "date" | "time" | "consent" | "text" | "select" | "specialist";
+  label: string;
+  placeholder?: string;
+  required: boolean;
+  maxLength?: number;
+  options?: { value: string; label: string }[];
+}
+
+type CoreError = "name" | "phone" | "service" | "date" | "time" | "consent";
 type Status = "idle" | "submitting" | "success" | "error";
 
 const WEEKDAY_BY_JS_DAY: Weekday[] = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
@@ -54,23 +71,29 @@ function addDays(date: string, days: number): string {
   return d.toISOString().slice(0, 10);
 }
 
+const isExtra = (f: FormField) => f.type === "text" || f.type === "select" || f.type === "specialist";
+/** Server error key for a field: core fields use their type ("service"), extras their id. */
+const errorKey = (f: FormField) => (isExtra(f) ? f.id : f.type);
+
 export function BookingForm(props: {
   slug: string;
   locale: string;
+  fields: FormField[];
   services: { id: string; name: string }[];
   slotsByWeekday: Record<Weekday, string[]>;
   text: BookingFormText;
   demo: boolean;
 }) {
-  const { text } = props;
+  const { text, fields } = props;
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [serviceId, setServiceId] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [consent, setConsent] = useState(false);
+  const [extra, setExtra] = useState<Record<string, string>>({});
   const [company, setCompany] = useState("");
-  const [errors, setErrors] = useState<Partial<Record<Field, boolean>>>({});
+  const [errors, setErrors] = useState<Record<string, boolean>>({});
   const [status, setStatus] = useState<Status>("idle");
   const [now, setNow] = useState<{ date: string; time: string } | null>(null);
 
@@ -97,14 +120,15 @@ export function BookingForm(props: {
     if (time && !slots.includes(time)) setTime("");
   }, [slots, time]);
 
-  function clientErrors(): Partial<Record<Field, boolean>> {
-    const e: Partial<Record<Field, boolean>> = {};
+  function clientErrors(): Record<string, boolean> {
+    const e: Record<string, boolean> = {};
     if (name.trim().length < 2) e.name = true;
     if (phone.replace(/\D/g, "").length < 9) e.phone = true;
     if (!serviceId) e.service = true;
     if (!date || (now && date < now.date)) e.date = true;
     if (!time) e.time = true;
     if (!consent) e.consent = true;
+    for (const f of fields) if (isExtra(f) && f.required && !(extra[f.id] ?? "").trim()) e[f.id] = true;
     return e;
   }
 
@@ -118,7 +142,7 @@ export function BookingForm(props: {
       const res = await fetch(`/api/clinics/${props.slug}/bookings`, {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ name, phone, serviceId, date, time, consent, company, locale: props.locale }),
+        body: JSON.stringify({ ...extra, name, phone, serviceId, date, time, consent, company, locale: props.locale }),
       });
       if (res.status === 201) {
         setStatus("success");
@@ -143,6 +167,7 @@ export function BookingForm(props: {
     setDate("");
     setTime("");
     setConsent(false);
+    setExtra({});
     setErrors({});
     setStatus("idle");
   }
@@ -163,130 +188,213 @@ export function BookingForm(props: {
     );
   }
 
-  const err = (f: Field) => (errors[f] ? { "aria-invalid": true, "aria-describedby": `err-${f}` } : {});
+  const err = (k: string) => (errors[k] ? { "aria-invalid": true, "aria-describedby": `err-${k}` } : {});
   const closed = date !== "" && slots.length === 0;
+  const errorText = (f: FormField) => (isExtra(f) ? text.errors.field : text.errors[f.type as CoreError]);
+  const errorLine = (f: FormField) =>
+    errors[errorKey(f)] && (
+      <p id={`err-${errorKey(f)}`} className="field-error">
+        {errorText(f)}
+      </p>
+    );
+  const label = (f: FormField, htmlFor: string) => (
+    <label htmlFor={htmlFor} className="field-label">
+      {f.label}
+      {isExtra(f) && !f.required && <span className="font-normal text-muted"> ({text.optional})</span>}
+    </label>
+  );
 
-  return (
-    <form onSubmit={onSubmit} noValidate className="grid gap-4">
+  function renderDate(f: FormField) {
+    return (
       <div>
-        <label htmlFor="bk-name" className="field-label">
-          {text.name}
-        </label>
+        {label(f, "bk-date")}
         <input
-          id="bk-name"
+          id="bk-date"
           className="field"
-          autoComplete="name"
-          placeholder={text.namePlaceholder}
-          value={name}
-          maxLength={80}
-          onChange={(e) => setName(e.target.value)}
-          {...err("name")}
+          type="date"
+          min={now?.date}
+          max={now ? addDays(now.date, MAX_DAYS_AHEAD) : undefined}
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          {...err("date")}
         />
-        {errors.name && <p id="err-name" className="field-error">{text.errors.name}</p>}
+        {errorLine(f)}
       </div>
+    );
+  }
 
+  function renderTime(f: FormField) {
+    return (
       <div>
-        <label htmlFor="bk-phone" className="field-label">
-          {text.phone}
-        </label>
-        <input
-          id="bk-phone"
-          className="field"
-          type="tel"
-          inputMode="tel"
-          autoComplete="tel"
-          placeholder="+994 50 123 45 67"
-          value={phone}
-          maxLength={24}
-          onChange={(e) => setPhone(e.target.value)}
-          {...err("phone")}
-        />
-        {errors.phone && <p id="err-phone" className="field-error">{text.errors.phone}</p>}
-      </div>
-
-      <div>
-        <label htmlFor="bk-service" className="field-label">
-          {text.service}
-        </label>
+        {label(f, "bk-time")}
         <select
-          id="bk-service"
+          id="bk-time"
           className="field"
-          value={serviceId}
-          onChange={(e) => setServiceId(e.target.value)}
-          {...err("service")}
+          value={time}
+          disabled={!date || closed}
+          onChange={(e) => setTime(e.target.value)}
+          {...err("time")}
         >
-          <option value="">{text.selectService}</option>
-          {props.services.map((s) => (
-            <option key={s.id} value={s.id}>
-              {s.name}
+          <option value="">{text.selectTime}</option>
+          {slots.map((t) => (
+            <option key={t} value={t}>
+              {t}
             </option>
           ))}
         </select>
-        {errors.service && <p id="err-service" className="field-error">{text.errors.service}</p>}
+        {errorLine(f)}
       </div>
+    );
+  }
 
-      <div className="grid grid-cols-2 gap-3">
-        <div>
-          <label htmlFor="bk-date" className="field-label">
-            {text.date}
-          </label>
-          <input
-            id="bk-date"
-            className="field"
-            type="date"
-            min={now?.date}
-            max={now ? addDays(now.date, MAX_DAYS_AHEAD) : undefined}
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-            {...err("date")}
-          />
-          {errors.date && <p id="err-date" className="field-error">{text.errors.date}</p>}
-        </div>
-        <div>
-          <label htmlFor="bk-time" className="field-label">
-            {text.time}
-          </label>
-          <select
-            id="bk-time"
-            className="field"
-            value={time}
-            disabled={!date || closed}
-            onChange={(e) => setTime(e.target.value)}
-            {...err("time")}
-          >
-            <option value="">{text.selectTime}</option>
-            {slots.map((t) => (
-              <option key={t} value={t}>
-                {t}
-              </option>
-            ))}
-          </select>
-          {errors.time && <p id="err-time" className="field-error">{text.errors.time}</p>}
-        </div>
-      </div>
-      {closed && <p className="-mt-2 text-xs font-medium text-amber-700">{text.closedDay}</p>}
+  function renderField(f: FormField, i: number) {
+    switch (f.type) {
+      case "name":
+        return (
+          <div>
+            {label(f, "bk-name")}
+            <input
+              id="bk-name"
+              className="field"
+              autoComplete="name"
+              placeholder={f.placeholder ?? text.namePlaceholder}
+              value={name}
+              maxLength={80}
+              onChange={(e) => setName(e.target.value)}
+              {...err("name")}
+            />
+            {errorLine(f)}
+          </div>
+        );
+      case "phone":
+        return (
+          <div>
+            {label(f, "bk-phone")}
+            <input
+              id="bk-phone"
+              className="field"
+              type="tel"
+              inputMode="tel"
+              autoComplete="tel"
+              placeholder="+994 50 123 45 67"
+              value={phone}
+              maxLength={24}
+              onChange={(e) => setPhone(e.target.value)}
+              {...err("phone")}
+            />
+            {errorLine(f)}
+          </div>
+        );
+      case "service":
+        return (
+          <div>
+            {label(f, "bk-service")}
+            <select
+              id="bk-service"
+              className="field"
+              value={serviceId}
+              onChange={(e) => setServiceId(e.target.value)}
+              {...err("service")}
+            >
+              <option value="">{text.selectService}</option>
+              {props.services.map((s) => (
+                <option key={s.id} value={s.id}>
+                  {s.name}
+                </option>
+              ))}
+            </select>
+            {errorLine(f)}
+          </div>
+        );
+      case "date": {
+        // A date followed by a time renders as one row: [date | time].
+        const next = fields[i + 1];
+        if (next?.type !== "time") return renderDate(f);
+        return (
+          <>
+            <div className="grid grid-cols-2 gap-3">
+              {renderDate(f)}
+              {renderTime(next)}
+            </div>
+            {closed && <p className="-mt-2 text-xs font-medium text-amber-700">{text.closedDay}</p>}
+          </>
+        );
+      }
+      case "time":
+        return fields[i - 1]?.type === "date" ? null : renderTime(f);
+      case "consent":
+        return (
+          <>
+            {/* Honeypot: invisible to people, tempting to bots. */}
+            <div className="hidden" aria-hidden="true">
+              <label>
+                Company
+                <input tabIndex={-1} autoComplete="off" value={company} onChange={(e) => setCompany(e.target.value)} />
+              </label>
+            </div>
 
-      {/* Honeypot: invisible to people, tempting to bots. */}
-      <div className="hidden" aria-hidden="true">
-        <label>
-          Company
-          <input tabIndex={-1} autoComplete="off" value={company} onChange={(e) => setCompany(e.target.value)} />
-        </label>
-      </div>
+            <div>
+              <label className="flex items-start gap-3 text-sm text-muted">
+                <input
+                  type="checkbox"
+                  className="mt-0.5 h-5 w-5 shrink-0 rounded border-line accent-[var(--brand)]"
+                  checked={consent}
+                  onChange={(e) => setConsent(e.target.checked)}
+                  {...err("consent")}
+                />
+                <span>{text.consent}</span>
+              </label>
+              {errorLine(f)}
+            </div>
+          </>
+        );
+      case "text":
+        return (
+          <div>
+            {label(f, `bk-${f.id}`)}
+            <input
+              id={`bk-${f.id}`}
+              className="field"
+              autoComplete="off"
+              placeholder={f.placeholder}
+              value={extra[f.id] ?? ""}
+              maxLength={f.maxLength}
+              onChange={(e) => setExtra((x) => ({ ...x, [f.id]: e.target.value }))}
+              {...err(f.id)}
+            />
+            {errorLine(f)}
+          </div>
+        );
+      case "select":
+      case "specialist":
+        return (
+          <div>
+            {label(f, `bk-${f.id}`)}
+            <select
+              id={`bk-${f.id}`}
+              className="field"
+              value={extra[f.id] ?? ""}
+              onChange={(e) => setExtra((x) => ({ ...x, [f.id]: e.target.value }))}
+              {...err(f.id)}
+            >
+              {(f.type === "select" || f.required) && <option value="">{text.selectOption}</option>}
+              {f.options?.map((o) => (
+                <option key={o.value} value={o.value}>
+                  {o.label}
+                </option>
+              ))}
+            </select>
+            {errorLine(f)}
+          </div>
+        );
+    }
+  }
 
-      <div>
-        <label className="flex items-start gap-3 text-sm text-muted">
-          <input
-            type="checkbox"
-            className="mt-0.5 h-5 w-5 shrink-0 rounded border-line accent-[var(--brand)]"
-            checked={consent}
-            onChange={(e) => setConsent(e.target.checked)}
-            {...err("consent")}
-          />
-          <span>{text.consent}</span>
-        </label>
-        {errors.consent && <p id="err-consent" className="field-error">{text.errors.consent}</p>}
-      </div>
+  return (
+    <form onSubmit={onSubmit} noValidate className="grid gap-4">
+      {fields.map((f, i) => (
+        <Fragment key={f.id}>{renderField(f, i)}</Fragment>
+      ))}
 
       <p className="rounded-xl bg-canvas px-3 py-2 text-xs text-muted ring-1 ring-line">{text.noHealthInfo}</p>
 

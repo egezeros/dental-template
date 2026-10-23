@@ -1,0 +1,337 @@
+{
+  "slug": "ahu-estetik-klinika",
+  "niche": "aesthetic",
+  "name": "Ahu Estetik Klinika",
+  "brandColor": "#9a5b4f",
+  "tagline": {
+    "az": "Xətaidə kosmetologiya mərkəzi",
+    "ru": "Центр косметологии в Хатаинском районе",
+    "en": "Cosmetology centre in Khatai"
+  },
+  "intro": {
+    "az": "Ahu Estetik Klinika Bakının Xətai rayonunda kosmetologiya mərkəzidir. Proseduru seçin və onlayn yazılın — administrator vaxtı təsdiqləmək üçün sizinlə əlaqə saxlayacaq.",
+    "ru": "Ahu Estetik Klinika — центр косметологии в Хатаинском районе Баку. Выберите процедуру и запишитесь онлайн — администратор свяжется с вами, чтобы подтвердить время.",
+    "en": "Ahu Estetik Klinika is a cosmetology centre in Baku's Khatai district. Choose a treatment and book online — the administrator will contact you to confirm the time."
+  },
+  "address": {
+    "az": "Məhəmməd Hadi küç. 106A, Xətai r-nu, Bakı",
+    "ru": "ул. Магомеда Гади, 106A, Хатаинский р-н, Баку",
+    "en": "106A Mahammad Hadi St, Khatai, Baku"
+  },
+  "district": {
+    "az": "Xətai rayonu",
+    "ru": "Хатаинский район",
+    "en": "Khatai district"
+  },
+  "phones": [
+    {
+      "display": "(+994 70) 530-50-81",
+      "tel": "+994705305081"
+    }
+  ],
+  "whatsapp": "[TO CONFIRM]",
+  "instagram": "ahuclinic",
+  "facebook": "https://www.facebook.com/p/Ahu-Estetik-Klinika-100090745274641/",
+  "map": {
+    "query": "Ahu Estetik Klinika, Məhəmməd Hadi 106A, Bakı"
+  },
+  "hours": {
+    "mon": [
+      "10:00",
+      "19:00"
+    ],
+    "tue": [
+      "10:00",
+      "19:00"
+    ],
+    "wed": [
+      "10:00",
+      "19:00"
+    ],
+    "thu": [
+      "10:00",
+      "19:00"
+    ],
+    "fri": [
+      "10:00",
+      "19:00"
+    ],
+    "sat": "[TO CONFIRM]",
+    "sun": "[TO CONFIRM]"
+  },
+  "services": [
+    {
+      "id": "consultation",
+      "category": "other",
+      "name": {
+        "az": "Kosmetoloq konsultasiyası",
+        "ru": "Консультация косметолога",
+        "en": "Cosmetologist consultation"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder"
+    },
+    {
+      "id": "laser-hair-removal",
+      "category": "laser",
+      "name": {
+        "az": "Lazer epilyasiya",
+        "ru": "Лазерная эпиляция",
+        "en": "Laser hair removal"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder",
+      "course": {
+        "sessions": 6,
+        "intervalDays": 42
+      }
+    },
+    {
+      "id": "injectables",
+      "category": "injectables",
+      "name": {
+        "az": "İnyeksion prosedurlar",
+        "ru": "Инъекционные процедуры",
+        "en": "Injectable treatments"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder"
+    },
+    {
+      "id": "facial-care",
+      "category": "facial",
+      "name": {
+        "az": "Üz baxımı prosedurları",
+        "ru": "Процедуры по уходу за лицом",
+        "en": "Facial treatments"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder"
+    },
+    {
+      "id": "body-care",
+      "category": "body",
+      "name": {
+        "az": "Bədən prosedurları",
+        "ru": "Процедуры для тела",
+        "en": "Body treatments"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder"
+    }
+  ],
+  "packages": [
+    {
+      "id": "course-package",
+      "name": {
+        "az": "Kurs paketi",
+        "ru": "Курсовой пакет",
+        "en": "Course package"
+      },
+      "description": {
+        "az": "Paketin tərkibi, seans sayı və qiyməti klinika ilə dəqiqləşdiriləcək.",
+        "ru": "Состав пакета, число сеансов и цена будут уточнены с клиникой.",
+        "en": "What's included, the number of sessions and the price will be confirmed with the clinic."
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder",
+      "serviceId": "laser-hair-removal"
+    }
+  ],
+  "gallery": {
+    "count": 3
+  },
+  "doctors": [
+    {
+      "name": "Samira Musayeva",
+      "role": {
+        "az": "Kosmetoloq",
+        "ru": "Косметолог",
+        "en": "Cosmetologist"
+      },
+      "status": "verified-single"
+    },
+    {
+      "name": "[TO CONFIRM]",
+      "role": {
+        "az": "Kosmetoloq",
+        "ru": "Косметолог",
+        "en": "Cosmetologist"
+      },
+      "status": "placeholder"
+    },
+    {
+      "name": "[TO CONFIRM]",
+      "role": {
+        "az": "Kosmetoloq",
+        "ru": "Косметолог",
+        "en": "Cosmetologist"
+      },
+      "status": "placeholder"
+    }
+  ],
+  "whyUs": [
+    {
+      "icon": "heart",
+      "title": {
+        "az": "Sosial tərəfdaş klinika",
+        "ru": "Социальный партнёр",
+        "en": "Social-partner clinic"
+      },
+      "text": {
+        "az": "Əmək və Əhalinin Sosial Müdafiəsi Nazirliyinin sosial tərəfdaş klinikaları siyahısındadır (10% endirim; kimlərə şamil olunduğu [TO CONFIRM]).",
+        "ru": "Входит в список клиник — социальных партнёров Министерства труда и социальной защиты населения (скидка 10%; на кого распространяется — [TO CONFIRM]).",
+        "en": "Listed among the social-partner clinics of the Ministry of Labour and Social Protection (10% discount; who qualifies: [TO CONFIRM])."
+      },
+      "status": "verified-single"
+    },
+    {
+      "icon": "calendar",
+      "title": {
+        "az": "Onlayn yazılış",
+        "ru": "Онлайн-запись",
+        "en": "Online booking"
+      },
+      "text": {
+        "az": "Bir dəqiqəyə onlayn yazılın və qəbuldan bir gün əvvəl WhatsApp-da xatırlatma alın.",
+        "ru": "Запишитесь онлайн за минуту и получите напоминание в WhatsApp за день до визита.",
+        "en": "Book online in a minute and get a WhatsApp reminder the day before your visit."
+      },
+      "status": "design"
+    },
+    {
+      "icon": "clock",
+      "title": {
+        "az": "Kurs seanslarını unutmayın",
+        "ru": "Не пропустите сеанс курса",
+        "en": "Never miss a course session"
+      },
+      "text": {
+        "az": "Kurs prosedurlarında növbəti seansın vaxtı yaxınlaşanda WhatsApp-da xatırladırıq.",
+        "ru": "Для курсовых процедур напомним о следующем сеансе в WhatsApp, когда подойдёт время.",
+        "en": "For course treatments we remind you on WhatsApp when your next session is coming up."
+      },
+      "status": "design"
+    }
+  ],
+  "provenance": {
+    "name": {
+      "status": "verified",
+      "sources": [
+        "https://www.instagram.com/ahuclinic/",
+        "https://sosialterefdash.az/en/ahu-estetik-klinika-1",
+        "https://www.facebook.com/p/Ahu-Estetik-Klinika-100090745274641/"
+      ]
+    },
+    "address": {
+      "status": "conflict",
+      "sources": [
+        "https://www.instagram.com/ahuclinic/",
+        "https://yandex.com/maps/org/227164496627/",
+        "https://kataloq.gomap.az/az/all-poi/service/repair-furniture/951ee94ed56611e0ad4900226424597d",
+        "https://www.sosial.gov.az/az/nazirlik/sosial-terefdas/klinikalar"
+      ],
+      "note": "Shown: Məhəmməd Hadi 106A (Instagram bio and Yandex). gomap and sosial.gov.az say 106; another sosial.gov.az entry says 78; the Facebook page only says Baku-Baladshary. Confirm."
+    },
+    "district": {
+      "status": "verified",
+      "sources": [
+        "https://kataloq.gomap.az/az/all-poi/service/repair-furniture/951ee94ed56611e0ad4900226424597d",
+        "https://www.sosial.gov.az/az/nazirlik/sosial-terefdas/klinikalar"
+      ]
+    },
+    "phones": {
+      "status": "verified",
+      "sources": [
+        "https://www.sosial.gov.az/az/nazirlik/sosial-terefdas/klinikalar",
+        "https://www.instagram.com/ahuclinic/"
+      ],
+      "note": "Call-centre line from the Instagram bio and the ministry list. Directories also show +994 50 680 70 07 (gomap) and +994 55 727 36 46 (Yandex) — single sources, not shown."
+    },
+    "whatsapp": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "No WhatsApp number found."
+    },
+    "instagram": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.instagram.com/ahuclinic/"
+      ],
+      "note": "About 124K followers, 5,660 posts (undated search snapshot)."
+    },
+    "website": {
+      "status": "verified",
+      "sources": [],
+      "note": "No website found: searches for the clinic name and ahuclinic.az return only Instagram, Facebook and directories."
+    },
+    "hours": {
+      "status": "conflict",
+      "sources": [
+        "https://www.instagram.com/ahuclinic/",
+        "https://sosialterefdash.az/en/ahu-estetik-klinika-1"
+      ],
+      "note": "Shown: weekdays 10:00–19:00 (Instagram). sosialterefdash says 09:00–18:00. Weekends not stated."
+    },
+    "services": {
+      "status": "placeholder",
+      "sources": [
+        "https://kataloq.gomap.az/az/all-poi/service/repair-furniture/951ee94ed56611e0ad4900226424597d",
+        "https://yandex.com/maps/org/227164496627/",
+        "https://www.instagram.com/kosmetoloq.samira_musayeva/"
+      ],
+      "note": "Only the category is known (cosmetology centre); a cosmetologist's own Instagram advertises 'all cosmetology procedures'. Treatment list is a template to confirm."
+    },
+    "prices": {
+      "status": "placeholder",
+      "sources": [
+        "https://www.sosial.gov.az/az/nazirlik/sosial-terefdas/klinikalar"
+      ],
+      "note": "No prices found; only a 10% social-partner discount."
+    },
+    "packages": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "No courses or packages found."
+    },
+    "courses": {
+      "status": "design",
+      "sources": [],
+      "note": "Course settings (sessions / days between sessions) are demo defaults that drive the next-session reminder; they are not shown on the site and must be set with the clinic."
+    },
+    "doctors": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.instagram.com/kosmetoloq.samira_musayeva/"
+      ],
+      "note": "Samira Musayeva's own Instagram links her to Ahu. Other specialists unknown."
+    },
+    "rating": {
+      "status": "verified-single",
+      "sources": [
+        "https://yandex.com/maps/org/227164496627/"
+      ],
+      "note": "Yandex 3.9 from 6 ratings — too few to show. No Google rating could be retrieved (Google Maps was unreachable from the research tools)."
+    },
+    "map": {
+      "status": "constructed",
+      "sources": [],
+      "note": "Search link built from the shown address."
+    },
+    "brandColor": {
+      "status": "design",
+      "sources": [],
+      "note": "Our choice; the clinic's logo and photos were not copied."
+    },
+    "photos": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Neutral illustrations; before/after pairs are placeholders until the clinic supplies consented photos."
+    },
+    "reviews": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Labelled sample reviews; no reviews copied."
+    }
+  }
+}

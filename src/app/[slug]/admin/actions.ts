@@ -7,6 +7,8 @@ import { checkPassword, createSessionToken, SESSION_TTL_SECONDS, sessionCookieNa
 import { BOOKING_STATUSES, type BookingStatus } from "@/lib/booking/types";
 import { getClinic } from "@/lib/clinics/load";
 import { isDemoMode } from "@/lib/config";
+import { runFollowUps } from "@/lib/followups";
+import { getNiche } from "@/lib/niches/load";
 import { isLocale } from "@/lib/i18n";
 import { getMessagingProvider } from "@/lib/messaging";
 import { notifyStaff } from "@/lib/notify/telegram";
@@ -73,5 +75,28 @@ export async function runRemindersNow(slug: string): Promise<void> {
     notify: notifyStaff,
     demo: isDemoMode(),
   });
+  revalidatePath(`/${slug}/admin`);
+}
+
+export async function runFollowUpsNow(slug: string): Promise<void> {
+  await requireSession(slug);
+  const clinic = getClinic(slug);
+  if (!clinic) return;
+  await runFollowUps([clinic], new Date(), {
+    store: await getStore(),
+    messaging: getMessagingProvider(),
+    notify: notifyStaff,
+    demo: isDemoMode(),
+  });
+  revalidatePath(`/${slug}/admin`);
+}
+
+/** Staff sent the WhatsApp message by hand: record it so the follow-up is not sent again. */
+export async function markFollowUpSent(slug: string, visitId: string, ruleId: string): Promise<void> {
+  await requireSession(slug);
+  const clinic = getClinic(slug);
+  if (!clinic || !getNiche(clinic.niche).reminders.followUps.some((r) => r.id === ruleId)) return;
+  const store = await getStore();
+  await store.markFollowUpSent(slug, [{ id: visitId, key: ruleId }], new Date().toISOString());
   revalidatePath(`/${slug}/admin`);
 }

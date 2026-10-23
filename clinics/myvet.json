@@ -1,0 +1,296 @@
+{
+  "slug": "myvet",
+  "niche": "vet",
+  "name": "Myvet Animal Clinic",
+  "tagline": {
+    "az": "Müayinə, USM, rentgen və laboratoriya bir ünvanda",
+    "ru": "Осмотр, УЗИ, рентген и лаборатория по одному адресу",
+    "en": "Examination, ultrasound, X-ray and lab in one place"
+  },
+  "intro": {
+    "az": "Myvet Animal Clinic — Dr. Suliddinin baytarlıq klinikası. Ev heyvanınızı onlayn yazdırın — administrator vaxtı təsdiqləmək üçün sizinlə əlaqə saxlayacaq.",
+    "ru": "Myvet Animal Clinic — ветеринарная клиника доктора Сулиддина. Запишите питомца онлайн — администратор свяжется с вами, чтобы подтвердить время.",
+    "en": "Myvet Animal Clinic is Dr. Suliddin's veterinary clinic. Book your pet in online and the administrator will contact you to confirm the time."
+  },
+  "address": {
+    "az": "Salatın Əsgərova küç. 159 (28 May Dəri-Zöhrəvi Dispanserinin yanı), Bakı",
+    "ru": "ул. Салатын Аскеровой, 159 (рядом с кожно-венерологическим диспансером «28 May»), Баку",
+    "en": "159 Salatin Asgarova St (next to the 28 May skin and venereal diseases dispensary), Baku"
+  },
+  "district": {
+    "az": "[TO CONFIRM]",
+    "ru": "[TO CONFIRM]",
+    "en": "[TO CONFIRM]"
+  },
+  "phones": [
+    {
+      "display": "(+994 55) 825-99-32",
+      "tel": "+994558259932"
+    }
+  ],
+  "whatsapp": "[TO CONFIRM]",
+  "instagram": "baytarliq_klinikasi_",
+  "map": {
+    "query": "Myvet Animal Clinic, Salatın Əsgərova 159, Bakı"
+  },
+  "hours": "[TO CONFIRM]",
+  "emergency": {
+    "note": {
+      "az": "Gecə və iş saatlarından kənar təcili qəbul: [TO CONFIRM]",
+      "ru": "Экстренный приём ночью и в нерабочее время: [TO CONFIRM]",
+      "en": "Emergency visits at night / out of hours: [TO CONFIRM]"
+    }
+  },
+  "services": [
+    {
+      "id": "checkup",
+      "category": "checkup",
+      "name": {
+        "az": "Müayinə və müalicə",
+        "ru": "Осмотр и лечение",
+        "en": "Examination & treatment"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "vaccination",
+      "category": "vaccination",
+      "name": {
+        "az": "Peyvənd",
+        "ru": "Вакцинация",
+        "en": "Vaccination"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder"
+    },
+    {
+      "id": "ultrasound",
+      "category": "diagnostics",
+      "name": {
+        "az": "USM (ultrasəs müayinəsi)",
+        "ru": "УЗИ",
+        "en": "Ultrasound"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "x-ray",
+      "category": "diagnostics",
+      "name": {
+        "az": "Rentgen",
+        "ru": "Рентген",
+        "en": "X-ray"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "lab-tests",
+      "category": "diagnostics",
+      "name": {
+        "az": "Laboratoriya analizləri",
+        "ru": "Лабораторные анализы",
+        "en": "Lab tests"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "surgery",
+      "category": "surgery",
+      "name": {
+        "az": "Cərrahi əməliyyatlar",
+        "ru": "Хирургические операции",
+        "en": "Surgery"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder"
+    }
+  ],
+  "audience": [
+    "dog",
+    "cat"
+  ],
+  "doctors": [
+    {
+      "name": "Dr. Suliddin",
+      "role": {
+        "az": "Baytar həkim",
+        "ru": "Ветеринарный врач",
+        "en": "Veterinarian"
+      },
+      "status": "verified-single"
+    },
+    {
+      "name": "[TO CONFIRM]",
+      "role": {
+        "az": "Baytar həkim",
+        "ru": "Ветеринарный врач",
+        "en": "Veterinarian"
+      },
+      "status": "placeholder"
+    },
+    {
+      "name": "[TO CONFIRM]",
+      "role": {
+        "az": "Baytar həkim",
+        "ru": "Ветеринарный врач",
+        "en": "Veterinarian"
+      },
+      "status": "placeholder"
+    }
+  ],
+  "whyUs": [
+    {
+      "icon": "scan",
+      "title": {
+        "az": "Diaqnostika yerində",
+        "ru": "Диагностика на месте",
+        "en": "Diagnostics on site"
+      },
+      "text": {
+        "az": "USM, rentgen və laboratoriya analizləri klinikanın özündə.",
+        "ru": "УЗИ, рентген и лабораторные анализы прямо в клинике.",
+        "en": "Ultrasound, X-ray and lab tests at the clinic itself."
+      },
+      "status": "verified-single"
+    },
+    {
+      "icon": "calendar",
+      "title": {
+        "az": "Onlayn yazılış",
+        "ru": "Онлайн-запись",
+        "en": "Online booking"
+      },
+      "text": {
+        "az": "Ev heyvanınızı bir dəqiqəyə onlayn yazdırın — administrator vaxtı təsdiqləyəcək.",
+        "ru": "Запишите питомца онлайн за минуту — администратор подтвердит время.",
+        "en": "Book your pet in online in a minute — the administrator will confirm the time."
+      },
+      "status": "design"
+    },
+    {
+      "icon": "syringe",
+      "title": {
+        "az": "Peyvənd xatırlatmaları",
+        "ru": "Напоминания о прививках",
+        "en": "Vaccination reminders"
+      },
+      "text": {
+        "az": "Növbəti peyvənd və illik müayinə vaxtı çatanda WhatsApp-da xatırladırıq.",
+        "ru": "Напомним в WhatsApp, когда подойдёт срок следующей прививки и ежегодного осмотра.",
+        "en": "We remind you on WhatsApp when the next vaccination or annual check-up is due."
+      },
+      "status": "design"
+    }
+  ],
+  "provenance": {
+    "name": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.instagram.com/baytarliq_klinikasi_/"
+      ],
+      "note": "Instagram display name 'Veterinar | Dr.Suliddin | Baytar'; 2GIS: 'My vet'; Cybo: 'My Vet Baytarliq Klinikasi'."
+    },
+    "address": {
+      "status": "conflict",
+      "sources": [
+        "https://www.instagram.com/baytarliq_klinikasi_/",
+        "https://telefon-kitab.cybo.com/AZ/m%C9%99rd%C9%99kan/baytarlar-v%C9%99-heyvan-klinikalar%C4%B1/?p=2",
+        "https://2gis.az/ru/baku/search/Veterinar"
+      ],
+      "note": "Shown: Salatın Əsgərova 159 (Instagram, Cybo). 2GIS says 161. A Yandex 'My Vet' at Mirəli Qaşqay 63A is not linked to this clinic. Confirm."
+    },
+    "district": {
+      "status": "placeholder",
+      "sources": []
+    },
+    "phones": {
+      "status": "conflict",
+      "sources": [
+        "https://www.instagram.com/baytarliq_klinikasi_/",
+        "https://telefon-kitab.cybo.com/AZ/m%C9%99rd%C9%99kan/baytarlar-v%C9%99-heyvan-klinikalar%C4%B1/?p=2"
+      ],
+      "note": "Shown: 055 825 99 32 (Instagram). Cybo lists 055 462 41 23. Confirm."
+    },
+    "whatsapp": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "No WhatsApp number found."
+    },
+    "instagram": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.instagram.com/baytarliq_klinikasi_/"
+      ],
+      "note": "About 26K followers, 3,454 posts (undated); follows ~7.7K accounts."
+    },
+    "website": {
+      "status": "verified",
+      "sources": [],
+      "note": "No website found (weak check: the domain search was limited)."
+    },
+    "hours": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "No published hours anywhere; the booking form uses a default 09:00–19:00 window."
+    },
+    "emergency": {
+      "status": "placeholder",
+      "sources": [
+        "https://2gis.az/baku/search/Veet"
+      ],
+      "note": "No 24/7 claim found; a 2GIS snippet said 'closed until morning' but may refer to another listing."
+    },
+    "services": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.instagram.com/baytarliq_klinikasi_/"
+      ],
+      "note": "Examination, treatment, ultrasound, X-ray and laboratory (Instagram). Vaccination and surgery are template entries to confirm."
+    },
+    "prices": {
+      "status": "placeholder",
+      "sources": []
+    },
+    "audience": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Pet types treated were not found in any source; dogs and cats are shown as a template, marked to confirm."
+    },
+    "doctors": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.instagram.com/baytarliq_klinikasi_/"
+      ],
+      "note": "Dr. Suliddin (first name only, Instagram). Media mention a vet 'Suliddin Ələkbərov/Ələkbərli', not tied to this clinic — not used."
+    },
+    "rating": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "No 2GIS, Yandex or Google rating found."
+    },
+    "map": {
+      "status": "constructed",
+      "sources": [],
+      "note": "Search link built from the shown address."
+    },
+    "brandColor": {
+      "status": "design",
+      "sources": [],
+      "note": "Niche default colour; the clinic's logo and photos were not copied."
+    },
+    "photos": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Neutral illustrations."
+    },
+    "reviews": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Labelled sample reviews; no reviews copied."
+    }
+  }
+}

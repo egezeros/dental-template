@@ -1,6 +1,6 @@
 import { randomUUID } from "node:crypto";
 import type { Booking, BookingStatus, DemoBooking, NewBooking } from "../booking/types";
-import { sortBookings, type BookingStore, type ListOptions } from "./types";
+import { sortBookings, type BookingStore, type FollowUpMark, type ListOptions } from "./types";
 
 /**
  * In-memory store. Zero setup, but data lives only as long as the server process
@@ -31,7 +31,7 @@ export class MemoryBookingStore implements BookingStore {
         (!options.fromDate || b.date >= options.fromDate) &&
         (!options.toDate || b.date <= options.toDate),
     );
-    return sortBookings(rows.map((b) => ({ ...b })));
+    return sortBookings(rows.map((b) => structuredClone(b)));
   }
 
   async updateStatus(clinicSlug: string, id: string, status: BookingStatus): Promise<Booking | null> {
@@ -46,6 +46,13 @@ export class MemoryBookingStore implements BookingStore {
     for (const id of ids) {
       const row = this.rows.get(id);
       if (row && row.clinicSlug === clinicSlug) row.reminderSentAt = at;
+    }
+  }
+
+  async markFollowUpSent(clinicSlug: string, items: FollowUpMark[], at: string): Promise<void> {
+    for (const { id, key } of items) {
+      const row = this.rows.get(id);
+      if (row && row.clinicSlug === clinicSlug) row.followUps = { ...row.followUps, [key]: at };
     }
   }
 

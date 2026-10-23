@@ -19,6 +19,15 @@ export const LOCALE_LABELS: Record<Locale, string> = { az: "AZ", ru: "RU", en: "
 /** BCP-47 tags used for Intl formatting. */
 export const INTL_LOCALE: Record<Locale, string> = { az: "az-Latn-AZ", ru: "ru-RU", en: "en-GB" };
 
+/** Russian plural form: 1 сеанс, 2 сеанса, 5 сеансов. */
+function ruPlural(n: number, one: string, few: string, many: string): string {
+  const m10 = n % 10;
+  const m100 = n % 100;
+  if (m10 === 1 && m100 !== 11) return one;
+  if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return few;
+  return many;
+}
+
 export const WEEKDAYS = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"] as const;
 export type Weekday = (typeof WEEKDAYS)[number];
 
@@ -32,6 +41,11 @@ const site = {
       reviews: "Rəylər",
       location: "Ünvan",
       hours: "İş saatları",
+      packages: "Paketlər",
+      gallery: "Qalereya",
+      faq: "Suallar",
+      emergency: "Təcili",
+      audience: "Kimlər üçün",
     },
     hero: {
       cta: "Qəbula yazılın",
@@ -45,6 +59,26 @@ const site = {
     },
     doctors: { title: "Həkimlərimiz", subtitle: "Peşəkar komanda" },
     why: { title: "Niyə bizi seçirlər" },
+    packages: {
+      title: "Kurslar və paketlər",
+      subtitle: "Paketin tərkibi və şərtləri konsultasiyada dəqiqləşdirilir.",
+      sessions: (n: number) => `${n} seans`,
+      book: "Yazıl",
+    },
+    gallery: {
+      title: "Əvvəl və sonra",
+      subtitle: "Real nəticələrin fotoları yalnız müştərilərin yazılı razılığı ilə əlavə olunacaq.",
+      before: "Əvvəl",
+      after: "Sonra",
+      note: "Nəticələr fərdi olur və zəmanət verilmir.",
+    },
+    faq: { title: "Tez-tez verilən suallar" },
+    emergency: {
+      title: "Təcili hal?",
+      text: "Vəziyyət təcilidirsə, gəlməzdən əvvəl zəng edin — nə etməli olduğunuzu deyəcəyik.",
+      call: "İndi zəng edin",
+    },
+    audience: { title: "Kimləri qəbul edirik" },
     reviews: {
       title: "Pasiyent rəyləri",
       sampleLabel: "NÜMUNƏ RƏYLƏR — yer tutucu. Real rəylər pasiyentlərin razılığı ilə əlavə olunacaq.",
@@ -70,6 +104,10 @@ const site = {
       date: "Arzu olunan tarix",
       time: "Arzu olunan saat",
       selectTime: "Saatı seçin",
+      specialist: "Mütəxəssis",
+      anySpecialist: "Fərqi yoxdur",
+      optional: "istəyə görə",
+      selectOption: "Seçin",
       consent: (clinic: string) =>
         `Adımın və telefon nömrəmin ${clinic} tərəfindən yalnız bu qəbulla bağlı mənimlə əlaqə saxlamaq üçün saxlanmasına razıyam.`,
       noHealthInfo: "Zəhmət olmasa, sağlamlığınız barədə heç bir məlumat yazmayın — bunu həkimlə qəbulda müzakirə edəcəksiniz.",
@@ -88,6 +126,7 @@ const site = {
         date: "Bu gün və ya sonrakı tarixi seçin",
         time: "Saatı seçin",
         consent: "Davam etmək üçün razılıq vermək lazımdır",
+        field: "Bu sahəni düzgün doldurun",
       },
     },
     location: { title: "Ünvan və xəritə", directions: "Marşrut qur", phones: "Telefonlar", website: "Sayt" },
@@ -129,6 +168,11 @@ const site = {
       reviews: "Отзывы",
       location: "Адрес",
       hours: "Часы работы",
+      packages: "Пакеты",
+      gallery: "Галерея",
+      faq: "Вопросы",
+      emergency: "Срочно",
+      audience: "Для кого",
     },
     hero: {
       cta: "Записаться на приём",
@@ -142,6 +186,26 @@ const site = {
     },
     doctors: { title: "Наши врачи", subtitle: "Команда специалистов" },
     why: { title: "Почему выбирают нас" },
+    packages: {
+      title: "Курсы и пакеты",
+      subtitle: "Состав и условия пакета уточняются на консультации.",
+      sessions: (n: number) => `${n} ${ruPlural(n, "сеанс", "сеанса", "сеансов")}`,
+      book: "Записаться",
+    },
+    gallery: {
+      title: "До и после",
+      subtitle: "Фото реальных результатов будут добавлены только с письменного согласия клиентов.",
+      before: "До",
+      after: "После",
+      note: "Результаты индивидуальны и не гарантируются.",
+    },
+    faq: { title: "Частые вопросы" },
+    emergency: {
+      title: "Срочный случай?",
+      text: "Если ситуация срочная, позвоните перед приездом — мы подскажем, что делать.",
+      call: "Позвонить сейчас",
+    },
+    audience: { title: "Кого мы принимаем" },
     reviews: {
       title: "Отзывы пациентов",
       sampleLabel: "ПРИМЕРЫ ОТЗЫВОВ — заглушка. Настоящие отзывы будут добавлены с согласия пациентов.",
@@ -166,6 +230,10 @@ const site = {
       date: "Желаемая дата",
       time: "Желаемое время",
       selectTime: "Выберите время",
+      specialist: "Специалист",
+      anySpecialist: "Не важно",
+      optional: "необязательно",
+      selectOption: "Выберите",
       consent: (clinic: string) =>
         `Я согласен(на), что ${clinic} сохранит моё имя и номер телефона только для связи по поводу этой записи.`,
       noHealthInfo: "Пожалуйста, не указывайте сведения о здоровье — их вы обсудите с врачом на приёме.",
@@ -184,6 +252,7 @@ const site = {
         date: "Выберите сегодняшнюю или более позднюю дату",
         time: "Выберите время",
         consent: "Для продолжения необходимо согласие",
+        field: "Заполните это поле правильно",
       },
     },
     location: { title: "Адрес и карта", directions: "Построить маршрут", phones: "Телефоны", website: "Сайт" },
@@ -223,6 +292,11 @@ const site = {
       reviews: "Reviews",
       location: "Location",
       hours: "Hours",
+      packages: "Packages",
+      gallery: "Gallery",
+      faq: "FAQ",
+      emergency: "Urgent",
+      audience: "Who we serve",
     },
     hero: {
       cta: "Book appointment",
@@ -236,6 +310,26 @@ const site = {
     },
     doctors: { title: "Our doctors", subtitle: "The team" },
     why: { title: "Why patients choose us" },
+    packages: {
+      title: "Courses & packages",
+      subtitle: "What's included and the terms are confirmed at your consultation.",
+      sessions: (n: number) => `${n} ${n === 1 ? "session" : "sessions"}`,
+      book: "Book",
+    },
+    gallery: {
+      title: "Before & after",
+      subtitle: "Photos of real results will be added only with clients' written consent.",
+      before: "Before",
+      after: "After",
+      note: "Results vary from person to person and are not guaranteed.",
+    },
+    faq: { title: "Frequently asked questions" },
+    emergency: {
+      title: "Emergency?",
+      text: "If it's urgent, call before you come so we can tell you what to do.",
+      call: "Call now",
+    },
+    audience: { title: "Who we treat" },
     reviews: {
       title: "Patient reviews",
       sampleLabel: "SAMPLE REVIEWS — placeholder. Real reviews will be added with patients' consent.",
@@ -260,6 +354,10 @@ const site = {
       date: "Preferred date",
       time: "Preferred time",
       selectTime: "Choose a time",
+      specialist: "Specialist",
+      anySpecialist: "No preference",
+      optional: "optional",
+      selectOption: "Choose",
       consent: (clinic: string) =>
         `I agree that ${clinic} may store my name and phone number only to contact me about this appointment.`,
       noHealthInfo: "Please don't include any health information — you'll discuss that with the doctor at your visit.",
@@ -278,6 +376,7 @@ const site = {
         date: "Choose today or a later date",
         time: "Please choose a time",
         consent: "Consent is required to continue",
+        field: "Please fill in this field",
       },
     },
     location: { title: "Location", directions: "Get directions", phones: "Phones", website: "Website" },
@@ -331,6 +430,7 @@ const admin = {
       upcoming: "Gələcək qəbullar",
       noShowRate: "Gəlməmə faizi (30 gün)",
       pending: "Təsdiq gözləyir",
+      dueBack: "Qayıtmalı pasiyentlər",
     },
     tabs: { upcoming: "Gələcək", past: "Keçmiş", all: "Hamısı" },
     table: { patient: "Pasiyent", service: "Xidmət", when: "Tarix / saat", status: "Status", actions: "Əməliyyatlar" },
@@ -344,6 +444,21 @@ const admin = {
       run: "Xatırlatma işini indi işə sal",
       none: "Sabah üçün qəbul yoxdur",
       sent: "Göndərilib",
+    },
+    followUps: {
+      title: "Təkrar qəbullar",
+      subtitle: "Qaydalara görə yenidən dəvət edilməli pasiyentlər — növbəti 30 gün və gecikənlər.",
+      none: "Yaxın 30 gündə təkrar qəbul yoxdur",
+      send: "WhatsApp",
+      sent: "Göndərilib",
+      markSent: "Göndərildi",
+      run: "Vaxtı çatanlara indi göndər",
+      due: "Vaxtıdır",
+      overdue: "Gecikib",
+      upcoming: "Tezliklə",
+      dueOn: (d: string) => `vaxtı: ${d}`,
+      lastVisit: (d: string) => `son qəbul: ${d}`,
+      session: (n: number, total: number) => `seans ${n}/${total}`,
     },
     outbox: {
       title: "Bildiriş jurnalı",
@@ -373,6 +488,7 @@ const admin = {
       upcoming: "Предстоящие записи",
       noShowRate: "Неявки (30 дней)",
       pending: "Ждут подтверждения",
+      dueBack: "Пора вернуться",
     },
     tabs: { upcoming: "Предстоящие", past: "Прошедшие", all: "Все" },
     table: { patient: "Пациент", service: "Услуга", when: "Дата / время", status: "Статус", actions: "Действия" },
@@ -386,6 +502,21 @@ const admin = {
       run: "Запустить напоминания сейчас",
       none: "На завтра записей нет",
       sent: "Отправлено",
+    },
+    followUps: {
+      title: "Повторные визиты",
+      subtitle: "Кого пора пригласить снова по правилам — ближайшие 30 дней и просроченные.",
+      none: "В ближайшие 30 дней повторных визитов нет",
+      send: "WhatsApp",
+      sent: "Отправлено",
+      markSent: "Отправлено вручную",
+      run: "Отправить наступившие сейчас",
+      due: "Пора",
+      overdue: "Просрочено",
+      upcoming: "Скоро",
+      dueOn: (d: string) => `срок: ${d}`,
+      lastVisit: (d: string) => `последний визит: ${d}`,
+      session: (n: number, total: number) => `сеанс ${n}/${total}`,
     },
     outbox: {
       title: "Журнал уведомлений",
@@ -415,6 +546,7 @@ const admin = {
       upcoming: "Upcoming bookings",
       noShowRate: "No-show rate (30 days)",
       pending: "Awaiting confirmation",
+      dueBack: "Patients due back",
     },
     tabs: { upcoming: "Upcoming", past: "Past", all: "All" },
     table: { patient: "Patient", service: "Service", when: "Date / time", status: "Status", actions: "Actions" },
@@ -428,6 +560,21 @@ const admin = {
       run: "Run reminder job now",
       none: "No appointments tomorrow",
       sent: "Sent",
+    },
+    followUps: {
+      title: "Upcoming follow-ups",
+      subtitle: "Who your follow-up rules say to invite back — the next 30 days, plus overdue.",
+      none: "No follow-ups due in the next 30 days",
+      send: "WhatsApp",
+      sent: "Sent",
+      markSent: "Mark sent",
+      run: "Send due follow-ups now",
+      due: "Due",
+      overdue: "Overdue",
+      upcoming: "Coming up",
+      dueOn: (d: string) => `due ${d}`,
+      lastVisit: (d: string) => `last visit ${d}`,
+      session: (n: number, total: number) => `session ${n}/${total}`,
     },
     outbox: {
       title: "Notification log",

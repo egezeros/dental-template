@@ -3,11 +3,11 @@ import { newBookingMessage } from "../notify/messages";
 import type { OutboxEntry } from "../notify/telegram";
 import type { BookingStore } from "../storage/types";
 import type { Booking } from "./types";
-import { validateBookingRequest, type BookingField } from "./validate";
+import { validateBookingRequest, type BookingErrors } from "./validate";
 
 export type CreateBookingResult =
   | { ok: true; booking: Booking | null; notification: OutboxEntry["status"] | null }
-  | { ok: false; errors: Partial<Record<BookingField, true>> };
+  | { ok: false; errors: BookingErrors };
 
 export interface CreateBookingDeps {
   store: BookingStore;

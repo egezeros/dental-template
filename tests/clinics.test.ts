@@ -9,7 +9,18 @@ describe("clinic files", () => {
   const clinics = getClinics();
 
   it("all validate and include the three demo clinics", () => {
-    expect(clinics.map((c) => c.slug).sort()).toEqual(["dent-star", "dental-club", "white-estetic-dental"]);
+    // The dental set is unchanged; aesthetic and vet demos were added alongside it.
+    expect(clinics.filter((c) => c.niche === "dental").map((c) => c.slug).sort()).toEqual([
+      "dent-star",
+      "dental-club",
+      "white-estetic-dental",
+    ]);
+  });
+
+  it("include three aesthetic and three vet businesses", () => {
+    const by = (niche: string) => clinics.filter((c) => c.niche === niche).map((c) => c.slug).sort();
+    expect(by("aesthetic")).toEqual(["ahu-estetik-klinika", "aspera", "miss-laser"]);
+    expect(by("vet")).toEqual(["bona-vet-clinic", "myvet", "tarvet"]);
   });
 
   it.each(getClinics().map((c) => [c.slug, c] as const))("%s documents a source for every verified fact", (_slug, c) => {
@@ -28,10 +39,13 @@ describe("clinic files", () => {
     for (const b of seed) expect(slotsForDate(c, b.date)).toContain(b.time);
   });
 
-  it("the starter file clinics/_template.json is valid once copied to <slug>.json", () => {
-    const raw = JSON.parse(fs.readFileSync("clinics/_template.json", "utf8"));
-    expect(() => parseClinic(raw, "your-clinic-slug.json")).not.toThrow();
-  });
+  it.each(["_template.json", "_template-aesthetic.json", "_template-vet.json"])(
+    "the starter file clinics/%s is valid once copied to <slug>.json",
+    (file) => {
+      const raw = JSON.parse(fs.readFileSync(`clinics/${file}`, "utf8"));
+      expect(() => parseClinic(raw, "your-clinic-slug.json")).not.toThrow();
+    },
+  );
 
   it("accepts featured reviews and rejects invalid star ratings", () => {
     const items = [{ author: "Test Reviewer", rating: 5, text: "Test review text.", date: "1 month ago" }];

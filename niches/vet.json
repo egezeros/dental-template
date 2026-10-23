@@ -1,0 +1,184 @@
+{
+  "id": "vet",
+  "label": { "az": "Baytarlıq klinikası", "ru": "Ветеринарная клиника", "en": "Veterinary clinic" },
+  "theme": {
+    "preset": "warm",
+    "brandColor": "#b9542a",
+    "icon": "paw",
+    "heroArt": "pet",
+    "emergencyInHeader": true,
+    "emoji": "🐾"
+  },
+  "sections": ["hero", "emergency", "services", "audience", "doctors", "why", "reviews", "faq", "booking", "location"],
+  "nav": ["services", "audience", "doctors", "reviews", "location"],
+  "services": {
+    "categories": [
+      { "id": "checkup", "label": { "az": "Müayinə və müalicə", "ru": "Осмотр и лечение", "en": "Check-ups & treatment" }, "icon": "heart" },
+      { "id": "vaccination", "label": { "az": "Peyvənd", "ru": "Вакцинация", "en": "Vaccination" }, "icon": "syringe" },
+      { "id": "diagnostics", "label": { "az": "Diaqnostika", "ru": "Диагностика", "en": "Diagnostics" }, "icon": "scan" },
+      { "id": "surgery", "label": { "az": "Cərrahiyyə", "ru": "Хирургия", "en": "Surgery" }, "icon": "shield" },
+      { "id": "care", "label": { "az": "Stasionar", "ru": "Стационар", "en": "Inpatient care" }, "icon": "home" },
+      { "id": "grooming", "label": { "az": "Qrumminq", "ru": "Груминг", "en": "Grooming" }, "icon": "scissors" }
+    ]
+  },
+  "audience": {
+    "options": [
+      { "id": "dog", "label": { "az": "İtlər", "ru": "Собаки", "en": "Dogs" }, "icon": "dog" },
+      { "id": "cat", "label": { "az": "Pişiklər", "ru": "Кошки", "en": "Cats" }, "icon": "cat" },
+      { "id": "bird", "label": { "az": "Quşlar", "ru": "Птицы", "en": "Birds" }, "icon": "bird" },
+      { "id": "rodent", "label": { "az": "Gəmiricilər", "ru": "Грызуны", "en": "Rodents" }, "icon": "rabbit" },
+      { "id": "reptile", "label": { "az": "Sürünənlər", "ru": "Рептилии", "en": "Reptiles" }, "icon": "turtle" },
+      { "id": "exotic", "label": { "az": "Ekzotik heyvanlar", "ru": "Экзотические животные", "en": "Exotic pets" }, "icon": "fish" }
+    ]
+  },
+  "booking": {
+    "fields": [
+      { "id": "name", "type": "name" },
+      { "id": "phone", "type": "phone" },
+      {
+        "id": "petName",
+        "type": "text",
+        "maxLength": 30,
+        "label": { "az": "Ev heyvanının adı", "ru": "Кличка питомца", "en": "Pet's name" },
+        "placeholder": { "az": "Məsələn, Bella", "ru": "Например, Белла", "en": "e.g. Bella" }
+      },
+      {
+        "id": "species",
+        "type": "select",
+        "label": { "az": "Növü", "ru": "Вид животного", "en": "Species" },
+        "options": [
+          { "value": "dog", "label": { "az": "İt", "ru": "Собака", "en": "Dog" } },
+          { "value": "cat", "label": { "az": "Pişik", "ru": "Кошка", "en": "Cat" } },
+          { "value": "bird", "label": { "az": "Quş", "ru": "Птица", "en": "Bird" } },
+          { "value": "rodent", "label": { "az": "Gəmirici", "ru": "Грызун", "en": "Rodent" } },
+          { "value": "reptile", "label": { "az": "Sürünən", "ru": "Рептилия", "en": "Reptile" } },
+          { "value": "other", "label": { "az": "Digər", "ru": "Другое", "en": "Other" } }
+        ]
+      },
+      { "id": "serviceId", "type": "service" },
+      { "id": "date", "type": "date" },
+      { "id": "time", "type": "time" },
+      { "id": "consent", "type": "consent" }
+    ]
+  },
+  "copy": {
+    "nav.doctors": { "az": "Baytarlar", "ru": "Ветврачи", "en": "Vets" },
+    "doctors.title": { "az": "Baytar həkimlərimiz", "ru": "Наши ветеринарные врачи", "en": "Our vets" },
+    "doctors.subtitle": { "az": "Komanda", "ru": "Команда", "en": "The team" },
+    "reviews.title": { "az": "Ev heyvanı sahiblərinin rəyləri", "ru": "Отзывы владельцев питомцев", "en": "Reviews from pet owners" },
+    "reviews.sampleLabel": {
+      "az": "NÜMUNƏ RƏYLƏR — yer tutucu. Real rəylər sahiblərin razılığı ilə əlavə olunacaq.",
+      "ru": "ПРИМЕРЫ ОТЗЫВОВ — заглушка. Настоящие отзывы будут добавлены с согласия владельцев.",
+      "en": "SAMPLE REVIEWS — placeholder. Real reviews will be added with owners' consent."
+    },
+    "reviews.sampleText": {
+      "az": "Bu, nümunə rəy mətnidir. Burada sahibin razılığı ilə dərc olunan real rəy göstəriləcək.",
+      "ru": "Это пример текста отзыва. Здесь появится настоящий отзыв, опубликованный с согласия владельца.",
+      "en": "This is sample review text. A real review, published with the owner's consent, will appear here."
+    },
+    "reviews.sampleAuthor": { "az": "Nümunə sahib", "ru": "Пример владельца", "en": "Sample pet owner" },
+    "booking.subtitle": {
+      "az": "Formu doldurun — administrator vaxtı təsdiqləmək üçün sizinlə əlaqə saxlayacaq. Təcili halda gözləməyin, dərhal zəng edin.",
+      "ru": "Заполните форму — администратор свяжется с вами, чтобы подтвердить время. В экстренном случае не ждите — сразу звоните.",
+      "en": "Fill in the form and our administrator will contact you to confirm the time. In an emergency, don't wait — call us right away."
+    },
+    "booking.name": { "az": "Sahibin adı", "ru": "Имя владельца", "en": "Owner's name" },
+    "booking.service": { "az": "Müraciət səbəbi", "ru": "Причина визита", "en": "Reason for visit" },
+    "booking.selectService": { "az": "Səbəbi seçin", "ru": "Выберите причину", "en": "Choose a reason" },
+    "booking.noHealthInfo": {
+      "az": "Ev heyvanınızın vəziyyətini qəbulda həkimə ətraflı danışın. Təcili halda gözləməyin — dərhal zəng edin.",
+      "ru": "Подробно о состоянии питомца расскажите врачу на приёме. В экстренном случае не ждите — сразу звоните.",
+      "en": "Tell the vet about your pet's condition at the visit. In an emergency, don't wait — call us right away."
+    },
+    "booking.errors.service": { "az": "Səbəbi seçin", "ru": "Выберите причину", "en": "Please choose a reason" }
+  },
+  "adminCopy": {
+    "stats.dueBack": { "az": "Qayıtmalı ev heyvanları", "ru": "Питомцы на повторный визит", "en": "Pets due back" },
+    "followUps.subtitle": { "az": "Qaydalara görə yenidən dəvət edilməli ev heyvanları — növbəti 30 gün və gecikənlər.", "ru": "Каких питомцев пора пригласить снова по правилам — ближайшие 30 дней и просроченные.", "en": "Pets your follow-up rules say to invite back — the next 30 days, plus overdue." },
+    "reminders.subtitle": { "az": "Bir toxunuşla sahibə hazır WhatsApp mesajı göndərin.", "ru": "Одно касание — и владельцу уходит готовое сообщение в WhatsApp.", "en": "One tap opens WhatsApp with a ready-to-send reminder for the owner." },
+    "table.patient": { "az": "Sahib / ev heyvanı", "ru": "Владелец / питомец", "en": "Owner / pet" },
+    "demoData": {
+      "az": "Demo məlumatlar — saxta sahiblər və ev heyvanları",
+      "ru": "Демо-данные — вымышленные владельцы и питомцы",
+      "en": "Demo data — fictional owners and pets"
+    }
+  },
+  "faq": [
+    {
+      "q": { "az": "Təcili halda nə etməliyəm?", "ru": "Что делать в экстренном случае?", "en": "What should I do in an emergency?" },
+      "a": {
+        "az": "Gəlməzdən əvvəl dərhal zəng edin ki, komanda sizi gözləməyə hazır olsun. Nömrə səhifənin yuxarısındadır.",
+        "ru": "Сразу позвоните перед приездом, чтобы команда была готова вас принять. Номер — в верхней части страницы.",
+        "en": "Call us before you set off so the team can get ready for you. The number is at the top of this page."
+      }
+    },
+    {
+      "q": { "az": "Peyvənd pasportunu gətirməliyəm?", "ru": "Нужно ли брать ветпаспорт?", "en": "Should I bring the vaccination passport?" },
+      "a": {
+        "az": "Əgər varsa, bəli — həkim əvvəlki peyvəndləri və müalicələri görə bilsin.",
+        "ru": "Если он есть — да, чтобы врач видел прошлые прививки и лечение.",
+        "en": "If you have one, yes — so the vet can see earlier vaccinations and treatments."
+      }
+    },
+    {
+      "q": { "az": "Peyvənd vaxtını unutmasam necə?", "ru": "А если я забуду про прививку?", "en": "What if I forget when the next vaccination is due?" },
+      "a": {
+        "az": "Narahat olmayın — növbəti peyvənd və illik müayinə vaxtı yaxınlaşanda sizə WhatsApp-da xatırlatma göndəririk.",
+        "ru": "Не переживайте — мы напомним в WhatsApp, когда подойдёт время следующей прививки или ежегодного осмотра.",
+        "en": "Don't worry — we send a WhatsApp reminder when the next vaccination or annual check-up is coming up."
+      }
+    },
+    {
+      "q": { "az": "Qəbulu necə dəyişə bilərəm?", "ru": "Как перенести запись?", "en": "How do I change a booking?" },
+      "a": {
+        "az": "Bizə zəng edin və ya WhatsApp-da yazın — administrator yeni vaxt təklif edəcək.",
+        "ru": "Позвоните нам или напишите в WhatsApp — администратор предложит новое время.",
+        "en": "Call us or message us on WhatsApp — the administrator will offer you a new time."
+      }
+    }
+  ],
+  "reminders": {
+    "appointment": {
+      "message": {
+        "az": "Salam, {firstName}! {clinic} klinikasında sabah, {date}, saat {time} üçün {petName} adına qəbulu xatırladırıq ({service}). Ünvan: {address}. Planlarınız dəyişibsə, bu mesaja cavab yazın və ya zəng edin: {phone}. Sizi gözləyirik!",
+        "ru": "Здравствуйте, {firstName}! Напоминаем о приёме для {petName} в клинике {clinic} завтра, {date}, в {time} ({service}). Адрес: {address}. Если планы изменились, ответьте на это сообщение или позвоните: {phone}. Ждём вас!",
+        "en": "Hello {firstName}! This is a reminder of {petName}'s appointment at {clinic} tomorrow, {date}, at {time} ({service}). Address: {address}. If your plans have changed, reply to this message or call {phone}. See you soon!"
+      }
+    },
+    "followUps": [
+      {
+        "id": "vaccination-annual",
+        "type": "interval",
+        "label": { "az": "İllik peyvənd", "ru": "Ежегодная вакцинация", "en": "Annual vaccination" },
+        "match": { "categories": ["vaccination"] },
+        "afterDays": 365,
+        "leadDays": 14,
+        "per": "pet",
+        "message": {
+          "az": "Salam, {firstName}! {clinic}: {petName} üçün növbəti peyvəndin vaxtı yaxınlaşır (təxminən {dueDate}). Qəbula yazılmaq üçün bu mesaja cavab yazın və ya zəng edin: {phone}.",
+          "ru": "Здравствуйте, {firstName}! {clinic}: приближается срок следующей прививки для {petName} (примерно {dueDate}). Чтобы записаться, ответьте на это сообщение или позвоните: {phone}.",
+          "en": "Hello {firstName}! {clinic}: {petName}'s next vaccination is coming up (around {dueDate}). Reply to this message or call {phone} to book."
+        }
+      },
+      {
+        "id": "checkup-annual",
+        "type": "interval",
+        "label": { "az": "İllik profilaktik müayinə", "ru": "Ежегодный профилактический осмотр", "en": "Annual check-up" },
+        "match": { "categories": ["checkup"] },
+        "afterDays": 365,
+        "leadDays": 14,
+        "per": "pet",
+        "message": {
+          "az": "Salam, {firstName}! {clinic}: {petName} üçün illik profilaktik müayinənin vaxtıdır (təxminən {dueDate}). Qəbula yazılmaq üçün bu mesaja cavab yazın və ya zəng edin: {phone}.",
+          "ru": "Здравствуйте, {firstName}! {clinic}: пора на ежегодный профилактический осмотр для {petName} (примерно {dueDate}). Чтобы записаться, ответьте на это сообщение или позвоните: {phone}.",
+          "en": "Hello {firstName}! {clinic}: it's time for {petName}'s annual check-up (around {dueDate}). Reply to this message or call {phone} to book."
+        }
+      }
+    ]
+  },
+  "demo": {
+    "values": {
+      "petName": ["Bella", "Max", "Mila", "Leo", "Luna", "Rex", "Simba", "Toplan", "Mırmır", "Cesar"]
+    }
+  }
+}

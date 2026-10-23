@@ -1,10 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Clinic JSON files (and the Supabase schema, for automatic table creation) are read
-  // from disk at runtime, so make sure they are bundled into every serverless function.
+  // Niche and clinic JSON files (and the Supabase schema, for automatic table creation) are
+  // read from disk at runtime, so make sure they are bundled into every serverless function.
   outputFileTracingIncludes: {
-    "/**": ["./clinics/**/*.json", "./supabase/schema.sql"],
+    "/**": ["./niches/**/*.json", "./clinics/**/*.json", "./supabase/schema.sql"],
   },
   poweredByHeader: false,
   async headers() {

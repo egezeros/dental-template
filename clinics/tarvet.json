@@ -1,0 +1,354 @@
+{
+  "slug": "tarvet",
+  "niche": "vet",
+  "name": "Tarvet",
+  "brandColor": "#3c6ea8",
+  "tagline": {
+    "az": "Yasamalda baytarlıq klinikası — hər gün 09:00–21:00",
+    "ru": "Ветклиника в Ясамале — ежедневно 09:00–21:00",
+    "en": "Vet clinic in Yasamal — daily 09:00–21:00"
+  },
+  "intro": {
+    "az": "Tarvet Veterinary Clinic: cərrahiyyə, stasionar, USM, rentgen və qan analizləri. Ev heyvanınızı onlayn yazdırın — administrator vaxtı təsdiqləmək üçün sizinlə əlaqə saxlayacaq.",
+    "ru": "Tarvet Veterinary Clinic: хирургия, стационар, УЗИ, рентген и анализы крови. Запишите питомца онлайн — администратор свяжется с вами, чтобы подтвердить время.",
+    "en": "Tarvet Veterinary Clinic: surgery, inpatient care, ultrasound, X-ray and blood tests. Book your pet in online and the administrator will contact you to confirm the time."
+  },
+  "address": {
+    "az": "Həsən bəy Zərdabi pr. 70, Yasamal r-nu, Bakı",
+    "ru": "пр. Гасан-бека Зардаби, 70, Ясамальский р-н, Баку",
+    "en": "70 Hasan bey Zardabi Ave, Yasamal, Baku"
+  },
+  "district": {
+    "az": "Yasamal rayonu",
+    "ru": "Ясамальский район",
+    "en": "Yasamal district"
+  },
+  "phones": [
+    {
+      "display": "(+994 50) 462-22-99",
+      "tel": "+994504622299"
+    }
+  ],
+  "whatsapp": "[TO CONFIRM]",
+  "instagram": "tarvet_clinic_",
+  "map": {
+    "query": "Tarvet, Həsən bəy Zərdabi 70, Bakı"
+  },
+  "hours": {
+    "mon": [
+      "09:00",
+      "21:00"
+    ],
+    "tue": [
+      "09:00",
+      "21:00"
+    ],
+    "wed": [
+      "09:00",
+      "21:00"
+    ],
+    "thu": [
+      "09:00",
+      "21:00"
+    ],
+    "fri": [
+      "09:00",
+      "21:00"
+    ],
+    "sat": [
+      "09:00",
+      "21:00"
+    ],
+    "sun": [
+      "09:00",
+      "21:00"
+    ]
+  },
+  "emergency": {
+    "note": {
+      "az": "Gecə və iş saatlarından kənar təcili qəbul: [TO CONFIRM]",
+      "ru": "Экстренный приём ночью и в нерабочее время: [TO CONFIRM]",
+      "en": "Emergency visits at night / out of hours: [TO CONFIRM]"
+    }
+  },
+  "services": [
+    {
+      "id": "checkup",
+      "category": "checkup",
+      "name": {
+        "az": "Müayinə və müalicə",
+        "ru": "Осмотр и лечение",
+        "en": "Examination & treatment"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder"
+    },
+    {
+      "id": "vaccination",
+      "category": "vaccination",
+      "name": {
+        "az": "Peyvənd",
+        "ru": "Вакцинация",
+        "en": "Vaccination"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder"
+    },
+    {
+      "id": "ultrasound",
+      "category": "diagnostics",
+      "name": {
+        "az": "USM (ultrasəs müayinəsi)",
+        "ru": "УЗИ",
+        "en": "Ultrasound"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified"
+    },
+    {
+      "id": "x-ray",
+      "category": "diagnostics",
+      "name": {
+        "az": "Rentgen",
+        "ru": "Рентген",
+        "en": "X-ray"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified"
+    },
+    {
+      "id": "blood-tests",
+      "category": "diagnostics",
+      "name": {
+        "az": "Qan analizləri",
+        "ru": "Анализы крови",
+        "en": "Blood tests"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "surgery",
+      "category": "surgery",
+      "name": {
+        "az": "Cərrahi əməliyyatlar",
+        "ru": "Хирургические операции",
+        "en": "Surgery"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "inpatient",
+      "category": "care",
+      "name": {
+        "az": "Stasionar",
+        "ru": "Стационар",
+        "en": "Inpatient care"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    }
+  ],
+  "audience": [
+    "dog",
+    "cat"
+  ],
+  "doctors": [
+    {
+      "name": "Dr. Taryel",
+      "role": {
+        "az": "Baytar həkim",
+        "ru": "Ветеринарный врач",
+        "en": "Veterinarian"
+      },
+      "status": "verified-single"
+    },
+    {
+      "name": "[TO CONFIRM]",
+      "role": {
+        "az": "Baytar həkim",
+        "ru": "Ветеринарный врач",
+        "en": "Veterinarian"
+      },
+      "status": "placeholder"
+    },
+    {
+      "name": "[TO CONFIRM]",
+      "role": {
+        "az": "Baytar həkim",
+        "ru": "Ветеринарный врач",
+        "en": "Veterinarian"
+      },
+      "status": "placeholder"
+    }
+  ],
+  "whyUs": [
+    {
+      "icon": "clock",
+      "title": {
+        "az": "Hər gün 21:00-dək",
+        "ru": "Каждый день до 21:00",
+        "en": "Open daily until 9 pm"
+      },
+      "text": {
+        "az": "Həftənin yeddi günü 09:00–21:00.",
+        "ru": "Семь дней в неделю, 09:00–21:00.",
+        "en": "Seven days a week, 09:00–21:00."
+      },
+      "status": "verified-single"
+    },
+    {
+      "icon": "home",
+      "title": {
+        "az": "Cərrahiyyə və stasionar",
+        "ru": "Хирургия и стационар",
+        "en": "Surgery & inpatient care"
+      },
+      "text": {
+        "az": "Əməliyyatlar və stasionar müşahidə klinikanın özündə.",
+        "ru": "Операции и наблюдение в стационаре — в самой клинике.",
+        "en": "Operations and inpatient observation at the clinic itself."
+      },
+      "status": "verified-single"
+    },
+    {
+      "icon": "calendar",
+      "title": {
+        "az": "Onlayn yazılış",
+        "ru": "Онлайн-запись",
+        "en": "Online booking"
+      },
+      "text": {
+        "az": "Ev heyvanınızı bir dəqiqəyə onlayn yazdırın — administrator vaxtı təsdiqləyəcək.",
+        "ru": "Запишите питомца онлайн за минуту — администратор подтвердит время.",
+        "en": "Book your pet in online in a minute — the administrator will confirm the time."
+      },
+      "status": "design"
+    },
+    {
+      "icon": "syringe",
+      "title": {
+        "az": "Peyvənd xatırlatmaları",
+        "ru": "Напоминания о прививках",
+        "en": "Vaccination reminders"
+      },
+      "text": {
+        "az": "Növbəti peyvənd və illik müayinə vaxtı çatanda WhatsApp-da xatırladırıq.",
+        "ru": "Напомним в WhatsApp, когда подойдёт срок следующей прививки и ежегодного осмотра.",
+        "en": "We remind you on WhatsApp when the next vaccination or annual check-up is due."
+      },
+      "status": "design"
+    }
+  ],
+  "provenance": {
+    "name": {
+      "status": "verified",
+      "sources": [
+        "https://www.instagram.com/tarvet_clinic_/",
+        "https://2gis.az/ru/baku/firm/70000001109504315"
+      ],
+      "note": "'Tarvet Veterinary Clinic' (Instagram), 'Tarvet, ветеринарная клиника' (2GIS)."
+    },
+    "address": {
+      "status": "verified-single",
+      "sources": [
+        "https://2gis.az/ru/baku/firm/70000001109504315"
+      ],
+      "note": "Only 2GIS gives an address."
+    },
+    "district": {
+      "status": "verified-single",
+      "sources": [
+        "https://2gis.az/ru/baku/firm/70000001109504315"
+      ]
+    },
+    "phones": {
+      "status": "verified",
+      "sources": [
+        "https://www.instagram.com/tarvet_clinic_/",
+        "https://2gis.az/ru/baku/firm/70000001109504315"
+      ],
+      "note": "Instagram number; 2GIS shows a partly hidden number consistent with it."
+    },
+    "whatsapp": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "No WhatsApp number found."
+    },
+    "instagram": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.instagram.com/tarvet_clinic_/"
+      ],
+      "note": "About 17K followers, 925 posts (undated); follows ~7.4K accounts."
+    },
+    "website": {
+      "status": "verified",
+      "sources": [],
+      "note": "No website, no Facebook page; only Instagram and a 2GIS card found (weak domain check)."
+    },
+    "hours": {
+      "status": "verified-single",
+      "sources": [
+        "https://2gis.az/ru/baku/firm/70000001109504315"
+      ]
+    },
+    "emergency": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Not 24/7 per the listed hours; no emergency line found."
+    },
+    "services": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.instagram.com/tarvet_clinic_/",
+        "https://2gis.az/ru/baku/firm/70000001109504315"
+      ],
+      "note": "Ultrasound and X-ray in both sources; surgery, inpatient care and blood tests on Instagram. Check-ups and vaccination are template entries to confirm."
+    },
+    "prices": {
+      "status": "placeholder",
+      "sources": []
+    },
+    "audience": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Pet types treated were not found in any source; dogs and cats are shown as a template, marked to confirm."
+    },
+    "doctors": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.instagram.com/tarvet_clinic_/"
+      ],
+      "note": "'Dr.Taryel Veterinar' in the Instagram bio; full name not found."
+    },
+    "rating": {
+      "status": "verified-single",
+      "sources": [
+        "https://2gis.az/ru/baku/firm/70000001109504315"
+      ],
+      "note": "2GIS 4.5 from 2 ratings — too few to show. No Google or Yandex rating found."
+    },
+    "map": {
+      "status": "constructed",
+      "sources": [],
+      "note": "Search link built from the shown address."
+    },
+    "brandColor": {
+      "status": "design",
+      "sources": [],
+      "note": "Our choice; the clinic's logo and photos were not copied."
+    },
+    "photos": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Neutral illustrations."
+    },
+    "reviews": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Labelled sample reviews; no reviews copied."
+    }
+  }
+}

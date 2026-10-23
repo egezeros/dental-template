@@ -1,16 +1,35 @@
 @import "tailwindcss";
 @import "@fontsource-variable/inter/wght.css";
+@import "@fontsource-variable/cormorant-garamond/wght.css";
+@import "@fontsource-variable/nunito/wght.css";
 
+/*
+ * Design tokens. Utilities read them through --theme-* variables (inline), so a niche's theme
+ * preset (data-theme on the page wrapper, from niches/<id>.json) can restyle a page without new
+ * classes. Without a preset — or with "clinical" (dental) — the values below apply unchanged.
+ */
 @theme inline {
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
     sans-serif;
+  --font-display: var(
+    --theme-font-display,
+    "Inter Variable",
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif
+  );
   /* Per-clinic brand colour, set as --brand on the page wrapper from clinics/<slug>.json */
   --color-brand: var(--brand, #1f5fbf);
-  --color-ink: #0f172a;
-  --color-muted: #475569;
-  --color-surface: #ffffff;
-  --color-canvas: #f6f8fa;
-  --color-line: #e2e8f0;
+  --color-ink: var(--theme-ink, #0f172a);
+  --color-muted: var(--theme-muted, #475569);
+  --color-surface: var(--theme-surface, #ffffff);
+  --color-canvas: var(--theme-canvas, #f6f8fa);
+  --color-line: var(--theme-line, #e2e8f0);
 }
 
 :root {
@@ -28,6 +47,54 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+/* Aesthetic clinics: ivory and champagne, serif display type, quiet lines. */
+[data-theme="luxe"] {
+  --theme-ink: #2a201b;
+  --theme-muted: #6d5d53;
+  --theme-surface: #fffcf8;
+  --theme-canvas: #f6f0e9;
+  --theme-line: #e7dbcf;
+  --theme-font-display: "Cormorant Garamond Variable", "Cormorant Garamond", Georgia, "Times New Roman", serif;
+}
+[data-theme="luxe"] .section-title {
+  font-size: 2.25rem;
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+@media (min-width: 768px) {
+  [data-theme="luxe"] .section-title {
+    font-size: 3rem;
+  }
+}
+[data-theme="luxe"] .eyebrow {
+  letter-spacing: 0.28em;
+  font-weight: 500;
+}
+
+/* Vet clinics: warm cream, rounded friendly type, soft large corners. */
+[data-theme="warm"] {
+  --theme-ink: #2d2118;
+  --theme-muted: #6b5746;
+  --theme-surface: #ffffff;
+  --theme-canvas: #fbf4e9;
+  --theme-line: #eddcc5;
+  --theme-font-display: "Nunito Variable", "Nunito", ui-rounded, system-ui, sans-serif;
+  font-family: "Nunito Variable", "Nunito", ui-rounded, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+[data-theme="warm"] .card {
+  border-radius: 1.5rem;
+}
+[data-theme="warm"] .section-title {
+  font-weight: 800;
+}
+
+/* Themed pages paint their own canvas (the body keeps the default one). */
+[data-theme="luxe"],
+[data-theme="warm"] {
+  background-color: var(--theme-canvas);
 }
 
 /* Leave room for the sticky header when jumping to #anchors. */
@@ -61,7 +128,7 @@ section[id] {
   @apply rounded-2xl bg-surface shadow-[0_1px_2px_rgba(15,23,42,0.04)] ring-1 ring-line/80;
 }
 @utility section-title {
-  @apply text-2xl font-semibold tracking-tight text-ink md:text-3xl;
+  @apply font-display text-2xl font-semibold tracking-tight text-ink md:text-3xl;
 }
 @utility eyebrow {
   @apply text-xs font-semibold tracking-[0.14em] text-brand uppercase;

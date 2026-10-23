@@ -2,8 +2,9 @@ import { clinicSchema, type Clinic } from "@/lib/clinics/schema";
 
 /** A minimal synthetic clinic (not one of the real demo clinics) for deterministic tests. */
 export function testClinic(overrides: Partial<Record<string, unknown>> = {}): Clinic {
-  return clinicSchema.parse({
+  const parsed = clinicSchema.parse({
     slug: "test-clinic",
+    niche: "dental",
     name: "Test Clinic",
     brandColor: "#123456",
     tagline: "Tagline",
@@ -31,7 +32,45 @@ export function testClinic(overrides: Partial<Record<string, unknown>> = {}): Cl
     provenance: {},
     ...overrides,
   });
+  return { ...parsed, brandColor: parsed.brandColor ?? "#123456" };
 }
 
 /** 2026-10-21 10:00 in Baku (UTC+4) — a Wednesday. */
 export const WED_10AM_BAKU = new Date("2026-10-21T06:00:00Z");
+
+/** Synthetic vet clinic: services in the vet niche's categories. */
+export function testVetClinic(overrides: Partial<Record<string, unknown>> = {}): Clinic {
+  return testClinic({
+    slug: "test-vet",
+    niche: "vet",
+    services: [
+      { id: "checkup", category: "checkup", name: { az: "Müayinə", ru: "Осмотр", en: "Check-up" }, price: "[TO CONFIRM]" },
+      { id: "vaccine", category: "vaccination", name: { az: "Peyvənd", ru: "Прививка", en: "Vaccination" }, price: "[TO CONFIRM]" },
+      { id: "surgery", category: "surgery", name: { az: "Cərrahiyyə", ru: "Хирургия", en: "Surgery" }, price: "[TO CONFIRM]" },
+    ],
+    ...overrides,
+  });
+}
+
+/** Synthetic aesthetic clinic: one course treatment (3 sessions, 28 days apart) and one single treatment. */
+export function testAestheticClinic(overrides: Partial<Record<string, unknown>> = {}): Clinic {
+  return testClinic({
+    slug: "test-aesthetic",
+    niche: "aesthetic",
+    services: [
+      {
+        id: "laser",
+        category: "laser",
+        name: { az: "Lazer epilyasiya", ru: "Лазерная эпиляция", en: "Laser hair removal" },
+        price: "[TO CONFIRM]",
+        course: { sessions: 3, intervalDays: 28 },
+      },
+      { id: "consultation", category: "other", name: { az: "Konsultasiya", ru: "Консультация", en: "Consultation" }, price: "[TO CONFIRM]" },
+    ],
+    doctors: [
+      { name: "Test Specialist", role: "Cosmetologist", status: "verified" },
+      { name: "[TO CONFIRM]", role: "Cosmetologist", status: "placeholder" },
+    ],
+    ...overrides,
+  });
+}

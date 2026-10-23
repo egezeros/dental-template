@@ -130,7 +130,7 @@ export function messagingProvider(): MessagingProviderName {
 }
 
 export function whatsappCloudConfig():
-  | { token: string; phoneNumberId: string; templateName: string; apiVersion: string }
+  | { token: string; phoneNumberId: string; templateName: string; followUpTemplateName?: string; apiVersion: string }
   | undefined {
   const token = process.env.WHATSAPP_CLOUD_TOKEN;
   const phoneNumberId = process.env.WHATSAPP_PHONE_NUMBER_ID;
@@ -139,6 +139,7 @@ export function whatsappCloudConfig():
     token,
     phoneNumberId,
     templateName: process.env.WHATSAPP_TEMPLATE_NAME || "appointment_reminder",
+    followUpTemplateName: process.env.WHATSAPP_FOLLOWUP_TEMPLATE || undefined,
     apiVersion: process.env.WHATSAPP_API_VERSION || "v21.0",
   };
 }

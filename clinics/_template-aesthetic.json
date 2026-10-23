@@ -1,0 +1,216 @@
+{
+  "slug": "your-clinic-slug",
+  "niche": "aesthetic",
+  "name": "[TO CONFIRM] Clinic name",
+  "tagline": {
+    "az": "[TO CONFIRM]",
+    "ru": "[TO CONFIRM]",
+    "en": "[TO CONFIRM]"
+  },
+  "intro": {
+    "az": "[TO CONFIRM]",
+    "ru": "[TO CONFIRM]",
+    "en": "[TO CONFIRM]"
+  },
+  "address": {
+    "az": "[TO CONFIRM]",
+    "ru": "[TO CONFIRM]",
+    "en": "[TO CONFIRM]"
+  },
+  "district": {
+    "az": "[TO CONFIRM]",
+    "ru": "[TO CONFIRM]",
+    "en": "[TO CONFIRM]"
+  },
+  "phones": [
+    {
+      "display": "[TO CONFIRM]",
+      "tel": ""
+    }
+  ],
+  "whatsapp": "[TO CONFIRM]",
+  "map": {
+    "query": "Clinic name, street and number, Bakı"
+  },
+  "hours": "[TO CONFIRM]",
+  "services": [
+    {
+      "id": "consultation",
+      "category": "other",
+      "name": {
+        "az": "Konsultasiya",
+        "ru": "Консультация",
+        "en": "Consultation"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder"
+    },
+    {
+      "id": "laser-hair-removal",
+      "category": "laser",
+      "name": {
+        "az": "Lazer epilyasiya",
+        "ru": "Лазерная эпиляция",
+        "en": "Laser hair removal"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder",
+      "course": {
+        "sessions": 6,
+        "intervalDays": 42
+      }
+    },
+    {
+      "id": "injectables",
+      "category": "injectables",
+      "name": {
+        "az": "İnyeksion prosedurlar",
+        "ru": "Инъекционные процедуры",
+        "en": "Injectable treatments"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder"
+    },
+    {
+      "id": "facial-care",
+      "category": "facial",
+      "name": {
+        "az": "Üz baxımı",
+        "ru": "Уход за лицом",
+        "en": "Facial treatments"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder"
+    },
+    {
+      "id": "body-care",
+      "category": "body",
+      "name": {
+        "az": "Bədən prosedurları",
+        "ru": "Процедуры для тела",
+        "en": "Body treatments"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder"
+    }
+  ],
+  "doctors": [
+    {
+      "name": "[TO CONFIRM]",
+      "role": {
+        "az": "Kosmetoloq",
+        "ru": "Косметолог",
+        "en": "Cosmetologist"
+      },
+      "status": "placeholder"
+    }
+  ],
+  "whyUs": [
+    {
+      "icon": "chat",
+      "title": {
+        "az": "Onlayn yazılış və xatırlatma",
+        "ru": "Онлайн-запись и напоминания",
+        "en": "Online booking & reminders"
+      },
+      "text": {
+        "az": "Bir dəqiqəyə onlayn yazılın və qəbuldan bir gün əvvəl WhatsApp-da xatırlatma alın.",
+        "ru": "Запишитесь онлайн за минуту и получите напоминание в WhatsApp за день до приёма.",
+        "en": "Book online in a minute and get a WhatsApp reminder the day before your visit."
+      },
+      "status": "design"
+    }
+  ],
+  "packages": [
+    {
+      "id": "course-package",
+      "name": {
+        "az": "Kurs paketi",
+        "ru": "Курсовой пакет",
+        "en": "Course package"
+      },
+      "price": "[TO CONFIRM]",
+      "serviceId": "laser-hair-removal",
+      "status": "placeholder"
+    }
+  ],
+  "gallery": {
+    "count": 3
+  },
+  "provenance": {
+    "name": {
+      "status": "placeholder",
+      "sources": []
+    },
+    "address": {
+      "status": "placeholder",
+      "sources": []
+    },
+    "district": {
+      "status": "placeholder",
+      "sources": []
+    },
+    "phones": {
+      "status": "placeholder",
+      "sources": []
+    },
+    "whatsapp": {
+      "status": "placeholder",
+      "sources": []
+    },
+    "instagram": {
+      "status": "placeholder",
+      "sources": []
+    },
+    "website": {
+      "status": "placeholder",
+      "sources": []
+    },
+    "hours": {
+      "status": "placeholder",
+      "sources": []
+    },
+    "services": {
+      "status": "placeholder",
+      "sources": []
+    },
+    "prices": {
+      "status": "placeholder",
+      "sources": []
+    },
+    "doctors": {
+      "status": "placeholder",
+      "sources": []
+    },
+    "rating": {
+      "status": "placeholder",
+      "sources": []
+    },
+    "map": {
+      "status": "constructed",
+      "sources": []
+    },
+    "brandColor": {
+      "status": "design",
+      "sources": [],
+      "note": "Niche default colour."
+    },
+    "photos": {
+      "status": "placeholder",
+      "sources": []
+    },
+    "reviews": {
+      "status": "placeholder",
+      "sources": []
+    },
+    "courses": {
+      "status": "design",
+      "sources": [],
+      "note": "Course settings drive the next-session reminder; set them with the clinic."
+    },
+    "packages": {
+      "status": "placeholder",
+      "sources": []
+    }
+  }
+}

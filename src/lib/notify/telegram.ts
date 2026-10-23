@@ -6,7 +6,7 @@ export type OutboxStatus = "delivered" | "simulated" | "failed";
 export interface OutboxEntry {
   id: string;
   clinicSlug: string;
-  kind: "booking" | "reminder-digest" | "status";
+  kind: "booking" | "reminder-digest" | "followup-digest" | "status";
   text: string;
   status: OutboxStatus;
   error?: string;
