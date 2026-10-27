@@ -22,6 +22,7 @@ describe("clinic files", () => {
     const tr = clinics.filter((c) => c.country === "TR");
     expect(tr.map((c) => c.slug).sort()).toEqual([
       "berber-omer-aykut",
+      "detay-erkek-kuafor",
       "efendi-erkek-kuaforu",
       "emy-kuafor",
       "inter-jr-barbers-club",

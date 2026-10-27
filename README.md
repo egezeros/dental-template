@@ -21,7 +21,8 @@ Demo sites:
 - Dental: `/dent-star`, `/white-estetic-dental`, `/dental-club`, `/beyaz-dis`, `/one-dent`
 - Aesthetic: `/ahu-estetik-klinika`, `/aspera`, `/miss-laser`
 - Vet: `/bona-vet-clinic`, `/myvet`, `/tarvet`
-- Ankara (TR/EN): barbers `/berber-omer-aykut`, `/efendi-erkek-kuaforu`, `/inter-jr-barbers-club`;
+- Ankara (TR/EN): barbers `/berber-omer-aykut`, `/detay-erkek-kuafor`, `/efendi-erkek-kuaforu`,
+  `/inter-jr-barbers-club`;
   beauty `/isil-isil`, `/emy-kuafor`, `/nazli-erzar-cebeci`, `/zest-guzellik`
 
 ---
