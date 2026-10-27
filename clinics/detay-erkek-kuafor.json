@@ -1,0 +1,278 @@
+{
+  "slug": "detay-erkek-kuafor",
+  "niche": "barber",
+  "country": "TR",
+  "locales": [
+    "tr",
+    "en"
+  ],
+  "whatsapp": "[TO CONFIRM]",
+  "name": "Detay Erkek Kuaför",
+  "brandColor": "#22333b",
+  "tagline": {
+    "tr": "Kızılay'da kesim, perma ve protez saç",
+    "en": "Cuts, perms and hair systems in Kızılay"
+  },
+  "intro": {
+    "tr": "Kızılay'da saç kesimi, perma ve protez saç. Online randevu alın, sıra beklemeyin.",
+    "en": "Haircuts, perms and hair systems in Kızılay. Book online and skip the queue."
+  },
+  "address": {
+    "tr": "Sakarya Cad. No:7, Kızılay, Çankaya, Ankara",
+    "en": "7 Sakarya St, Kızılay, Çankaya, Ankara"
+  },
+  "district": {
+    "tr": "Kızılay",
+    "en": "Kızılay"
+  },
+  "phones": [
+    {
+      "display": "0542 289 98 21",
+      "tel": "+905422899821"
+    }
+  ],
+  "facebook": "https://www.facebook.com/DetayErkekKuafor/",
+  "map": {
+    "query": "Detay Erkek Kuaför, Sakarya Caddesi 7, Kızılay, Çankaya, Ankara"
+  },
+  "featuredReviews": {
+    "url": "https://www.google.com/maps/search/?api=1&query=Detay%20Erkek%20Kuaf%C3%B6r%20K%C4%B1z%C4%B1lay%20Erkek%20Kuaf%C3%B6r%C3%BC%20Sakarya%20Caddesi%20%C3%87ankaya%20Ankara",
+    "items": [
+      {
+        "author": "Furkan E.",
+        "rating": 5,
+        "date": {
+          "tr": "2 ay önce",
+          "en": "2 months ago"
+        },
+        "text": "Selahattin beye perma işlemi için çok teşekkür ediyorum herkeze tavsiyemdir\nTemiz ferah mekan gönül rahatlığıyla işlem yaptirabilirsiniz"
+      },
+      {
+        "author": "Ali G.",
+        "rating": 5,
+        "date": {
+          "tr": "3 gün önce",
+          "en": "3 days ago"
+        },
+        "text": "Detay Kuaför Saç Tasarım, kalitesi, profesyonelliği ve güler yüzlü hizmetiyle gerçekten övgüyü hak eden bir işletme. Başta Selahattin Bey olmak üzere tüm ekibine gönülden teşekkür ediyorum.\nSelahattin Bey'in mesleğindeki ustalığı, tecrübesi, titizliği ve işine gösterdiği özen gerçekten takdire şayan. Her detayda emeğini ve profesyonelliğini hissettiren, işini adeta bir sanat gibi icra eden çok değerli bir usta.\nEkibinin ilgisi, nezaketi, samimiyeti ve müşteri memnuniyetine verdiği önem de ayrıca takdiri hak ediyor. Kaliteli hizmetin yanında kendinizi özel ve değerli hissettiren bir ortam sunuyorlar.\nBöyle işini severek yapan, emeğine saygı duyan ve kalitesinden ödün vermeyen işletmeler her zaman takdiri hak ediyor.\nSelahattin Bey, sizin ve değerli ekibinizin ellerine, emeğine, yüreğine sağlık. İyi ki varsınız. Başarılarınız daim, yolunuz açık olsun. Kalite ve güven arayan herkese gönül rahatlığıyla tavsiye ediyorum. 👏"
+      },
+      {
+        "author": "Ufuk S.",
+        "rating": 5,
+        "date": {
+          "tr": "bir ay önce",
+          "en": "a month ago"
+        },
+        "text": "Yıllardır saç kesimi için gittiğim yer. Yakın zamanda dükkan iç mekan tasarımıyla da öne çıkmıştır. Son zamanlarda başarılı protez saç işlemleriyle portföylerine yenilik kattılar. Bende protez saç işlemimi tabikide güzel işler çıkaran, 25 yıllık tecrübesi olan Selahattin bey ve ekibinin profesyonel çalıştığı, kaliteli ürünlerin kullanıldığı ve ortamın heran hijyenik olduğu DETAY KUAFÖRDE yaptırdım. Yaklaşık 3 gün oldu. İşlem biter bitmez daha berber koltuğunda otururken dükkana yeni giren müşteriler bile gerçek saçım zannettiler. Bu süre zarfında beni tanıyanlar olsun, hatta içlerinde daha önceden başka yerlerde protez saç işlemi yaptıranlar olsun, geçişlerin ,renk uyumunun, modelin, protezin kalitesinin ve yüzüme olan uyumunun ve işlemi yapan ekibin hayranı oldular. Birçok kişi yerin bilgisini ve telefonunu benden aldı. Hayatınıza ve hayatınızdaki insanlara değer katmanız için, kesinlikle sizin yerinize saç konusunda tüm detayları düşünen DETAY Kuaförü tavsiye ediyorum. Tüm ekibe teşekkürler. Yine DETAY, her zaman DETAY, Herkese DETAY..."
+      }
+    ]
+  },
+  "hours": "[TO CONFIRM]",
+  "services": [
+    {
+      "id": "haircut",
+      "category": "haircut",
+      "name": {
+        "tr": "Saç kesimi",
+        "en": "Haircut"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "perm",
+      "category": "haircut",
+      "name": {
+        "tr": "Perma",
+        "en": "Perm"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified"
+    },
+    {
+      "id": "hair-system",
+      "category": "haircut",
+      "name": {
+        "tr": "Protez saç",
+        "en": "Hair system"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "verified-single"
+    },
+    {
+      "id": "beard",
+      "category": "beard",
+      "name": {
+        "tr": "Sakal tıraşı",
+        "en": "Beard shave"
+      },
+      "price": "[TO CONFIRM]",
+      "status": "placeholder"
+    }
+  ],
+  "doctors": [
+    {
+      "name": "Selahattin Bey",
+      "role": {
+        "tr": "Usta",
+        "en": "Barber"
+      },
+      "status": "verified"
+    },
+    {
+      "name": "[TO CONFIRM]",
+      "role": {
+        "tr": "Usta",
+        "en": "Barber"
+      },
+      "status": "placeholder"
+    }
+  ],
+  "whyUs": [
+    {
+      "icon": "scissors",
+      "title": {
+        "tr": "Perma ve protez saç",
+        "en": "Perms and hair systems"
+      },
+      "text": {
+        "tr": "Kesimin yanında perma ve protez saç uygulamaları da yapılıyor.",
+        "en": "Besides cuts, the shop does perms and hair systems."
+      },
+      "status": "verified"
+    },
+    {
+      "icon": "sparkle",
+      "title": {
+        "tr": "Temiz ve ferah salon",
+        "en": "Clean, spacious shop"
+      },
+      "text": {
+        "tr": "Müşteriler salonu temiz, ferah ve yeni yenilenmiş olarak anlatıyor.",
+        "en": "Clients describe the shop as clean, spacious and recently redesigned."
+      },
+      "status": "verified"
+    },
+    {
+      "icon": "calendar",
+      "title": {
+        "tr": "Online randevu",
+        "en": "Online booking"
+      },
+      "text": {
+        "tr": "Bir dakikada online randevu alın; randevudan bir gün önce WhatsApp'tan hatırlatma gelsin.",
+        "en": "Book online in a minute and get a WhatsApp reminder the day before."
+      },
+      "status": "design"
+    }
+  ],
+  "rating": {
+    "platform": "Google",
+    "value": "4.6",
+    "kind": "stars",
+    "count": 533,
+    "asOf": "2026-10-27 (Google Maps listing)",
+    "source": "https://www.google.com/maps/search/?api=1&query=Detay%20Erkek%20Kuaf%C3%B6r%20K%C4%B1z%C4%B1lay%20Erkek%20Kuaf%C3%B6r%C3%BC%20Sakarya%20Caddesi%20%C3%87ankaya%20Ankara"
+  },
+  "provenance": {
+    "name": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Detay%20Erkek%20Kuaf%C3%B6r%20K%C4%B1z%C4%B1lay%20Erkek%20Kuaf%C3%B6r%C3%BC%20Sakarya%20Caddesi%20%C3%87ankaya%20Ankara",
+        "https://yandex.com.tr/maps/org/detay_erkek_kuaforu/13930511698/",
+        "https://www.facebook.com/DetayErkekKuafor/"
+      ],
+      "note": "Google: 'Detay Erkek Kuaför | Kızılay Erkek Kuaförü'; Yandex: 'Detay Erkek Kuaförü'."
+    },
+    "address": {
+      "status": "verified-single",
+      "sources": [
+        "https://yandex.com.tr/maps/org/detay_erkek_kuaforu/13930511698/"
+      ],
+      "note": "Sakarya Cad. 7 per Yandex Maps; a TikTok page mentions Karanfil Sokak (the next street) — confirm."
+    },
+    "district": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Detay%20Erkek%20Kuaf%C3%B6r%20K%C4%B1z%C4%B1lay%20Erkek%20Kuaf%C3%B6r%C3%BC%20Sakarya%20Caddesi%20%C3%87ankaya%20Ankara",
+        "https://yandex.com.tr/maps/org/detay_erkek_kuaforu/13930511698/"
+      ]
+    },
+    "phones": {
+      "status": "verified-single",
+      "sources": [
+        "https://yandex.com.tr/maps/org/detay_erkek_kuaforu/13930511698/"
+      ]
+    },
+    "whatsapp": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "No WhatsApp number confirmed."
+    },
+    "instagram": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "No Instagram account found; a Facebook page exists."
+    },
+    "website": {
+      "status": "verified",
+      "sources": [],
+      "note": "No website or booking page found."
+    },
+    "hours": {
+      "status": "placeholder",
+      "sources": [
+        "https://yandex.com.tr/maps/org/detay_erkek_kuaforu/13930511698/"
+      ],
+      "note": "Yandex shows only an opening time (09:00); the booking form uses a default 09:00–19:00 window."
+    },
+    "services": {
+      "status": "verified-single",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Detay%20Erkek%20Kuaf%C3%B6r%20K%C4%B1z%C4%B1lay%20Erkek%20Kuaf%C3%B6r%C3%BC%20Sakarya%20Caddesi%20%C3%87ankaya%20Ankara",
+        "https://www.tiktok.com/discover/ankara-k%C4%B1z%C4%B1lay-kuaf%C3%B6r-%C3%B6nerileri"
+      ],
+      "note": "Cut, perm and hair system from Google reviews (perm also on TikTok). Beard shave is a template entry."
+    },
+    "prices": {
+      "status": "placeholder",
+      "sources": []
+    },
+    "doctors": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Detay%20Erkek%20Kuaf%C3%B6r%20K%C4%B1z%C4%B1lay%20Erkek%20Kuaf%C3%B6r%C3%BC%20Sakarya%20Caddesi%20%C3%87ankaya%20Ankara"
+      ],
+      "note": "'Selahattin Bey' is named in three Google reviews."
+    },
+    "rating": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Detay%20Erkek%20Kuaf%C3%B6r%20K%C4%B1z%C4%B1lay%20Erkek%20Kuaf%C3%B6r%C3%BC%20Sakarya%20Caddesi%20%C3%87ankaya%20Ankara"
+      ],
+      "note": "4.6 from 533 reviews on the Google listing (seen 2026-10-27)."
+    },
+    "map": {
+      "status": "constructed",
+      "sources": [],
+      "note": "Search link built from the business name and address."
+    },
+    "brandColor": {
+      "status": "design",
+      "sources": [],
+      "note": "Our choice; the business's logo and photos were not copied."
+    },
+    "photos": {
+      "status": "placeholder",
+      "sources": [],
+      "note": "Neutral illustrations."
+    },
+    "reviews": {
+      "status": "verified",
+      "sources": [
+        "https://www.google.com/maps/search/?api=1&query=Detay%20Erkek%20Kuaf%C3%B6r%20K%C4%B1z%C4%B1lay%20Erkek%20Kuaf%C3%B6r%C3%BC%20Sakarya%20Caddesi%20%C3%87ankaya%20Ankara"
+      ],
+      "note": "Reviews copied word for word from the business's Google listing on 2026-10-27 (screenshots supplied by the agency's partner); names shortened to first name + surname initial. Relative dates as of that day. For the demo only; switch to the live Google feed or get the business's OK before going public."
+    }
+  }
+}
