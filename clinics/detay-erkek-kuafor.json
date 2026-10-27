@@ -48,8 +48,12 @@
         "text": "Selahattin beye perma işlemi için çok teşekkür ediyorum herkeze tavsiyemdir\nTemiz ferah mekan gönül rahatlığıyla işlem yaptirabilirsiniz"
       },
       {
-        "author": "Google kullanıcısı",
+        "author": "Ali G.",
         "rating": 5,
+        "date": {
+          "tr": "3 gün önce",
+          "en": "3 days ago"
+        },
         "text": "Detay Kuaför Saç Tasarım, kalitesi, profesyonelliği ve güler yüzlü hizmetiyle gerçekten övgüyü hak eden bir işletme. Başta Selahattin Bey olmak üzere tüm ekibine gönülden teşekkür ediyorum.\nSelahattin Bey'in mesleğindeki ustalığı, tecrübesi, titizliği ve işine gösterdiği özen gerçekten takdire şayan. Her detayda emeğini ve profesyonelliğini hissettiren, işini adeta bir sanat gibi icra eden çok değerli bir usta.\nEkibinin ilgisi, nezaketi, samimiyeti ve müşteri memnuniyetine verdiği önem de ayrıca takdiri hak ediyor. Kaliteli hizmetin yanında kendinizi özel ve değerli hissettiren bir ortam sunuyorlar.\nBöyle işini severek yapan, emeğine saygı duyan ve kalitesinden ödün vermeyen işletmeler her zaman takdiri hak ediyor.\nSelahattin Bey, sizin ve değerli ekibinizin ellerine, emeğine, yüreğine sağlık. İyi ki varsınız. Başarılarınız daim, yolunuz açık olsun. Kalite ve güven arayan herkese gönül rahatlığıyla tavsiye ediyorum. 👏"
       },
       {
@@ -162,6 +166,14 @@
       "status": "design"
     }
   ],
+  "rating": {
+    "platform": "Google",
+    "value": "4.6",
+    "kind": "stars",
+    "count": 533,
+    "asOf": "2026-10-27 (Google Maps listing)",
+    "source": "https://www.google.com/maps/search/?api=1&query=Detay%20Erkek%20Kuaf%C3%B6r%20K%C4%B1z%C4%B1lay%20Erkek%20Kuaf%C3%B6r%C3%BC%20Sakarya%20Caddesi%20%C3%87ankaya%20Ankara"
+  },
   "provenance": {
     "name": {
       "status": "verified",
@@ -234,11 +246,11 @@
       "note": "'Selahattin Bey' is named in three Google reviews."
     },
     "rating": {
-      "status": "placeholder",
+      "status": "verified",
       "sources": [
-        "https://yandex.com.tr/maps/org/detay_erkek_kuaforu/13930511698/"
+        "https://www.google.com/maps/search/?api=1&query=Detay%20Erkek%20Kuaf%C3%B6r%20K%C4%B1z%C4%B1lay%20Erkek%20Kuaf%C3%B6r%C3%BC%20Sakarya%20Caddesi%20%C3%87ankaya%20Ankara"
       ],
-      "note": "Google rating and count not captured yet (Yandex shows about 4.5) — not shown until confirmed on Google."
+      "note": "4.6 from 533 reviews on the Google listing (seen 2026-10-27)."
     },
     "map": {
       "status": "constructed",
@@ -260,7 +272,7 @@
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Detay%20Erkek%20Kuaf%C3%B6r%20K%C4%B1z%C4%B1lay%20Erkek%20Kuaf%C3%B6r%C3%BC%20Sakarya%20Caddesi%20%C3%87ankaya%20Ankara"
       ],
-      "note": "Reviews copied word for word from the business's Google listing on 2026-10-27 (screenshots supplied by the agency's partner); names shortened to first name + surname initial, or 'Google kullanıcısı' where the name was not visible. Relative dates as of that day (none where the date was not visible). For the demo only; switch to the live Google feed or get the business's OK before going public."
+      "note": "Reviews copied word for word from the business's Google listing on 2026-10-27 (screenshots supplied by the agency's partner); names shortened to first name + surname initial. Relative dates as of that day. For the demo only; switch to the live Google feed or get the business's OK before going public."
     }
   }
 }
